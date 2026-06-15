@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact & Order Request | Baltic Pork Market</title>
+
+  <meta
+    name="description"
+    content="Contact Baltic Pork Market to request fresh pork products, smoked meats, sausages and BBQ boxes in Latvia."
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">BPM</span>
+        <span class="logo-text">Baltic Pork Market</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="products.html">Products</a>
+        <a href="index.html#order">How to Order</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="language-switcher" aria-label="Language switcher">
+        <a href="contact.html" class="active">EN</a>
+        <a href="#" title="Latvian version coming soon">LV</a>
+        <a href="#" title="Russian version coming soon">RU</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero contact-page-hero">
+      <div class="container">
+        <p class="eyebrow">Contact & orders</p>
+        <h1>Send an order request.</h1>
+        <p>
+          Tell us what pork products you need. We will confirm availability, final weight,
+          price and pickup or local delivery options before the order is completed.
+        </p>
+      </div>
+    </section>
+
+    <section class="section contact-page-section">
+      <div class="container contact-page-grid">
+        <div class="contact-info-panel">
+          <p class="section-label">Order details</p>
+          <h2>Contact information</h2>
+
+          <p>
+            Use the details below to request products, ask about availability or confirm pickup
+            and local delivery options.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <span>Phone</span>
+              <strong>+371 XX XXX XXX</strong>
+            </div>
+
+            <div class="contact-method">
+              <span>WhatsApp</span>
+              <strong>+371 XX XXX XXX</strong>
+            </div>
+
+            <div class="contact-method">
+              <span>Email</span>
+              <strong>orders@example.com</strong>
+            </div>
+
+            <div class="contact-method">
+              <span>Location</span>
+              <strong>Latvia</strong>
+            </div>
+          </div>
+
+          <div class="contact-warning">
+            <h3>Before you order</h3>
+            <p>
+              This is an order request, not automatic checkout. Final price depends on
+              product availability and final weight.
+            </p>
+          </div>
+        </div>
+
+        <form class="contact-form contact-page-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+
+          <label for="phone">Phone or WhatsApp</label>
+          <input type="text" id="phone" name="phone" placeholder="+371..." />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" />
+
+          <label for="products">Products you want</label>
+          <textarea
+            id="products"
+            name="products"
+            rows="6"
+            placeholder="Example: 2 kg pork neck, 1 kg smoked bacon, 1 pack grill sausages..."
+          ></textarea>
+
+          <label for="delivery">Pickup or delivery preference</label>
+          <select id="delivery" name="delivery">
+            <option value="">Choose an option</option>
+            <option value="pickup">Pickup</option>
+            <option value="delivery">Local delivery</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary">Send Request</button>
+
+          <p class="form-note">
+            Demo form only. Next step: connect this form to email, WhatsApp or a backend service.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section dark-section contact-process-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">What happens next</p>
+          <h2>After you send a request</h2>
+        </div>
+
+        <div class="contact-process-grid">
+          <article>
+            <span>01</span>
+            <h3>We check availability</h3>
+            <p>Products can vary depending on preparation day and current stock.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>We confirm final weight</h3>
+            <p>Meat products are confirmed by final weight, not guessed checkout totals.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>We confirm price</h3>
+            <p>The customer receives the real price before payment or pickup.</p>
+          </article>
+
+          <article>
+            <span>04</span>
+            <h3>Pickup or delivery</h3>
+            <p>The order is prepared and handed over through the agreed option.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="container final-cta">
+        <p class="section-label">Need product ideas?</p>
+        <h2>Browse the catalogue first.</h2>
+        <p>
+          Choose from fresh pork, smoked products, sausages, BBQ products and meat boxes.
+        </p>
+        <a href="products.html" class="btn btn-primary">View Products</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Baltic Pork Market. All rights reserved.</p>
+      <p>English version active. Latvian and Russian coming soon.</p>
+    </div>
+  </footer>
+</body>
+</html>
