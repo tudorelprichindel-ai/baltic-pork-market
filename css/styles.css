@@ -1352,3 +1352,34 @@ a {
     padding: 24px;
   }
 }
+/* Form status message */
+
+.form-status {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(127, 29, 29, 0.08);
+  border: 1px solid rgba(127, 29, 29, 0.16);
+  color: var(--red);
+  font-weight: 800;
+}
+
+.form-status p {
+  margin: 0 0 12px;
+}
+
+.form-status a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+}
+
+.form-status a:hover {
+  background: var(--red-dark);
+}
