@@ -1415,3 +1415,21 @@ a {
 .form-status a:hover {
   background: var(--red-dark);
 }
+.categories-banner {
+  min-height: 420px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(18, 15, 12, 0.05), rgba(18, 15, 12, 0.35)),
+    url("../pork-categories.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 640px) {
+  .categories-banner {
+    min-height: 260px;
+  }
+}
