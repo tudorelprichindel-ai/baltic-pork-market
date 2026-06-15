@@ -137,9 +137,10 @@ a {
   align-items: center;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(18, 15, 12, 0.96) 0%, rgba(18, 15, 12, 0.78) 42%, rgba(18, 15, 12, 0.45) 100%),
-    radial-gradient(circle at 70% 30%, rgba(217, 164, 65, 0.24), transparent 32%),
-    linear-gradient(135deg, #2a120e 0%, #100c09 55%, #2b1c10 100%);
+    linear-gradient(90deg, rgba(18, 15, 12, 0.96) 0%, rgba(18, 15, 12, 0.76) 42%, rgba(18, 15, 12, 0.35) 100%),
+    url("../hero-pork.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .hero::after {
