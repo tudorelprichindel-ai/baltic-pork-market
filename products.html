@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Browse chicken, pork, beef, BBQ products, smoked products and meat boxes available through online order requests in Latvia."
+    content="Browse pork, beef, lamb, chicken, BBQ products, smoked products and meat boxes available through Baltic Meat Market in Latvia."
   />
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -23,7 +23,24 @@
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="products.html">Products</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+            Products
+            <span aria-hidden="true">▾</span>
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="products.html">All Products</a>
+            <a href="products.html#pork">Pork</a>
+            <a href="products.html#beef">Beef</a>
+            <a href="products.html#lamb">Lamb</a>
+            <a href="products.html#chicken">Chicken</a>
+            <a href="products.html#bbq">BBQ & Grill</a>
+            <a href="products.html#smoked">Smoked Products</a>
+            <a href="products.html#boxes">Meat Boxes</a>
+          </div>
+        </div>
+
         <a href="how-to-order.html">How to Order</a>
         <a href="quality.html">Quality</a>
         <a href="faq.html">FAQ</a>
@@ -31,7 +48,7 @@
       </nav>
 
       <div class="language-switcher" aria-label="Language switcher">
-        <a href="products.html" class="active">EN</a>
+        <a href="index.html" class="active">EN</a>
         <a href="#" title="Latvian version coming soon">LV</a>
         <a href="#" title="Russian version coming soon">RU</a>
       </div>
@@ -42,397 +59,548 @@
     <section class="page-hero products-page-hero">
       <div class="container">
         <p class="eyebrow">Product catalogue</p>
-        <h1>Chicken, Pork, Beef & Meat Boxes</h1>
+        <h1>Pork, Beef, Lamb & Chicken</h1>
         <p>
-          Browse the main meat categories and send an order request. Availability, final weight,
-          price, pickup and local delivery details are confirmed manually before every order.
+          Browse available meat categories and send an order request. Final availability,
+          weight, price, pickup and local delivery details are confirmed manually.
         </p>
       </div>
     </section>
 
     <section class="section product-catalog-section">
-      <div class="container">
-        <div class="catalog-layout">
-          <aside class="catalog-sidebar">
-            <h2>Categories</h2>
+      <div class="container catalog-layout">
+        <aside class="catalog-sidebar">
+          <h2>Categories</h2>
 
-            <a href="#chicken">Chicken</a>
-            <a href="#pork">Pork</a>
-            <a href="#beef">Beef</a>
-            <a href="#bbq">BBQ & Grill</a>
-            <a href="#smoked">Smoked Products</a>
-            <a href="#boxes">Meat Boxes</a>
+          <a href="#pork">Pork</a>
+          <a href="#beef">Beef</a>
+          <a href="#lamb">Lamb</a>
+          <a href="#chicken">Chicken</a>
+          <a href="#bbq">BBQ & Grill</a>
+          <a href="#smoked">Smoked Products</a>
+          <a href="#boxes">Meat Boxes</a>
 
-            <div class="sidebar-note">
-              <h3>Order note</h3>
-              <p>
-                Prices and availability can vary depending on stock, preparation day and final weight.
-                Orders are confirmed manually before completion.
-              </p>
-            </div>
-          </aside>
-
-          <div class="catalog-content">
-            <section class="catalog-category" id="chicken">
-              <div class="catalog-heading">
-                <p class="section-label">Category</p>
-                <h2>Chicken</h2>
-                <p>Fresh chicken products for daily cooking, family meals and BBQ orders.</p>
-              </div>
-
-              <div class="catalog-grid">
-                <article class="catalog-product">
-                  <span class="product-tag">Chicken</span>
-                  <h3>Chicken Breast</h3>
-                  <p>Lean chicken breast suitable for frying, grilling, meal prep and family cooking.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Chicken</span>
-                  <h3>Chicken Thighs</h3>
-                  <p>Juicy chicken thighs suitable for oven cooking, stews and grilled meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Chicken</span>
-                  <h3>Chicken Wings</h3>
-                  <p>Chicken wings for BBQ, oven cooking, marinades and party-style meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / pack</span>
-                    <span>Price: confirmed before order</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Chicken</span>
-                  <h3>Whole Chicken</h3>
-                  <p>Whole chicken for roasting, soups, family meals and weekly cooking.</p>
-                  <div class="product-meta">
-                    <span>Unit: piece / kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-              </div>
-            </section>
-
-            <section class="catalog-category" id="pork">
-              <div class="catalog-heading">
-                <p class="section-label">Category</p>
-                <h2>Pork</h2>
-                <p>Fresh pork cuts, minced pork, ribs, belly, sausages and everyday cooking products.</p>
-              </div>
-
-              <div class="catalog-grid">
-                <article class="catalog-product">
-                  <span class="product-tag">Pork</span>
-                  <h3>Pork Neck</h3>
-                  <p>Juicy pork cut suitable for grilling, roasting and slow cooking.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Pork</span>
-                  <h3>Pork Shoulder</h3>
-                  <p>Practical pork cut for stews, roasting, minced meat and family meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Pork</span>
-                  <h3>Pork Belly</h3>
-                  <p>Rich pork belly for roasting, smoking, slicing and traditional dishes.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Pork</span>
-                  <h3>Pork Ribs</h3>
-                  <p>Fresh ribs suitable for oven cooking, BBQ, smoking and marinades.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Pork</span>
-                  <h3>Minced Pork</h3>
-                  <p>Fresh minced pork for meatballs, sauces, stuffed dishes and daily cooking.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Sausage</span>
-                  <h3>Pork Sausages</h3>
-                  <p>Fresh or smoked sausages for frying, grilling and family meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / pack</span>
-                    <span>Price: confirmed before order</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-              </div>
-            </section>
-
-            <section class="catalog-category" id="beef">
-              <div class="catalog-heading">
-                <p class="section-label">Category</p>
-                <h2>Beef</h2>
-                <p>Beef products for steaks, slow cooking, burgers, roasting and family meals.</p>
-              </div>
-
-              <div class="catalog-grid">
-                <article class="catalog-product">
-                  <span class="product-tag">Beef</span>
-                  <h3>Beef Steak Cuts</h3>
-                  <p>Beef cuts suitable for pan cooking, grilling and steak-style meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / piece</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Beef</span>
-                  <h3>Beef Ribs</h3>
-                  <p>Beef ribs for slow cooking, BBQ, oven roasting and rich meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Beef</span>
-                  <h3>Minced Beef</h3>
-                  <p>Fresh minced beef for burgers, sauces, meatballs and home cooking.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Beef</span>
-                  <h3>Beef Stew Meat</h3>
-                  <p>Beef pieces prepared for slow cooking, stews and hearty meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-              </div>
-            </section>
-
-            <section class="catalog-category" id="bbq">
-              <div class="catalog-heading">
-                <p class="section-label">Category</p>
-                <h2>BBQ & Grill</h2>
-                <p>Prepared products and selections for grilling, weekends and family gatherings.</p>
-              </div>
-
-              <div class="catalog-grid">
-                <article class="catalog-product">
-                  <span class="product-tag">BBQ</span>
-                  <h3>Marinated Chicken</h3>
-                  <p>Chicken prepared for grilling, oven cooking and weekend meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / pack</span>
-                    <span>Price: confirmed before order</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">BBQ</span>
-                  <h3>Marinated Pork</h3>
-                  <p>Pork cuts prepared for grilling, BBQ and family meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / pack</span>
-                    <span>Price: confirmed before order</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">BBQ</span>
-                  <h3>Grill Sausages</h3>
-                  <p>Sausages prepared for BBQ, quick cooking and weekend gatherings.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / pack</span>
-                    <span>Price: confirmed before order</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">BBQ</span>
-                  <h3>Mixed BBQ Selection</h3>
-                  <p>A mixed selection of chicken, pork, beef and sausages for grilling.</p>
-                  <div class="product-meta">
-                    <span>Unit: box / custom</span>
-                    <span>Price: custom</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-              </div>
-            </section>
-
-            <section class="catalog-category" id="smoked">
-              <div class="catalog-heading">
-                <p class="section-label">Category</p>
-                <h2>Smoked Products</h2>
-                <p>Smoked meat products for traditional meals, slicing, cooking and sharing.</p>
-              </div>
-
-              <div class="catalog-grid">
-                <article class="catalog-product">
-                  <span class="product-tag">Smoked</span>
-                  <h3>Smoked Bacon</h3>
-                  <p>Smoked pork bacon for breakfast, cooking and traditional meals.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Smoked</span>
-                  <h3>Smoked Ribs</h3>
-                  <p>Smoked ribs with deep flavour, suitable for warm meals or platters.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg</span>
-                    <span>Price: confirmed after weighing</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Smoked</span>
-                  <h3>Smoked Sausages</h3>
-                  <p>Smoked sausages with stronger flavour and traditional appeal.</p>
-                  <div class="product-meta">
-                    <span>Unit: kg / pack</span>
-                    <span>Price: confirmed before order</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product">
-                  <span class="product-tag">Smoked</span>
-                  <h3>Smoked Meat Selection</h3>
-                  <p>A mixed smoked product selection for family meals or sharing.</p>
-                  <div class="product-meta">
-                    <span>Unit: box / custom</span>
-                    <span>Price: custom</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-              </div>
-            </section>
-
-            <section class="catalog-category" id="boxes">
-              <div class="catalog-heading">
-                <p class="section-label">Category</p>
-                <h2>Meat Boxes</h2>
-                <p>Practical boxes and mixed selections for families, BBQ and weekly meals.</p>
-              </div>
-
-              <div class="catalog-grid">
-                <article class="catalog-product featured-catalog-product">
-                  <span class="product-tag">Box</span>
-                  <h3>Family Meat Box</h3>
-                  <p>A practical selection of chicken, pork and beef products for family cooking.</p>
-                  <div class="product-meta">
-                    <span>Unit: box</span>
-                    <span>Price: custom</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product featured-catalog-product">
-                  <span class="product-tag">Box</span>
-                  <h3>BBQ Weekend Box</h3>
-                  <p>A mixed box designed for grilling, weekend meals and gatherings.</p>
-                  <div class="product-meta">
-                    <span>Unit: box</span>
-                    <span>Price: custom</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product featured-catalog-product">
-                  <span class="product-tag">Box</span>
-                  <h3>Smoked Meat Box</h3>
-                  <p>A selection of smoked products for traditional meals and sharing.</p>
-                  <div class="product-meta">
-                    <span>Unit: box</span>
-                    <span>Price: custom</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-
-                <article class="catalog-product featured-catalog-product">
-                  <span class="product-tag">Box</span>
-                  <h3>Custom Meat Box</h3>
-                  <p>A custom box based on your preferred categories and available products.</p>
-                  <div class="product-meta">
-                    <span>Unit: custom</span>
-                    <span>Price: custom</span>
-                  </div>
-                  <a href="contact.html" class="catalog-btn">Request Order</a>
-                </article>
-              </div>
-            </section>
+          <div class="sidebar-note">
+            <h3>Order request</h3>
+            <p>
+              Products are confirmed manually because final weight, availability and price can change.
+            </p>
           </div>
+        </aside>
+
+        <div class="catalog-content">
+          <section class="catalog-category" id="pork">
+            <div class="catalog-heading">
+              <p class="section-label">Pork</p>
+              <h2>Pork products</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Pork Neck</h3>
+                <p>Good for roasting, BBQ, steaks and marinated grill portions.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Pork</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Pork Shoulder</h3>
+                <p>Suitable for slow cooking, roasting, pulled pork and family meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Pork</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Pork Belly</h3>
+                <p>Rich cut for roasting, slicing, smoking or crispy oven dishes.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Pork</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Pork Ribs</h3>
+                <p>Classic ribs for BBQ, oven roasting and smoked preparations.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Pork</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Pork Loin</h3>
+                <p>Lean pork cut for steaks, schnitzel, roasting and slicing.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Pork</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Minced Pork</h3>
+                <p>Useful for meatballs, burgers, sauces, fillings and home cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Pork</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-category" id="beef">
+            <div class="catalog-heading">
+              <p class="section-label">Beef</p>
+              <h2>Beef products</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Beef Steak Cuts</h3>
+                <p>Selected beef cuts for pan frying, grilling or premium home cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Beef</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Beef Ribs</h3>
+                <p>Good for slow cooking, smoking, roasting and BBQ-style meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Beef</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Minced Beef</h3>
+                <p>For burgers, pasta sauces, meatballs, fillings and everyday meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Beef</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Beef Stew Meat</h3>
+                <p>Prepared cuts for stews, soups, slow cooking and traditional meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Beef</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Beef Roast</h3>
+                <p>Large cuts suitable for oven roasting and family meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Beef</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Beef Burger Patties</h3>
+                <p>Prepared beef patties for burgers, BBQ and grill orders.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Beef</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-category" id="lamb">
+            <div class="catalog-heading">
+              <p class="section-label">Lamb</p>
+              <h2>Lamb products</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Lamb Leg</h3>
+                <p>Classic roasting cut for family meals, holidays and slow cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Lamb</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Lamb Shoulder</h3>
+                <p>Rich cut for slow roasting, stews and tender cooked dishes.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Lamb</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Lamb Chops</h3>
+                <p>Suitable for grilling, pan frying and premium portioned meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Lamb</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Lamb Ribs</h3>
+                <p>Good for roasting, BBQ, slow cooking and marinated preparations.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Lamb</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Minced Lamb</h3>
+                <p>For burgers, kofta-style dishes, fillings and home cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Lamb</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Lamb Stew Meat</h3>
+                <p>Prepared pieces for stews, slow cooking, soups and traditional dishes.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Lamb</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-category" id="chicken">
+            <div class="catalog-heading">
+              <p class="section-label">Chicken</p>
+              <h2>Chicken products</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Chicken Breast</h3>
+                <p>Lean chicken cut for everyday meals, grilling, frying and meal prep.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Chicken</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Chicken Thighs</h3>
+                <p>Juicy chicken cuts for oven dishes, grill, stews and marinades.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Chicken</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Chicken Wings</h3>
+                <p>Popular for BBQ, oven roasting, party food and spicy marinades.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Chicken</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Chicken Drumsticks</h3>
+                <p>Good for family meals, roasting, frying and marinated grill orders.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Chicken</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Whole Chicken</h3>
+                <p>Whole chicken for roasting, soup, meal planning and family cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Chicken</span>
+                  <span><strong>Sold by:</strong> Unit or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Marinated Chicken</h3>
+                <p>Prepared chicken options for fast cooking, BBQ and grill meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Chicken</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-category" id="bbq">
+            <div class="catalog-heading">
+              <p class="section-label">BBQ & Grill</p>
+              <h2>BBQ and grill products</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Marinated Pork Neck</h3>
+                <p>Ready-to-cook pork neck pieces for grilling and BBQ weekends.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> BBQ & Grill</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>BBQ Ribs</h3>
+                <p>Ribs prepared for grill, oven or smoker-style meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> BBQ & Grill</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Chicken Skewers</h3>
+                <p>Prepared chicken skewers for grill, BBQ and quick cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> BBQ & Grill</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Lamb Skewers</h3>
+                <p>Lamb pieces prepared for grill orders and marinated dishes.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> BBQ & Grill</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Grill Sausages</h3>
+                <p>Sausages for BBQ, quick cooking and mixed grill selections.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> BBQ & Grill</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Beef Burger Patties</h3>
+                <p>Prepared patties for burger nights, BBQ and grill menus.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> BBQ & Grill</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-category" id="smoked">
+            <div class="catalog-heading">
+              <p class="section-label">Smoked Products</p>
+              <h2>Smoked meat products</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Smoked Bacon</h3>
+                <p>Smoked pork belly style product for slicing, cooking and breakfast meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Smoked Products</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Smoked Pork Ribs</h3>
+                <p>Smoked ribs for ready-to-heat meals, BBQ menus and traditional plates.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Smoked Products</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Smoked Sausages</h3>
+                <p>Traditional-style smoked sausages for cold plates, cooking or grill.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Smoked Products</span>
+                  <span><strong>Sold by:</strong> Pack or final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Smoked Pork Loin</h3>
+                <p>Lean smoked pork cut for slicing, sandwiches and cold plates.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Smoked Products</span>
+                  <span><strong>Sold by:</strong> Final weight</span>
+                  <span><strong>Status:</strong> Availability confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Product</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="catalog-category" id="boxes">
+            <div class="catalog-heading">
+              <p class="section-label">Meat Boxes</p>
+              <h2>Mixed meat boxes</h2>
+            </div>
+
+            <div class="catalog-grid">
+              <article class="catalog-product featured-catalog-product">
+                <h3>Family Meat Box</h3>
+                <p>A mixed selection of pork, beef, lamb and chicken for family cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Meat Boxes</span>
+                  <span><strong>Sold by:</strong> Box size and final content</span>
+                  <span><strong>Status:</strong> Contents confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Box</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>BBQ Box</h3>
+                <p>A practical selection for grilling: ribs, skewers, sausages and marinated cuts.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Meat Boxes</span>
+                  <span><strong>Sold by:</strong> Box size and final content</span>
+                  <span><strong>Status:</strong> Contents confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Box</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Pork Box</h3>
+                <p>A pork-focused box with practical cuts for weekly cooking and roasting.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Meat Boxes</span>
+                  <span><strong>Sold by:</strong> Box size and final content</span>
+                  <span><strong>Status:</strong> Contents confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Box</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Beef Box</h3>
+                <p>A beef-focused selection for stews, roasts, burgers and family meals.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Meat Boxes</span>
+                  <span><strong>Sold by:</strong> Box size and final content</span>
+                  <span><strong>Status:</strong> Contents confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Box</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Lamb Box</h3>
+                <p>A lamb-focused box with selected cuts depending on current availability.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Meat Boxes</span>
+                  <span><strong>Sold by:</strong> Box size and final content</span>
+                  <span><strong>Status:</strong> Contents confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Box</a>
+              </article>
+
+              <article class="catalog-product">
+                <h3>Chicken Box</h3>
+                <p>A chicken-focused box for weekly meals, grill orders and family cooking.</p>
+                <div class="product-meta">
+                  <span><strong>Category:</strong> Meat Boxes</span>
+                  <span><strong>Sold by:</strong> Box size and final content</span>
+                  <span><strong>Status:</strong> Contents confirmed manually</span>
+                </div>
+                <a href="contact.html" class="catalog-btn">Request Box</a>
+              </article>
+            </div>
+          </section>
         </div>
       </div>
     </section>
 
-    <section class="section dark-section order-warning-section">
+    <section class="section dark-section">
       <div class="container order-warning">
-        <div>
-          <p class="section-label">Important</p>
-          <h2>Why prices are confirmed manually</h2>
-        </div>
-
+        <h2>Final price is confirmed manually.</h2>
         <p>
-          Meat products are often sold by final weight. Because each cut can vary, the exact price is confirmed
-          after availability and weight are checked. This avoids wrong checkout totals and keeps the process honest.
+          Meat products can vary by final weight and availability. Send your requested products,
+          approximate quantity and contact details. We confirm the final details before completion.
         </p>
       </div>
     </section>
@@ -440,9 +608,10 @@
     <section class="section contact-section">
       <div class="container final-cta">
         <p class="section-label">Order request</p>
-        <h2>Want to place an order?</h2>
+        <h2>Send your product list.</h2>
         <p>
-          Send your product list and we will confirm availability, final weight, price and pickup or local delivery options.
+          Choose products from the catalogue and send a request. We confirm availability,
+          final weight, price, pickup and local delivery details.
         </p>
         <a href="contact.html" class="btn btn-primary">Request Order</a>
       </div>
@@ -456,6 +625,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
