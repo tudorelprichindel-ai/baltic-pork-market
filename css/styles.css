@@ -1206,3 +1206,8 @@ select {
     margin-top: 4px;
   }
 }
+.center-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
