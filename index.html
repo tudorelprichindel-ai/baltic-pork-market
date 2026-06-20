@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Chicken, pork, beef and lamb meat products available through simple online order requests in Latvia. Confirmed availability, final weight, price, pickup and local delivery details."
+    content="Pork, beef, lamb and chicken products available through simple online order requests in Latvia. Confirmed availability, final weight, price, pickup and local delivery details."
   />
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -46,7 +46,7 @@
         <h1>Fresh Meat Orders in Latvia</h1>
 
         <p class="hero-text">
-          Chicken, pork, beef and lamb products available through simple online order requests.
+          Pork, beef, lamb and chicken products available through simple online order requests.
           We confirm availability, final weight, price, pickup and local delivery details before every order.
         </p>
 
@@ -87,7 +87,7 @@
           <article class="process-card">
             <span>01</span>
             <h3>Choose products</h3>
-            <p>Browse chicken, pork, beef, lamb, BBQ products, smoked products and meat boxes.</p>
+            <p>Browse pork, beef, lamb, chicken, BBQ products, smoked products and meat boxes.</p>
           </article>
 
           <article class="process-card">
@@ -115,22 +115,13 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Product categories</p>
-          <h2>Chicken, Pork, Beef & Lamb</h2>
+          <h2>Pork, Beef, Lamb & Chicken</h2>
           <p>
             The catalogue is structured around the main meat categories customers in Latvia are likely to search for.
           </p>
         </div>
 
         <div class="category-grid">
-          <article class="category-card">
-            <div class="category-image chicken"></div>
-            <div class="category-content">
-              <h3>Chicken</h3>
-              <p>Chicken breast, thighs, wings, drumsticks, whole chicken and marinated options.</p>
-              <a href="products.html#chicken">View Chicken</a>
-            </div>
-          </article>
-
           <article class="category-card">
             <div class="category-image pork"></div>
             <div class="category-content">
@@ -152,9 +143,18 @@
           <article class="category-card">
             <div class="category-image lamb"></div>
             <div class="category-content">
-              <h3>Lamb & Mutton</h3>
-              <p>Lamb leg, lamb shoulder, chops, ribs, minced lamb and mutton stew meat.</p>
+              <h3>Lamb</h3>
+              <p>Lamb leg, lamb shoulder, chops, ribs, minced lamb and stew cuts.</p>
               <a href="products.html#lamb">View Lamb</a>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-image chicken"></div>
+            <div class="category-content">
+              <h3>Chicken</h3>
+              <p>Chicken breast, thighs, wings, drumsticks, whole chicken and marinated options.</p>
+              <a href="products.html#chicken">View Chicken</a>
             </div>
           </article>
 
@@ -266,7 +266,7 @@
 
           <details>
             <summary>Can I order multiple meat categories together?</summary>
-            <p>Yes. You can include chicken, pork, beef, lamb and mixed boxes in one order request.</p>
+            <p>Yes. You can include pork, beef, lamb, chicken and mixed boxes in one order request.</p>
           </details>
 
           <details>
@@ -306,10 +306,34 @@
             id="message"
             name="message"
             rows="5"
-            placeholder="Example: 2 kg chicken breast, 1 kg pork neck, 1 kg minced beef, 1 kg lamb chops..."
+            placeholder="Example: 2 kg pork neck, 1 kg minced beef, 1 kg lamb chops, 2 kg chicken breast..."
           ></textarea>
 
           <label for="delivery">Pickup or delivery preference</label>
           <select id="delivery" name="delivery">
             <option value="">Choose an option</option>
-            <option value="pickup">
+            <option value="pickup">Pickup</option>
+            <option value="delivery">Local delivery</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary">Prepare WhatsApp Request</button>
+
+          <p class="form-note">
+            This form prepares a WhatsApp message with your order request. Final availability, weight and price are confirmed manually.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Baltic Meat Market. All rights reserved.</p>
+      <p>English version active. Latvian and Russian coming soon.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=4"></script>
+</body>
+</html>
