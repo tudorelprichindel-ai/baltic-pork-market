@@ -1,255 +1,267 @@
-/* How to order page */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-.order-page-hero {
-  background:
-    linear-gradient(90deg, rgba(18, 15, 12, 0.96), rgba(18, 15, 12, 0.72)),
-    radial-gradient(circle at 76% 26%, rgba(217, 164, 65, 0.2), transparent 32%),
-    linear-gradient(135deg, #38150f 0%, #120f0c 55%, #2b1c10 100%);
-}
+  <title>How to Order | Baltic Meat Market</title>
 
-.order-page-section {
-  background: var(--bg-cream);
-  color: var(--text-dark);
-}
+  <meta
+    name="description"
+    content="Learn how to request pork, beef, lamb, chicken, BBQ products, smoked products and meat boxes from Baltic Meat Market in Latvia."
+  />
 
-.order-flow-layout {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 60px;
-  align-items: start;
-}
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-.order-note-card {
-  position: sticky;
-  top: 110px;
-  padding: 42px;
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-}
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Baltic Meat Market home">
+        <span class="logo-mark">BMM</span>
+        <span class="logo-text">Baltic Meat Market</span>
+      </a>
 
-.order-note-card .section-label {
-  color: var(--red);
-}
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+            Products
+            <span aria-hidden="true">▾</span>
+          </button>
 
-.order-note-card h2 {
-  margin: 0;
-  font-size: clamp(34px, 5vw, 56px);
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
+          <div class="nav-dropdown-menu">
+            <a href="products.html">All Products</a>
+            <a href="products.html#pork">Pork</a>
+            <a href="products.html#beef">Beef</a>
+            <a href="products.html#lamb">Lamb</a>
+            <a href="products.html#chicken">Chicken</a>
+            <a href="products.html#bbq">BBQ & Grill</a>
+            <a href="products.html#smoked">Smoked Products</a>
+            <a href="products.html#boxes">Meat Boxes</a>
+          </div>
+        </div>
 
-.order-note-card p {
-  color: var(--text-muted-dark);
-}
+        <a href="how-to-order.html">How to Order</a>
+        <a href="quality.html">Quality</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-.order-note-list {
-  display: grid;
-  gap: 12px;
-  margin-top: 28px;
-}
+      <div class="language-switcher" aria-label="Language switcher">
+        <a href="index.html" class="active">EN</a>
+        <a href="#" title="Latvian version coming soon">LV</a>
+        <a href="#" title="Russian version coming soon">RU</a>
+      </div>
+    </div>
+  </header>
 
-.order-note-list span {
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
-  background: #fff7eb;
-  border: 1px solid rgba(127, 29, 29, 0.12);
-  color: var(--red);
-  font-weight: 900;
-}
+  <main>
+    <section class="page-hero order-page-hero">
+      <div class="container">
+        <p class="eyebrow">Ordering process</p>
+        <h1>How to reserve fresh meat products.</h1>
+        <p>
+          Choose pork, beef, lamb, chicken or mixed meat products, send an order request,
+          and receive clear confirmation before pickup or local delivery.
+        </p>
+      </div>
+    </section>
 
-.order-flow-steps {
-  display: grid;
-  gap: 18px;
-}
+    <section class="section order-page-section">
+      <div class="container order-flow-layout">
+        <aside class="order-note-card">
+          <p class="section-label">Important</p>
+          <h2>This is a request-based ordering system.</h2>
+          <p>
+            Meat products are not always suitable for automatic checkout because availability,
+            final weight and price can change. Manual confirmation keeps the order clear and honest.
+          </p>
 
-.order-flow-step {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 24px;
-  padding: 28px;
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-}
+          <div class="order-note-list">
+            <span>Availability is checked first</span>
+            <span>Final weight is confirmed</span>
+            <span>Final price is confirmed</span>
+            <span>Pickup or delivery is agreed</span>
+          </div>
+        </aside>
 
-.order-flow-step span {
-  width: 54px;
-  height: 54px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--red);
-  color: #fff;
-  font-weight: 900;
-}
+        <div class="order-flow-steps">
+          <article class="order-flow-step">
+            <span>01</span>
+            <div>
+              <h3>Choose your products</h3>
+              <p>
+                Browse pork, beef, lamb, chicken, BBQ products, smoked products or meat boxes.
+              </p>
+            </div>
+          </article>
 
-.order-flow-step h3 {
-  margin: 0 0 8px;
-  font-size: 24px;
-}
+          <article class="order-flow-step">
+            <span>02</span>
+            <div>
+              <h3>Send an order request</h3>
+              <p>
+                Send the product names, approximate quantity, your name and phone or WhatsApp number.
+              </p>
+            </div>
+          </article>
 
-.order-flow-step p {
-  margin: 0;
-  color: var(--text-muted-dark);
-}
+          <article class="order-flow-step">
+            <span>03</span>
+            <div>
+              <h3>We check availability</h3>
+              <p>
+                Products can depend on stock, preparation day and what is currently available.
+              </p>
+            </div>
+          </article>
 
-.request-info-section {
-  background:
-    radial-gradient(circle at 85% 15%, rgba(217, 164, 65, 0.12), transparent 30%),
-    var(--bg-dark-soft);
-}
+          <article class="order-flow-step">
+            <span>04</span>
+            <div>
+              <h3>We confirm weight and price</h3>
+              <p>
+                The final price is confirmed after the product weight and availability are checked.
+              </p>
+            </div>
+          </article>
 
-.request-info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
+          <article class="order-flow-step">
+            <span>05</span>
+            <div>
+              <h3>Pickup or local delivery</h3>
+              <p>
+                The order is prepared and handed over through the agreed pickup or local delivery option.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-.request-info-grid article {
-  min-height: 220px;
-  padding: 28px;
-  border: 1px solid var(--border-dark);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.04);
-}
+    <section class="section dark-section request-info-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Clear requests save time</p>
+          <h2>What to include in your message</h2>
+          <p>
+            A vague message creates delays. A clear order request helps the business confirm your order faster.
+          </p>
+        </div>
 
-.request-info-grid h3 {
-  margin: 0 0 12px;
-  font-size: 24px;
-}
+        <div class="request-info-grid">
+          <article>
+            <h3>Product category</h3>
+            <p>Example: pork, beef, lamb, chicken, BBQ, smoked products or meat boxes.</p>
+          </article>
 
-.request-info-grid p {
-  margin: 0;
-  color: var(--text-muted);
-}
+          <article>
+            <h3>Product names</h3>
+            <p>Example: pork neck, beef ribs, lamb chops, chicken breast or BBQ box.</p>
+          </article>
 
-.pickup-section {
-  background: var(--bg-cream);
-  color: var(--text-dark);
-}
+          <article>
+            <h3>Approximate quantity</h3>
+            <p>Example: 2 kg pork neck, 1 kg minced beef, 1 kg lamb chops, 2 kg chicken breast.</p>
+          </article>
 
-.pickup-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 60px;
-  align-items: start;
-}
+          <article>
+            <h3>Contact details</h3>
+            <p>Name, phone number and WhatsApp if available.</p>
+          </article>
 
-.pickup-grid .section-label {
-  color: var(--red);
-}
+          <article>
+            <h3>Pickup or delivery</h3>
+            <p>Tell us if you prefer pickup, local delivery or if you are not sure yet.</p>
+          </article>
 
-.pickup-grid h2 {
-  margin: 0;
-  font-size: clamp(34px, 5vw, 56px);
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
+          <article>
+            <h3>Preferred date</h3>
+            <p>Tell us when you would like to receive or pick up the order if you already know.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-.pickup-grid p {
-  color: var(--text-muted-dark);
-  font-size: 17px;
-}
+    <section class="section pickup-section">
+      <div class="container pickup-grid">
+        <div>
+          <p class="section-label">Pickup & delivery</p>
+          <h2>Details are confirmed before completion.</h2>
+          <p>
+            Pickup and local delivery can depend on location, order size and preparation schedule.
+            This is why the website collects a request first instead of forcing automatic checkout.
+          </p>
+        </div>
 
-.pickup-card-grid {
-  display: grid;
-  gap: 16px;
-}
+        <div class="pickup-card-grid">
+          <article>
+            <strong>Pickup</strong>
+            <span>
+              Customers can request pickup details after products and availability are confirmed.
+            </span>
+          </article>
 
-.pickup-card-grid article {
-  padding: 26px;
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-}
+          <article>
+            <strong>Local delivery</strong>
+            <span>
+              Delivery options depend on location and are confirmed before the order is completed.
+            </span>
+          </article>
 
-.pickup-card-grid strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--red);
-  font-size: 20px;
-}
+          <article>
+            <strong>Final confirmation</strong>
+            <span>
+              The customer receives final product availability, weight and price before completion.
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
 
-.pickup-card-grid span {
-  color: var(--text-muted-dark);
-}
+    <section class="section dark-section order-example-section">
+      <div class="container order-example-grid">
+        <div>
+          <p class="section-label">Example</p>
+          <h2>A good order request looks like this.</h2>
+        </div>
 
-.order-example-section {
-  background:
-    radial-gradient(circle at 80% 20%, rgba(217, 164, 65, 0.12), transparent 30%),
-    var(--bg-dark);
-}
+        <div class="order-example-card">
+          <p>Hello Baltic Meat Market,</p>
+          <p>I would like to request an order:</p>
 
-.order-example-grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 60px;
-  align-items: start;
-}
+          <ul>
+            <li>2 kg pork neck</li>
+            <li>1 kg minced beef</li>
+            <li>1 kg lamb chops</li>
+            <li>2 kg chicken breast</li>
+          </ul>
 
-.order-example-grid h2 {
-  margin: 0;
-  font-size: clamp(34px, 5vw, 56px);
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
+          <p>Pickup or delivery: local delivery if available.</p>
+          <p>Please confirm availability, final weight and price.</p>
+        </div>
+      </div>
+    </section>
 
-.order-example-card {
-  padding: 36px;
-  border: 1px solid var(--border-dark);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.04);
-}
+    <section class="section contact-section">
+      <div class="container final-cta">
+        <p class="section-label">Ready</p>
+        <h2>Send your order request.</h2>
+        <p>
+          Choose your products and contact us with your list. We will confirm the details before completion.
+        </p>
+        <a href="contact.html" class="btn btn-primary">Request Order</a>
+      </div>
+    </section>
+  </main>
 
-.order-example-card p,
-.order-example-card li {
-  color: var(--text-muted);
-  font-size: 17px;
-}
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Baltic Meat Market. All rights reserved.</p>
+      <p>English version active. Latvian and Russian coming soon.</p>
+    </div>
+  </footer>
 
-.order-example-card p {
-  margin: 0 0 14px;
-}
-
-.order-example-card ul {
-  margin: 0 0 16px;
-  padding-left: 20px;
-}
-
-@media (max-width: 1040px) {
-  .order-flow-layout,
-  .pickup-grid,
-  .order-example-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .order-note-card {
-    position: static;
-  }
-
-  .request-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .order-flow-step {
-    grid-template-columns: 1fr;
-  }
-
-  .request-info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .order-note-card,
-  .order-flow-step,
-  .request-info-grid article,
-  .pickup-card-grid article,
-  .order-example-card {
-    padding: 24px;
-  }
-}
+  <script src="js/main.js?v=5"></script>
+</body>
+</html>
