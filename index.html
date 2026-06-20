@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Baltic Pork Market | Fresh Pork Products Online</title>
+  <title>Baltic Meat Market | Chicken, Pork & Beef Online Orders</title>
 
   <meta
     name="description"
-    content="Fresh pork products, smoked meats, sausages and BBQ packs from a former Latvian meat market, now available for online orders."
+    content="Chicken, pork and beef products available through simple online order requests in Latvia. Confirmed availability, final weight, price, pickup and local delivery details."
   />
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -17,15 +17,16 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">BPM</span>
-        <span class="logo-text">Baltic Pork Market</span>
+      <a href="index.html" class="logo" aria-label="Baltic Meat Market home">
+        <span class="logo-mark">BMM</span>
+        <span class="logo-text">Baltic Meat Market</span>
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-       <a href="products.html">Products</a>
+        <a href="products.html">Products</a>
         <a href="how-to-order.html">How to Order</a>
-        <a href="#about">About</a>
+        <a href="quality.html">Quality</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -39,21 +40,19 @@
 
   <main>
     <section class="hero">
-      <div class="hero-overlay"></div>
-
       <div class="container hero-content">
-        <p class="eyebrow">Former local meat market · Now online</p>
+        <p class="eyebrow">Fresh meat · Online reservations · Latvia</p>
 
-        <h1>Fresh Pork Products, Delivered Locally</h1>
+        <h1>Fresh Meat Products, Reserved Online</h1>
 
         <p class="hero-text">
-          Quality pork, smoked meats and sausages from a trusted former Latvian meat market —
-          now available for simple online orders.
+          Chicken, pork and beef products available through simple online order requests.
+          We confirm availability, final weight, price, pickup and local delivery details before every order.
         </p>
 
         <div class="hero-actions">
           <a href="products.html" class="btn btn-primary">View Products</a>
-          <a href="contact.html" class="btn btn-secondary">Order Now</a>
+          <a href="contact.html" class="btn btn-secondary">Request Order</a>
         </div>
       </div>
     </section>
@@ -61,51 +60,92 @@
     <section class="section intro-section">
       <div class="container intro-grid">
         <div>
-          <p class="section-label">Simple. Fresh. Reliable.</p>
-          <h2>Your local pork meat market, now online.</h2>
+          <p class="section-label">Simple. Fresh. Clear.</p>
+          <h2>A local meat ordering experience, moved online.</h2>
         </div>
 
         <p>
-          We help customers order fresh pork products, smoked meats, sausages and BBQ packs
-          without visiting a physical shop. Choose what you need, send your request, and we
-          confirm availability, final weight and price.
+          The website is built for customers who want to reserve meat products without confusion.
+          Browse the available categories, send a request, and receive confirmation before pickup or delivery.
+          No automatic checkout guesses. No unclear final prices.
         </p>
       </div>
     </section>
 
-    <section class="section dark-section" id="products">
-      <div class="categories-banner"></div>
+    <section class="section dark-section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label">Shop by category</p>
-          <h2>Pork Products</h2>
+          <p class="section-label">How it works</p>
+          <h2>Order requests, confirmed manually.</h2>
           <p>
-            Start with the core products. More categories can be added later as the business grows.
+            Meat products often depend on daily availability and final weight. That is why the first version
+            uses a clear reservation/request model instead of automatic checkout.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span>01</span>
+            <h3>Choose products</h3>
+            <p>Browse chicken, pork, beef, BBQ products, smoked products and meat boxes.</p>
+          </article>
+
+          <article class="process-card">
+            <span>02</span>
+            <h3>Send request</h3>
+            <p>Send the products you want, approximate quantity and your contact details.</p>
+          </article>
+
+          <article class="process-card">
+            <span>03</span>
+            <h3>Receive confirmation</h3>
+            <p>We confirm availability, final weight, price, pickup or delivery details.</p>
+          </article>
+
+          <article class="process-card">
+            <span>04</span>
+            <h3>Pickup or delivery</h3>
+            <p>Your order is prepared and handed over through the agreed method.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section category-section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Product categories</p>
+          <h2>Chicken, Pork & Beef</h2>
+          <p>
+            The product catalogue is structured around the core categories customers actually search for.
           </p>
         </div>
 
         <div class="category-grid">
           <article class="category-card">
-            <div class="category-image fresh-pork"></div>
+            <div class="category-image chicken"></div>
             <div class="category-content">
-              <h3>Fresh Pork</h3>
-              <p>Pork neck, shoulder, belly, ribs, loin, tenderloin and minced pork.</p>
+              <h3>Chicken</h3>
+              <p>Chicken breast, thighs, wings, drumsticks, whole chicken and marinated options.</p>
+              <a href="products.html#chicken">View Chicken</a>
             </div>
           </article>
 
           <article class="category-card">
-            <div class="category-image smoked-pork"></div>
+            <div class="category-image pork"></div>
             <div class="category-content">
-              <h3>Smoked Pork</h3>
-              <p>Smoked bacon, ribs, ham, pork neck and traditional smoked products.</p>
+              <h3>Pork</h3>
+              <p>Pork neck, shoulder, belly, ribs, loin, minced pork, bacon and sausages.</p>
+              <a href="products.html#pork">View Pork</a>
             </div>
           </article>
 
           <article class="category-card">
-            <div class="category-image sausages"></div>
+            <div class="category-image beef"></div>
             <div class="category-content">
-              <h3>Sausages</h3>
-              <p>Fresh sausages, smoked sausages, garlic sausages and grill sausages.</p>
+              <h3>Beef</h3>
+              <p>Beef steaks, ribs, minced beef, stew meat, roast cuts and burger patties.</p>
+              <a href="products.html#beef">View Beef</a>
             </div>
           </article>
 
@@ -113,15 +153,17 @@
             <div class="category-image bbq"></div>
             <div class="category-content">
               <h3>BBQ & Grill</h3>
-              <p>Marinated pork, ribs, skewers, grill sausages and weekend BBQ packs.</p>
+              <p>Marinated meat, ribs, skewers, grill sausages and weekend BBQ selections.</p>
+              <a href="products.html#bbq">View BBQ</a>
             </div>
           </article>
 
           <article class="category-card">
-            <div class="category-image traditional"></div>
+            <div class="category-image smoked"></div>
             <div class="category-content">
-              <h3>Traditional Products</h3>
-              <p>Traditional-style pork products prepared for family meals and special occasions.</p>
+              <h3>Smoked Products</h3>
+              <p>Smoked bacon, smoked ribs, sausages and traditional-style smoked meat products.</p>
+              <a href="products.html#smoked">View Smoked</a>
             </div>
           </article>
 
@@ -129,149 +171,110 @@
             <div class="category-image boxes"></div>
             <div class="category-content">
               <h3>Meat Boxes</h3>
-              <p>Family boxes, smoked meat boxes and BBQ selections for easy ordering.</p>
+              <p>Family boxes, BBQ boxes and mixed selections for easier weekly ordering.</p>
+              <a href="products.html#boxes">View Boxes</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section featured-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Popular choices</p>
-          <h2>Featured Products</h2>
-          <p>Placeholder products for the first version. Replace them later with real products and prices.</p>
-        </div>
-
-        <div class="product-grid">
-          <article class="product-card">
-            <span class="product-tag">Fresh</span>
-            <h3>Pork Neck</h3>
-            <p>Ideal for roasting, grilling and slow cooking.</p>
-            <div class="product-bottom">
-              <span>From € / kg</span>
-              <a href="contact.html">Request Order</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-tag">Smoked</span>
-            <h3>Smoked Bacon</h3>
-            <p>Rich, smoky flavour for breakfast, cooking and traditional meals.</p>
-            <div class="product-bottom">
-              <span>From € / kg</span>
-              <a href="contact.html">Request Order</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-tag">Grill</span>
-            <h3>Grill Sausages</h3>
-            <p>Fresh sausages prepared for BBQ and family weekends.</p>
-            <div class="product-bottom">
-              <span>From € / kg</span>
-              <a href="contact.html">Request Order</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-tag">Box</span>
-            <h3>BBQ Pork Box</h3>
-            <p>A practical selection of pork cuts and sausages for grilling.</p>
-            <div class="product-bottom">
-              <span>Custom price</span>
-              <a href="contact.html">Request Order</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="order">
-      <div class="container order-grid">
+    <section class="section dark-section availability-section">
+      <div class="container availability-grid">
         <div>
-          <p class="section-label">How it works</p>
-          <h2>Simple online ordering</h2>
-          <p>
-            Meat orders need confirmation because product availability, final weight and price
-            can vary. That is why this first version uses order requests instead of automatic checkout.
-          </p>
+          <p class="section-label">Weekly availability</p>
+          <h2>Fresh products depend on stock and preparation days.</h2>
         </div>
 
-        <div class="steps">
-          <div class="step">
-            <span>01</span>
-            <div>
-              <h3>Choose your products</h3>
-              <p>Select fresh pork, smoked products, sausages or BBQ packs.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>02</span>
-            <div>
-              <h3>Send your request</h3>
-              <p>Contact us by phone, WhatsApp or the order form.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>03</span>
-            <div>
-              <h3>We confirm the order</h3>
-              <p>We confirm availability, final weight, price and pickup or delivery details.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <span>04</span>
-            <div>
-              <h3>Pickup or local delivery</h3>
-              <p>Receive your order fresh, prepared and confirmed in advance.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="container about-grid">
-        <div class="about-card">
-          <p class="section-label">Our story</p>
-          <h2>From a Latvian meat market to online orders.</h2>
+        <div class="availability-card">
           <p>
-            After serving customers through a physical meat market in Latvia, the business is
-            continuing online with the same focus on fresh products, honest service and reliable quality.
+            The exact product list can change depending on what is available. Customers send an order request,
+            then receive a clear confirmation before the order is completed.
           </p>
-          <p>
-            This website helps customers discover products, request orders and stay connected with the
-            people behind the former local shop.
-          </p>
-        </div>
-
-        <div class="trust-card">
-          <h3>Why customers choose us</h3>
 
           <ul>
-            <li>Experience from a former local meat market</li>
-            <li>Fresh pork products and smoked meats</li>
-            <li>Simple order request process</li>
-            <li>Clear confirmation before payment</li>
-            <li>Pickup or local delivery options</li>
+            <li>Available products are confirmed manually</li>
+            <li>Final weight is checked before final price</li>
+            <li>Pickup or local delivery is agreed before completion</li>
+            <li>Unavailable products can be replaced or removed from the order</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
+    <section class="section quality-preview-section">
+      <div class="container quality-preview-grid">
+        <div class="quality-preview-card">
+          <p class="section-label">Quality promise</p>
+          <h2>Clear handling, honest confirmation, better trust.</h2>
+          <p>
+            For meat products, trust matters more than flashy design. Customers need clear information about freshness,
+            weight, price, pickup and delivery before they commit to the order.
+          </p>
+          <a href="quality.html" class="text-link">Read quality details</a>
+        </div>
+
+        <div class="quality-points">
+          <div>
+            <strong>Freshness</strong>
+            <span>Products are confirmed based on current availability.</span>
+          </div>
+
+          <div>
+            <strong>Final weight</strong>
+            <span>The final price is confirmed after weight is checked.</span>
+          </div>
+
+          <div>
+            <strong>Order clarity</strong>
+            <span>Customers receive confirmation before pickup or delivery.</span>
+          </div>
+
+          <div>
+            <strong>Local service</strong>
+            <span>The ordering flow keeps the personal service of a local meat shop.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section faq-preview-section">
+      <div class="container faq-preview-grid">
+        <div>
+          <p class="section-label">Questions</p>
+          <h2>Common questions before ordering.</h2>
+          <p>
+            Customers need fast answers before they trust a meat order online.
+          </p>
+          <a href="faq.html" class="btn btn-secondary">View FAQ</a>
+        </div>
+
+        <div class="faq-preview-list">
+          <details open>
+            <summary>Why is the final price confirmed manually?</summary>
+            <p>Because meat products are often sold by final weight, and each cut can vary.</p>
+          </details>
+
+          <details>
+            <summary>Can I order chicken, pork and beef together?</summary>
+            <p>Yes. You can include products from multiple categories in one order request.</p>
+          </details>
+
+          <details>
+            <summary>Is delivery available?</summary>
+            <p>Pickup and local delivery details are confirmed before the order is completed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section">
       <div class="container contact-grid">
         <div>
           <p class="section-label">Order request</p>
           <h2>Ready to order?</h2>
           <p>
-            Send us your product list and we will confirm availability, final weight, price and delivery
-            or pickup options.
+            Send your product list and we will confirm availability, final weight, price and pickup or local delivery options.
           </p>
 
           <div class="contact-details">
@@ -294,13 +297,21 @@
             id="message"
             name="message"
             rows="5"
-            placeholder="Example: 2 kg pork neck, 1 kg smoked bacon, 1 BBQ box..."
+            placeholder="Example: 2 kg chicken breast, 1 kg pork neck, 1 kg minced beef..."
           ></textarea>
 
-          <button type="submit" class="btn btn-primary">Send Request</button>
+          <label for="delivery">Pickup or delivery preference</label>
+          <select id="delivery" name="delivery">
+            <option value="">Choose an option</option>
+            <option value="pickup">Pickup</option>
+            <option value="delivery">Local delivery</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary">Prepare WhatsApp Request</button>
 
           <p class="form-note">
-            Demo form only. We will connect this later to email, WhatsApp or a backend.
+            This form prepares a WhatsApp message with your order request. Final availability, weight and price are confirmed manually.
           </p>
         </form>
       </div>
@@ -309,10 +320,11 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Baltic Pork Market. All rights reserved.</p>
+      <p>© 2026 Baltic Meat Market. All rights reserved.</p>
       <p>English version active. Latvian and Russian coming soon.</p>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>
