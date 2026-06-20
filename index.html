@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Pork, beef, lamb and chicken products available through simple online order requests in Latvia. Confirmed availability, final weight, price, pickup and local delivery details."
+    content="Pork, beef, lamb and chicken products available through simple online order requests in Latvia. Availability, final weight, price, pickup and delivery details are confirmed manually."
   />
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -23,8 +23,26 @@
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="products.html">Products</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+            Products
+            <span aria-hidden="true">▾</span>
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="products.html">All Products</a>
+            <a href="products.html#pork">Pork</a>
+            <a href="products.html#beef">Beef</a>
+            <a href="products.html#lamb">Lamb</a>
+            <a href="products.html#chicken">Chicken</a>
+            <a href="products.html#bbq">BBQ & Grill</a>
+            <a href="products.html#smoked">Smoked Products</a>
+            <a href="products.html#boxes">Meat Boxes</a>
+          </div>
+        </div>
+
         <a href="how-to-order.html">How to Order</a>
+        <a href="about.html">About</a>
         <a href="quality.html">Quality</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
@@ -43,11 +61,11 @@
       <div class="container hero-content">
         <p class="eyebrow">Latvia · Meat orders · Pickup & local delivery</p>
 
-        <h1>Fresh Meat Orders in Latvia</h1>
+        <h1>Fresh meat orders made simple.</h1>
 
         <p class="hero-text">
-          Pork, beef, lamb and chicken products available through simple online order requests.
-          We confirm availability, final weight, price, pickup and local delivery details before every order.
+          Request pork, beef, lamb and chicken products online. Availability, final weight,
+          price, pickup and local delivery details are confirmed manually before completion.
         </p>
 
         <div class="hero-actions">
@@ -57,67 +75,13 @@
       </div>
     </section>
 
-    <section class="section intro-section">
-      <div class="container intro-grid">
-        <div>
-          <p class="section-label">Latvia-first ordering</p>
-          <h2>A local meat ordering experience, moved online.</h2>
-        </div>
-
-        <p>
-          The website is built for customers in Latvia who want to reserve meat products without confusion.
-          Browse the available categories, send a request, and receive confirmation before pickup or local delivery.
-          No automatic checkout guesses. No unclear final prices.
-        </p>
-      </div>
-    </section>
-
-    <section class="section dark-section">
+    <section class="section category-section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label">Reservation model</p>
-          <h2>Order requests, confirmed manually.</h2>
-          <p>
-            Meat products often depend on stock, preparation day and final weight. That is why this first version
-            uses a clear request/reservation model instead of automatic checkout.
-          </p>
-        </div>
-
-        <div class="process-grid">
-          <article class="process-card">
-            <span>01</span>
-            <h3>Choose products</h3>
-            <p>Browse pork, beef, lamb, chicken, BBQ products, smoked products and meat boxes.</p>
-          </article>
-
-          <article class="process-card">
-            <span>02</span>
-            <h3>Send request</h3>
-            <p>Send the products you want, approximate quantity and your contact details.</p>
-          </article>
-
-          <article class="process-card">
-            <span>03</span>
-            <h3>Receive confirmation</h3>
-            <p>We confirm availability, final weight, price, pickup or delivery details.</p>
-          </article>
-
-          <article class="process-card">
-            <span>04</span>
-            <h3>Pickup or delivery</h3>
-            <p>Your order is prepared and handed over through the agreed method.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section category-section" id="products">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Product categories</p>
+          <p class="section-label">Main categories</p>
           <h2>Pork, Beef, Lamb & Chicken</h2>
           <p>
-            The catalogue is structured around the main meat categories customers in Latvia are likely to search for.
+            Start with the main meat categories, then choose specific products in the full catalogue.
           </p>
         </div>
 
@@ -126,7 +90,7 @@
             <div class="category-image pork"></div>
             <div class="category-content">
               <h3>Pork</h3>
-              <p>Pork neck, shoulder, belly, ribs, loin, minced pork, bacon and sausages.</p>
+              <p>Pork neck, shoulder, belly, ribs, loin, minced pork and smoked pork products.</p>
               <a href="products.html#pork">View Pork</a>
             </div>
           </article>
@@ -144,7 +108,7 @@
             <div class="category-image lamb"></div>
             <div class="category-content">
               <h3>Lamb</h3>
-              <p>Lamb leg, lamb shoulder, chops, ribs, minced lamb and stew cuts.</p>
+              <p>Lamb leg, shoulder, chops, ribs, minced lamb and lamb stew cuts.</p>
               <a href="products.html#lamb">View Lamb</a>
             </div>
           </article>
@@ -157,172 +121,84 @@
               <a href="products.html#chicken">View Chicken</a>
             </div>
           </article>
+        </div>
 
-          <article class="category-card">
-            <div class="category-image bbq"></div>
-            <div class="category-content">
-              <h3>BBQ & Grill</h3>
-              <p>Marinated meat, ribs, skewers, grill sausages and weekend BBQ selections.</p>
-              <a href="products.html#bbq">View BBQ</a>
-            </div>
-          </article>
-
-          <article class="category-card">
-            <div class="category-image smoked"></div>
-            <div class="category-content">
-              <h3>Smoked Products</h3>
-              <p>Smoked bacon, smoked ribs, sausages and traditional-style smoked meat products.</p>
-              <a href="products.html#smoked">View Smoked</a>
-            </div>
-          </article>
-
-          <article class="category-card">
-            <div class="category-image boxes"></div>
-            <div class="category-content">
-              <h3>Meat Boxes</h3>
-              <p>Family boxes, BBQ boxes and mixed selections for easier weekly ordering.</p>
-              <a href="products.html#boxes">View Boxes</a>
-            </div>
-          </article>
+        <div class="center-cta">
+          <a href="products.html" class="btn btn-primary">See Full Catalogue</a>
         </div>
       </div>
     </section>
 
-    <section class="section dark-section availability-section">
-      <div class="container availability-grid">
+    <section class="section dark-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">How it works</p>
+          <h2>Simple request. Manual confirmation.</h2>
+          <p>
+            Meat products can vary by weight and availability, so the order is confirmed before completion.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span>01</span>
+            <h3>Choose products</h3>
+            <p>Browse the catalogue and choose pork, beef, lamb, chicken or mixed products.</p>
+          </article>
+
+          <article class="process-card">
+            <span>02</span>
+            <h3>Send request</h3>
+            <p>Send product names, approximate quantity and your contact details.</p>
+          </article>
+
+          <article class="process-card">
+            <span>03</span>
+            <h3>Receive confirmation</h3>
+            <p>Availability, final weight, price, pickup and delivery details are confirmed manually.</p>
+          </article>
+
+          <article class="process-card">
+            <span>04</span>
+            <h3>Pickup or delivery</h3>
+            <p>The order is prepared after the details are agreed.</p>
+          </article>
+        </div>
+
+        <div class="center-cta">
+          <a href="how-to-order.html" class="btn btn-secondary">How to Order</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro-section">
+      <div class="container intro-grid">
         <div>
-          <p class="section-label">Weekly availability</p>
-          <h2>Fresh products depend on stock and preparation days.</h2>
+          <p class="section-label">Why manual confirmation?</p>
+          <h2>Because meat orders need real availability and final weight.</h2>
         </div>
 
-        <div class="availability-card">
-          <p>
-            The exact product list can change depending on what is available. Customers send an order request,
-            then receive a clear confirmation before the order is completed.
-          </p>
-
-          <ul>
-            <li>Available products are confirmed manually</li>
-            <li>Final weight is checked before final price</li>
-            <li>Pickup or local delivery is agreed before completion</li>
-            <li>Unavailable products can be replaced or removed from the order</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section quality-preview-section">
-      <div class="container quality-preview-grid">
-        <div class="quality-preview-card">
-          <p class="section-label">Quality promise</p>
-          <h2>Clear handling, honest confirmation, better trust.</h2>
-          <p>
-            For meat products, trust matters more than flashy design. Customers need clear information about freshness,
-            weight, price, pickup and delivery before they commit to the order.
-          </p>
-          <a href="quality.html" class="text-link">Read quality details</a>
-        </div>
-
-        <div class="quality-points">
-          <div>
-            <strong>Freshness</strong>
-            <span>Products are confirmed based on current availability.</span>
-          </div>
-
-          <div>
-            <strong>Final weight</strong>
-            <span>The final price is confirmed after weight is checked.</span>
-          </div>
-
-          <div>
-            <strong>Order clarity</strong>
-            <span>Customers receive confirmation before pickup or delivery.</span>
-          </div>
-
-          <div>
-            <strong>Local service</strong>
-            <span>The ordering flow keeps the personal service of a local meat shop.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section faq-preview-section">
-      <div class="container faq-preview-grid">
-        <div>
-          <p class="section-label">Questions</p>
-          <h2>Common questions before ordering.</h2>
-          <p>
-            Customers need fast answers before they trust a meat order online.
-          </p>
-          <a href="faq.html" class="btn btn-secondary">View FAQ</a>
-        </div>
-
-        <div class="faq-preview-list">
-          <details open>
-            <summary>Why is the final price confirmed manually?</summary>
-            <p>Because meat products are often sold by final weight, and each cut can vary.</p>
-          </details>
-
-          <details>
-            <summary>Can I order multiple meat categories together?</summary>
-            <p>Yes. You can include pork, beef, lamb, chicken and mixed boxes in one order request.</p>
-          </details>
-
-          <details>
-            <summary>Is delivery available?</summary>
-            <p>Pickup and local delivery details are confirmed before the order is completed.</p>
-          </details>
-        </div>
+        <p>
+          This is not a normal fixed-price checkout. Meat products can depend on stock,
+          preparation day and final weight. The request-based flow keeps the order clear:
+          the customer asks, the business confirms, and only then the order moves forward.
+        </p>
       </div>
     </section>
 
     <section class="section contact-section">
-      <div class="container contact-grid">
-        <div>
-          <p class="section-label">Order request</p>
-          <h2>Ready to order?</h2>
-          <p>
-            Send your product list and we will confirm availability, final weight, price and pickup or local delivery options.
-          </p>
+      <div class="container final-cta">
+        <p class="section-label">Ready</p>
+        <h2>Send your meat order request.</h2>
+        <p>
+          Choose your products and send the list. We confirm availability, final weight,
+          price, pickup and local delivery details.
+        </p>
 
-          <div class="contact-details">
-            <p><strong>Phone:</strong> +371 XX XXX XXX</p>
-            <p><strong>WhatsApp:</strong> +371 XX XXX XXX</p>
-            <p><strong>Email:</strong> orders@example.com</p>
-            <p><strong>Location:</strong> Latvia</p>
-          </div>
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary">View Products</a>
+          <a href="contact.html" class="btn btn-secondary">Request Order</a>
         </div>
-
-        <form class="contact-form">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" />
-
-          <label for="phone">Phone or WhatsApp</label>
-          <input type="text" id="phone" name="phone" placeholder="+371..." />
-
-          <label for="message">Order request</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Example: 2 kg pork neck, 1 kg minced beef, 1 kg lamb chops, 2 kg chicken breast..."
-          ></textarea>
-
-          <label for="delivery">Pickup or delivery preference</label>
-          <select id="delivery" name="delivery">
-            <option value="">Choose an option</option>
-            <option value="pickup">Pickup</option>
-            <option value="delivery">Local delivery</option>
-            <option value="not-sure">Not sure yet</option>
-          </select>
-
-          <button type="submit" class="btn btn-primary">Prepare WhatsApp Request</button>
-
-          <p class="form-note">
-            This form prepares a WhatsApp message with your order request. Final availability, weight and price are confirmed manually.
-          </p>
-        </form>
       </div>
     </section>
   </main>
@@ -334,6 +210,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=5"></script>
 </body>
 </html>
