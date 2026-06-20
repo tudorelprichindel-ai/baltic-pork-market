@@ -1177,3 +1177,32 @@ select {
     white-space: normal;
   }
 }
+/* Fix dropdown hover gap */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-menu {
+  top: 100%;
+  margin-top: 0;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  display: block;
+}
+
+@media (max-width: 1040px) {
+  .nav-dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    margin-top: 4px;
+  }
+}
