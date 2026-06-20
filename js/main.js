@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "371XXXXXXXX"; // Replace with real Latvian WhatsApp number
+const WHATSAPP_NUMBER = "371XXXXXXXX";
 const CART_STORAGE_KEY = "balticMeatMarketCart";
 
 const PRODUCT_PRICE_MAP = {
