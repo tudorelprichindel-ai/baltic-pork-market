@@ -24,7 +24,7 @@ function buildOrderMessage(formData) {
   const delivery = getValue(formData, "delivery");
 
   return `
-Hello Baltic Pork Market,
+Hello Baltic Meat Market,
 
 I would like to request an order.
 
@@ -37,7 +37,7 @@ ${products || "Not provided"}
 
 Pickup or delivery preference: ${delivery || "Not provided"}
 
-Please confirm availability, final weight and price.
+Please confirm availability, final weight, price and pickup or delivery details.
 
 Thank you.
   `.trim();
