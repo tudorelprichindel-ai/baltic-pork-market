@@ -1248,7 +1248,38 @@ button {
   color: var(--text-muted-dark);
   font-size: 18px;
 }
+/* Homepage polish */
 
+.category-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.final-cta .hero-actions {
+  justify-content: center;
+}
+
+/* Secondary buttons on light backgrounds */
+
+.contact-section .btn-secondary,
+.intro-section .btn-secondary,
+.category-section .btn-secondary,
+.quality-preview-section .btn-secondary,
+.pickup-section .btn-secondary,
+.product-catalog-section .btn-secondary {
+  border-color: rgba(127, 29, 29, 0.28);
+  color: var(--red);
+  background: rgba(127, 29, 29, 0.05);
+}
+
+.contact-section .btn-secondary:hover,
+.intro-section .btn-secondary:hover,
+.category-section .btn-secondary:hover,
+.quality-preview-section .btn-secondary:hover,
+.pickup-section .btn-secondary:hover,
+.product-catalog-section .btn-secondary:hover {
+  border-color: var(--red);
+  background: rgba(127, 29, 29, 0.1);
+}
 /* Responsive */
 
 @media (max-width: 1040px) {
