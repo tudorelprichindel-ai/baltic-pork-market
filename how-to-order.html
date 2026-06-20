@@ -1,210 +1,255 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* How to order page */
 
-  <title>How to Order | Baltic Pork Market</title>
+.order-page-hero {
+  background:
+    linear-gradient(90deg, rgba(18, 15, 12, 0.96), rgba(18, 15, 12, 0.72)),
+    radial-gradient(circle at 76% 26%, rgba(217, 164, 65, 0.2), transparent 32%),
+    linear-gradient(135deg, #38150f 0%, #120f0c 55%, #2b1c10 100%);
+}
 
-  <meta
-    name="description"
-    content="Learn how to order fresh pork products, smoked meats, sausages and BBQ boxes from Baltic Pork Market."
-  />
+.order-page-section {
+  background: var(--bg-cream);
+  color: var(--text-dark);
+}
 
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
+.order-flow-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 60px;
+  align-items: start;
+}
 
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">BPM</span>
-        <span class="logo-text">Baltic Pork Market</span>
-      </a>
+.order-note-card {
+  position: sticky;
+  top: 110px;
+  padding: 42px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="products.html">Products</a>
-        <a href="how-to-order.html">How to Order</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+.order-note-card .section-label {
+  color: var(--red);
+}
 
-      <div class="language-switcher" aria-label="Language switcher">
-        <a href="how-to-order.html" class="active">EN</a>
-        <a href="#" title="Latvian version coming soon">LV</a>
-        <a href="#" title="Russian version coming soon">RU</a>
-      </div>
-    </div>
-  </header>
+.order-note-card h2 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
 
-  <main>
-    <section class="page-hero order-page-hero">
-      <div class="container">
-        <p class="eyebrow">Ordering process</p>
-        <h1>How to order fresh pork products.</h1>
-        <p>
-          Send an order request, receive confirmation, and choose pickup or local delivery.
-          Every order is confirmed manually before completion.
-        </p>
-      </div>
-    </section>
+.order-note-card p {
+  color: var(--text-muted-dark);
+}
 
-    <section class="section order-page-section">
-      <div class="container order-page-grid">
-        <div class="order-intro-card">
-          <p class="section-label">Important</p>
-          <h2>This is not automatic checkout.</h2>
-          <p>
-            Meat products are often sold by final weight. Product availability can also change
-            depending on preparation day and current stock. That is why every order is confirmed manually.
-          </p>
-        </div>
+.order-note-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
 
-        <div class="order-timeline">
-          <div class="timeline-item">
-            <span>01</span>
-            <div>
-              <h3>Choose your products</h3>
-              <p>
-                Browse fresh pork, smoked pork, sausages, BBQ products and meat boxes.
-              </p>
-            </div>
-          </div>
+.order-note-list span {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: #fff7eb;
+  border: 1px solid rgba(127, 29, 29, 0.12);
+  color: var(--red);
+  font-weight: 900;
+}
 
-          <div class="timeline-item">
-            <span>02</span>
-            <div>
-              <h3>Send an order request</h3>
-              <p>
-                Tell us the products you want, approximate quantity, your name and phone number.
-              </p>
-            </div>
-          </div>
+.order-flow-steps {
+  display: grid;
+  gap: 18px;
+}
 
-          <div class="timeline-item">
-            <span>03</span>
-            <div>
-              <h3>We check availability</h3>
-              <p>
-                We verify what is currently available and what can be prepared for your order.
-              </p>
-            </div>
-          </div>
+.order-flow-step {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 24px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
 
-          <div class="timeline-item">
-            <span>04</span>
-            <div>
-              <h3>We confirm final weight and price</h3>
-              <p>
-                You receive the final confirmed price before payment or pickup.
-              </p>
-            </div>
-          </div>
+.order-flow-step span {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-weight: 900;
+}
 
-          <div class="timeline-item">
-            <span>05</span>
-            <div>
-              <h3>Pickup or local delivery</h3>
-              <p>
-                The order is prepared and handed over through the agreed method.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+.order-flow-step h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
 
-    <section class="section dark-section order-details-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">What to include</p>
-          <h2>Send a clear request.</h2>
-          <p>
-            A vague message creates delays. A clear message helps the order get confirmed faster.
-          </p>
-        </div>
+.order-flow-step p {
+  margin: 0;
+  color: var(--text-muted-dark);
+}
 
-        <div class="request-grid">
-          <article>
-            <h3>Product names</h3>
-            <p>Example: pork neck, smoked bacon, grill sausages, BBQ box.</p>
-          </article>
+.request-info-section {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(217, 164, 65, 0.12), transparent 30%),
+    var(--bg-dark-soft);
+}
 
-          <article>
-            <h3>Approximate quantity</h3>
-            <p>Example: 2 kg pork neck, 1 kg smoked bacon, 2 packs sausages.</p>
-          </article>
+.request-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
 
-          <article>
-            <h3>Your contact details</h3>
-            <p>Name, phone number and WhatsApp if available.</p>
-          </article>
+.request-info-grid article {
+  min-height: 220px;
+  padding: 28px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
 
-          <article>
-            <h3>Pickup or delivery</h3>
-            <p>Tell us if you prefer pickup, local delivery, or if you are not sure yet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+.request-info-grid h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
 
-    <section class="section faq-section">
-      <div class="container faq-grid">
-        <div>
-          <p class="section-label">Questions</p>
-          <h2>Common order questions</h2>
-        </div>
+.request-info-grid p {
+  margin: 0;
+  color: var(--text-muted);
+}
 
-        <div class="faq-list">
-          <details>
-            <summary>Why is the final price confirmed manually?</summary>
-            <p>
-              Because meat products can vary by final weight. Manual confirmation prevents wrong totals.
-            </p>
-          </details>
+.pickup-section {
+  background: var(--bg-cream);
+  color: var(--text-dark);
+}
 
-          <details>
-            <summary>Can I order products that are not listed?</summary>
-            <p>
-              Yes. You can ask about other products and we will confirm if they are available.
-            </p>
-          </details>
+.pickup-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 60px;
+  align-items: start;
+}
 
-          <details>
-            <summary>Is delivery available?</summary>
-            <p>
-              Local delivery options depend on location and order size. Details are confirmed before the order is completed.
-            </p>
-          </details>
+.pickup-grid .section-label {
+  color: var(--red);
+}
 
-          <details>
-            <summary>Can I order in Latvian or Russian?</summary>
-            <p>
-              Latvian and Russian versions are planned. For now, order support depends on the available contact method.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
+.pickup-grid h2 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
 
-    <section class="section contact-section">
-      <div class="container final-cta">
-        <p class="section-label">Ready</p>
-        <h2>Send your order request.</h2>
-        <p>
-          Choose your products and contact us with your list. We will confirm the details before completion.
-        </p>
-        <a href="contact.html" class="btn btn-primary">Contact Us</a>
-      </div>
-    </section>
-  </main>
+.pickup-grid p {
+  color: var(--text-muted-dark);
+  font-size: 17px;
+}
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Baltic Pork Market. All rights reserved.</p>
-      <p>English version active. Latvian and Russian coming soon.</p>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
-</body>
-</html>
+.pickup-card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pickup-card-grid article {
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.pickup-card-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--red);
+  font-size: 20px;
+}
+
+.pickup-card-grid span {
+  color: var(--text-muted-dark);
+}
+
+.order-example-section {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(217, 164, 65, 0.12), transparent 30%),
+    var(--bg-dark);
+}
+
+.order-example-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.order-example-grid h2 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.order-example-card {
+  padding: 36px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.order-example-card p,
+.order-example-card li {
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+.order-example-card p {
+  margin: 0 0 14px;
+}
+
+.order-example-card ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+@media (max-width: 1040px) {
+  .order-flow-layout,
+  .pickup-grid,
+  .order-example-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-note-card {
+    position: static;
+  }
+
+  .request-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .order-flow-step {
+    grid-template-columns: 1fr;
+  }
+
+  .request-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-note-card,
+  .order-flow-step,
+  .request-info-grid article,
+  .pickup-card-grid article,
+  .order-example-card {
+    padding: 24px;
+  }
+}
