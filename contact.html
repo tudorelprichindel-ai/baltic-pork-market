@@ -16,26 +16,44 @@
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-mark">BPM</span>
-        <span class="logo-text">Baltic Pork Market</span>
-      </a>
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Baltic Meat Market home">
+      <span class="logo-mark">BMM</span>
+      <span class="logo-text">Baltic Meat Market</span>
+    </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="products.html">Products</a>
-        <a href="how-to-order.html">How to Order</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          Products
+          <span aria-hidden="true">▾</span>
+        </button>
 
-      <div class="language-switcher" aria-label="Language switcher">
-        <a href="contact.html" class="active">EN</a>
-        <a href="#" title="Latvian version coming soon">LV</a>
-        <a href="#" title="Russian version coming soon">RU</a>
+        <div class="nav-dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="products.html#pork">Pork</a>
+          <a href="products.html#beef">Beef</a>
+          <a href="products.html#lamb">Lamb</a>
+          <a href="products.html#chicken">Chicken</a>
+          <a href="products.html#bbq">BBQ & Grill</a>
+          <a href="products.html#smoked">Smoked Products</a>
+          <a href="products.html#boxes">Meat Boxes</a>
+        </div>
       </div>
+
+      <a href="how-to-order.html">How to Order</a>
+      <a href="quality.html">Quality</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="language-switcher" aria-label="Language switcher">
+      <a href="index.html" class="active">EN</a>
+      <a href="#" title="Latvian version coming soon">LV</a>
+      <a href="#" title="Russian version coming soon">RU</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <main>
     <section class="page-hero contact-page-hero">
