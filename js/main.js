@@ -1,5 +1,6 @@
 const WHATSAPP_NUMBER = "37129174626";
 const CART_STORAGE_KEY = "galasGrozsCartV2";
+const DELIVERY_STORAGE_KEY = "galasGrozsDeliveryPreferenceV1";
 
 document.addEventListener("DOMContentLoaded", () => {
   initDropdownNavigation();
@@ -78,11 +79,14 @@ function buildFormOrderMessage(formData) {
   const name = getFormValue(formData, "name");
   const phone = getFormValue(formData, "phone");
   const email = getFormValue(formData, "email");
-  const delivery = getFormValue(formData, "delivery");
+  const formDelivery = getFormValue(formData, "delivery");
   const note = getFormValue(formData, "message") || getFormValue(formData, "products");
   const cart = getCart();
+  const deliveryPreference = getDeliveryPreference();
 
   const cartText = cart.length > 0 ? buildCartMessageSection(cart) : "";
+  const deliveryText = formDelivery || getDeliveryPreferenceText(deliveryPreference.type);
+  const deliveryDetails = deliveryPreference.details || "Not provided";
 
   return `
 Hello Gaļas grozs,
@@ -96,7 +100,8 @@ Email: ${email || "Not provided"}
 Order:
 ${cartText || note || "Not provided"}
 
-Pickup / delivery preference: ${delivery || "To be confirmed"}
+Customer preference: ${deliveryText}
+Delivery address / details: ${deliveryDetails}
 
 Please confirm availability, final weight, final price and pickup or delivery options.
 
@@ -132,6 +137,7 @@ function initCart() {
   injectCartUi();
   enhanceProductCards();
   renderCart();
+  renderDeliveryPreference();
   bindCartEvents();
 }
 
@@ -166,6 +172,46 @@ function injectCartUi() {
       <div class="cart-items" data-cart-items></div>
 
       <div class="cart-footer">
+        <div class="cart-delivery-section">
+          <h3>Pickup or delivery?</h3>
+
+          <div class="cart-delivery-options">
+            <label class="cart-delivery-option">
+              <input type="radio" name="cart-delivery-preference" value="pickup" data-cart-delivery-preference />
+              <span>
+                <strong>Pickup</strong>
+                <small>I want to pick up the order.</small>
+              </span>
+            </label>
+
+            <label class="cart-delivery-option">
+              <input type="radio" name="cart-delivery-preference" value="delivery" data-cart-delivery-preference />
+              <span>
+                <strong>Delivery</strong>
+                <small>I want delivery, if available.</small>
+              </span>
+            </label>
+
+            <label class="cart-delivery-option">
+              <input type="radio" name="cart-delivery-preference" value="to-be-confirmed" data-cart-delivery-preference />
+              <span>
+                <strong>To be confirmed</strong>
+                <small>I want to discuss the best option.</small>
+              </span>
+            </label>
+          </div>
+
+          <div class="cart-delivery-details" data-cart-delivery-details-wrap>
+            <label for="cart-delivery-address">Delivery address / area / notes</label>
+            <textarea
+              id="cart-delivery-address"
+              rows="3"
+              placeholder="Example: Riga, street name, preferred delivery time..."
+              data-cart-delivery-address
+            ></textarea>
+          </div>
+        </div>
+
         <div class="cart-summary-line">
           <span>Estimated total</span>
           <strong data-cart-total>€0.00</strong>
@@ -304,6 +350,34 @@ function bindCartEvents() {
       clearCart();
     }
   });
+
+  document.addEventListener("change", (event) => {
+    const deliveryInput = event.target.closest("[data-cart-delivery-preference]");
+
+    if (!deliveryInput) return;
+
+    const currentPreference = getDeliveryPreference();
+
+    saveDeliveryPreference({
+      type: deliveryInput.value,
+      details: currentPreference.details || ""
+    });
+
+    renderDeliveryPreference();
+  });
+
+  document.addEventListener("input", (event) => {
+    const addressInput = event.target.closest("[data-cart-delivery-address]");
+
+    if (!addressInput) return;
+
+    const currentPreference = getDeliveryPreference();
+
+    saveDeliveryPreference({
+      type: currentPreference.type,
+      details: addressInput.value.trim()
+    });
+  });
 }
 
 function addToCart(productData) {
@@ -436,6 +510,76 @@ function calculateCartTotal(cart) {
   }, 0);
 }
 
+/* Delivery preference */
+
+function getDeliveryPreference() {
+  try {
+    const savedPreference = JSON.parse(localStorage.getItem(DELIVERY_STORAGE_KEY));
+
+    if (
+      savedPreference &&
+      typeof savedPreference === "object" &&
+      typeof savedPreference.type === "string"
+    ) {
+      return {
+        type: savedPreference.type,
+        details: savedPreference.details || ""
+      };
+    }
+  } catch (error) {
+    return {
+      type: "to-be-confirmed",
+      details: ""
+    };
+  }
+
+  return {
+    type: "to-be-confirmed",
+    details: ""
+  };
+}
+
+function saveDeliveryPreference(preference) {
+  localStorage.setItem(
+    DELIVERY_STORAGE_KEY,
+    JSON.stringify({
+      type: preference.type || "to-be-confirmed",
+      details: preference.details || ""
+    })
+  );
+}
+
+function renderDeliveryPreference() {
+  const preference = getDeliveryPreference();
+  const radios = document.querySelectorAll("[data-cart-delivery-preference]");
+  const detailsWrap = document.querySelector("[data-cart-delivery-details-wrap]");
+  const addressInput = document.querySelector("[data-cart-delivery-address]");
+
+  radios.forEach((radio) => {
+    radio.checked = radio.value === preference.type;
+  });
+
+  if (addressInput) {
+    addressInput.value = preference.details || "";
+  }
+
+  if (detailsWrap) {
+    if (preference.type === "delivery") {
+      detailsWrap.classList.add("open");
+    } else {
+      detailsWrap.classList.remove("open");
+    }
+  }
+}
+
+function getDeliveryPreferenceText(type) {
+  if (type === "pickup") return "Pickup";
+  if (type === "delivery") return "Delivery";
+  return "To be confirmed";
+}
+
+/* WhatsApp */
+
 function requestCartOrder() {
   const cart = getCart();
 
@@ -443,6 +587,10 @@ function requestCartOrder() {
     openCart();
     return;
   }
+
+  const deliveryPreference = getDeliveryPreference();
+  const deliveryText = getDeliveryPreferenceText(deliveryPreference.type);
+  const deliveryDetails = deliveryPreference.details || "Not provided";
 
   const message = `
 Hello Gaļas grozs,
@@ -452,6 +600,9 @@ I would like to place an order request:
 ${buildCartMessageSection(cart)}
 
 Estimated total for priced products: ${formatCurrency(calculateCartTotal(cart))}
+
+Customer preference: ${deliveryText}
+Delivery address / details: ${deliveryDetails}
 
 I understand that prices are informative and that final availability, final weight and final price must be confirmed manually.
 
