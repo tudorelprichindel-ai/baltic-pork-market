@@ -1,52 +1,87 @@
-const WHATSAPP_NUMBER = "371XXXXXXXX";
-const CART_STORAGE_KEY = "balticMeatMarketCart";
+const WHATSAPP_NUMBER = "37129174626";
+const CART_STORAGE_KEY = "galasGrozsCart";
 
 const PRODUCT_PRICE_MAP = {
-  "Pork Neck": { category: "Pork", price: 6.5, unit: "kg" },
-  "Pork Shoulder": { category: "Pork", price: 5.5, unit: "kg" },
-  "Pork Belly": { category: "Pork", price: 6.9, unit: "kg" },
-  "Pork Ribs": { category: "Pork", price: 6.95, unit: "kg" },
-  "Pork Loin": { category: "Pork", price: 7.2, unit: "kg" },
-  "Minced Pork": { category: "Pork", price: 5.99, unit: "kg" },
-
-  "Beef Steak Cuts": { category: "Beef", price: 16.9, unit: "kg" },
-  "Beef Ribs": { category: "Beef", price: 12.9, unit: "kg" },
-  "Minced Beef": { category: "Beef", price: 10.9, unit: "kg" },
-  "Beef Stew Meat": { category: "Beef", price: 11.9, unit: "kg" },
-  "Beef Roast": { category: "Beef", price: 15.5, unit: "kg" },
-  "Beef Burger Patties": { category: "Beef / BBQ", price: 11.9, unit: "kg" },
-
-  "Lamb Leg": { category: "Lamb", price: 18.9, unit: "kg" },
-  "Lamb Shoulder": { category: "Lamb", price: 14.9, unit: "kg" },
-  "Lamb Chops": { category: "Lamb", price: 24.9, unit: "kg" },
-  "Lamb Ribs": { category: "Lamb", price: 18.9, unit: "kg" },
-  "Minced Lamb": { category: "Lamb", price: 16.9, unit: "kg" },
-  "Lamb Stew Meat": { category: "Lamb", price: 15.9, unit: "kg" },
-
-  "Chicken Breast": { category: "Chicken", price: 7.9, unit: "kg" },
-  "Chicken Thighs": { category: "Chicken", price: 5.9, unit: "kg" },
-  "Chicken Wings": { category: "Chicken", price: 3.9, unit: "kg" },
-  "Chicken Drumsticks": { category: "Chicken", price: 4.5, unit: "kg" },
-  "Whole Chicken": { category: "Chicken", price: 3.9, unit: "kg" },
-  "Marinated Chicken": { category: "Chicken", price: 6.9, unit: "kg" },
-
-  "Marinated Pork Neck": { category: "BBQ & Grill", price: 7.9, unit: "kg" },
-  "BBQ Ribs": { category: "BBQ & Grill", price: 8.9, unit: "kg" },
-  "Chicken Skewers": { category: "BBQ & Grill", price: 7.9, unit: "kg" },
-  "Lamb Skewers": { category: "BBQ & Grill", price: 17.9, unit: "kg" },
-  "Grill Sausages": { category: "BBQ & Grill", price: 7.99, unit: "kg" },
-
-  "Smoked Bacon": { category: "Smoked Products", price: 10.9, unit: "kg" },
-  "Smoked Pork Ribs": { category: "Smoked Products", price: 9.9, unit: "kg" },
-  "Smoked Sausages": { category: "Smoked Products", price: 8.9, unit: "kg" },
-  "Smoked Pork Loin": { category: "Smoked Products", price: 12.9, unit: "kg" },
-
-  "Family Meat Box": { category: "Meat Boxes", price: 49, unit: "box" },
-  "BBQ Box": { category: "Meat Boxes", price: 45, unit: "box" },
-  "Pork Box": { category: "Meat Boxes", price: 35, unit: "box" },
-  "Beef Box": { category: "Meat Boxes", price: 55, unit: "box" },
-  "Lamb Box": { category: "Meat Boxes", price: 59, unit: "box" },
-  "Chicken Box": { category: "Meat Boxes", price: 29, unit: "box" }
+  "Cūkgaļas karbonāde bez ribas, bez ādas": {
+    category: "Cūkgaļa",
+    price: 7.5,
+    unit: "kg"
+  },
+  "Cūkgaļas karbonāde ar speķi un ādu": {
+    category: "Cūkgaļa",
+    price: 6.5,
+    unit: "kg"
+  },
+  "Cūkgaļas kakla karbonāde": {
+    category: "Cūkgaļa",
+    price: 7.5,
+    unit: "kg"
+  },
+  "Cūkgaļas fileja": {
+    category: "Cūkgaļa",
+    price: 8.5,
+    unit: "kg"
+  },
+  "Cūkgaļas gurna gabals bez ādas": {
+    category: "Cūkgaļa",
+    price: 6.5,
+    unit: "kg"
+  },
+  "Cūkgaļas gurna gabals ar ādu": {
+    category: "Cūkgaļa",
+    price: 6.0,
+    unit: "kg"
+  },
+  "Cūkgaļas šķiņķis bez kaula ar ādu": {
+    category: "Cūkgaļa",
+    price: 5.5,
+    unit: "kg"
+  },
+  "Cūkgaļas šķiņķis bez kaula, bez ādas": {
+    category: "Cūkgaļa",
+    price: 5.7,
+    unit: "kg"
+  },
+  "Cūkgaļas krūtiņa ar ribu": {
+    category: "Cūkgaļa",
+    price: 6.5,
+    unit: "kg"
+  },
+  "Cūkgaļas pavēdere": {
+    category: "Cūkgaļa",
+    price: 5.8,
+    unit: "kg"
+  },
+  "Cūkgaļas ribas ar ādu, ar treknumu": {
+    category: "Cūkgaļa",
+    price: 7.0,
+    unit: "kg"
+  },
+  "Cūkgaļas plecs/lāpstiņa ar kaulu, ar ādu": {
+    category: "Cūkgaļa",
+    price: 4.8,
+    unit: "kg"
+  },
+  "Cūkgaļas plecs bez kaula, bez ādas": {
+    category: "Cūkgaļa",
+    price: 5.5,
+    unit: "kg"
+  },
+  "Cūkgaļas stilbi": {
+    category: "Cūkgaļa",
+    price: 2.5,
+    unit: "kg"
+  },
+  "Cūkgaļas ribas": {
+    category: "Cūkgaļa",
+    price: 1.5,
+    unit: "kg"
+  },
+  "Cūkgaļas maltā gaļa": {
+    category: "Cūkgaļa",
+    price: 5.5,
+    unit: "kg"
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -75,29 +110,29 @@ function buildOrderMessage(formData) {
   const name = getValue(formData, "name");
   const phone = getValue(formData, "phone");
   const email = getValue(formData, "email");
-  const products = getValue(formData, "products") || getValue(formData, "message");
   const delivery = getValue(formData, "delivery");
+  const message = getValue(formData, "message");
   const cart = getCart();
 
   const cartText = cart.length > 0 ? buildCartMessageSection(cart) : "";
 
   return `
-Hello Baltic Meat Market,
+Labdien, Gaļas grozs!
 
-I would like to request an order.
+Vēlos veikt pasūtījuma pieprasījumu.
 
-Name: ${name || "Not provided"}
-Phone/WhatsApp: ${phone || "Not provided"}
-Email: ${email || "Not provided"}
+Vārds: ${name || "Nav norādīts"}
+Telefons / WhatsApp: ${phone || "Nav norādīts"}
+E-pasts: ${email || "Nav norādīts"}
 
-Products requested:
-${cartText || products || "Not provided"}
+Pasūtījums:
+${cartText || message || "Nav norādīts"}
 
-Pickup or delivery preference: ${delivery || "Not provided"}
+Saņemšana / piegāde: ${delivery || "Jāprecizē"}
 
-Please confirm availability, final weight, final price and pickup or delivery details.
+Lūdzu, apstipriniet pieejamību, gala svaru, gala cenu un saņemšanas vai piegādes iespējas.
 
-Thank you.
+Paldies!
   `.trim();
 }
 
@@ -116,9 +151,9 @@ function showFormMessage(form, whatsappUrl) {
   }
 
   message.innerHTML = `
-    <p>Your order request is ready.</p>
+    <p>Pasūtījuma pieprasījums ir sagatavots.</p>
     <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">
-      Send on WhatsApp
+      Nosūtīt WhatsApp
     </a>
   `;
 }
@@ -194,7 +229,7 @@ function injectCartUi() {
   cartButton.type = "button";
   cartButton.setAttribute("data-cart-open", "");
   cartButton.innerHTML = `
-    <span>Cart</span>
+    <span>Grozs</span>
     <strong data-cart-count>0</strong>
   `;
 
@@ -202,14 +237,14 @@ function injectCartUi() {
   cartOverlay.className = "cart-overlay";
   cartOverlay.setAttribute("data-cart-overlay", "");
   cartOverlay.innerHTML = `
-    <aside class="cart-drawer" aria-label="Shopping cart">
+    <aside class="cart-drawer" aria-label="Pirkumu grozs">
       <div class="cart-header">
         <div>
-          <p class="cart-kicker">Order request</p>
-          <h2>Your cart</h2>
+          <p class="cart-kicker">Pasūtījums</p>
+          <h2>Jūsu grozs</h2>
         </div>
 
-        <button class="cart-close" type="button" data-cart-close aria-label="Close cart">
+        <button class="cart-close" type="button" data-cart-close aria-label="Aizvērt grozu">
           ×
         </button>
       </div>
@@ -218,20 +253,20 @@ function injectCartUi() {
 
       <div class="cart-footer">
         <div class="cart-summary-line">
-          <span>Estimated total</span>
-          <strong data-cart-total>€0.00</strong>
+          <span>Aptuvenā summa</span>
+          <strong data-cart-total>0,00 €</strong>
         </div>
 
         <p class="cart-note">
-          Prices are informative. Final availability, weight and price are confirmed manually.
+          Cenas ir informatīvas. Gala svars, pieejamība un gala cena tiek apstiprināta manuāli.
         </p>
 
         <button class="cart-request-btn" type="button" data-cart-request>
-          Request Order on WhatsApp
+          Nosūtīt pieprasījumu WhatsApp
         </button>
 
         <button class="cart-clear-btn" type="button" data-cart-clear>
-          Clear cart
+          Iztīrīt grozu
         </button>
       </div>
     </aside>
@@ -259,14 +294,14 @@ function enhanceProductCards() {
       const priceBadge = document.createElement("div");
       priceBadge.className = "cart-product-price";
       priceBadge.innerHTML = `
-        <span>Approx. price</span>
+        <span>Cena</span>
         <strong>${formatCurrency(productData.price)} / ${productData.unit}</strong>
       `;
 
       titleElement.insertAdjacentElement("afterend", priceBadge);
     }
 
-    button.textContent = "Add to Cart";
+    button.textContent = "Pievienot grozam";
     button.setAttribute("href", "#");
     button.setAttribute("data-add-to-cart", productName);
 
@@ -410,8 +445,8 @@ function renderCart() {
   if (cart.length === 0) {
     cartItems.innerHTML = `
       <div class="cart-empty">
-        <p>Your cart is empty.</p>
-        <span>Add products from the catalogue to prepare an order request.</span>
+        <p>Grozs ir tukšs.</p>
+        <span>Pievienojiet produktus no kataloga, lai sagatavotu pasūtījumu.</span>
       </div>
     `;
     return;
@@ -436,7 +471,7 @@ function renderCart() {
           </div>
 
           <button class="cart-remove" type="button" data-cart-remove="${escapeHtml(item.id)}">
-            Remove
+            Noņemt
           </button>
         </article>
       `;
@@ -457,19 +492,19 @@ function requestCartOrder() {
   }
 
   const message = `
-Hello Baltic Meat Market,
+Labdien, Gaļas grozs!
 
-I would like to request an order based on my cart:
+Vēlos veikt pasūtījuma pieprasījumu:
 
 ${buildCartMessageSection(cart)}
 
-Estimated total: ${formatCurrency(calculateCartTotal(cart))}
+Aptuvenā summa: ${formatCurrency(calculateCartTotal(cart))}
 
-I understand that prices are informative and that final availability, final weight and final price must be confirmed manually.
+Saprotu, ka cenas ir informatīvas un gala pieejamība, gala svars un gala cena tiek apstiprināta manuāli.
 
-Please confirm pickup or local delivery options.
+Lūdzu, apstipriniet saņemšanas vai piegādes iespējas.
 
-Thank you.
+Paldies!
   `.trim();
 
   window.open(buildWhatsappUrl(message), "_blank", "noopener,noreferrer");
@@ -480,7 +515,7 @@ function buildCartMessageSection(cart) {
     .map((item, index) => {
       const itemTotal = item.price * item.quantity;
 
-      return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit} × approx. ${formatCurrency(item.price)} / ${item.unit} = approx. ${formatCurrency(itemTotal)}`;
+      return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit} × ${formatCurrency(item.price)} / ${item.unit} = aptuveni ${formatCurrency(itemTotal)}`;
     })
     .join("\n");
 }
@@ -502,12 +537,14 @@ function closeCart() {
 function createProductId(productName) {
   return productName
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 }
 
 function formatCurrency(value) {
-  return new Intl.NumberFormat("en-LV", {
+  return new Intl.NumberFormat("lv-LV", {
     style: "currency",
     currency: "EUR"
   }).format(value);
