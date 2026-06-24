@@ -1,95 +1,5 @@
 const WHATSAPP_NUMBER = "37129174626";
-const CART_STORAGE_KEY = "galasGrozsCart";
-
-const RAW_PRODUCT_PRICE_MAP = {
-  "Cūkgaļas karbonāde bez ribas, bez ādas": {
-    category: "Pork",
-    price: 7.5,
-    unit: "kg"
-  },
-  "Cūkgaļas karbonāde ar speķi un ādu": {
-    category: "Pork",
-    price: 6.5,
-    unit: "kg"
-  },
-  "Cūkgaļas kakla karbonāde": {
-    category: "Pork",
-    price: 7.5,
-    unit: "kg"
-  },
-  "Cūkgaļas fileja": {
-    category: "Pork",
-    price: 8.5,
-    unit: "kg"
-  },
-  "Cūkgaļas gurna gabals bez ādas": {
-    category: "Pork",
-    price: 6.5,
-    unit: "kg"
-  },
-  "Cūkgaļas gurna gabals ar ādu": {
-    category: "Pork",
-    price: 6.0,
-    unit: "kg"
-  },
-  "Cūkgaļas šķiņķis bez kaula ar ādu": {
-    category: "Pork",
-    price: 5.5,
-    unit: "kg"
-  },
-  "Cūkgaļas šķiņķis bez kaula, bez ādas": {
-    category: "Pork",
-    price: 5.7,
-    unit: "kg"
-  },
-  "Cūkgaļas krūtiņa ar ribu": {
-    category: "Pork",
-    price: 6.5,
-    unit: "kg"
-  },
-  "Cūkgaļas pavēdere": {
-    category: "Pork",
-    price: 5.8,
-    unit: "kg"
-  },
-  "Cūkgaļas ribas ar ādu, ar treknumu": {
-    category: "Pork",
-    price: 7.0,
-    unit: "kg"
-  },
-  "Cūkgaļas plecs/lāpstiņa ar kaulu, ar ādu": {
-    category: "Pork",
-    price: 4.8,
-    unit: "kg"
-  },
-  "Cūkgaļas plecs bez kaula, bez ādas": {
-    category: "Pork",
-    price: 5.5,
-    unit: "kg"
-  },
-  "Cūkgaļas stilbi": {
-    category: "Pork",
-    price: 2.5,
-    unit: "kg"
-  },
-  "Cūkgaļas ribas": {
-    category: "Pork",
-    price: 1.5,
-    unit: "kg"
-  },
-  "Cūkgaļas maltā gaļa": {
-    category: "Pork",
-    price: 5.5,
-    unit: "kg"
-  }
-};
-
-const PRODUCT_PRICE_MAP = Object.fromEntries(
-  Object.entries(RAW_PRODUCT_PRICE_MAP).map(([name, data]) => [
-    normalizeProductName(name),
-    data
-  ])
-);
+const CART_STORAGE_KEY = "galasGrozsCartV2";
 
 document.addEventListener("DOMContentLoaded", () => {
   initDropdownNavigation();
@@ -169,7 +79,7 @@ function buildFormOrderMessage(formData) {
   const phone = getFormValue(formData, "phone");
   const email = getFormValue(formData, "email");
   const delivery = getFormValue(formData, "delivery");
-  const message = getFormValue(formData, "message") || getFormValue(formData, "products");
+  const note = getFormValue(formData, "message") || getFormValue(formData, "products");
   const cart = getCart();
 
   const cartText = cart.length > 0 ? buildCartMessageSection(cart) : "";
@@ -184,7 +94,7 @@ Phone / WhatsApp: ${phone || "Not provided"}
 Email: ${email || "Not provided"}
 
 Order:
-${cartText || message || "Not provided"}
+${cartText || note || "Not provided"}
 
 Pickup / delivery preference: ${delivery || "To be confirmed"}
 
@@ -200,15 +110,15 @@ function getFormValue(formData, key) {
 }
 
 function showFormMessage(form, whatsappUrl) {
-  let message = form.querySelector(".form-status");
+  let status = form.querySelector(".form-status");
 
-  if (!message) {
-    message = document.createElement("div");
-    message.className = "form-status";
-    form.appendChild(message);
+  if (!status) {
+    status = document.createElement("div");
+    status.className = "form-status";
+    form.appendChild(status);
   }
 
-  message.innerHTML = `
+  status.innerHTML = `
     <p>Your order request is ready.</p>
     <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">
       Send order on WhatsApp
@@ -289,8 +199,7 @@ function enhanceProductCards() {
 
     if (!titleElement || !button) return;
 
-    const productName = titleElement.textContent.trim();
-    const productData = getProductData(productName, card);
+    const productData = getProductDataFromCard(card, titleElement);
 
     if (!card.querySelector(".cart-product-price")) {
       const priceBadge = document.createElement("div");
@@ -313,45 +222,39 @@ function enhanceProductCards() {
 
     button.textContent = "Add to Cart";
     button.setAttribute("href", "#");
-    button.setAttribute("data-add-to-cart", productName);
 
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      addToCart(productName, card);
+      addToCart(productData);
       openCart();
     });
   });
 }
 
-function getProductData(productName, card) {
-  const normalizedName = normalizeProductName(productName);
-
-  if (PRODUCT_PRICE_MAP[normalizedName]) {
-    return PRODUCT_PRICE_MAP[normalizedName];
-  }
+function getProductDataFromCard(card, titleElement) {
+  const fallbackName = titleElement.textContent.trim();
+  const rawPrice = card.dataset.productPrice;
+  const parsedPrice = rawPrice !== undefined && rawPrice !== "" ? Number(rawPrice) : null;
 
   return {
-    category: detectProductCategory(card),
-    price: null,
-    unit: "kg"
+    id: card.dataset.productId || createProductId(card.dataset.productName || fallbackName),
+    name: card.dataset.productName || fallbackName,
+    category: card.dataset.productCategory || detectProductCategory(card),
+    price: Number.isFinite(parsedPrice) ? parsedPrice : null,
+    unit: card.dataset.productUnit || "kg"
   };
 }
 
 function detectProductCategory(card) {
-  const categorySection = card.closest(".catalog-category");
+  const section = card.closest(".catalog-category");
 
-  if (!categorySection) return "Product";
+  if (!section) return "Product";
 
-  const label = categorySection.querySelector(".section-label");
-  const heading = categorySection.querySelector("h2");
+  const label = section.querySelector(".section-label");
+  const heading = section.querySelector("h2");
 
-  if (label && label.textContent.trim()) {
-    return label.textContent.trim();
-  }
-
-  if (heading && heading.textContent.trim()) {
-    return heading.textContent.trim();
-  }
+  if (label && label.textContent.trim()) return label.textContent.trim();
+  if (heading && heading.textContent.trim()) return heading.textContent.trim();
 
   return "Product";
 }
@@ -403,19 +306,17 @@ function bindCartEvents() {
   });
 }
 
-function addToCart(productName, card) {
-  const productData = getProductData(productName, card);
+function addToCart(productData) {
   const cart = getCart();
-  const productId = createProductId(productName);
-  const existingItem = cart.find((item) => item.id === productId);
+  const existingItem = cart.find((item) => item.id === productData.id);
 
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
     cart.push({
-      id: productId,
-      name: productName,
-      category: productData.category || "Product",
+      id: productData.id,
+      name: productData.name,
+      category: productData.category,
       price: hasValidPrice(productData) ? productData.price : null,
       unit: productData.unit || "kg",
       quantity: 1
@@ -584,18 +485,12 @@ function buildWhatsappUrl(message) {
 
 function openCart() {
   const overlay = document.querySelector("[data-cart-overlay]");
-
-  if (overlay) {
-    overlay.classList.add("open");
-  }
+  if (overlay) overlay.classList.add("open");
 }
 
 function closeCart() {
   const overlay = document.querySelector("[data-cart-overlay]");
-
-  if (overlay) {
-    overlay.classList.remove("open");
-  }
+  if (overlay) overlay.classList.remove("open");
 }
 
 /* Helpers */
@@ -604,18 +499,12 @@ function hasValidPrice(productData) {
   return productData && typeof productData.price === "number" && !Number.isNaN(productData.price);
 }
 
-function normalizeProductName(productName) {
+function createProductId(productName) {
   return productName
+    .toString()
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[,\s]+/g, " ")
-    .replace(/\s*\/\s*/g, "/")
-    .trim();
-}
-
-function createProductId(productName) {
-  return normalizeProductName(productName)
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 }
