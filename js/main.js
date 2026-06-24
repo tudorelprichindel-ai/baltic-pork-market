@@ -1,7 +1,7 @@
 const WHATSAPP_NUMBER = "37129174626";
 const CART_STORAGE_KEY = "galasGrozsCart";
 
-const PRODUCT_PRICE_MAP = {
+const RAW_PRODUCT_PRICE_MAP = {
   "Cūkgaļas karbonāde bez ribas, bez ādas": {
     category: "Pork",
     price: 7.5,
@@ -84,11 +84,20 @@ const PRODUCT_PRICE_MAP = {
   }
 };
 
+const PRODUCT_PRICE_MAP = Object.fromEntries(
+  Object.entries(RAW_PRODUCT_PRICE_MAP).map(([name, data]) => [
+    normalizeProductName(name),
+    data
+  ])
+);
+
 document.addEventListener("DOMContentLoaded", () => {
   initDropdownNavigation();
   initForms();
   initCart();
 });
+
+/* Navigation */
 
 function initDropdownNavigation() {
   const dropdowns = document.querySelectorAll(".nav-dropdown");
@@ -136,6 +145,8 @@ function closeAllDropdowns() {
     }
   });
 }
+
+/* Forms */
 
 function initForms() {
   const forms = document.querySelectorAll("form");
@@ -204,6 +215,8 @@ function showFormMessage(form, whatsappUrl) {
     </a>
   `;
 }
+
+/* Cart */
 
 function initCart() {
   injectCartUi();
@@ -311,8 +324,10 @@ function enhanceProductCards() {
 }
 
 function getProductData(productName, card) {
-  if (PRODUCT_PRICE_MAP[productName]) {
-    return PRODUCT_PRICE_MAP[productName];
+  const normalizedName = normalizeProductName(productName);
+
+  if (PRODUCT_PRICE_MAP[normalizedName]) {
+    return PRODUCT_PRICE_MAP[normalizedName];
   }
 
   return {
@@ -400,7 +415,7 @@ function addToCart(productName, card) {
     cart.push({
       id: productId,
       name: productName,
-      category: productData.category,
+      category: productData.category || "Product",
       price: hasValidPrice(productData) ? productData.price : null,
       unit: productData.unit || "kg",
       quantity: 1
@@ -486,7 +501,11 @@ function renderCart() {
             <h3>${escapeHtml(item.name)}</h3>
             <p>
               ${escapeHtml(item.category || "Product")}
-              ${itemHasPrice ? ` · ${formatCurrency(item.price)} / ${escapeHtml(item.unit || "kg")}` : " · Price on request"}
+              ${
+                itemHasPrice
+                  ? ` · ${formatCurrency(item.price)} / ${escapeHtml(item.unit || "kg")}`
+                  : " · Price on request"
+              }
             </p>
             <strong>${itemHasPrice ? formatCurrency(itemTotal) : "Price on request"}</strong>
           </div>
@@ -565,23 +584,38 @@ function buildWhatsappUrl(message) {
 
 function openCart() {
   const overlay = document.querySelector("[data-cart-overlay]");
-  if (overlay) overlay.classList.add("open");
+
+  if (overlay) {
+    overlay.classList.add("open");
+  }
 }
 
 function closeCart() {
   const overlay = document.querySelector("[data-cart-overlay]");
-  if (overlay) overlay.classList.remove("open");
+
+  if (overlay) {
+    overlay.classList.remove("open");
+  }
 }
+
+/* Helpers */
 
 function hasValidPrice(productData) {
   return productData && typeof productData.price === "number" && !Number.isNaN(productData.price);
 }
 
-function createProductId(productName) {
+function normalizeProductName(productName) {
   return productName
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[,\s]+/g, " ")
+    .replace(/\s*\/\s*/g, "/")
+    .trim();
+}
+
+function createProductId(productName) {
+  return normalizeProductName(productName)
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 }
