@@ -3,92 +3,139 @@ const CART_STORAGE_KEY = "galasGrozsCart";
 
 const PRODUCT_PRICE_MAP = {
   "Cūkgaļas karbonāde bez ribas, bez ādas": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 7.5,
     unit: "kg"
   },
   "Cūkgaļas karbonāde ar speķi un ādu": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 6.5,
     unit: "kg"
   },
   "Cūkgaļas kakla karbonāde": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 7.5,
     unit: "kg"
   },
   "Cūkgaļas fileja": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 8.5,
     unit: "kg"
   },
   "Cūkgaļas gurna gabals bez ādas": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 6.5,
     unit: "kg"
   },
   "Cūkgaļas gurna gabals ar ādu": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 6.0,
     unit: "kg"
   },
   "Cūkgaļas šķiņķis bez kaula ar ādu": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 5.5,
     unit: "kg"
   },
   "Cūkgaļas šķiņķis bez kaula, bez ādas": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 5.7,
     unit: "kg"
   },
   "Cūkgaļas krūtiņa ar ribu": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 6.5,
     unit: "kg"
   },
   "Cūkgaļas pavēdere": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 5.8,
     unit: "kg"
   },
   "Cūkgaļas ribas ar ādu, ar treknumu": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 7.0,
     unit: "kg"
   },
   "Cūkgaļas plecs/lāpstiņa ar kaulu, ar ādu": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 4.8,
     unit: "kg"
   },
   "Cūkgaļas plecs bez kaula, bez ādas": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 5.5,
     unit: "kg"
   },
   "Cūkgaļas stilbi": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 2.5,
     unit: "kg"
   },
   "Cūkgaļas ribas": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 1.5,
     unit: "kg"
   },
   "Cūkgaļas maltā gaļa": {
-    category: "Cūkgaļa",
+    category: "Pork",
     price: 5.5,
     unit: "kg"
   }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  initForms();
   initDropdownNavigation();
+  initForms();
   initCart();
 });
+
+function initDropdownNavigation() {
+  const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+  dropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+
+    if (!toggle) return;
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      const isOpen = dropdown.classList.contains("open");
+      closeAllDropdowns();
+
+      if (!isOpen) {
+        dropdown.classList.add("open");
+        toggle.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    dropdown.querySelectorAll(".nav-dropdown-menu a").forEach((link) => {
+      link.addEventListener("click", closeAllDropdowns);
+    });
+  });
+
+  document.addEventListener("click", closeAllDropdowns);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeAllDropdowns();
+      closeCart();
+    }
+  });
+}
+
+function closeAllDropdowns() {
+  document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+
+    dropdown.classList.remove("open");
+
+    if (toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
 
 function initForms() {
   const forms = document.querySelectorAll("form");
@@ -98,7 +145,7 @@ function initForms() {
       event.preventDefault();
 
       const formData = new FormData(form);
-      const message = buildOrderMessage(formData);
+      const message = buildFormOrderMessage(formData);
       const whatsappUrl = buildWhatsappUrl(message);
 
       showFormMessage(form, whatsappUrl);
@@ -106,37 +153,37 @@ function initForms() {
   });
 }
 
-function buildOrderMessage(formData) {
-  const name = getValue(formData, "name");
-  const phone = getValue(formData, "phone");
-  const email = getValue(formData, "email");
-  const delivery = getValue(formData, "delivery");
-  const message = getValue(formData, "message");
+function buildFormOrderMessage(formData) {
+  const name = getFormValue(formData, "name");
+  const phone = getFormValue(formData, "phone");
+  const email = getFormValue(formData, "email");
+  const delivery = getFormValue(formData, "delivery");
+  const message = getFormValue(formData, "message") || getFormValue(formData, "products");
   const cart = getCart();
 
   const cartText = cart.length > 0 ? buildCartMessageSection(cart) : "";
 
   return `
-Labdien, Gaļas grozs!
+Hello Gaļas grozs,
 
-Vēlos veikt pasūtījuma pieprasījumu.
+I would like to place an order request.
 
-Vārds: ${name || "Nav norādīts"}
-Telefons / WhatsApp: ${phone || "Nav norādīts"}
-E-pasts: ${email || "Nav norādīts"}
+Name: ${name || "Not provided"}
+Phone / WhatsApp: ${phone || "Not provided"}
+Email: ${email || "Not provided"}
 
-Pasūtījums:
-${cartText || message || "Nav norādīts"}
+Order:
+${cartText || message || "Not provided"}
 
-Saņemšana / piegāde: ${delivery || "Jāprecizē"}
+Pickup / delivery preference: ${delivery || "To be confirmed"}
 
-Lūdzu, apstipriniet pieejamību, gala svaru, gala cenu un saņemšanas vai piegādes iespējas.
+Please confirm availability, final weight, final price and pickup or delivery options.
 
-Paldies!
+Thank you.
   `.trim();
 }
 
-function getValue(formData, key) {
+function getFormValue(formData, key) {
   const value = formData.get(key);
   return value ? value.toString().trim() : "";
 }
@@ -151,67 +198,11 @@ function showFormMessage(form, whatsappUrl) {
   }
 
   message.innerHTML = `
-    <p>Pasūtījuma pieprasījums ir sagatavots.</p>
+    <p>Your order request is ready.</p>
     <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">
-      Nosūtīt WhatsApp
+      Send order on WhatsApp
     </a>
   `;
-}
-
-function initDropdownNavigation() {
-  const dropdowns = document.querySelectorAll(".nav-dropdown");
-
-  dropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
-
-    if (!toggle) return;
-
-    toggle.addEventListener("click", (event) => {
-      event.stopPropagation();
-
-      const isOpen = dropdown.classList.contains("open");
-
-      closeAllDropdowns();
-
-      if (!isOpen) {
-        dropdown.classList.add("open");
-        toggle.setAttribute("aria-expanded", "true");
-      }
-    });
-
-    const links = dropdown.querySelectorAll(".nav-dropdown-menu a");
-
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        closeAllDropdowns();
-      });
-    });
-  });
-
-  document.addEventListener("click", () => {
-    closeAllDropdowns();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeAllDropdowns();
-      closeCart();
-    }
-  });
-}
-
-function closeAllDropdowns() {
-  const dropdowns = document.querySelectorAll(".nav-dropdown");
-
-  dropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
-
-    dropdown.classList.remove("open");
-
-    if (toggle) {
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
 }
 
 function initCart() {
@@ -229,7 +220,7 @@ function injectCartUi() {
   cartButton.type = "button";
   cartButton.setAttribute("data-cart-open", "");
   cartButton.innerHTML = `
-    <span>Grozs</span>
+    <span>Cart</span>
     <strong data-cart-count>0</strong>
   `;
 
@@ -237,14 +228,14 @@ function injectCartUi() {
   cartOverlay.className = "cart-overlay";
   cartOverlay.setAttribute("data-cart-overlay", "");
   cartOverlay.innerHTML = `
-    <aside class="cart-drawer" aria-label="Pirkumu grozs">
+    <aside class="cart-drawer" aria-label="Shopping cart">
       <div class="cart-header">
         <div>
-          <p class="cart-kicker">Pasūtījums</p>
-          <h2>Jūsu grozs</h2>
+          <p class="cart-kicker">Order request</p>
+          <h2>Your cart</h2>
         </div>
 
-        <button class="cart-close" type="button" data-cart-close aria-label="Aizvērt grozu">
+        <button class="cart-close" type="button" data-cart-close aria-label="Close cart">
           ×
         </button>
       </div>
@@ -253,20 +244,20 @@ function injectCartUi() {
 
       <div class="cart-footer">
         <div class="cart-summary-line">
-          <span>Aptuvenā summa</span>
-          <strong data-cart-total>0,00 €</strong>
+          <span>Estimated total</span>
+          <strong data-cart-total>€0.00</strong>
         </div>
 
         <p class="cart-note">
-          Cenas ir informatīvas. Gala svars, pieejamība un gala cena tiek apstiprināta manuāli.
+          Prices are informative. Final availability, weight and price are confirmed manually.
         </p>
 
         <button class="cart-request-btn" type="button" data-cart-request>
-          Nosūtīt pieprasījumu WhatsApp
+          Send order on WhatsApp
         </button>
 
         <button class="cart-clear-btn" type="button" data-cart-clear>
-          Iztīrīt grozu
+          Clear cart
         </button>
       </div>
     </aside>
@@ -286,38 +277,75 @@ function enhanceProductCards() {
     if (!titleElement || !button) return;
 
     const productName = titleElement.textContent.trim();
-    const productData = PRODUCT_PRICE_MAP[productName];
-
-    if (!productData) return;
+    const productData = getProductData(productName, card);
 
     if (!card.querySelector(".cart-product-price")) {
       const priceBadge = document.createElement("div");
       priceBadge.className = "cart-product-price";
-      priceBadge.innerHTML = `
-        <span>Cena</span>
-        <strong>${formatCurrency(productData.price)} / ${productData.unit}</strong>
-      `;
+
+      if (hasValidPrice(productData)) {
+        priceBadge.innerHTML = `
+          <span>Price</span>
+          <strong>${formatCurrency(productData.price)} / ${productData.unit}</strong>
+        `;
+      } else {
+        priceBadge.innerHTML = `
+          <span>Price</span>
+          <strong>On request</strong>
+        `;
+      }
 
       titleElement.insertAdjacentElement("afterend", priceBadge);
     }
 
-    button.textContent = "Pievienot grozam";
+    button.textContent = "Add to Cart";
     button.setAttribute("href", "#");
     button.setAttribute("data-add-to-cart", productName);
 
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      addToCart(productName);
+      addToCart(productName, card);
       openCart();
     });
   });
+}
+
+function getProductData(productName, card) {
+  if (PRODUCT_PRICE_MAP[productName]) {
+    return PRODUCT_PRICE_MAP[productName];
+  }
+
+  return {
+    category: detectProductCategory(card),
+    price: null,
+    unit: "kg"
+  };
+}
+
+function detectProductCategory(card) {
+  const categorySection = card.closest(".catalog-category");
+
+  if (!categorySection) return "Product";
+
+  const label = categorySection.querySelector(".section-label");
+  const heading = categorySection.querySelector("h2");
+
+  if (label && label.textContent.trim()) {
+    return label.textContent.trim();
+  }
+
+  if (heading && heading.textContent.trim()) {
+    return heading.textContent.trim();
+  }
+
+  return "Product";
 }
 
 function bindCartEvents() {
   document.addEventListener("click", (event) => {
     const openButton = event.target.closest("[data-cart-open]");
     const closeButton = event.target.closest("[data-cart-close]");
-    const overlay = event.target.matches("[data-cart-overlay]");
+    const clickedOverlay = event.target.matches("[data-cart-overlay]");
     const increaseButton = event.target.closest("[data-cart-increase]");
     const decreaseButton = event.target.closest("[data-cart-decrease]");
     const removeButton = event.target.closest("[data-cart-remove]");
@@ -329,7 +357,7 @@ function bindCartEvents() {
       return;
     }
 
-    if (closeButton || overlay) {
+    if (closeButton || clickedOverlay) {
       closeCart();
       return;
     }
@@ -360,11 +388,8 @@ function bindCartEvents() {
   });
 }
 
-function addToCart(productName) {
-  const productData = PRODUCT_PRICE_MAP[productName];
-
-  if (!productData) return;
-
+function addToCart(productName, card) {
+  const productData = getProductData(productName, card);
   const cart = getCart();
   const productId = createProductId(productName);
   const existingItem = cart.find((item) => item.id === productId);
@@ -376,8 +401,8 @@ function addToCart(productName) {
       id: productId,
       name: productName,
       category: productData.category,
-      price: productData.price,
-      unit: productData.unit,
+      price: hasValidPrice(productData) ? productData.price : null,
+      unit: productData.unit || "kg",
       quantity: 1
     });
   }
@@ -395,8 +420,7 @@ function updateCartQuantity(productId, change) {
   item.quantity += change;
 
   if (item.quantity <= 0) {
-    const filteredCart = cart.filter((cartItem) => cartItem.id !== productId);
-    saveCart(filteredCart);
+    saveCart(cart.filter((cartItem) => cartItem.id !== productId));
   } else {
     saveCart(cart);
   }
@@ -405,8 +429,7 @@ function updateCartQuantity(productId, change) {
 }
 
 function removeFromCart(productId) {
-  const cart = getCart().filter((item) => item.id !== productId);
-  saveCart(cart);
+  saveCart(getCart().filter((item) => item.id !== productId));
   renderCart();
 }
 
@@ -445,8 +468,8 @@ function renderCart() {
   if (cart.length === 0) {
     cartItems.innerHTML = `
       <div class="cart-empty">
-        <p>Grozs ir tukšs.</p>
-        <span>Pievienojiet produktus no kataloga, lai sagatavotu pasūtījumu.</span>
+        <p>Your cart is empty.</p>
+        <span>Add products from the catalogue to prepare an order request.</span>
       </div>
     `;
     return;
@@ -454,24 +477,28 @@ function renderCart() {
 
   cartItems.innerHTML = cart
     .map((item) => {
-      const itemTotal = item.price * item.quantity;
+      const itemHasPrice = typeof item.price === "number" && !Number.isNaN(item.price);
+      const itemTotal = itemHasPrice ? item.price * item.quantity : null;
 
       return `
         <article class="cart-item">
           <div class="cart-item-main">
             <h3>${escapeHtml(item.name)}</h3>
-            <p>${escapeHtml(item.category)} · ${formatCurrency(item.price)} / ${escapeHtml(item.unit)}</p>
-            <strong>${formatCurrency(itemTotal)}</strong>
+            <p>
+              ${escapeHtml(item.category || "Product")}
+              ${itemHasPrice ? ` · ${formatCurrency(item.price)} / ${escapeHtml(item.unit || "kg")}` : " · Price on request"}
+            </p>
+            <strong>${itemHasPrice ? formatCurrency(itemTotal) : "Price on request"}</strong>
           </div>
 
           <div class="cart-item-controls">
             <button type="button" data-cart-decrease="${escapeHtml(item.id)}">−</button>
-            <span>${item.quantity} ${escapeHtml(item.unit)}</span>
+            <span>${item.quantity} ${escapeHtml(item.unit || "kg")}</span>
             <button type="button" data-cart-increase="${escapeHtml(item.id)}">+</button>
           </div>
 
           <button class="cart-remove" type="button" data-cart-remove="${escapeHtml(item.id)}">
-            Noņemt
+            Remove
           </button>
         </article>
       `;
@@ -480,7 +507,13 @@ function renderCart() {
 }
 
 function calculateCartTotal(cart) {
-  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  return cart.reduce((sum, item) => {
+    if (typeof item.price !== "number" || Number.isNaN(item.price)) {
+      return sum;
+    }
+
+    return sum + item.price * item.quantity;
+  }, 0);
 }
 
 function requestCartOrder() {
@@ -492,19 +525,19 @@ function requestCartOrder() {
   }
 
   const message = `
-Labdien, Gaļas grozs!
+Hello Gaļas grozs,
 
-Vēlos veikt pasūtījuma pieprasījumu:
+I would like to place an order request:
 
 ${buildCartMessageSection(cart)}
 
-Aptuvenā summa: ${formatCurrency(calculateCartTotal(cart))}
+Estimated total for priced products: ${formatCurrency(calculateCartTotal(cart))}
 
-Saprotu, ka cenas ir informatīvas un gala pieejamība, gala svars un gala cena tiek apstiprināta manuāli.
+I understand that prices are informative and that final availability, final weight and final price must be confirmed manually.
 
-Lūdzu, apstipriniet saņemšanas vai piegādes iespējas.
+Please confirm pickup or delivery options.
 
-Paldies!
+Thank you.
   `.trim();
 
   window.open(buildWhatsappUrl(message), "_blank", "noopener,noreferrer");
@@ -513,9 +546,15 @@ Paldies!
 function buildCartMessageSection(cart) {
   return cart
     .map((item, index) => {
+      const itemHasPrice = typeof item.price === "number" && !Number.isNaN(item.price);
+
+      if (!itemHasPrice) {
+        return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit || "kg"} — price on request`;
+      }
+
       const itemTotal = item.price * item.quantity;
 
-      return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit} × ${formatCurrency(item.price)} / ${item.unit} = aptuveni ${formatCurrency(itemTotal)}`;
+      return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit || "kg"} × ${formatCurrency(item.price)} / ${item.unit || "kg"} = approx. ${formatCurrency(itemTotal)}`;
     })
     .join("\n");
 }
@@ -534,6 +573,10 @@ function closeCart() {
   if (overlay) overlay.classList.remove("open");
 }
 
+function hasValidPrice(productData) {
+  return productData && typeof productData.price === "number" && !Number.isNaN(productData.price);
+}
+
 function createProductId(productName) {
   return productName
     .toLowerCase()
@@ -544,7 +587,7 @@ function createProductId(productName) {
 }
 
 function formatCurrency(value) {
-  return new Intl.NumberFormat("lv-LV", {
+  return new Intl.NumberFormat("en-LV", {
     style: "currency",
     currency: "EUR"
   }).format(value);
