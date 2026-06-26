@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Contact | Baltic Meat Market</title>
+  <title>Contact | Gaļas grozs</title>
 
   <meta
     name="description"
-    content="Contact Baltic Meat Market in Latvia to request pork, beef, lamb, chicken, BBQ products, smoked products and meat boxes."
+    content="Contact Gaļas grozs on WhatsApp for fresh meat order requests in Latvia, product availability, pickup, delivery and payment confirmation."
   />
 
   <link rel="stylesheet" href="css/styles.css" />
@@ -17,171 +17,275 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="Baltic Meat Market home">
-        <span class="logo-mark">BMM</span>
-        <span class="logo-text">Baltic Meat Market</span>
+      <a class="brand" href="index.html" aria-label="Gaļas grozs home">
+        <span class="brand-icon">🛒</span>
+        <span class="brand-text">
+          <strong>Gaļas grozs</strong>
+          <small>Fresh meat orders in Latvia</small>
+        </span>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-            Products
-            <span aria-hidden="true">▾</span>
-          </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-          <div class="nav-dropdown-menu">
-            <a href="products.html">All Products</a>
-            <a href="products.html#pork">Pork</a>
-            <a href="products.html#beef">Beef</a>
-            <a href="products.html#lamb">Lamb</a>
-            <a href="products.html#chicken">Chicken</a>
-            <a href="products.html#bbq">BBQ & Grill</a>
-            <a href="products.html#smoked">Smoked Products</a>
-            <a href="products.html#boxes">Meat Boxes</a>
-          </div>
-        </div>
-
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
         <a href="how-to-order.html">How to Order</a>
         <a href="quality.html">Quality</a>
         <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="active">Contact</a>
       </nav>
 
-      <div class="language-switcher" aria-label="Language switcher">
-        <a href="index.html" class="active">EN</a>
-        <a href="#" title="Latvian version coming soon">LV</a>
-        <a href="#" title="Russian version coming soon">RU</a>
-      </div>
+      <a class="header-cta" href="https://wa.me/37129174626" target="_blank" rel="noopener">
+        WhatsApp
+      </a>
     </div>
   </header>
 
   <main>
-    <section class="page-hero contact-page-hero">
+    <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Contact & order request</p>
-        <h1>Send your meat order request.</h1>
+        <p class="section-label">Contact</p>
+
+        <h1>Contact Gaļas grozs on WhatsApp</h1>
+
         <p>
-          Request pork, beef, lamb, chicken, BBQ products, smoked products or meat boxes.
-          Availability, final weight, price, pickup and local delivery details are confirmed manually.
+          Ask about products, availability, pickup, delivery or payment preferences.
+          You can also build your cart first and send a structured order request directly on WhatsApp.
         </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/37129174626" target="_blank" rel="noopener">
+            Message on WhatsApp
+          </a>
+
+          <a class="btn btn-secondary" href="products.html">
+            Browse products
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="section contact-section">
-      <div class="container contact-grid">
+    <section class="catalog-intro">
+      <div class="container">
+        <div class="notice-box">
+          <strong>Important:</strong>
+          Prices are indicative. Final product availability, exact weight and total price are confirmed manually before payment.
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="container trust-inner">
         <div>
-          <p class="section-label">Order request</p>
-          <h2>Contact Baltic Meat Market</h2>
+          <p class="section-label">Main contact</p>
+          <h2>WhatsApp is the fastest way to confirm an order</h2>
+
           <p>
-            Send your product list and approximate quantity. We will confirm what is available,
-            the final weight, final price and the pickup or local delivery option.
+            The website prepares a clear order request, but final confirmation happens directly with the seller.
+            This is useful for products sold by exact weight, where availability and final total must be checked manually.
           </p>
-
-          <div class="contact-details">
-            <p><strong>Phone:</strong> +371 XX XXX XXX</p>
-            <p><strong>WhatsApp:</strong> +371 XX XXX XXX</p>
-            <p><strong>Email:</strong> orders@example.com</p>
-            <p><strong>Location:</strong> Latvia</p>
-          </div>
-
-          <div class="contact-details">
-            <p><strong>Product categories:</strong></p>
-            <p>Pork · Beef · Lamb · Chicken · BBQ & Grill · Smoked Products · Meat Boxes</p>
-          </div>
         </div>
 
-        <form class="contact-form">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" />
+        <div class="trust-list">
+          <div>
+            <strong>WhatsApp</strong>
+            <span>
+              <a href="https://wa.me/37129174626" target="_blank" rel="noopener">+371 29174626</a>
+            </span>
+          </div>
 
-          <label for="phone">Phone or WhatsApp</label>
-          <input type="text" id="phone" name="phone" placeholder="+371..." />
+          <div>
+            <strong>Order confirmation</strong>
+            <span>Availability, final weight and total price are confirmed manually.</span>
+          </div>
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" />
-
-          <label for="message">Order request</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="6"
-            placeholder="Example: 2 kg pork neck, 1 kg minced beef, 1 kg lamb chops, 2 kg chicken breast..."
-          ></textarea>
-
-          <label for="delivery">Pickup or delivery preference</label>
-          <select id="delivery" name="delivery">
-            <option value="">Choose an option</option>
-            <option value="pickup">Pickup</option>
-            <option value="delivery">Local delivery</option>
-            <option value="not-sure">Not sure yet</option>
-          </select>
-
-          <button type="submit" class="btn btn-primary">Prepare WhatsApp Request</button>
-
-          <p class="form-note">
-            This form prepares a WhatsApp message. Final availability, weight and price are confirmed manually.
-          </p>
-        </form>
+          <div>
+            <strong>Pickup / Delivery</strong>
+            <span>Customer preference is included in the cart request and confirmed on WhatsApp.</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section dark-section">
+    <section class="how-section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label">Before sending</p>
-          <h2>Include the details that matter.</h2>
+          <p class="section-label">What to include</p>
+          <h2>Useful details for faster confirmation</h2>
+
           <p>
-            A clear request helps confirm your order faster.
+            If you message directly without using the cart, include the product names, approximate quantity,
+            pickup or delivery preference and preferred payment method.
           </p>
         </div>
 
-        <div class="process-grid">
-          <article class="process-card">
-            <span>01</span>
-            <h3>Product names</h3>
-            <p>Example: pork neck, beef ribs, lamb chops, chicken breast or BBQ box.</p>
+        <div class="steps-grid">
+          <article class="step-card">
+            <strong>01</strong>
+            <h3>Products</h3>
+            <p>
+              Write which products you want: pork, beef, chicken, BBQ & Grill products or meat boxes.
+            </p>
           </article>
 
-          <article class="process-card">
-            <span>02</span>
-            <h3>Approximate quantity</h3>
-            <p>Example: 2 kg, 5 kg, one box, or enough for a family order.</p>
+          <article class="step-card">
+            <strong>02</strong>
+            <h3>Quantity</h3>
+            <p>
+              Mention the approximate quantity you want. Final exact weight is confirmed manually.
+            </p>
           </article>
 
-          <article class="process-card">
-            <span>03</span>
-            <h3>Contact details</h3>
-            <p>Add your name, phone number and WhatsApp if available.</p>
-          </article>
-
-          <article class="process-card">
-            <span>04</span>
+          <article class="step-card">
+            <strong>03</strong>
             <h3>Pickup or delivery</h3>
-            <p>Tell us if you prefer pickup, local delivery or if you are not sure yet.</p>
+            <p>
+              Tell whether you prefer pickup, delivery or if the option should be confirmed later.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <strong>04</strong>
+            <h3>Payment preference</h3>
+            <p>
+              Mention whether you prefer cash, bank transfer, online payment link if available, or confirmation later.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section contact-section">
-      <div class="container final-cta">
-        <p class="section-label">Products</p>
-        <h2>Need to check the catalogue first?</h2>
-        <p>
-          Browse the available product categories before sending your request.
-        </p>
-        <a href="products.html" class="btn btn-primary">View Products</a>
+    <section class="category-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Order faster</p>
+          <h2>Use the cart for a clearer request</h2>
+
+          <p>
+            The easiest way is to add products to cart. The website automatically creates a structured WhatsApp message.
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-card" href="products.html#pork">
+            <span>🥩</span>
+            <h3>Pork</h3>
+            <p>Browse pork cuts from the client price list.</p>
+          </a>
+
+          <a class="category-card" href="products.html#beef">
+            <span>🥩</span>
+            <h3>Beef</h3>
+            <p>Choose beef products with indicative Latvia market prices.</p>
+          </a>
+
+          <a class="category-card" href="products.html#chicken">
+            <span>🍗</span>
+            <h3>Chicken</h3>
+            <p>Browse chicken products for family meals and daily cooking.</p>
+          </a>
+
+          <a class="category-card" href="products.html#bbq">
+            <span>🔥</span>
+            <h3>BBQ & Grill</h3>
+            <p>Choose grill-ready products for weekends and gatherings.</p>
+          </a>
+
+          <a class="category-card" href="products.html#boxes">
+            <span>📦</span>
+            <h3>Meat Boxes</h3>
+            <p>Browse indicative box selections for practical ordering.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="container trust-inner">
+        <div>
+          <p class="section-label">Before payment</p>
+          <h2>Final details are confirmed first</h2>
+
+          <p>
+            Payment details are arranged only after the seller confirms product availability,
+            exact weight, final total and pickup or delivery details.
+          </p>
+        </div>
+
+        <div class="trust-list">
+          <div>
+            <strong>Cash</strong>
+            <span>Can be selected as preferred payment method in the cart.</span>
+          </div>
+
+          <div>
+            <strong>Bank transfer</strong>
+            <span>Payment details can be provided after final order confirmation.</span>
+          </div>
+
+          <div>
+            <strong>Online payment link</strong>
+            <span>Can be requested if available and confirmed by the seller.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-cta">
+      <div class="container order-cta-inner">
+        <div>
+          <p class="section-label">Ready to continue?</p>
+          <h2>Build your cart and send the request on WhatsApp</h2>
+
+          <p>
+            Add products, choose pickup or delivery preference, select payment preference
+            and confirm the final order details with the seller.
+          </p>
+        </div>
+
+        <a class="btn btn-primary" href="products.html">
+          Browse products
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Gaļas grozs. All rights reserved.</p>
-      <p>English version active. Latvian and Russian coming soon.</p>
+      <div>
+        <a class="brand footer-brand" href="index.html" aria-label="Gaļas grozs home">
+          <span class="brand-icon">🛒</span>
+          <span class="brand-text">
+            <strong>Gaļas grozs</strong>
+            <small>Fresh meat orders in Latvia</small>
+          </span>
+        </a>
+
+        <p>
+          Order request website for fresh meat products. Final availability, exact weight and total price are confirmed manually.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="products.html">Products</a>
+        <a href="how-to-order.html">How to Order</a>
+        <a href="quality.html">Quality</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-contact">
+        <strong>WhatsApp</strong>
+        <a href="https://wa.me/37129174626" target="_blank" rel="noopener">+371 29174626</a>
+      </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=21"></script>
+  <script src="js/main.js?v=22"></script>
 </body>
 </html>
