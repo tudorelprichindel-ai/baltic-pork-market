@@ -1,438 +1,96 @@
+"use strict";
+
 const WHATSAPP_NUMBER = "37129174626";
 const CART_STORAGE_KEY = "galasGrozsCartV2";
 const DELIVERY_STORAGE_KEY = "galasGrozsDeliveryPreferenceV1";
+const PAYMENT_STORAGE_KEY = "galasGrozsPaymentPreferenceV1";
+
+const CURRENCY = "€";
+
+const DEFAULT_DELIVERY = {
+  method: "to-be-confirmed",
+  details: ""
+};
+
+const DEFAULT_PAYMENT = {
+  method: "to-be-confirmed"
+};
+
+const DELIVERY_LABELS = {
+  pickup: "Pickup",
+  delivery: "Delivery",
+  "to-be-confirmed": "To be confirmed"
+};
+
+const PAYMENT_LABELS = {
+  cash: "Cash",
+  "bank-transfer": "Bank transfer",
+  "payment-link": "Online payment link if available",
+  "to-be-confirmed": "To be confirmed"
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-  initDropdownNavigation();
-  initForms();
-  initCart();
+  initMobileNavigation();
+  initSmoothLinks();
+  initCartSystem();
 });
 
-/* Navigation */
+function initMobileNavigation() {
+  const navToggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".site-nav");
 
-function initDropdownNavigation() {
-  const dropdowns = document.querySelectorAll(".nav-dropdown");
+  if (!navToggle || !nav) return;
 
-  dropdowns.forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
-
-    if (!toggle) return;
-
-    toggle.addEventListener("click", (event) => {
-      event.stopPropagation();
-
-      const isOpen = dropdown.classList.contains("open");
-      closeAllDropdowns();
-
-      if (!isOpen) {
-        dropdown.classList.add("open");
-        toggle.setAttribute("aria-expanded", "true");
-      }
-    });
-
-    dropdown.querySelectorAll(".nav-dropdown-menu a").forEach((link) => {
-      link.addEventListener("click", closeAllDropdowns);
-    });
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    navToggle.classList.toggle("open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    document.body.classList.toggle("nav-open", isOpen);
   });
 
-  document.addEventListener("click", closeAllDropdowns);
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeAllDropdowns();
-      closeCart();
-    }
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      navToggle.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("nav-open");
+    });
   });
 }
 
-function closeAllDropdowns() {
-  document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
-    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+function initSmoothLinks() {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
 
-    dropdown.classList.remove("open");
+      if (!href || href === "#") return;
 
-    if (toggle) {
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
-}
+      const target = document.querySelector(href);
 
-/* Forms */
+      if (!target) return;
 
-function initForms() {
-  const forms = document.querySelectorAll("form");
-
-  forms.forEach((form) => {
-    form.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const formData = new FormData(form);
-      const message = buildFormOrderMessage(formData);
-      const whatsappUrl = buildWhatsappUrl(message);
-
-      showFormMessage(form, whatsappUrl);
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     });
   });
 }
 
-function buildFormOrderMessage(formData) {
-  const name = getFormValue(formData, "name");
-  const phone = getFormValue(formData, "phone");
-  const email = getFormValue(formData, "email");
-  const formDelivery = getFormValue(formData, "delivery");
-  const note = getFormValue(formData, "message") || getFormValue(formData, "products");
-  const cart = getCart();
-  const deliveryPreference = getDeliveryPreference();
-
-  const cartText = cart.length > 0 ? buildCartMessageSection(cart) : "";
-  const deliveryText = formDelivery || getDeliveryPreferenceText(deliveryPreference.type);
-  const deliveryDetails = deliveryPreference.details || "Not provided";
-
-  return `
-Hello Gaļas grozs,
-
-I would like to place an order request.
-
-Name: ${name || "Not provided"}
-Phone / WhatsApp: ${phone || "Not provided"}
-Email: ${email || "Not provided"}
-
-Order:
-${cartText || note || "Not provided"}
-
-Customer preference: ${deliveryText}
-Delivery address / details: ${deliveryDetails}
-
-Please confirm availability, final weight, final price and pickup or delivery options.
-
-Thank you.
-  `.trim();
-}
-
-function getFormValue(formData, key) {
-  const value = formData.get(key);
-  return value ? value.toString().trim() : "";
-}
-
-function showFormMessage(form, whatsappUrl) {
-  let status = form.querySelector(".form-status");
-
-  if (!status) {
-    status = document.createElement("div");
-    status.className = "form-status";
-    form.appendChild(status);
-  }
-
-  status.innerHTML = `
-    <p>Your order request is ready.</p>
-    <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">
-      Send order on WhatsApp
-    </a>
-  `;
-}
-
-/* Cart */
-
-function initCart() {
+function initCartSystem() {
   injectCartUi();
-  enhanceProductCards();
-  renderCart();
-  renderDeliveryPreference();
-  bindCartEvents();
-}
-
-function injectCartUi() {
-  if (document.querySelector("[data-cart-overlay]")) return;
-
-  const cartButton = document.createElement("button");
-  cartButton.className = "floating-cart-button";
-  cartButton.type = "button";
-  cartButton.setAttribute("data-cart-open", "");
-  cartButton.innerHTML = `
-    <span>Cart</span>
-    <strong data-cart-count>0</strong>
-  `;
-
-  const cartOverlay = document.createElement("div");
-  cartOverlay.className = "cart-overlay";
-  cartOverlay.setAttribute("data-cart-overlay", "");
-  cartOverlay.innerHTML = `
-    <aside class="cart-drawer" aria-label="Shopping cart">
-      <div class="cart-header">
-        <div>
-          <p class="cart-kicker">Order request</p>
-          <h2>Your cart</h2>
-        </div>
-
-        <button class="cart-close" type="button" data-cart-close aria-label="Close cart">
-          ×
-        </button>
-      </div>
-
-      <div class="cart-items" data-cart-items></div>
-
-      <div class="cart-footer">
-        <div class="cart-delivery-section">
-          <h3>Pickup or delivery?</h3>
-
-          <div class="cart-delivery-options">
-            <label class="cart-delivery-option">
-              <input type="radio" name="cart-delivery-preference" value="pickup" data-cart-delivery-preference />
-              <span>
-                <strong>Pickup</strong>
-                <small>I want to pick up the order.</small>
-              </span>
-            </label>
-
-            <label class="cart-delivery-option">
-              <input type="radio" name="cart-delivery-preference" value="delivery" data-cart-delivery-preference />
-              <span>
-                <strong>Delivery</strong>
-                <small>I want delivery, if available.</small>
-              </span>
-            </label>
-
-            <label class="cart-delivery-option">
-              <input type="radio" name="cart-delivery-preference" value="to-be-confirmed" data-cart-delivery-preference />
-              <span>
-                <strong>To be confirmed</strong>
-                <small>I want to discuss the best option.</small>
-              </span>
-            </label>
-          </div>
-
-          <div class="cart-delivery-details" data-cart-delivery-details-wrap>
-            <label for="cart-delivery-address">Delivery address / area / notes</label>
-            <textarea
-              id="cart-delivery-address"
-              rows="3"
-              placeholder="Example: Riga, street name, preferred delivery time..."
-              data-cart-delivery-address
-            ></textarea>
-          </div>
-        </div>
-
-        <div class="cart-summary-line">
-          <span>Estimated total</span>
-          <strong data-cart-total>€0.00</strong>
-        </div>
-
-        <p class="cart-note">
-          Prices are informative. Final availability, weight and price are confirmed manually.
-        </p>
-
-        <button class="cart-request-btn" type="button" data-cart-request>
-          Send order on WhatsApp
-        </button>
-
-        <button class="cart-clear-btn" type="button" data-cart-clear>
-          Clear cart
-        </button>
-      </div>
-    </aside>
-  `;
-
-  document.body.appendChild(cartButton);
-  document.body.appendChild(cartOverlay);
-}
-
-function enhanceProductCards() {
-  const productCards = document.querySelectorAll(".catalog-product");
-
-  productCards.forEach((card) => {
-    const titleElement = card.querySelector("h3");
-    const button = card.querySelector(".catalog-btn");
-
-    if (!titleElement || !button) return;
-
-    const productData = getProductDataFromCard(card, titleElement);
-
-    if (!card.querySelector(".cart-product-price")) {
-      const priceBadge = document.createElement("div");
-      priceBadge.className = "cart-product-price";
-
-      if (hasValidPrice(productData)) {
-        priceBadge.innerHTML = `
-          <span>Price</span>
-          <strong>${formatCurrency(productData.price)} / ${productData.unit}</strong>
-        `;
-      } else {
-        priceBadge.innerHTML = `
-          <span>Price</span>
-          <strong>On request</strong>
-        `;
-      }
-
-      titleElement.insertAdjacentElement("afterend", priceBadge);
-    }
-
-    button.textContent = "Add to Cart";
-    button.setAttribute("href", "#");
-
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      addToCart(productData);
-      openCart();
-    });
-  });
-}
-
-function getProductDataFromCard(card, titleElement) {
-  const fallbackName = titleElement.textContent.trim();
-  const rawPrice = card.dataset.productPrice;
-  const parsedPrice = rawPrice !== undefined && rawPrice !== "" ? Number(rawPrice) : null;
-
-  return {
-    id: card.dataset.productId || createProductId(card.dataset.productName || fallbackName),
-    name: card.dataset.productName || fallbackName,
-    category: card.dataset.productCategory || detectProductCategory(card),
-    price: Number.isFinite(parsedPrice) ? parsedPrice : null,
-    unit: card.dataset.productUnit || "kg"
-  };
-}
-
-function detectProductCategory(card) {
-  const section = card.closest(".catalog-category");
-
-  if (!section) return "Product";
-
-  const label = section.querySelector(".section-label");
-  const heading = section.querySelector("h2");
-
-  if (label && label.textContent.trim()) return label.textContent.trim();
-  if (heading && heading.textContent.trim()) return heading.textContent.trim();
-
-  return "Product";
-}
-
-function bindCartEvents() {
-  document.addEventListener("click", (event) => {
-    const openButton = event.target.closest("[data-cart-open]");
-    const closeButton = event.target.closest("[data-cart-close]");
-    const clickedOverlay = event.target.matches("[data-cart-overlay]");
-    const increaseButton = event.target.closest("[data-cart-increase]");
-    const decreaseButton = event.target.closest("[data-cart-decrease]");
-    const removeButton = event.target.closest("[data-cart-remove]");
-    const requestButton = event.target.closest("[data-cart-request]");
-    const clearButton = event.target.closest("[data-cart-clear]");
-
-    if (openButton) {
-      openCart();
-      return;
-    }
-
-    if (closeButton || clickedOverlay) {
-      closeCart();
-      return;
-    }
-
-    if (increaseButton) {
-      updateCartQuantity(increaseButton.dataset.cartIncrease, 1);
-      return;
-    }
-
-    if (decreaseButton) {
-      updateCartQuantity(decreaseButton.dataset.cartDecrease, -1);
-      return;
-    }
-
-    if (removeButton) {
-      removeFromCart(removeButton.dataset.cartRemove);
-      return;
-    }
-
-    if (requestButton) {
-      requestCartOrder();
-      return;
-    }
-
-    if (clearButton) {
-      clearCart();
-    }
-  });
-
-  document.addEventListener("change", (event) => {
-    const deliveryInput = event.target.closest("[data-cart-delivery-preference]");
-
-    if (!deliveryInput) return;
-
-    const currentPreference = getDeliveryPreference();
-
-    saveDeliveryPreference({
-      type: deliveryInput.value,
-      details: currentPreference.details || ""
-    });
-
-    renderDeliveryPreference();
-  });
-
-  document.addEventListener("input", (event) => {
-    const addressInput = event.target.closest("[data-cart-delivery-address]");
-
-    if (!addressInput) return;
-
-    const currentPreference = getDeliveryPreference();
-
-    saveDeliveryPreference({
-      type: currentPreference.type,
-      details: addressInput.value.trim()
-    });
-  });
-}
-
-function addToCart(productData) {
-  const cart = getCart();
-  const existingItem = cart.find((item) => item.id === productData.id);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      id: productData.id,
-      name: productData.name,
-      category: productData.category,
-      price: hasValidPrice(productData) ? productData.price : null,
-      unit: productData.unit || "kg",
-      quantity: 1
-    });
-  }
-
-  saveCart(cart);
-  renderCart();
-}
-
-function updateCartQuantity(productId, change) {
-  const cart = getCart();
-  const item = cart.find((cartItem) => cartItem.id === productId);
-
-  if (!item) return;
-
-  item.quantity += change;
-
-  if (item.quantity <= 0) {
-    saveCart(cart.filter((cartItem) => cartItem.id !== productId));
-  } else {
-    saveCart(cart);
-  }
-
-  renderCart();
-}
-
-function removeFromCart(productId) {
-  saveCart(getCart().filter((item) => item.id !== productId));
-  renderCart();
-}
-
-function clearCart() {
-  saveCart([]);
-  renderCart();
+  injectProductPrices();
+  bindProductButtons();
+  updateCartUi();
 }
 
 function getCart() {
   try {
-    const cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
-    return Array.isArray(cart) ? cart : [];
-  } catch (error) {
+    const savedCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+    return Array.isArray(savedCart) ? savedCart : [];
+  } catch {
     return [];
   }
 }
@@ -441,25 +99,387 @@ function saveCart(cart) {
   localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
 }
 
-function renderCart() {
+function getDeliveryPreference() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(DELIVERY_STORAGE_KEY));
+    return {
+      ...DEFAULT_DELIVERY,
+      ...(saved || {})
+    };
+  } catch {
+    return { ...DEFAULT_DELIVERY };
+  }
+}
+
+function saveDeliveryPreference(preference) {
+  localStorage.setItem(DELIVERY_STORAGE_KEY, JSON.stringify(preference));
+}
+
+function getPaymentPreference() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PAYMENT_STORAGE_KEY));
+    return {
+      ...DEFAULT_PAYMENT,
+      ...(saved || {})
+    };
+  } catch {
+    return { ...DEFAULT_PAYMENT };
+  }
+}
+
+function savePaymentPreference(preference) {
+  localStorage.setItem(PAYMENT_STORAGE_KEY, JSON.stringify(preference));
+}
+
+function parsePrice(value) {
+  const price = Number.parseFloat(String(value || "").replace(",", "."));
+  return Number.isFinite(price) ? price : 0;
+}
+
+function formatPrice(price) {
+  return `${price.toFixed(2)} ${CURRENCY}`;
+}
+
+function getProductFromCard(card) {
+  const name =
+    card.dataset.productName ||
+    card.querySelector("h3")?.textContent?.trim() ||
+    "Product";
+
+  const id =
+    card.dataset.productId ||
+    name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  const category =
+    card.dataset.productCategory ||
+    card.closest(".catalog-category")?.querySelector(".section-label")?.textContent?.trim() ||
+    "Products";
+
+  const unit = card.dataset.productUnit || "kg";
+  const price = parsePrice(card.dataset.productPrice);
+
+  return {
+    id,
+    name,
+    category,
+    unit,
+    price
+  };
+}
+
+function injectProductPrices() {
+  document.querySelectorAll(".catalog-product").forEach((card) => {
+    const product = getProductFromCard(card);
+
+    const existingPrice = card.querySelector(".product-price-js");
+
+    if (existingPrice) {
+      existingPrice.textContent = product.price > 0
+        ? `${formatPrice(product.price)} / ${product.unit}`
+        : "Price confirmed manually";
+      return;
+    }
+
+    const priceElement = document.createElement("div");
+    priceElement.className = "product-price-js";
+    priceElement.textContent = product.price > 0
+      ? `${formatPrice(product.price)} / ${product.unit}`
+      : "Price confirmed manually";
+
+    const meta = card.querySelector(".product-meta");
+
+    if (meta) {
+      meta.insertAdjacentElement("afterend", priceElement);
+    } else {
+      card.appendChild(priceElement);
+    }
+  });
+}
+
+function bindProductButtons() {
+  document.querySelectorAll(".catalog-product").forEach((card) => {
+    const button =
+      card.querySelector(".catalog-btn") ||
+      card.querySelector("[data-add-to-cart]");
+
+    if (!button) return;
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const product = getProductFromCard(card);
+
+      addToCart(product);
+      openCart();
+    });
+  });
+}
+
+function addToCart(product) {
+  const cart = getCart();
+  const existingItem = cart.find((item) => item.id === product.id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      ...product,
+      quantity: 1
+    });
+  }
+
+  saveCart(cart);
+  updateCartUi();
+}
+
+function removeFromCart(productId) {
+  const cart = getCart().filter((item) => item.id !== productId);
+  saveCart(cart);
+  updateCartUi();
+}
+
+function updateCartQuantity(productId, quantity) {
+  const cart = getCart();
+  const item = cart.find((cartItem) => cartItem.id === productId);
+
+  if (!item) return;
+
+  item.quantity = Math.max(1, quantity);
+
+  saveCart(cart);
+  updateCartUi();
+}
+
+function clearCart() {
+  saveCart([]);
+  updateCartUi();
+}
+
+function getCartTotal(cart) {
+  return cart.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+}
+
+function getCartCount(cart) {
+  return cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+function injectCartUi() {
+  if (document.querySelector(".cart-drawer")) return;
+
+  const cartMarkup = `
+    <button class="floating-cart-btn" type="button" aria-label="Open cart">
+      <span class="floating-cart-icon">🛒</span>
+      <span class="floating-cart-text">Cart</span>
+      <span class="cart-count" data-cart-count>0</span>
+    </button>
+
+    <div class="cart-overlay" data-cart-overlay></div>
+
+    <aside class="cart-drawer" aria-label="Shopping cart">
+      <div class="cart-drawer-header">
+        <div>
+          <p class="section-label">Order request</p>
+          <h2>Your cart</h2>
+        </div>
+        <button class="cart-close-btn" type="button" aria-label="Close cart">×</button>
+      </div>
+
+      <div class="cart-note">
+        Prices are indicative. Final weight, availability and total price are confirmed manually before payment.
+      </div>
+
+      <div class="cart-items" data-cart-items></div>
+
+      <section class="cart-preference-section">
+        <h3>Pickup or delivery</h3>
+
+        <div class="cart-option-list">
+          <label class="cart-option">
+            <input type="radio" name="delivery-method" value="pickup">
+            <span>
+              <strong>Pickup</strong>
+              <small>Customer prefers to collect the order.</small>
+            </span>
+          </label>
+
+          <label class="cart-option">
+            <input type="radio" name="delivery-method" value="delivery">
+            <span>
+              <strong>Delivery</strong>
+              <small>Customer wants delivery if available.</small>
+            </span>
+          </label>
+
+          <label class="cart-option">
+            <input type="radio" name="delivery-method" value="to-be-confirmed">
+            <span>
+              <strong>To be confirmed</strong>
+              <small>Seller and customer confirm later on WhatsApp.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="cart-delivery-details" data-delivery-details>
+          <label for="deliveryDetails">Delivery address / details</label>
+          <textarea id="deliveryDetails" rows="3" placeholder="Write delivery address, area, preferred time or other details."></textarea>
+        </div>
+      </section>
+
+      <section class="cart-preference-section">
+        <h3>Preferred payment method</h3>
+
+        <div class="cart-option-list">
+          <label class="cart-option">
+            <input type="radio" name="payment-method" value="cash">
+            <span>
+              <strong>Cash</strong>
+              <small>Preferred payment by cash.</small>
+            </span>
+          </label>
+
+          <label class="cart-option">
+            <input type="radio" name="payment-method" value="bank-transfer">
+            <span>
+              <strong>Bank transfer</strong>
+              <small>Payment details are provided after confirmation.</small>
+            </span>
+          </label>
+
+          <label class="cart-option">
+            <input type="radio" name="payment-method" value="payment-link">
+            <span>
+              <strong>Online payment link if available</strong>
+              <small>Payment link can be arranged after confirmation if available.</small>
+            </span>
+          </label>
+
+          <label class="cart-option">
+            <input type="radio" name="payment-method" value="to-be-confirmed">
+            <span>
+              <strong>To be confirmed</strong>
+              <small>Payment method confirmed later on WhatsApp.</small>
+            </span>
+          </label>
+        </div>
+      </section>
+
+      <div class="cart-summary">
+        <div>
+          <span>Estimated total</span>
+          <strong data-cart-total>0.00 €</strong>
+        </div>
+        <small>Final total may change after exact weight and availability confirmation.</small>
+      </div>
+
+      <div class="cart-actions">
+        <button class="cart-whatsapp-btn" type="button" data-cart-whatsapp>
+          Send order on WhatsApp
+        </button>
+        <button class="cart-clear-btn" type="button" data-cart-clear>
+          Clear cart
+        </button>
+      </div>
+    </aside>
+  `;
+
+  document.body.insertAdjacentHTML("beforeend", cartMarkup);
+
+  document.querySelector(".floating-cart-btn")?.addEventListener("click", openCart);
+  document.querySelector(".cart-close-btn")?.addEventListener("click", closeCart);
+  document.querySelector("[data-cart-overlay]")?.addEventListener("click", closeCart);
+  document.querySelector("[data-cart-clear]")?.addEventListener("click", clearCart);
+  document.querySelector("[data-cart-whatsapp]")?.addEventListener("click", requestCartOrder);
+
+  bindDeliveryPreferenceInputs();
+  bindPaymentPreferenceInputs();
+}
+
+function bindDeliveryPreferenceInputs() {
+  const delivery = getDeliveryPreference();
+  const deliveryInputs = document.querySelectorAll('input[name="delivery-method"]');
+  const detailsTextarea = document.querySelector("#deliveryDetails");
+
+  deliveryInputs.forEach((input) => {
+    input.checked = input.value === delivery.method;
+
+    input.addEventListener("change", () => {
+      const updatedPreference = {
+        ...getDeliveryPreference(),
+        method: input.value
+      };
+
+      saveDeliveryPreference(updatedPreference);
+      updateDeliveryDetailsVisibility();
+    });
+  });
+
+  if (detailsTextarea) {
+    detailsTextarea.value = delivery.details || "";
+
+    detailsTextarea.addEventListener("input", () => {
+      saveDeliveryPreference({
+        ...getDeliveryPreference(),
+        details: detailsTextarea.value.trim()
+      });
+    });
+  }
+
+  updateDeliveryDetailsVisibility();
+}
+
+function bindPaymentPreferenceInputs() {
+  const payment = getPaymentPreference();
+  const paymentInputs = document.querySelectorAll('input[name="payment-method"]');
+
+  paymentInputs.forEach((input) => {
+    input.checked = input.value === payment.method;
+
+    input.addEventListener("change", () => {
+      savePaymentPreference({
+        method: input.value
+      });
+    });
+  });
+}
+
+function updateDeliveryDetailsVisibility() {
+  const delivery = getDeliveryPreference();
+  const detailsWrapper = document.querySelector("[data-delivery-details]");
+
+  if (!detailsWrapper) return;
+
+  detailsWrapper.classList.toggle("open", delivery.method === "delivery");
+}
+
+function updateCartUi() {
   const cart = getCart();
   const cartItems = document.querySelector("[data-cart-items]");
   const cartTotal = document.querySelector("[data-cart-total]");
-  const cartCount = document.querySelector("[data-cart-count]");
+  const cartCountElements = document.querySelectorAll("[data-cart-count]");
 
-  if (!cartItems || !cartTotal || !cartCount) return;
+  const count = getCartCount(cart);
+  const total = getCartTotal(cart);
 
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = calculateCartTotal(cart);
+  cartCountElements.forEach((element) => {
+    element.textContent = String(count);
+  });
 
-  cartCount.textContent = totalItems.toString();
-  cartTotal.textContent = formatCurrency(totalPrice);
+  if (cartTotal) {
+    cartTotal.textContent = formatPrice(total);
+  }
+
+  if (!cartItems) return;
 
   if (cart.length === 0) {
     cartItems.innerHTML = `
       <div class="cart-empty">
-        <p>Your cart is empty.</p>
-        <span>Add products from the catalogue to prepare an order request.</span>
+        <strong>Your cart is empty.</strong>
+        <span>Add products and send an order request on WhatsApp.</span>
       </div>
     `;
     return;
@@ -467,209 +487,115 @@ function renderCart() {
 
   cartItems.innerHTML = cart
     .map((item) => {
-      const itemHasPrice = typeof item.price === "number" && !Number.isNaN(item.price);
-      const itemTotal = itemHasPrice ? item.price * item.quantity : null;
+      const lineTotal = item.price * item.quantity;
 
       return `
         <article class="cart-item">
           <div class="cart-item-main">
             <h3>${escapeHtml(item.name)}</h3>
-            <p>
-              ${escapeHtml(item.category || "Product")}
-              ${
-                itemHasPrice
-                  ? ` · ${formatCurrency(item.price)} / ${escapeHtml(item.unit || "kg")}`
-                  : " · Price on request"
-              }
-            </p>
-            <strong>${itemHasPrice ? formatCurrency(itemTotal) : "Price on request"}</strong>
+            <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
           </div>
 
           <div class="cart-item-controls">
-            <button type="button" data-cart-decrease="${escapeHtml(item.id)}">−</button>
-            <span>${item.quantity} ${escapeHtml(item.unit || "kg")}</span>
-            <button type="button" data-cart-increase="${escapeHtml(item.id)}">+</button>
+            <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+            <span>${item.quantity}</span>
+            <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
           </div>
 
-          <button class="cart-remove" type="button" data-cart-remove="${escapeHtml(item.id)}">
-            Remove
-          </button>
+          <div class="cart-item-total">
+            <strong>${formatPrice(lineTotal)}</strong>
+            <button type="button" data-cart-remove="${escapeHtml(item.id)}">Remove</button>
+          </div>
         </article>
       `;
     })
     .join("");
+
+  bindCartItemButtons();
 }
 
-function calculateCartTotal(cart) {
-  return cart.reduce((sum, item) => {
-    if (typeof item.price !== "number" || Number.isNaN(item.price)) {
-      return sum;
-    }
-
-    return sum + item.price * item.quantity;
-  }, 0);
-}
-
-/* Delivery preference */
-
-function getDeliveryPreference() {
-  try {
-    const savedPreference = JSON.parse(localStorage.getItem(DELIVERY_STORAGE_KEY));
-
-    if (
-      savedPreference &&
-      typeof savedPreference === "object" &&
-      typeof savedPreference.type === "string"
-    ) {
-      return {
-        type: savedPreference.type,
-        details: savedPreference.details || ""
-      };
-    }
-  } catch (error) {
-    return {
-      type: "to-be-confirmed",
-      details: ""
-    };
-  }
-
-  return {
-    type: "to-be-confirmed",
-    details: ""
-  };
-}
-
-function saveDeliveryPreference(preference) {
-  localStorage.setItem(
-    DELIVERY_STORAGE_KEY,
-    JSON.stringify({
-      type: preference.type || "to-be-confirmed",
-      details: preference.details || ""
-    })
-  );
-}
-
-function renderDeliveryPreference() {
-  const preference = getDeliveryPreference();
-  const radios = document.querySelectorAll("[data-cart-delivery-preference]");
-  const detailsWrap = document.querySelector("[data-cart-delivery-details-wrap]");
-  const addressInput = document.querySelector("[data-cart-delivery-address]");
-
-  radios.forEach((radio) => {
-    radio.checked = radio.value === preference.type;
+function bindCartItemButtons() {
+  document.querySelectorAll("[data-cart-increase]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const productId = button.dataset.cartIncrease;
+      const item = getCart().find((cartItem) => cartItem.id === productId);
+      if (!item) return;
+      updateCartQuantity(productId, item.quantity + 1);
+    });
   });
 
-  if (addressInput) {
-    addressInput.value = preference.details || "";
-  }
+  document.querySelectorAll("[data-cart-decrease]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const productId = button.dataset.cartDecrease;
+      const item = getCart().find((cartItem) => cartItem.id === productId);
+      if (!item) return;
+      updateCartQuantity(productId, item.quantity - 1);
+    });
+  });
 
-  if (detailsWrap) {
-    if (preference.type === "delivery") {
-      detailsWrap.classList.add("open");
-    } else {
-      detailsWrap.classList.remove("open");
-    }
-  }
+  document.querySelectorAll("[data-cart-remove]").forEach((button) => {
+    button.addEventListener("click", () => {
+      removeFromCart(button.dataset.cartRemove);
+    });
+  });
 }
 
-function getDeliveryPreferenceText(type) {
-  if (type === "pickup") return "Pickup";
-  if (type === "delivery") return "Delivery";
-  return "To be confirmed";
+function openCart() {
+  document.body.classList.add("cart-open");
 }
 
-/* WhatsApp */
+function closeCart() {
+  document.body.classList.remove("cart-open");
+}
 
 function requestCartOrder() {
   const cart = getCart();
 
   if (cart.length === 0) {
-    openCart();
+    alert("Your cart is empty.");
     return;
   }
 
-  const deliveryPreference = getDeliveryPreference();
-  const deliveryText = getDeliveryPreferenceText(deliveryPreference.type);
-  const deliveryDetails = deliveryPreference.details || "Not provided";
+  const delivery = getDeliveryPreference();
+  const payment = getPaymentPreference();
+  const total = getCartTotal(cart);
 
-  const message = `
-Hello Gaļas grozs,
+  const orderLines = cart.map((item, index) => {
+    const lineTotal = item.price * item.quantity;
 
-I would like to place an order request:
+    return [
+      `${index + 1}. ${item.name}`,
+      `   Category: ${item.category}`,
+      `   Quantity: ${item.quantity} ${item.unit}`,
+      `   Indicative price: ${formatPrice(item.price)} / ${item.unit}`,
+      `   Estimated line total: ${formatPrice(lineTotal)}`
+    ].join("\n");
+  });
 
-${buildCartMessageSection(cart)}
+  const messageParts = [
+    "Hello, I would like to place an order request from Gaļas grozs.",
+    "",
+    "Products:",
+    orderLines.join("\n\n"),
+    "",
+    `Estimated total: ${formatPrice(total)}`,
+    "",
+    `Delivery preference: ${DELIVERY_LABELS[delivery.method] || "To be confirmed"}`,
+    delivery.method === "delivery" && delivery.details
+      ? `Delivery address / details: ${delivery.details}`
+      : null,
+    `Payment preference: ${PAYMENT_LABELS[payment.method] || "To be confirmed"}`,
+    "",
+    "I understand that final weight, availability and total price are confirmed manually before payment."
+  ].filter(Boolean);
 
-Estimated total for priced products: ${formatCurrency(calculateCartTotal(cart))}
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageParts.join("\n"))}`;
 
-Customer preference: ${deliveryText}
-Delivery address / details: ${deliveryDetails}
-
-I understand that prices are informative and that final availability, final weight and final price must be confirmed manually.
-
-Please confirm pickup or delivery options.
-
-Thank you.
-  `.trim();
-
-  window.open(buildWhatsappUrl(message), "_blank", "noopener,noreferrer");
-}
-
-function buildCartMessageSection(cart) {
-  return cart
-    .map((item, index) => {
-      const itemHasPrice = typeof item.price === "number" && !Number.isNaN(item.price);
-
-      if (!itemHasPrice) {
-        return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit || "kg"} — price on request`;
-      }
-
-      const itemTotal = item.price * item.quantity;
-
-      return `${index + 1}. ${item.name} — ${item.quantity} ${item.unit || "kg"} × ${formatCurrency(item.price)} / ${item.unit || "kg"} = approx. ${formatCurrency(itemTotal)}`;
-    })
-    .join("\n");
-}
-
-function buildWhatsappUrl(message) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
-
-function openCart() {
-  const overlay = document.querySelector("[data-cart-overlay]");
-  if (overlay) overlay.classList.add("open");
-}
-
-function closeCart() {
-  const overlay = document.querySelector("[data-cart-overlay]");
-  if (overlay) overlay.classList.remove("open");
-}
-
-/* Helpers */
-
-function hasValidPrice(productData) {
-  return productData && typeof productData.price === "number" && !Number.isNaN(productData.price);
-}
-
-function createProductId(productName) {
-  return productName
-    .toString()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-function formatCurrency(value) {
-  return new Intl.NumberFormat("en-LV", {
-    style: "currency",
-    currency: "EUR"
-  }).format(value);
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 }
 
 function escapeHtml(value) {
-  return value
-    .toString()
+  return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
