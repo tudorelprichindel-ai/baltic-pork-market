@@ -287,22 +287,13 @@ function injectCartUi() {
 
     <aside class="cart-drawer" aria-label="Shopping cart">
       <div class="cart-drawer-header">
-        <div>
-          <p class="section-label">Order request</p>
-          <h2>Your cart</h2>
-        </div>
+        <span></span>
         <button class="cart-close-btn" type="button" aria-label="Close cart">×</button>
-      </div>
-
-      <div class="cart-note">
-        Prices are indicative. Final weight, availability and total price are confirmed manually before payment.
       </div>
 
       <div class="cart-items" data-cart-items></div>
 
       <section class="cart-preference-section">
-        <h3>Order preferences</h3>
-
         <label class="cart-select-field" for="deliveryMethod">
           <span>Pickup or delivery</span>
           <select id="deliveryMethod" data-delivery-method>
@@ -444,43 +435,36 @@ function updateCartUi() {
     return;
   }
 
-  cartItems.innerHTML = `
-    <div class="cart-items-header">
-      <span>${count} item${count === 1 ? "" : "s"} selected</span>
-      <strong>${formatPrice(total)}</strong>
-    </div>
+  cartItems.innerHTML = cart
+    .map((item) => {
+      const lineTotal = item.price * item.quantity;
 
-    ${cart
-      .map((item) => {
-        const lineTotal = item.price * item.quantity;
-
-        return `
-          <article class="cart-item cart-item-compact">
-            <div class="cart-item-top">
-              <div>
-                <h3>${escapeHtml(item.name)}</h3>
-                <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
-              </div>
-
-              <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">
-                ×
-              </button>
+      return `
+        <article class="cart-item cart-item-compact">
+          <div class="cart-item-top">
+            <div>
+              <h3>${escapeHtml(item.name)}</h3>
+              <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
             </div>
 
-            <div class="cart-item-bottom">
-              <div class="cart-item-controls">
-                <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
-                <span>${item.quantity}</span>
-                <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
-              </div>
+            <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">
+              ×
+            </button>
+          </div>
 
-              <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+          <div class="cart-item-bottom">
+            <div class="cart-item-controls">
+              <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
             </div>
-          </article>
-        `;
-      })
-      .join("")}
-  `;
+
+            <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
 
   bindCartItemButtons();
 }
