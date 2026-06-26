@@ -43,6 +43,7 @@ function initMobileNavigation() {
 
   navToggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
+
     navToggle.classList.toggle("open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("nav-open", isOpen);
@@ -102,6 +103,7 @@ function saveCart(cart) {
 function getDeliveryPreference() {
   try {
     const saved = JSON.parse(localStorage.getItem(DELIVERY_STORAGE_KEY));
+
     return {
       ...DEFAULT_DELIVERY,
       ...(saved || {})
@@ -118,6 +120,7 @@ function saveDeliveryPreference(preference) {
 function getPaymentPreference() {
   try {
     const saved = JSON.parse(localStorage.getItem(PAYMENT_STORAGE_KEY));
+
     return {
       ...DEFAULT_PAYMENT,
       ...(saved || {})
@@ -173,7 +176,6 @@ function getProductFromCard(card) {
 function injectProductPrices() {
   document.querySelectorAll(".catalog-product").forEach((card) => {
     const product = getProductFromCard(card);
-
     const existingPrice = card.querySelector(".product-price-js");
 
     if (existingPrice) {
@@ -237,6 +239,7 @@ function addToCart(product) {
 
 function removeFromCart(productId) {
   const cart = getCart().filter((item) => item.id !== productId);
+
   saveCart(cart);
   updateCartUi();
 }
@@ -265,7 +268,9 @@ function getCartTotal(cart) {
 }
 
 function getCartCount(cart) {
-  return cart.reduce((total, item) => total + item.quantity, 0);
+  return cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
 }
 
 function injectCartUi() {
@@ -296,76 +301,31 @@ function injectCartUi() {
       <div class="cart-items" data-cart-items></div>
 
       <section class="cart-preference-section">
-        <h3>Pickup or delivery</h3>
+        <h3>Order preferences</h3>
 
-        <div class="cart-option-list">
-          <label class="cart-option">
-            <input type="radio" name="delivery-method" value="pickup">
-            <span>
-              <strong>Pickup</strong>
-              <small>Customer prefers to collect the order.</small>
-            </span>
-          </label>
-
-          <label class="cart-option">
-            <input type="radio" name="delivery-method" value="delivery">
-            <span>
-              <strong>Delivery</strong>
-              <small>Customer wants delivery if available.</small>
-            </span>
-          </label>
-
-          <label class="cart-option">
-            <input type="radio" name="delivery-method" value="to-be-confirmed">
-            <span>
-              <strong>To be confirmed</strong>
-              <small>Seller and customer confirm later on WhatsApp.</small>
-            </span>
-          </label>
-        </div>
+        <label class="cart-select-field" for="deliveryMethod">
+          <span>Pickup or delivery</span>
+          <select id="deliveryMethod" data-delivery-method>
+            <option value="pickup">Pickup</option>
+            <option value="delivery">Delivery</option>
+            <option value="to-be-confirmed">To be confirmed</option>
+          </select>
+        </label>
 
         <div class="cart-delivery-details" data-delivery-details>
           <label for="deliveryDetails">Delivery address / details</label>
           <textarea id="deliveryDetails" rows="3" placeholder="Write delivery address, area, preferred time or other details."></textarea>
         </div>
-      </section>
 
-      <section class="cart-preference-section">
-        <h3>Preferred payment method</h3>
-
-        <div class="cart-option-list">
-          <label class="cart-option">
-            <input type="radio" name="payment-method" value="cash">
-            <span>
-              <strong>Cash</strong>
-              <small>Preferred payment by cash.</small>
-            </span>
-          </label>
-
-          <label class="cart-option">
-            <input type="radio" name="payment-method" value="bank-transfer">
-            <span>
-              <strong>Bank transfer</strong>
-              <small>Payment details are provided after confirmation.</small>
-            </span>
-          </label>
-
-          <label class="cart-option">
-            <input type="radio" name="payment-method" value="payment-link">
-            <span>
-              <strong>Online payment link if available</strong>
-              <small>Payment link can be arranged after confirmation if available.</small>
-            </span>
-          </label>
-
-          <label class="cart-option">
-            <input type="radio" name="payment-method" value="to-be-confirmed">
-            <span>
-              <strong>To be confirmed</strong>
-              <small>Payment method confirmed later on WhatsApp.</small>
-            </span>
-          </label>
-        </div>
+        <label class="cart-select-field" for="paymentMethod">
+          <span>Preferred payment method</span>
+          <select id="paymentMethod" data-payment-method>
+            <option value="cash">Cash</option>
+            <option value="bank-transfer">Bank transfer</option>
+            <option value="payment-link">Online payment link if available</option>
+            <option value="to-be-confirmed">To be confirmed</option>
+          </select>
+        </label>
       </section>
 
       <div class="cart-summary">
@@ -401,22 +361,21 @@ function injectCartUi() {
 
 function bindDeliveryPreferenceInputs() {
   const delivery = getDeliveryPreference();
-  const deliveryInputs = document.querySelectorAll('input[name="delivery-method"]');
+  const deliverySelect = document.querySelector("[data-delivery-method]");
   const detailsTextarea = document.querySelector("#deliveryDetails");
 
-  deliveryInputs.forEach((input) => {
-    input.checked = input.value === delivery.method;
+  if (deliverySelect) {
+    deliverySelect.value = delivery.method || "to-be-confirmed";
 
-    input.addEventListener("change", () => {
-      const updatedPreference = {
+    deliverySelect.addEventListener("change", () => {
+      saveDeliveryPreference({
         ...getDeliveryPreference(),
-        method: input.value
-      };
+        method: deliverySelect.value
+      });
 
-      saveDeliveryPreference(updatedPreference);
       updateDeliveryDetailsVisibility();
     });
-  });
+  }
 
   if (detailsTextarea) {
     detailsTextarea.value = delivery.details || "";
@@ -434,15 +393,15 @@ function bindDeliveryPreferenceInputs() {
 
 function bindPaymentPreferenceInputs() {
   const payment = getPaymentPreference();
-  const paymentInputs = document.querySelectorAll('input[name="payment-method"]');
+  const paymentSelect = document.querySelector("[data-payment-method]");
 
-  paymentInputs.forEach((input) => {
-    input.checked = input.value === payment.method;
+  if (!paymentSelect) return;
 
-    input.addEventListener("change", () => {
-      savePaymentPreference({
-        method: input.value
-      });
+  paymentSelect.value = payment.method || "to-be-confirmed";
+
+  paymentSelect.addEventListener("change", () => {
+    savePaymentPreference({
+      method: paymentSelect.value
     });
   });
 }
@@ -519,7 +478,9 @@ function bindCartItemButtons() {
     button.addEventListener("click", () => {
       const productId = button.dataset.cartIncrease;
       const item = getCart().find((cartItem) => cartItem.id === productId);
+
       if (!item) return;
+
       updateCartQuantity(productId, item.quantity + 1);
     });
   });
@@ -528,7 +489,9 @@ function bindCartItemButtons() {
     button.addEventListener("click", () => {
       const productId = button.dataset.cartDecrease;
       const item = getCart().find((cartItem) => cartItem.id === productId);
+
       if (!item) return;
+
       updateCartQuantity(productId, item.quantity - 1);
     });
   });
