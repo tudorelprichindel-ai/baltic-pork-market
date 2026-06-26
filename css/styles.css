@@ -1518,3 +1518,56 @@ button {
     display: none;
   }
 }
+/* Category jump icons */
+
+.category-jump-inner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 7px 13px 7px 9px;
+}
+
+.category-nav-icon {
+  width: 25px;
+  height: 25px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--bg-soft, #fff1da);
+  color: var(--pumpkin-dark, #b95412);
+}
+
+.category-nav-icon svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.category-jump-inner a:hover .category-nav-icon {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+@media (max-width: 820px) {
+  .category-jump-inner a {
+    min-height: 40px;
+    padding: 7px 13px 7px 9px;
+  }
+
+  .category-nav-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .category-nav-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+}
