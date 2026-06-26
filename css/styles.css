@@ -1655,3 +1655,39 @@ button {
     font-size: 26px;
   }
 }
+/* Compact cart dropdown preferences */
+
+.cart-select-field {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.cart-select-field span {
+  color: var(--text, #2a1f17);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.cart-select-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--cream-border, #ead9c2);
+  border-radius: var(--radius-sm, 12px);
+  background: #fff;
+  color: var(--text, #2a1f17);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cart-select-field select:focus {
+  outline: 2px solid rgba(232, 117, 34, 0.3);
+  border-color: var(--pumpkin, #e87522);
+}
+
+.cart-preference-section {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+}
