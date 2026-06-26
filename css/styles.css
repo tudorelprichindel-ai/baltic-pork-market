@@ -2818,3 +2818,50 @@ svg {
     display: inline !important;
   }
 }
+/* Restore professional cart icon */
+
+.floating-cart-icon {
+  position: relative;
+  display: inline-flex !important;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+.floating-cart-icon::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 6px;
+  width: 14px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: 0;
+  border-radius: 2px 2px 5px 5px;
+}
+
+.floating-cart-icon::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 17px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 9px 0 0 #fff;
+}
+
+.floating-cart-btn::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 2px;
+  left: 13px;
+  top: 15px;
+  background: #fff;
+  transform: rotate(-20deg);
+  border-radius: 999px;
+}
