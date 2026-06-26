@@ -444,31 +444,43 @@ function updateCartUi() {
     return;
   }
 
-  cartItems.innerHTML = cart
-    .map((item) => {
-      const lineTotal = item.price * item.quantity;
+  cartItems.innerHTML = `
+    <div class="cart-items-header">
+      <span>${count} item${count === 1 ? "" : "s"} selected</span>
+      <strong>${formatPrice(total)}</strong>
+    </div>
 
-      return `
-        <article class="cart-item">
-          <div class="cart-item-main">
-            <h3>${escapeHtml(item.name)}</h3>
-            <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
-          </div>
+    ${cart
+      .map((item) => {
+        const lineTotal = item.price * item.quantity;
 
-          <div class="cart-item-controls">
-            <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
-            <span>${item.quantity}</span>
-            <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
-          </div>
+        return `
+          <article class="cart-item cart-item-compact">
+            <div class="cart-item-top">
+              <div>
+                <h3>${escapeHtml(item.name)}</h3>
+                <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
+              </div>
 
-          <div class="cart-item-total">
-            <strong>${formatPrice(lineTotal)}</strong>
-            <button type="button" data-cart-remove="${escapeHtml(item.id)}">Remove</button>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
+              <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">
+                ×
+              </button>
+            </div>
+
+            <div class="cart-item-bottom">
+              <div class="cart-item-controls">
+                <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+                <span>${item.quantity}</span>
+                <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
+              </div>
+
+              <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+            </div>
+          </article>
+        `;
+      })
+      .join("")}
+  `;
 
   bindCartItemButtons();
 }
