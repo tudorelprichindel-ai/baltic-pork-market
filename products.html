@@ -3,472 +3,542 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Products | Gaļas grozs</title>
-
   <meta
     name="description"
-    content="Browse pork, beef, chicken, BBQ and meat box products from Gaļas grozs. Add products to cart and send an order request on WhatsApp."
+    content="Browse pork, beef, chicken, BBQ products and meat boxes from Gaļas grozs. Prices are indicative and final weight, availability and total price are confirmed manually."
   />
-
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="Gaļas grozs home">
-        <span class="logo-mark">🛒</span>
-        <span class="logo-text">
+      <a class="brand" href="index.html" aria-label="Gaļas grozs home">
+        <span class="brand-icon">🛒</span>
+        <span class="brand-text">
           <strong>Gaļas grozs</strong>
-          <span>Fresh meat orders</span>
+          <small>Fresh meat orders in Latvia</small>
         </span>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-            Products
-            <span aria-hidden="true">▾</span>
-          </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-          <div class="nav-dropdown-menu">
-            <a href="products.html">All Products</a>
-            <a href="products.html#pork">Pork</a>
-            <a href="products.html#beef">Beef</a>
-            <a href="products.html#chicken">Chicken</a>
-            <a href="products.html#bbq">BBQ & Grill</a>
-            <a href="products.html#boxes">Meat Boxes</a>
-          </div>
-        </div>
-
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
         <a href="how-to-order.html">How to Order</a>
-        <a href="about.html">About</a>
         <a href="quality.html">Quality</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="language-switcher" aria-label="Language switcher">
-        <a href="index.html" class="active">EN</a>
-        <a href="#" title="Latvian version coming soon">LV</a>
-        <a href="#" title="Russian version coming soon">RU</a>
-      </div>
+      <a class="header-cta" href="https://wa.me/37129174626" target="_blank" rel="noopener">
+        WhatsApp
+      </a>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero products-hero">
       <div class="container">
-        <p class="eyebrow">Product catalogue</p>
-        <h1>Fresh meat products for order.</h1>
+        <p class="section-label">Products</p>
+        <h1>Fresh meat products with indicative Latvia market prices</h1>
         <p>
-          Add products to your cart and send the order request directly on WhatsApp.
-          Final availability, weight, price, pickup and delivery options are confirmed manually.
+          Add products to your cart and send an order request on WhatsApp. Prices are indicative.
+          Final weight, availability and total price are confirmed manually before payment.
         </p>
-      </div>
-    </section>
 
-    <section class="section product-catalog-section">
-      <div class="container catalog-layout">
-        <aside class="catalog-sidebar">
-          <h2>Categories</h2>
-
-          <a href="#pork">Pork</a>
-          <a href="#beef">Beef</a>
-          <a href="#chicken">Chicken</a>
-          <a href="#bbq">BBQ & Grill</a>
-          <a href="#boxes">Meat Boxes</a>
-
-          <div class="sidebar-note">
-            <h3>Important</h3>
-            <p>
-              Pork products have listed prices. Other categories can be requested and confirmed manually.
-            </p>
-          </div>
-        </aside>
-
-        <div class="catalog-content">
-          <section class="catalog-category" id="pork">
-            <div class="catalog-heading">
-              <p class="section-label">Pork</p>
-              <h2>Pork products</h2>
-              <p>Real client product list with exact prices per kilogram.</p>
-            </div>
-
-            <div class="catalog-grid">
-              <article class="catalog-product featured-catalog-product" data-product-id="pork-karbonade-bez-ribas-bez-adas" data-product-name="Cūkgaļas karbonāde bez ribas, bez ādas" data-product-category="Pork" data-product-price="7.50" data-product-unit="kg">
-                <h3>Cūkgaļas karbonāde bez ribas, bez ādas</h3>
-                <p>Pork loin cut without rib and without skin.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-karbonade-ar-speki-un-adu" data-product-name="Cūkgaļas karbonāde ar speķi un ādu" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
-                <h3>Cūkgaļas karbonāde ar speķi un ādu</h3>
-                <p>Pork loin cut with fat and skin.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-kakla-karbonade" data-product-name="Cūkgaļas kakla karbonāde" data-product-category="Pork" data-product-price="7.50" data-product-unit="kg">
-                <h3>Cūkgaļas kakla karbonāde</h3>
-                <p>Pork neck cut, suitable for roasting, grilling and marinating.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-fileja" data-product-name="Cūkgaļas fileja" data-product-category="Pork" data-product-price="8.50" data-product-unit="kg">
-                <h3>Cūkgaļas fileja</h3>
-                <p>Tender pork fillet for quick cooking and premium meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-gurna-gabals-bez-adas" data-product-name="Cūkgaļas gurna gabals bez ādas" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
-                <h3>Cūkgaļas gurna gabals bez ādas</h3>
-                <p>Pork ham section without skin, suitable for roasting and daily cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-gurna-gabals-ar-adu" data-product-name="Cūkgaļas gurna gabals ar ādu" data-product-category="Pork" data-product-price="6.00" data-product-unit="kg">
-                <h3>Cūkgaļas gurna gabals ar ādu</h3>
-                <p>Pork ham section with skin for roasting and slow cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-skinkis-bez-kaula-ar-adu" data-product-name="Cūkgaļas šķiņķis bez kaula ar ādu" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
-                <h3>Cūkgaļas šķiņķis bez kaula ar ādu</h3>
-                <p>Boneless pork ham with skin.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-skinkis-bez-kaula-bez-adas" data-product-name="Cūkgaļas šķiņķis bez kaula, bez ādas" data-product-category="Pork" data-product-price="5.70" data-product-unit="kg">
-                <h3>Cūkgaļas šķiņķis bez kaula, bez ādas</h3>
-                <p>Boneless pork ham without skin.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-krutinia-ar-ribu" data-product-name="Cūkgaļas krūtiņa ar ribu" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
-                <h3>Cūkgaļas krūtiņa ar ribu</h3>
-                <p>Pork breast with rib, suitable for roasting and soups.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-pavedere" data-product-name="Cūkgaļas pavēdere" data-product-category="Pork" data-product-price="5.80" data-product-unit="kg">
-                <h3>Cūkgaļas pavēdere</h3>
-                <p>Pork belly style cut for cooking, roasting and traditional meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-ribas-ar-adu-ar-treknumu" data-product-name="Cūkgaļas ribas ar ādu, ar treknumu" data-product-category="Pork" data-product-price="7.00" data-product-unit="kg">
-                <h3>Cūkgaļas ribas ar ādu, ar treknumu</h3>
-                <p>Pork ribs with skin and fat, suitable for rich dishes and roasting.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-plecs-lapstina-ar-kaulu-ar-adu" data-product-name="Cūkgaļas plecs/lāpstiņa ar kaulu, ar ādu" data-product-category="Pork" data-product-price="4.80" data-product-unit="kg">
-                <h3>Cūkgaļas plecs/lāpstiņa ar kaulu, ar ādu</h3>
-                <p>Pork shoulder with bone and skin for soups, roasting and slow cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-plecs-bez-kaula-bez-adas" data-product-name="Cūkgaļas plecs bez kaula, bez ādas" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
-                <h3>Cūkgaļas plecs bez kaula, bez ādas</h3>
-                <p>Boneless pork shoulder without skin for everyday cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-stilbi" data-product-name="Cūkgaļas stilbi" data-product-category="Pork" data-product-price="2.50" data-product-unit="kg">
-                <h3>Cūkgaļas stilbi</h3>
-                <p>Pork shanks for soups, broths and traditional cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-ribas" data-product-name="Cūkgaļas ribas" data-product-category="Pork" data-product-price="1.50" data-product-unit="kg">
-                <h3>Cūkgaļas ribas</h3>
-                <p>Pork ribs for soups, roasting, stews and grill dishes.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-id="pork-malta-gala" data-product-name="Cūkgaļas maltā gaļa" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
-                <h3>Cūkgaļas maltā gaļa</h3>
-                <p>Minced pork for meatballs, sauces, fillings and everyday meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Pork</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Availability confirmed manually</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-            </div>
-          </section>
-
-          <section class="catalog-category" id="beef">
-            <div class="catalog-heading">
-              <p class="section-label">Beef</p>
-              <h2>Beef products</h2>
-              <p>Beef products can be requested and confirmed depending on availability.</p>
-            </div>
-
-            <div class="catalog-grid">
-              <article class="catalog-product" data-product-name="Beef steak cuts" data-product-category="Beef" data-product-unit="kg">
-                <h3>Beef steak cuts</h3>
-                <p>Beef cuts for frying, grilling and premium home cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Beef</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="Beef ribs" data-product-category="Beef" data-product-unit="kg">
-                <h3>Beef ribs</h3>
-                <p>Beef ribs for slow cooking, roasting and BBQ-style meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Beef</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="Minced beef" data-product-category="Beef" data-product-unit="kg">
-                <h3>Minced beef</h3>
-                <p>Minced beef for burgers, sauces, meatballs and family meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Beef</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-            </div>
-          </section>
-
-          <section class="catalog-category" id="chicken">
-            <div class="catalog-heading">
-              <p class="section-label">Chicken</p>
-              <h2>Chicken products</h2>
-              <p>Chicken products can be requested and confirmed depending on availability.</p>
-            </div>
-
-            <div class="catalog-grid">
-              <article class="catalog-product" data-product-name="Chicken breast" data-product-category="Chicken" data-product-unit="kg">
-                <h3>Chicken breast</h3>
-                <p>Lean chicken breast for everyday cooking and meal preparation.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Chicken</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="Chicken thighs" data-product-category="Chicken" data-product-unit="kg">
-                <h3>Chicken thighs</h3>
-                <p>Chicken thighs for oven dishes, stews, marinades and grill meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Chicken</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="Chicken wings" data-product-category="Chicken" data-product-unit="kg">
-                <h3>Chicken wings</h3>
-                <p>Chicken wings for BBQ, oven roasting and party-style meals.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Chicken</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-            </div>
-          </section>
-
-          <section class="catalog-category" id="bbq">
-            <div class="catalog-heading">
-              <p class="section-label">BBQ & Grill</p>
-              <h2>BBQ and grill products</h2>
-              <p>BBQ products can be requested for grill, weekend meals and custom orders.</p>
-            </div>
-
-            <div class="catalog-grid">
-              <article class="catalog-product" data-product-name="Marinated pork neck" data-product-category="BBQ & Grill" data-product-unit="kg">
-                <h3>Marinated pork neck</h3>
-                <p>Prepared pork neck for grill and BBQ-style cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> BBQ & Grill</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="BBQ ribs" data-product-category="BBQ & Grill" data-product-unit="kg">
-                <h3>BBQ ribs</h3>
-                <p>Ribs for grill, oven or BBQ-style orders.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> BBQ & Grill</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="Grill sausages" data-product-category="BBQ & Grill" data-product-unit="kg">
-                <h3>Grill sausages</h3>
-                <p>Sausages for BBQ, grill and quick cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> BBQ & Grill</span>
-                  <span><strong>Unit:</strong> kg</span>
-                  <span><strong>Status:</strong> Price and availability on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-            </div>
-          </section>
-
-          <section class="catalog-category" id="boxes">
-            <div class="catalog-heading">
-              <p class="section-label">Meat Boxes</p>
-              <h2>Meat boxes</h2>
-              <p>Meat boxes can be prepared depending on availability and confirmed manually.</p>
-            </div>
-
-            <div class="catalog-grid">
-              <article class="catalog-product" data-product-name="Family meat box" data-product-category="Meat Boxes" data-product-unit="box">
-                <h3>Family meat box</h3>
-                <p>A practical mixed selection for family cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Meat Boxes</span>
-                  <span><strong>Unit:</strong> box</span>
-                  <span><strong>Status:</strong> Contents and price on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="BBQ box" data-product-category="Meat Boxes" data-product-unit="box">
-                <h3>BBQ box</h3>
-                <p>A selection for grilling, weekend meals and BBQ orders.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Meat Boxes</span>
-                  <span><strong>Unit:</strong> box</span>
-                  <span><strong>Status:</strong> Contents and price on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-
-              <article class="catalog-product" data-product-name="Pork box" data-product-category="Meat Boxes" data-product-unit="box">
-                <h3>Pork box</h3>
-                <p>A pork-focused selection for weekly cooking.</p>
-                <div class="product-meta">
-                  <span><strong>Category:</strong> Meat Boxes</span>
-                  <span><strong>Unit:</strong> box</span>
-                  <span><strong>Status:</strong> Contents and price on request</span>
-                </div>
-                <a href="#" class="catalog-btn">Add to Cart</a>
-              </article>
-            </div>
-          </section>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pork">Browse products</a>
+          <a class="btn btn-secondary" href="how-to-order.html">How ordering works</a>
         </div>
       </div>
     </section>
 
-    <section class="section bg-green">
-      <div class="container final-cta">
-        <p class="section-label">Order request</p>
-        <h2>Send your cart directly on WhatsApp.</h2>
-        <p>
-          Add products to your cart, review the estimated total and send the order request for manual confirmation.
-        </p>
-        <a href="tel:+37129174626" class="btn btn-secondary">Call +37129174626</a>
+    <section class="category-jump">
+      <div class="container category-jump-inner">
+        <a href="#pork">Pork</a>
+        <a href="#beef">Beef</a>
+        <a href="#chicken">Chicken</a>
+        <a href="#bbq">BBQ & Grill</a>
+        <a href="#boxes">Meat Boxes</a>
+      </div>
+    </section>
+
+    <section class="catalog-intro">
+      <div class="container">
+        <div class="notice-box">
+          <strong>Important:</strong>
+          Prices shown on this page are indicative. Final product availability, exact weight and total price
+          are confirmed manually on WhatsApp before payment is arranged.
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-category" id="pork">
+      <div class="container">
+        <div class="catalog-heading">
+          <p class="section-label">Pork</p>
+          <h2>Pork products</h2>
+          <p>Real client pork price list translated into English. Final weight and availability are confirmed manually.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-product" data-product-id="pork-loin-without-rib-skinless" data-product-name="Pork loin without rib, skinless" data-product-category="Pork" data-product-price="7.50" data-product-unit="kg">
+            <h3>Pork loin without rib, skinless</h3>
+            <p>Lean pork loin cut without rib and without skin.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-loin-with-fat-and-skin" data-product-name="Pork loin with fat and skin" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
+            <h3>Pork loin with fat and skin</h3>
+            <p>Pork loin cut with fat and skin for roasting and traditional cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-neck" data-product-name="Pork neck" data-product-category="Pork" data-product-price="7.50" data-product-unit="kg">
+            <h3>Pork neck</h3>
+            <p>Juicy pork neck, suitable for roasting, grilling and slow cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-tenderloin" data-product-name="Pork tenderloin" data-product-category="Pork" data-product-price="8.50" data-product-unit="kg">
+            <h3>Pork tenderloin</h3>
+            <p>Tender pork fillet for premium home cooking and quick meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-ham-piece-skinless" data-product-name="Pork ham piece, skinless" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
+            <h3>Pork ham piece, skinless</h3>
+            <p>Skinless pork ham piece for roasting, stews and family meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-ham-piece-with-skin" data-product-name="Pork ham piece with skin" data-product-category="Pork" data-product-price="6.00" data-product-unit="kg">
+            <h3>Pork ham piece with skin</h3>
+            <p>Pork ham piece with skin, suitable for roasting and traditional dishes.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="boneless-pork-ham-with-skin" data-product-name="Boneless pork ham with skin" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
+            <h3>Boneless pork ham with skin</h3>
+            <p>Boneless pork ham with skin for roasting and slow cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="boneless-pork-ham-skinless" data-product-name="Boneless pork ham, skinless" data-product-category="Pork" data-product-price="5.70" data-product-unit="kg">
+            <h3>Boneless pork ham, skinless</h3>
+            <p>Skinless boneless pork ham for everyday cooking and meal preparation.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-belly-with-rib" data-product-name="Pork belly with rib" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
+            <h3>Pork belly with rib</h3>
+            <p>Pork belly with rib, suitable for roasting, BBQ and slow cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-belly" data-product-name="Pork belly" data-product-category="Pork" data-product-price="5.80" data-product-unit="kg">
+            <h3>Pork belly</h3>
+            <p>Pork belly for roasting, slow cooking and rich family dishes.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-ribs-with-skin-and-fat" data-product-name="Pork ribs with skin and fat" data-product-category="Pork" data-product-price="7.00" data-product-unit="kg">
+            <h3>Pork ribs with skin and fat</h3>
+            <p>Pork ribs with skin and fat, suitable for oven cooking and BBQ-style meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-shoulder-with-bone-and-skin" data-product-name="Pork shoulder with bone and skin" data-product-category="Pork" data-product-price="4.80" data-product-unit="kg">
+            <h3>Pork shoulder with bone and skin</h3>
+            <p>Pork shoulder with bone and skin for soups, roasting and slow cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="boneless-pork-shoulder-skinless" data-product-name="Boneless pork shoulder, skinless" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
+            <h3>Boneless pork shoulder, skinless</h3>
+            <p>Boneless skinless pork shoulder for stews, roasting and pulled pork style meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-shanks" data-product-name="Pork shanks" data-product-category="Pork" data-product-price="2.50" data-product-unit="kg">
+            <h3>Pork shanks</h3>
+            <p>Pork shanks for soups, slow cooking and traditional meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-ribs" data-product-name="Pork ribs" data-product-category="Pork" data-product-price="1.50" data-product-unit="kg">
+            <h3>Pork ribs</h3>
+            <p>Pork ribs for soups, roasting and everyday cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="minced-pork" data-product-name="Minced pork" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
+            <h3>Minced pork</h3>
+            <p>Minced pork for meatballs, sauces, burgers and family cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Client price list</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-category" id="beef">
+      <div class="container">
+        <div class="catalog-heading">
+          <p class="section-label">Beef</p>
+          <h2>Beef products</h2>
+          <p>Indicative Latvia market prices. Final availability and final price are confirmed manually.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-product" data-product-id="beef-steak-cuts" data-product-name="Beef steak cuts" data-product-category="Beef" data-product-price="24.90" data-product-unit="kg">
+            <h3>Beef steak cuts</h3>
+            <p>Beef cuts for frying, grilling and premium home cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Beef</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="beef-ribs" data-product-name="Beef ribs" data-product-category="Beef" data-product-price="12.90" data-product-unit="kg">
+            <h3>Beef ribs</h3>
+            <p>Beef ribs for slow cooking, roasting and BBQ-style meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Beef</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="minced-beef" data-product-name="Minced beef" data-product-category="Beef" data-product-price="10.90" data-product-unit="kg">
+            <h3>Minced beef</h3>
+            <p>Minced beef for burgers, sauces, meatballs and family meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Beef</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="beef-stew-meat" data-product-name="Beef stew meat" data-product-category="Beef" data-product-price="13.90" data-product-unit="kg">
+            <h3>Beef stew meat</h3>
+            <p>Beef pieces for stews, soups and slow cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Beef</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-category" id="chicken">
+      <div class="container">
+        <div class="catalog-heading">
+          <p class="section-label">Chicken</p>
+          <h2>Chicken products</h2>
+          <p>Indicative Latvia market prices. Final availability and final price are confirmed manually.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-product" data-product-id="chicken-breast" data-product-name="Chicken breast" data-product-category="Chicken" data-product-price="7.99" data-product-unit="kg">
+            <h3>Chicken breast</h3>
+            <p>Lean chicken breast for everyday cooking and meal preparation.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Chicken</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="chicken-thighs" data-product-name="Chicken thighs" data-product-category="Chicken" data-product-price="5.90" data-product-unit="kg">
+            <h3>Chicken thighs</h3>
+            <p>Chicken thighs for oven dishes, stews, marinades and grill meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Chicken</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="chicken-wings" data-product-name="Chicken wings" data-product-category="Chicken" data-product-price="4.99" data-product-unit="kg">
+            <h3>Chicken wings</h3>
+            <p>Chicken wings for BBQ, oven roasting and party-style meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Chicken</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="chicken-drumsticks" data-product-name="Chicken drumsticks" data-product-category="Chicken" data-product-price="4.80" data-product-unit="kg">
+            <h3>Chicken drumsticks</h3>
+            <p>Chicken drumsticks for roasting, frying and family meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Chicken</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-category" id="bbq">
+      <div class="container">
+        <div class="catalog-heading">
+          <p class="section-label">BBQ & Grill</p>
+          <h2>BBQ and grill products</h2>
+          <p>Indicative Latvia market prices for grill-ready products and BBQ selections.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-product" data-product-id="marinated-pork-neck" data-product-name="Marinated pork neck" data-product-category="BBQ & Grill" data-product-price="8.99" data-product-unit="kg">
+            <h3>Marinated pork neck</h3>
+            <p>Prepared pork neck for grill and BBQ-style cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> BBQ & Grill</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="bbq-ribs" data-product-name="BBQ ribs" data-product-category="BBQ & Grill" data-product-price="9.90" data-product-unit="kg">
+            <h3>BBQ ribs</h3>
+            <p>Ribs for grill, oven or BBQ-style orders.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> BBQ & Grill</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="grill-sausages" data-product-name="Grill sausages" data-product-category="BBQ & Grill" data-product-price="8.90" data-product-unit="kg">
+            <h3>Grill sausages</h3>
+            <p>Sausages for BBQ, grill and quick cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> BBQ & Grill</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="chicken-skewers" data-product-name="Chicken skewers" data-product-category="BBQ & Grill" data-product-price="8.50" data-product-unit="kg">
+            <h3>Chicken skewers</h3>
+            <p>Chicken skewers for grill, BBQ and quick cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> BBQ & Grill</span>
+              <span><strong>Unit:</strong> kg</span>
+              <span><strong>Status:</strong> Indicative market price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog-category" id="boxes">
+      <div class="container">
+        <div class="catalog-heading">
+          <p class="section-label">Meat Boxes</p>
+          <h2>Meat boxes</h2>
+          <p>Indicative box prices. Final contents, weight and availability are confirmed manually.</p>
+        </div>
+
+        <div class="catalog-grid">
+          <article class="catalog-product" data-product-id="family-meat-box" data-product-name="Family meat box" data-product-category="Meat Boxes" data-product-price="49.00" data-product-unit="box">
+            <h3>Family meat box</h3>
+            <p>A practical mixed selection for family cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Meat Boxes</span>
+              <span><strong>Unit:</strong> box</span>
+              <span><strong>Status:</strong> Indicative box price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="bbq-box" data-product-name="BBQ box" data-product-category="Meat Boxes" data-product-price="45.00" data-product-unit="box">
+            <h3>BBQ box</h3>
+            <p>A selection for grilling, weekend meals and BBQ orders.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Meat Boxes</span>
+              <span><strong>Unit:</strong> box</span>
+              <span><strong>Status:</strong> Indicative box price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="pork-box" data-product-name="Pork box" data-product-category="Meat Boxes" data-product-price="35.00" data-product-unit="box">
+            <h3>Pork box</h3>
+            <p>A pork-focused selection for weekly cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Meat Boxes</span>
+              <span><strong>Unit:</strong> box</span>
+              <span><strong>Status:</strong> Indicative box price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+
+          <article class="catalog-product" data-product-id="chicken-box" data-product-name="Chicken box" data-product-category="Meat Boxes" data-product-price="29.00" data-product-unit="box">
+            <h3>Chicken box</h3>
+            <p>A chicken-focused selection for weekly cooking and family meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Meat Boxes</span>
+              <span><strong>Unit:</strong> box</span>
+              <span><strong>Status:</strong> Indicative box price</span>
+            </div>
+            <a href="#" class="catalog-btn">Add to Cart</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-cta">
+      <div class="container order-cta-inner">
+        <div>
+          <p class="section-label">Ready to order?</p>
+          <h2>Add products to cart and send your request on WhatsApp</h2>
+          <p>
+            Choose pickup or delivery preference, select preferred payment method and send the request.
+            Final details are confirmed manually before payment.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/37129174626" target="_blank" rel="noopener">
+          Contact on WhatsApp
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Gaļas grozs. All rights reserved.</p>
-      <p>galasgrozs.lv · +37129174626</p>
+      <div>
+        <a class="brand footer-brand" href="index.html" aria-label="Gaļas grozs home">
+          <span class="brand-icon">🛒</span>
+          <span class="brand-text">
+            <strong>Gaļas grozs</strong>
+            <small>Fresh meat orders in Latvia</small>
+          </span>
+        </a>
+        <p>
+          Order request website for fresh meat products. Final availability, weight and total price are confirmed manually.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="products.html">Products</a>
+        <a href="how-to-order.html">How to Order</a>
+        <a href="quality.html">Quality</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-contact">
+        <strong>WhatsApp</strong>
+        <a href="https://wa.me/37129174626" target="_blank" rel="noopener">+371 29174626</a>
+      </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=21"></script>
+  <script src="js/main.js?v=22"></script>
 </body>
 </html>
