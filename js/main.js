@@ -7,14 +7,8 @@ const PAYMENT_STORAGE_KEY = "galasGrozsPaymentPreferenceV1";
 
 const CURRENCY = "€";
 
-const DEFAULT_DELIVERY = {
-  method: "to-be-confirmed",
-  details: ""
-};
-
-const DEFAULT_PAYMENT = {
-  method: "to-be-confirmed"
-};
+const DEFAULT_DELIVERY = { method: "to-be-confirmed", details: "" };
+const DEFAULT_PAYMENT = { method: "to-be-confirmed" };
 
 const DELIVERY_LABELS = {
   pickup: "Pickup",
@@ -38,12 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function initMobileNavigation() {
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
-
   if (!navToggle || !nav) return;
 
   navToggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
-
     navToggle.classList.toggle("open", isOpen);
     navToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("nav-open", isOpen);
@@ -63,25 +55,20 @@ function initSmoothLinks() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       const href = link.getAttribute("href");
-
       if (!href || href === "#") return;
 
       const target = document.querySelector(href);
-
       if (!target) return;
 
       event.preventDefault();
-
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 }
 
 function initCartSystem() {
   injectCartUi();
+  injectProductImages();
   injectProductPrices();
   bindProductButtons();
   updateCartUi();
@@ -103,11 +90,7 @@ function saveCart(cart) {
 function getDeliveryPreference() {
   try {
     const saved = JSON.parse(localStorage.getItem(DELIVERY_STORAGE_KEY));
-
-    return {
-      ...DEFAULT_DELIVERY,
-      ...(saved || {})
-    };
+    return { ...DEFAULT_DELIVERY, ...(saved || {}) };
   } catch {
     return { ...DEFAULT_DELIVERY };
   }
@@ -120,11 +103,7 @@ function saveDeliveryPreference(preference) {
 function getPaymentPreference() {
   try {
     const saved = JSON.parse(localStorage.getItem(PAYMENT_STORAGE_KEY));
-
-    return {
-      ...DEFAULT_PAYMENT,
-      ...(saved || {})
-    };
+    return { ...DEFAULT_PAYMENT, ...(saved || {}) };
   } catch {
     return { ...DEFAULT_PAYMENT };
   }
@@ -151,10 +130,7 @@ function getProductFromCard(card) {
 
   const id =
     card.dataset.productId ||
-    name
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+    name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
   const category =
     card.dataset.productCategory ||
@@ -164,13 +140,32 @@ function getProductFromCard(card) {
   const unit = card.dataset.productUnit || "kg";
   const price = parsePrice(card.dataset.productPrice);
 
-  return {
-    id,
-    name,
-    category,
-    unit,
-    price
-  };
+  return { id, name, category, unit, price };
+}
+
+function injectProductImages() {
+  document.querySelectorAll(".catalog-product").forEach((card) => {
+    if (card.querySelector(".product-image-wrap")) return;
+
+    const product = getProductFromCard(card);
+    if (!product.id) return;
+
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "product-image-wrap";
+
+    const image = document.createElement("img");
+    image.src = `assets/products/${product.id}.png`;
+    image.alt = product.name;
+    image.loading = "lazy";
+    image.decoding = "async";
+
+    image.addEventListener("error", () => {
+      imageWrap.remove();
+    });
+
+    imageWrap.appendChild(image);
+    card.insertAdjacentElement("afterbegin", imageWrap);
+  });
 }
 
 function injectProductPrices() {
@@ -192,28 +187,20 @@ function injectProductPrices() {
       : "Price confirmed manually";
 
     const meta = card.querySelector(".product-meta");
-
-    if (meta) {
-      meta.insertAdjacentElement("afterend", priceElement);
-    } else {
-      card.appendChild(priceElement);
-    }
+    if (meta) meta.insertAdjacentElement("afterend", priceElement);
+    else card.appendChild(priceElement);
   });
 }
 
 function bindProductButtons() {
   document.querySelectorAll(".catalog-product").forEach((card) => {
-    const button =
-      card.querySelector(".catalog-btn") ||
-      card.querySelector("[data-add-to-cart]");
-
+    const button = card.querySelector(".catalog-btn") || card.querySelector("[data-add-to-cart]");
     if (!button) return;
 
     button.addEventListener("click", (event) => {
       event.preventDefault();
 
       const product = getProductFromCard(card);
-
       addToCart(product);
       openCart();
     });
@@ -224,14 +211,8 @@ function addToCart(product) {
   const cart = getCart();
   const existingItem = cart.find((item) => item.id === product.id);
 
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({
-      ...product,
-      quantity: 1
-    });
-  }
+  if (existingItem) existingItem.quantity += 1;
+  else cart.push({ ...product, quantity: 1 });
 
   saveCart(cart);
   updateCartUi();
@@ -239,7 +220,6 @@ function addToCart(product) {
 
 function removeFromCart(productId) {
   const cart = getCart().filter((item) => item.id !== productId);
-
   saveCart(cart);
   updateCartUi();
 }
@@ -247,11 +227,9 @@ function removeFromCart(productId) {
 function updateCartQuantity(productId, quantity) {
   const cart = getCart();
   const item = cart.find((cartItem) => cartItem.id === productId);
-
   if (!item) return;
 
   item.quantity = Math.max(1, quantity);
-
   saveCart(cart);
   updateCartUi();
 }
@@ -262,15 +240,11 @@ function clearCart() {
 }
 
 function getCartTotal(cart) {
-  return cart.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
+  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
 }
 
 function getCartCount(cart) {
-  return cart.reduce((total, item) => {
-    return total + item.quantity;
-  }, 0);
+  return cart.reduce((total, item) => total + item.quantity, 0);
 }
 
 function injectCartUi() {
@@ -359,11 +333,7 @@ function bindDeliveryPreferenceInputs() {
     deliverySelect.value = delivery.method || "to-be-confirmed";
 
     deliverySelect.addEventListener("change", () => {
-      saveDeliveryPreference({
-        ...getDeliveryPreference(),
-        method: deliverySelect.value
-      });
-
+      saveDeliveryPreference({ ...getDeliveryPreference(), method: deliverySelect.value });
       updateDeliveryDetailsVisibility();
     });
   }
@@ -372,10 +342,7 @@ function bindDeliveryPreferenceInputs() {
     detailsTextarea.value = delivery.details || "";
 
     detailsTextarea.addEventListener("input", () => {
-      saveDeliveryPreference({
-        ...getDeliveryPreference(),
-        details: detailsTextarea.value.trim()
-      });
+      saveDeliveryPreference({ ...getDeliveryPreference(), details: detailsTextarea.value.trim() });
     });
   }
 
@@ -385,22 +352,18 @@ function bindDeliveryPreferenceInputs() {
 function bindPaymentPreferenceInputs() {
   const payment = getPaymentPreference();
   const paymentSelect = document.querySelector("[data-payment-method]");
-
   if (!paymentSelect) return;
 
   paymentSelect.value = payment.method || "to-be-confirmed";
 
   paymentSelect.addEventListener("change", () => {
-    savePaymentPreference({
-      method: paymentSelect.value
-    });
+    savePaymentPreference({ method: paymentSelect.value });
   });
 }
 
 function updateDeliveryDetailsVisibility() {
   const delivery = getDeliveryPreference();
   const detailsWrapper = document.querySelector("[data-delivery-details]");
-
   if (!detailsWrapper) return;
 
   detailsWrapper.classList.toggle("open", delivery.method === "delivery");
@@ -411,7 +374,6 @@ function updateCartUi() {
   const cartItems = document.querySelector("[data-cart-items]");
   const cartTotal = document.querySelector("[data-cart-total]");
   const cartCountElements = document.querySelectorAll("[data-cart-count]");
-
   const count = getCartCount(cart);
   const total = getCartTotal(cart);
 
@@ -419,10 +381,7 @@ function updateCartUi() {
     element.textContent = String(count);
   });
 
-  if (cartTotal) {
-    cartTotal.textContent = formatPrice(total);
-  }
-
+  if (cartTotal) cartTotal.textContent = formatPrice(total);
   if (!cartItems) return;
 
   if (cart.length === 0) {
@@ -435,36 +394,30 @@ function updateCartUi() {
     return;
   }
 
-  cartItems.innerHTML = cart
-    .map((item) => {
-      const lineTotal = item.price * item.quantity;
+  cartItems.innerHTML = cart.map((item) => {
+    const lineTotal = item.price * item.quantity;
 
-      return `
-        <article class="cart-item cart-item-compact">
-          <div class="cart-item-top">
-            <div>
-              <h3>${escapeHtml(item.name)}</h3>
-              <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
-            </div>
-
-            <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">
-              ×
-            </button>
+    return `
+      <article class="cart-item cart-item-compact">
+        <div class="cart-item-top">
+          <div>
+            <h3>${escapeHtml(item.name)}</h3>
+            <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
           </div>
+          <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">×</button>
+        </div>
 
-          <div class="cart-item-bottom">
-            <div class="cart-item-controls">
-              <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
-              <span>${item.quantity}</span>
-              <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
-            </div>
-
-            <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+        <div class="cart-item-bottom">
+          <div class="cart-item-controls">
+            <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+            <span>${item.quantity}</span>
+            <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
           </div>
-        </article>
-      `;
-    })
-    .join("");
+          <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+        </div>
+      </article>
+    `;
+  }).join("");
 
   bindCartItemButtons();
 }
@@ -474,7 +427,6 @@ function bindCartItemButtons() {
     button.addEventListener("click", () => {
       const productId = button.dataset.cartIncrease;
       const item = getCart().find((cartItem) => cartItem.id === productId);
-
       if (!item) return;
 
       updateCartQuantity(productId, item.quantity + 1);
@@ -485,7 +437,6 @@ function bindCartItemButtons() {
     button.addEventListener("click", () => {
       const productId = button.dataset.cartDecrease;
       const item = getCart().find((cartItem) => cartItem.id === productId);
-
       if (!item) return;
 
       updateCartQuantity(productId, item.quantity - 1);
@@ -493,9 +444,7 @@ function bindCartItemButtons() {
   });
 
   document.querySelectorAll("[data-cart-remove]").forEach((button) => {
-    button.addEventListener("click", () => {
-      removeFromCart(button.dataset.cartRemove);
-    });
+    button.addEventListener("click", () => removeFromCart(button.dataset.cartRemove));
   });
 }
 
@@ -540,16 +489,13 @@ function requestCartOrder() {
     `Estimated total: ${formatPrice(total)}`,
     "",
     `Delivery preference: ${DELIVERY_LABELS[delivery.method] || "To be confirmed"}`,
-    delivery.method === "delivery" && delivery.details
-      ? `Delivery address / details: ${delivery.details}`
-      : null,
+    delivery.method === "delivery" && delivery.details ? `Delivery address / details: ${delivery.details}` : null,
     `Payment preference: ${PAYMENT_LABELS[payment.method] || "To be confirmed"}`,
     "",
     "I understand that final weight, availability and total price are confirmed manually before payment."
   ].filter(Boolean);
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageParts.join("\n"))}`;
-
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 }
 
