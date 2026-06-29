@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Products | Gaļas grozs</title>
-  <meta
-    name="description"
-    content="Order fresh pork, beef, chicken, BBQ products and prepared meat boxes in Latvia. Prices are indicative and final weight, availability and total price are confirmed manually."
-  />
+  <meta name="description" content="Fresh pork, beef, chicken, BBQ products and practical meat boxes in Latvia. Order request by WhatsApp. Final weight, availability and total price are confirmed manually." />
 
-  <link rel="icon" type="image/svg+xml" href="assets/pig-logo.svg" />
+  <link rel="icon" href="assets/pig-logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -25,7 +22,12 @@
         </span>
       </a>
 
-      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="products.html" class="active">Products</a>
         <a href="how-to-order.html">How to order</a>
@@ -35,22 +37,16 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <a class="header-cta" href="https://wa.me/37129174626" target="_blank" rel="noopener">
+      <a class="header-whatsapp" href="https://wa.me/37129174626" target="_blank" rel="noopener">
         WhatsApp
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="siteNav" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero products-hero">
       <div class="container">
-        <p class="section-label">Products</p>
+        <span class="section-label">Products</span>
         <h1>Fresh meat products and practical meat boxes.</h1>
         <p>
           Choose products, add them to cart and send an order request on WhatsApp.
@@ -59,432 +55,492 @@
       </div>
     </section>
 
-    <section class="category-jump" aria-label="Product categories">
+    <nav class="category-jump" aria-label="Product categories">
       <div class="container category-jump-inner">
-        <a href="#pork" class="category-pill">
-          <span class="category-nav-icon" aria-hidden="true">
-            <img src="assets/icons/pork.png" alt="" loading="lazy" />
-          </span>
-          <span>Pork</span>
-        </a>
-
-        <a href="#beef" class="category-pill">
-          <span class="category-nav-icon" aria-hidden="true">
-            <img src="assets/icons/beef.png" alt="" loading="lazy" />
-          </span>
-          <span>Beef</span>
-        </a>
-
-        <a href="#chicken" class="category-pill">
-          <span class="category-nav-icon" aria-hidden="true">
-            <img src="assets/icons/chicken.png" alt="" loading="lazy" />
-          </span>
-          <span>Chicken</span>
-        </a>
-
-        <a href="#bbq-grill" class="category-pill">
-          <span class="category-nav-icon" aria-hidden="true">
-            <img src="assets/icons/bbq.png" alt="" loading="lazy" />
-          </span>
-          <span>BBQ & Grill</span>
-        </a>
-
-        <a href="#meat-boxes" class="category-pill">
-          <span class="category-nav-icon" aria-hidden="true">
-            <img src="assets/icons/box.png" alt="" loading="lazy" />
-          </span>
-          <span>Meat Boxes</span>
-        </a>
+        <a class="category-pill" href="#pork">Pork</a>
+        <a class="category-pill" href="#beef">Beef</a>
+        <a class="category-pill" href="#chicken">Chicken</a>
+        <a class="category-pill" href="#bbq">BBQ &amp; Grill</a>
+        <a class="category-pill" href="#boxes">Meat Boxes</a>
       </div>
-    </section>
+    </nav>
 
-    <section class="catalog-intro">
+    <section class="catalog-notice">
       <div class="container">
-        <div class="notice-box">
-          <strong>Important:</strong>
-          All prices are indicative. Final weight, availability and total price are confirmed manually before payment.
+        <p>
+          <strong>Important:</strong> All prices are indicative. Final weight, availability and total price are confirmed manually before payment.
           Payment details are provided after order confirmation.
-        </div>
+        </p>
       </div>
     </section>
 
+    <!-- PORK -->
     <section class="catalog-category" id="pork">
       <div class="container">
-        <div class="catalog-heading">
-          <p class="section-label">Pork</p>
-          <h2>Fresh pork cuts</h2>
-          <p>Pork products for home cooking, roasting, grilling and family meals.</p>
-        </div>
+        <span class="section-label">Pork</span>
+        <h2>Fresh pork cuts</h2>
+        <p class="section-intro">
+          Pork products for home cooking, roasting, grilling and family meals.
+        </p>
 
         <div class="catalog-grid">
-          <article class="catalog-product" data-product-id="pork-loin-without-rib-skinless" data-product-name="Pork loin without rib, skinless" data-product-category="Pork" data-product-price="7.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-loin-without-rib-skinless"
+            data-product-name="Pork loin without rib, skinless"
+            data-product-category="Pork"
+            data-product-price="7.50"
+            data-product-unit="kg">
             <h3>Pork loin without rib, skinless</h3>
             <p>Lean pork loin without rib and without skin, suitable for slices, roasting and everyday cooking.</p>
-            <div class="product-meta">
-              <span>Cut: loin</span>
-              <span>Best for: roasting, slicing, pan cooking</span>
-            </div>
+            <div class="product-meta">Cut: loin · Best for: roasting, slicing, pan cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-loin-with-fat-and-skin" data-product-name="Pork loin with fat and skin" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-loin-with-fat-and-skin"
+            data-product-name="Pork loin with fat and skin"
+            data-product-category="Pork"
+            data-product-price="6.50"
+            data-product-unit="kg">
             <h3>Pork loin with fat and skin</h3>
             <p>Pork loin with fat and skin, useful for juicy roasts and traditional home cooking.</p>
-            <div class="product-meta">
-              <span>Cut: loin</span>
-              <span>Best for: roasting, oven cooking</span>
-            </div>
+            <div class="product-meta">Cut: loin · Best for: roasting, oven cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-neck" data-product-name="Pork neck" data-product-category="Pork" data-product-price="7.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-neck"
+            data-product-name="Pork neck"
+            data-product-category="Pork"
+            data-product-price="7.50"
+            data-product-unit="kg">
             <h3>Pork neck</h3>
             <p>Juicy pork neck with good marbling, suitable for grilling, roasting and steaks.</p>
-            <div class="product-meta">
-              <span>Cut: neck</span>
-              <span>Best for: BBQ, steak, roast</span>
-            </div>
+            <div class="product-meta">Cut: neck · Best for: BBQ, steak, roast</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-tenderloin" data-product-name="Pork tenderloin" data-product-category="Pork" data-product-price="8.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-tenderloin"
+            data-product-name="Pork tenderloin"
+            data-product-category="Pork"
+            data-product-price="8.50"
+            data-product-unit="kg">
             <h3>Pork tenderloin</h3>
             <p>Tender pork cut for quick cooking, pan dishes and special meals.</p>
-            <div class="product-meta">
-              <span>Cut: tenderloin</span>
-              <span>Best for: quick meals, pan cooking</span>
-            </div>
+            <div class="product-meta">Cut: tenderloin · Best for: quick meals, pan cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-ham-piece-skinless" data-product-name="Pork ham piece, skinless" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-ham-piece-skinless"
+            data-product-name="Pork ham piece, skinless"
+            data-product-category="Pork"
+            data-product-price="6.50"
+            data-product-unit="kg">
             <h3>Pork ham piece, skinless</h3>
             <p>Skinless pork ham piece for roasting, stews and sliced home meals.</p>
-            <div class="product-meta">
-              <span>Cut: ham</span>
-              <span>Best for: roasting, stews</span>
-            </div>
+            <div class="product-meta">Cut: ham · Best for: roasting, stews</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-ham-piece-with-skin" data-product-name="Pork ham piece with skin" data-product-category="Pork" data-product-price="6.00" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-ham-piece-with-skin"
+            data-product-name="Pork ham piece with skin"
+            data-product-category="Pork"
+            data-product-price="6.00"
+            data-product-unit="kg">
             <h3>Pork ham piece with skin</h3>
             <p>Pork ham piece with skin, suitable for traditional roasting and slow cooking.</p>
-            <div class="product-meta">
-              <span>Cut: ham</span>
-              <span>Best for: roast, slow cooking</span>
-            </div>
+            <div class="product-meta">Cut: ham · Best for: roast, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="boneless-pork-ham-with-skin" data-product-name="Boneless pork ham with skin" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="boneless-pork-ham-with-skin"
+            data-product-name="Boneless pork ham with skin"
+            data-product-category="Pork"
+            data-product-price="5.50"
+            data-product-unit="kg">
             <h3>Boneless pork ham with skin</h3>
             <p>Boneless pork ham with skin, practical for roasts and larger family meals.</p>
-            <div class="product-meta">
-              <span>Cut: ham</span>
-              <span>Best for: oven cooking, family meals</span>
-            </div>
+            <div class="product-meta">Cut: ham · Best for: oven roasting, family meals</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="boneless-pork-ham-skinless" data-product-name="Boneless pork ham, skinless" data-product-category="Pork" data-product-price="5.70" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="boneless-pork-ham-skinless"
+            data-product-name="Boneless pork ham, skinless"
+            data-product-category="Pork"
+            data-product-price="5.70"
+            data-product-unit="kg">
             <h3>Boneless pork ham, skinless</h3>
-            <p>Skinless boneless pork ham for clean preparation, stews, roasting and slicing.</p>
-            <div class="product-meta">
-              <span>Cut: ham</span>
-              <span>Best for: stews, roast, slicing</span>
-            </div>
+            <p>Skinless boneless pork ham for clean preparation, roasts, roasting and slicing.</p>
+            <div class="product-meta">Cut: ham · Best for: roast, slicing</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-belly-with-rib" data-product-name="Pork belly with rib" data-product-category="Pork" data-product-price="6.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-belly-with-rib"
+            data-product-name="Pork belly with rib"
+            data-product-category="Pork"
+            data-product-price="6.50"
+            data-product-unit="kg">
             <h3>Pork belly with rib</h3>
-            <p>Pork belly with rib, suitable for roasting, BBQ and slow cooked dishes.</p>
-            <div class="product-meta">
-              <span>Cut: belly with rib</span>
-              <span>Best for: BBQ, roasting, slow cooking</span>
-            </div>
+            <p>Pork belly with rib, suitable for roasting, BBQ and slow-cooked dishes.</p>
+            <div class="product-meta">Cut: belly with rib · Best for: BBQ, roasting, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-belly" data-product-name="Pork belly" data-product-category="Pork" data-product-price="5.80" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-belly"
+            data-product-name="Pork belly"
+            data-product-category="Pork"
+            data-product-price="5.80"
+            data-product-unit="kg">
             <h3>Pork belly</h3>
             <p>Classic pork belly for roasting, frying and traditional home dishes.</p>
-            <div class="product-meta">
-              <span>Cut: belly</span>
-              <span>Best for: roast, frying, slow cooking</span>
-            </div>
+            <div class="product-meta">Cut: belly · Best for: oven, frying, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-ribs-with-skin-and-fat" data-product-name="Pork ribs with skin and fat" data-product-category="Pork" data-product-price="7.00" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-ribs-with-skin-and-fat"
+            data-product-name="Pork ribs with skin and fat"
+            data-product-category="Pork"
+            data-product-price="7.00"
+            data-product-unit="kg">
             <h3>Pork ribs with skin and fat</h3>
             <p>Pork ribs with skin and fat, good for rich oven dishes and BBQ-style meals.</p>
-            <div class="product-meta">
-              <span>Cut: ribs</span>
-              <span>Best for: BBQ, oven cooking</span>
-            </div>
+            <div class="product-meta">Cut: ribs · Best for: oven, BBQ cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-shoulder-with-bone-and-skin" data-product-name="Pork shoulder with bone and skin" data-product-category="Pork" data-product-price="4.80" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-shoulder-with-bone-and-skin"
+            data-product-name="Pork shoulder with bone and skin"
+            data-product-category="Pork"
+            data-product-price="4.80"
+            data-product-unit="kg">
             <h3>Pork shoulder with bone and skin</h3>
             <p>Pork shoulder with bone and skin, suitable for slow cooking, soups and traditional meals.</p>
-            <div class="product-meta">
-              <span>Cut: shoulder</span>
-              <span>Best for: slow cooking, soups, roast</span>
-            </div>
+            <div class="product-meta">Cut: shoulder · Best for: slow cooking, roast, soup</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="boneless-pork-shoulder-skinless" data-product-name="Boneless pork shoulder, skinless" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="boneless-pork-shoulder-skinless"
+            data-product-name="Boneless pork shoulder, skinless"
+            data-product-category="Pork"
+            data-product-price="5.50"
+            data-product-unit="kg">
             <h3>Boneless pork shoulder, skinless</h3>
-            <p>Skinless boneless pork shoulder for stews, pulled pork-style cooking and home meals.</p>
-            <div class="product-meta">
-              <span>Cut: shoulder</span>
-              <span>Best for: stews, slow cooking</span>
-            </div>
+            <p>Skinless boneless pork shoulder for roasts, pulled pork-style cooking and home meals.</p>
+            <div class="product-meta">Cut: shoulder · Best for: stews, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-shanks" data-product-name="Pork shanks" data-product-category="Pork" data-product-price="2.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-shanks"
+            data-product-name="Pork shanks"
+            data-product-category="Pork"
+            data-product-price="2.50"
+            data-product-unit="kg">
             <h3>Pork shanks</h3>
             <p>Pork shanks for soups, slow cooking and rich traditional dishes.</p>
-            <div class="product-meta">
-              <span>Cut: shank</span>
-              <span>Best for: soups, slow cooking</span>
-            </div>
+            <div class="product-meta">Cut: shanks · Best for: soups, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-ribs" data-product-name="Pork ribs" data-product-category="Pork" data-product-price="1.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="pork-ribs"
+            data-product-name="Pork ribs"
+            data-product-category="Pork"
+            data-product-price="1.50"
+            data-product-unit="kg">
             <h3>Pork ribs</h3>
-            <p>Pork ribs for soups, oven dishes and slow cooked meals.</p>
-            <div class="product-meta">
-              <span>Cut: ribs</span>
-              <span>Best for: soups, oven cooking</span>
-            </div>
+            <p>Pork ribs for soups, oven dishes and slow-cooked meals.</p>
+            <div class="product-meta">Cut: ribs · Best for: soups, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="minced-pork" data-product-name="Minced pork" data-product-category="Pork" data-product-price="5.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="minced-pork"
+            data-product-name="Minced pork"
+            data-product-category="Pork"
+            data-product-price="5.50"
+            data-product-unit="kg">
             <h3>Minced pork</h3>
             <p>Minced pork for meatballs, sauces, stuffed dishes and everyday cooking.</p>
-            <div class="product-meta">
-              <span>Type: minced meat</span>
-              <span>Best for: meatballs, sauces, fillings</span>
-            </div>
+            <div class="product-meta">Type: minced meat · Best for: meatballs, sauces, fillings</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- BEEF -->
     <section class="catalog-category" id="beef">
       <div class="container">
-        <div class="catalog-heading">
-          <p class="section-label">Beef</p>
-          <h2>Beef products</h2>
-          <p>Beef options for steaks, ribs, minced meat and slow cooked dishes.</p>
-        </div>
+        <span class="section-label">Beef</span>
+        <h2>Beef products</h2>
+        <p class="section-intro">
+          Fresh beef cuts for slow cooking, roasting, grilling and everyday meals.
+        </p>
 
         <div class="catalog-grid">
-          <article class="catalog-product" data-product-id="beef-steak-cuts" data-product-name="Beef steak cuts" data-product-category="Beef" data-product-price="24.90" data-product-unit="kg">
-            <h3>Beef steak cuts</h3>
-            <p>Selected beef cuts suitable for steak-style cooking and special meals.</p>
-            <div class="product-meta">
-              <span>Typical use: steak, pan cooking, grill</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+          <article class="catalog-product"
+            data-product-id="beef-ribs-brisket"
+            data-product-name="Beef ribs / brisket"
+            data-product-category="Beef"
+            data-product-price="8.00"
+            data-product-unit="kg">
+            <h3>Beef ribs / brisket</h3>
+            <p>Fresh beef ribs or brisket, suitable for slow cooking, soups and roasting.</p>
+            <div class="product-meta">Typical use: slow cooking, soups, roasting</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="beef-ribs" data-product-name="Beef ribs" data-product-category="Beef" data-product-price="12.90" data-product-unit="kg">
-            <h3>Beef ribs</h3>
-            <p>Beef ribs for slow cooking, oven dishes and BBQ-style preparation.</p>
-            <div class="product-meta">
-              <span>Typical use: slow cooking, BBQ, oven</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+          <article class="catalog-product"
+            data-product-id="beef-leg"
+            data-product-name="Beef leg"
+            data-product-category="Beef"
+            data-product-price="16.00"
+            data-product-unit="kg">
+            <h3>Beef leg</h3>
+            <p>Lean beef leg cut, suitable for roasting, stews and sliced meat dishes.</p>
+            <div class="product-meta">Typical use: roasting, stews, slicing</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="minced-beef" data-product-name="Minced beef" data-product-category="Beef" data-product-price="10.90" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="beef-loin-steak-cut"
+            data-product-name="Beef loin / steak cut"
+            data-product-category="Beef"
+            data-product-price="20.00"
+            data-product-unit="kg">
+            <h3>Beef loin / steak cut</h3>
+            <p>Quality beef cut suitable for steaks, grilling and pan cooking.</p>
+            <div class="product-meta">Typical use: steaks, grilling, pan cooking</div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
+
+          <article class="catalog-product"
+            data-product-id="beef-shoulder-with-bone"
+            data-product-name="Beef shoulder with bone"
+            data-product-category="Beef"
+            data-product-price="12.00"
+            data-product-unit="kg">
+            <h3>Beef shoulder with bone</h3>
+            <p>Beef shoulder with bone, suitable for slow cooking, broth and hearty meals.</p>
+            <div class="product-meta">Typical use: slow cooking, broth, stews</div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
+
+          <article class="catalog-product"
+            data-product-id="minced-beef"
+            data-product-name="Minced beef"
+            data-product-category="Beef"
+            data-product-price="8.50"
+            data-product-unit="kg">
             <h3>Minced beef</h3>
-            <p>Minced beef for burgers, sauces, meatballs and family meals.</p>
-            <div class="product-meta">
-              <span>Typical use: burgers, sauces, meatballs</span>
-              <span>Availability confirmed before payment</span>
-            </div>
-            <button class="catalog-btn" type="button">Add to cart</button>
-          </article>
-
-          <article class="catalog-product" data-product-id="beef-stew-meat" data-product-name="Beef stew meat" data-product-category="Beef" data-product-price="13.90" data-product-unit="kg">
-            <h3>Beef stew meat</h3>
-            <p>Beef pieces suitable for stews, soups and slow cooked dishes.</p>
-            <div class="product-meta">
-              <span>Typical use: stews, soups, slow cooking</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+            <p>Fresh minced beef for burgers, meatballs, sauces and everyday cooking.</p>
+            <div class="product-meta">Typical use: burgers, meatballs, sauces</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- CHICKEN -->
     <section class="catalog-category" id="chicken">
       <div class="container">
-        <div class="catalog-heading">
-          <p class="section-label">Chicken</p>
-          <h2>Chicken products</h2>
-          <p>Chicken products for quick meals, family cooking and grill preparation.</p>
-        </div>
+        <span class="section-label">Chicken</span>
+        <h2>Chicken products</h2>
+        <p class="section-intro">
+          Fresh chicken products for quick meals, grilling, roasting and everyday cooking.
+        </p>
 
         <div class="catalog-grid">
-          <article class="catalog-product" data-product-id="chicken-breast" data-product-name="Chicken breast" data-product-category="Chicken" data-product-price="7.99" data-product-unit="kg">
-            <h3>Chicken breast</h3>
-            <p>Lean chicken breast for simple meals, pan cooking, salads and oven dishes.</p>
-            <div class="product-meta">
-              <span>Typical use: quick meals, salads, oven</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+          <article class="catalog-product"
+            data-product-id="chicken-fillet"
+            data-product-name="Chicken fillet"
+            data-product-category="Chicken"
+            data-product-price="8.50"
+            data-product-unit="kg">
+            <h3>Chicken fillet</h3>
+            <p>Lean chicken fillet for simple meals, pan cooking, salads and oven dishes.</p>
+            <div class="product-meta">Typical use: pan cooking, salads, oven dishes</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="chicken-thighs" data-product-name="Chicken thighs" data-product-category="Chicken" data-product-price="5.90" data-product-unit="kg">
-            <h3>Chicken thighs</h3>
-            <p>Chicken thighs for oven cooking, grilling and juicy family meals.</p>
-            <div class="product-meta">
-              <span>Typical use: oven, grill, family cooking</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+          <article class="catalog-product"
+            data-product-id="skinless-chicken-gyros"
+            data-product-name="Skinless chicken gyros"
+            data-product-category="Chicken"
+            data-product-price="7.00"
+            data-product-unit="kg">
+            <h3>Skinless chicken gyros</h3>
+            <p>Skinless chicken gyros-style meat, suitable for quick frying, wraps and grilled dishes.</p>
+            <div class="product-meta">Typical use: frying, wraps, grilling</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="chicken-wings" data-product-name="Chicken wings" data-product-category="Chicken" data-product-price="4.99" data-product-unit="kg">
-            <h3>Chicken wings</h3>
-            <p>Chicken wings suitable for BBQ, oven cooking and party meals.</p>
-            <div class="product-meta">
-              <span>Typical use: BBQ, oven, snacks</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+          <article class="catalog-product"
+            data-product-id="chicken-thighs-with-bone"
+            data-product-name="Chicken thighs with bone"
+            data-product-category="Chicken"
+            data-product-price="5.50"
+            data-product-unit="kg">
+            <h3>Chicken thighs with bone</h3>
+            <p>Chicken thighs with bone, suitable for roasting, grilling and slow cooking.</p>
+            <div class="product-meta">Typical use: roasting, grilling, slow cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="chicken-drumsticks" data-product-name="Chicken drumsticks" data-product-category="Chicken" data-product-price="4.80" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="chicken-drumsticks"
+            data-product-name="Chicken drumsticks"
+            data-product-category="Chicken"
+            data-product-price="4.50"
+            data-product-unit="kg">
             <h3>Chicken drumsticks</h3>
-            <p>Chicken drumsticks for oven trays, grilling and everyday meals.</p>
-            <div class="product-meta">
-              <span>Typical use: oven, grill, family meals</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+            <p>Chicken drumsticks for oven trays, grilling and everyday family meals.</p>
+            <div class="product-meta">Typical use: oven trays, grilling, family meals</div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
+
+          <article class="catalog-product"
+            data-product-id="whole-chicken"
+            data-product-name="Whole chicken"
+            data-product-category="Chicken"
+            data-product-price="5.00"
+            data-product-unit="kg">
+            <h3>Whole chicken</h3>
+            <p>Whole chicken suitable for roasting, soup, broth and family meals.</p>
+            <div class="product-meta">Typical use: roasting, soup, broth</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="catalog-category" id="bbq-grill">
+    <!-- BBQ -->
+    <section class="catalog-category" id="bbq">
       <div class="container">
-        <div class="catalog-heading">
-          <p class="section-label">BBQ & Grill</p>
-          <h2>BBQ and grill products</h2>
-          <p>Grill-friendly products for weekends, gatherings and outdoor cooking.</p>
-        </div>
+        <span class="section-label">BBQ &amp; Grill</span>
+        <h2>BBQ and grill products</h2>
+        <p class="section-intro">
+          Grill-friendly products for weekends, gatherings and outdoor cooking.
+        </p>
 
         <div class="catalog-grid">
-          <article class="catalog-product" data-product-id="marinated-pork-neck" data-product-name="Marinated pork neck" data-product-category="BBQ & Grill" data-product-price="8.99" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="marinated-pork-neck"
+            data-product-name="Marinated pork neck"
+            data-product-category="BBQ & Grill"
+            data-product-price="8.99"
+            data-product-unit="kg">
             <h3>Marinated pork neck</h3>
-            <p>Marinated pork neck for juicy grilled portions and BBQ meals.</p>
-            <div class="product-meta">
-              <span>Typical use: BBQ, grill, weekend meals</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+            <p>Marinated pork neck for juicy grilled steaks and BBQ meals.</p>
+            <div class="product-meta">Typical use: BBQ, grill, weekend meals</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="bbq-ribs" data-product-name="BBQ ribs" data-product-category="BBQ & Grill" data-product-price="9.90" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="bbq-ribs"
+            data-product-name="BBQ ribs"
+            data-product-category="BBQ & Grill"
+            data-product-price="9.90"
+            data-product-unit="kg">
             <h3>BBQ ribs</h3>
-            <p>Ribs prepared for BBQ-style cooking, oven roasting or grilling.</p>
-            <div class="product-meta">
-              <span>Typical use: BBQ, oven, grill</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+            <p>BBQ-prepared ribs for oven cooking, grilling and family meals.</p>
+            <div class="product-meta">Typical use: BBQ, oven, grill</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="grill-sausages" data-product-name="Grill sausages" data-product-category="BBQ & Grill" data-product-price="8.90" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="grill-sausages"
+            data-product-name="Grill sausages"
+            data-product-category="BBQ & Grill"
+            data-product-price="8.90"
+            data-product-unit="kg">
             <h3>Grill sausages</h3>
             <p>Sausages suitable for grilling, quick meals and outdoor gatherings.</p>
-            <div class="product-meta">
-              <span>Typical use: grill, BBQ, quick meals</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+            <div class="product-meta">Typical use: grill, BBQ, quick meals</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="chicken-skewers" data-product-name="Chicken skewers" data-product-category="BBQ & Grill" data-product-price="8.50" data-product-unit="kg">
+          <article class="catalog-product"
+            data-product-id="chicken-skewers"
+            data-product-name="Chicken skewers"
+            data-product-category="BBQ & Grill"
+            data-product-price="8.50"
+            data-product-unit="kg">
             <h3>Chicken skewers</h3>
-            <p>Chicken skewers for grilling, BBQ meals and easy weekend cooking.</p>
-            <div class="product-meta">
-              <span>Typical use: BBQ, grill, gatherings</span>
-              <span>Availability confirmed before payment</span>
-            </div>
+            <p>Chicken skewers for grilling, BBQ meals and easy outdoor cooking.</p>
+            <div class="product-meta">Typical use: BBQ, grill, gatherings</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="catalog-category" id="meat-boxes">
+    <!-- BOXES -->
+    <section class="catalog-category" id="boxes">
       <div class="container">
-        <div class="catalog-heading">
-          <p class="section-label">Meat Boxes</p>
-          <h2>Prepared meat boxes</h2>
-          <p>
-            Practical mixed boxes for families, BBQ days and weekly cooking.
-            Box contents may vary slightly depending on fresh availability.
-          </p>
-        </div>
+        <span class="section-label">Meat Boxes</span>
+        <h2>Prepared meat boxes</h2>
+        <p class="section-intro">
+          Practical mixed boxes for families, BBQ days and weekly cooking. Box contents may vary slightly depending on fresh availability.
+        </p>
 
         <div class="catalog-grid">
-          <article class="catalog-product" data-product-id="family-meat-box" data-product-name="Family Meat Box" data-product-category="Meat Boxes" data-product-price="49.00" data-product-unit="box">
+          <article class="catalog-product"
+            data-product-id="family-meat-box"
+            data-product-name="Family Meat Box"
+            data-product-category="Meat Boxes"
+            data-product-price="49.00"
+            data-product-unit="box">
             <h3>Family Meat Box</h3>
             <p>A mixed family selection for weekly cooking. Usually includes pork cuts, chicken pieces, minced meat and grill-friendly items, depending on availability.</p>
-            <div class="product-meta">
-              <span>Typical use: family meals, weekly cooking</span>
-              <span>Contents confirmed before payment</span>
-            </div>
+            <div class="product-meta">Typical use: family meals, weekly cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="bbq-box" data-product-name="BBQ Box" data-product-category="Meat Boxes" data-product-price="45.00" data-product-unit="box">
+          <article class="catalog-product"
+            data-product-id="bbq-box"
+            data-product-name="BBQ Box"
+            data-product-category="Meat Boxes"
+            data-product-price="45.00"
+            data-product-unit="box">
             <h3>BBQ Box</h3>
             <p>A ready-to-grill selection for weekends and gatherings. Usually includes marinated pork neck, BBQ ribs, grill sausages and chicken skewers, depending on availability.</p>
-            <div class="product-meta">
-              <span>Typical use: BBQ, grill, gatherings</span>
-              <span>Contents confirmed before payment</span>
-            </div>
+            <div class="product-meta">Typical use: BBQ, grill, gatherings</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="pork-box" data-product-name="Pork Box" data-product-category="Meat Boxes" data-product-price="35.00" data-product-unit="box">
+          <article class="catalog-product"
+            data-product-id="pork-box"
+            data-product-name="Pork Box"
+            data-product-category="Meat Boxes"
+            data-product-price="35.00"
+            data-product-unit="box">
             <h3>Pork Box</h3>
             <p>A pork-focused selection for home cooking. Usually includes pork shoulder, pork belly, ribs, pork loin and minced pork, depending on availability.</p>
-            <div class="product-meta">
-              <span>Typical use: pork dishes, stews, roasts</span>
-              <span>Contents confirmed before payment</span>
-            </div>
+            <div class="product-meta">Typical use: pork dishes, stews, roasts</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
 
-          <article class="catalog-product" data-product-id="chicken-box" data-product-name="Chicken Box" data-product-category="Meat Boxes" data-product-price="29.00" data-product-unit="box">
+          <article class="catalog-product"
+            data-product-id="chicken-box"
+            data-product-name="Chicken Box"
+            data-product-category="Meat Boxes"
+            data-product-price="29.00"
+            data-product-unit="box">
             <h3>Chicken Box</h3>
             <p>A chicken-focused selection for simple meals. Usually includes chicken breast, thighs, wings and drumsticks, depending on availability.</p>
-            <div class="product-meta">
-              <span>Typical use: quick meals, family cooking</span>
-              <span>Contents confirmed before payment</span>
-            </div>
+            <div class="product-meta">Typical use: quick meals, family cooking</div>
             <button class="catalog-btn" type="button">Add to cart</button>
           </article>
         </div>
@@ -493,9 +549,9 @@
 
     <section class="order-cta">
       <div class="container">
-        <div class="order-cta-inner">
+        <div class="order-cta-card">
           <div>
-            <p class="section-label">Order request</p>
+            <span class="section-label">Order request</span>
             <h2>Send your selected products on WhatsApp.</h2>
             <p>
               Add products to cart, choose pickup or delivery preference and send the order request.
@@ -503,7 +559,7 @@
             </p>
           </div>
 
-          <a class="btn btn-primary" href="https://wa.me/37129174626" target="_blank" rel="noopener">
+          <a class="btn-primary" href="https://wa.me/37129174626" target="_blank" rel="noopener">
             Contact on WhatsApp
           </a>
         </div>
@@ -521,7 +577,6 @@
             <small>Fresh meat orders in Latvia</small>
           </span>
         </a>
-
         <p>
           Fresh meat order requests in Latvia. Prices, final weight, availability and payment details are confirmed manually before payment.
         </p>
@@ -537,7 +592,7 @@
       </nav>
 
       <div class="footer-contact">
-        <strong>Contact</strong>
+        <strong>WhatsApp</strong>
         <a href="https://wa.me/37129174626" target="_blank" rel="noopener">
           +371 29174626
         </a>
