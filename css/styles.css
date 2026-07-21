@@ -3113,3 +3113,190 @@ main > section:first-of-type {
   background-size: cover !important;
   background-position: center !important;
 }
+/* =========================================================
+   FINAL MOBILE CASCADE MENU OVERRIDE
+   Must stay at the very end of styles.css
+   ========================================================= */
+
+@media (max-width: 920px) {
+  body.nav-open {
+    overflow: auto !important;
+  }
+
+  body.nav-open::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 4000 !important;
+    background: rgba(255, 250, 242, 0.98) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(234, 217, 194, 0.9) !important;
+  }
+
+  .header-inner {
+    min-height: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+  }
+
+  /* Menu button on the left */
+
+  .nav-toggle {
+    order: 1 !important;
+    position: relative !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(232, 117, 34, 0.38) !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    color: var(--text, #2b2118) !important;
+    box-shadow: 0 10px 24px rgba(42, 31, 23, 0.10) !important;
+    cursor: pointer !important;
+  }
+
+  .nav-toggle::after {
+    content: none !important;
+  }
+
+  .nav-toggle::before {
+    content: "" !important;
+    width: 21px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 999px !important;
+    background: var(--pumpkin, #e87522) !important;
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease !important;
+  }
+
+  .nav-toggle span {
+    width: 21px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 999px !important;
+    background: var(--pumpkin, #e87522) !important;
+    transition:
+      transform 0.18s ease,
+      opacity 0.18s ease !important;
+  }
+
+  .nav-toggle.open::before {
+    opacity: 0 !important;
+    transform: scaleX(0.3) !important;
+  }
+
+  .nav-toggle.open span:first-child {
+    transform: translateY(3.5px) rotate(45deg) !important;
+  }
+
+  .nav-toggle.open span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg) !important;
+  }
+
+  /* Brand on the right */
+
+  .brand {
+    order: 2 !important;
+    margin-left: auto !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+  }
+
+  .brand-icon {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 15px !important;
+  }
+
+  .brand-text strong {
+    font-size: 17px !important;
+    line-height: 1 !important;
+  }
+
+  .brand-text small {
+    max-width: 160px !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .header-whatsapp,
+  .header-cta {
+    display: none !important;
+  }
+
+  /* Cascade dropdown menu */
+
+  .site-nav {
+    position: fixed !important;
+    top: 76px !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: auto !important;
+    z-index: 3900 !important;
+
+    width: auto !important;
+    height: auto !important;
+    max-height: calc(100vh - 92px) !important;
+    overflow-y: auto !important;
+
+    display: none !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+
+    padding: 14px !important;
+    border: 1px solid rgba(234, 217, 194, 0.95) !important;
+    border-radius: 22px !important;
+    background: rgba(255, 250, 242, 0.99) !important;
+    box-shadow: 0 24px 70px rgba(42, 31, 23, 0.18) !important;
+
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .site-nav.open {
+    display: grid !important;
+    transform: none !important;
+  }
+
+  .site-nav a {
+    width: 100% !important;
+    min-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 18px !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: var(--text, #2b2118) !important;
+
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+
+    box-shadow: 0 8px 20px rgba(42, 31, 23, 0.06) !important;
+  }
+
+  .site-nav a.active,
+  .site-nav a:hover {
+    background: var(--pumpkin, #e87522) !important;
+    color: #fff !important;
+  }
+}
