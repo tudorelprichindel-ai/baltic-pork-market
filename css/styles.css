@@ -3099,3 +3099,17 @@ main > section:first-of-type {
     color: #fff !important;
   }
 }
+/* Temporarily clean hero background */
+
+.page-hero,
+.products-hero,
+.home-hero,
+.hero,
+.hero-section,
+main > section:first-of-type {
+  background-image:
+    radial-gradient(circle at top right, rgba(232, 117, 34, 0.13), transparent 34%),
+    linear-gradient(135deg, #fff8ed 0%, #fff1da 52%, #f8e4c7 100%) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
