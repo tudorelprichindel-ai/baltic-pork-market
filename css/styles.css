@@ -2212,3 +2212,206 @@ main > section:first-child p {
     background-position: center bottom !important;
   }
 }
+/* Final mobile polish */
+
+@media (max-width: 820px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-inner {
+    min-height: 68px;
+    gap: 12px;
+  }
+
+  .brand-text strong {
+    font-size: 17px;
+  }
+
+  .brand-text small {
+    font-size: 11px;
+  }
+
+  .header-whatsapp {
+    display: none;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 68px;
+    left: 14px;
+    right: 14px;
+    z-index: 1200;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid rgba(234, 217, 194, 0.95);
+    border-radius: 22px;
+    background: rgba(255, 250, 242, 0.98);
+    box-shadow: 0 24px 70px rgba(42, 31, 23, 0.18);
+  }
+
+  .site-nav.open {
+    display: grid;
+  }
+
+  .site-nav a {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-hero,
+  .home-hero,
+  .hero,
+  .hero-section,
+  main > section:first-child {
+    min-height: 420px !important;
+    padding: 64px 0 54px !important;
+    background-position: center bottom !important;
+  }
+
+  .page-hero h1,
+  .home-hero h1,
+  .hero h1,
+  .hero-section h1,
+  main > section:first-child h1 {
+    font-size: clamp(34px, 10vw, 48px) !important;
+    line-height: 0.98 !important;
+    max-width: 100% !important;
+  }
+
+  .page-hero p,
+  .home-hero p,
+  .hero p,
+  .hero-section p,
+  main > section:first-child p {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+
+  .category-jump {
+    top: 68px;
+  }
+
+  .category-jump-inner {
+    padding: 12px 0;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-pill,
+  .category-jump-inner a {
+    min-height: 40px !important;
+    padding: 0 15px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  .catalog-product {
+    padding: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .product-image-wrap {
+    height: 160px !important;
+    margin-bottom: 12px !important;
+    border-radius: 15px !important;
+  }
+
+  .catalog-product h3 {
+    font-size: 15px !important;
+    line-height: 1.18 !important;
+  }
+
+  .catalog-product p {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .product-meta {
+    font-size: 11px !important;
+  }
+
+  .catalog-btn {
+    min-height: 40px !important;
+    font-size: 13px !important;
+  }
+
+  .cart-drawer {
+    width: min(100%, 420px) !important;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 22px !important;
+  }
+
+  .footer-links {
+    justify-content: flex-start !important;
+  }
+
+  .footer-contact {
+    justify-self: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  .footer-contact a {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-image-wrap {
+    height: 220px !important;
+  }
+
+  .page-hero,
+  .home-hero,
+  .hero,
+  .hero-section,
+  main > section:first-child {
+    min-height: 440px !important;
+  }
+
+  .category-jump-inner {
+    overflow-x: auto;
+    padding-bottom: 14px;
+  }
+
+  .footer-links {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+}
