@@ -2415,3 +2415,367 @@ main > section:first-child p {
     gap: 10px !important;
   }
 }
+/* =========================================================
+   FINAL MOBILE + HERO FIX
+   ========================================================= */
+
+/* 1. Global hero background on all pages */
+
+:root {
+  --hero-bg-image: url("/baltic-pork-market/assets/backgrounds/hero-meat-background.png");
+}
+
+.page-hero,
+.products-hero,
+.home-hero,
+.hero,
+.hero-section,
+main > section:first-of-type {
+  position: relative !important;
+  min-height: 390px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 246, 232, 0.98) 0%,
+      rgba(255, 246, 232, 0.92) 38%,
+      rgba(255, 246, 232, 0.66) 66%,
+      rgba(255, 246, 232, 0.34) 100%
+    ),
+    var(--hero-bg-image) !important;
+
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+}
+
+.page-hero .container,
+.products-hero .container,
+.home-hero .container,
+.hero .container,
+.hero-section .container,
+main > section:first-of-type .container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.page-hero h1,
+.products-hero h1,
+.home-hero h1,
+.hero h1,
+.hero-section h1,
+main > section:first-of-type h1 {
+  max-width: 760px !important;
+}
+
+.page-hero p,
+.products-hero p,
+.home-hero p,
+.hero p,
+.hero-section p,
+main > section:first-of-type p {
+  max-width: 680px !important;
+}
+
+/* 2. Better hamburger button */
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 2000 !important;
+  }
+
+  .header-inner {
+    min-height: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .brand {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .brand-text strong {
+    font-size: 17px !important;
+  }
+
+  .brand-text small {
+    font-size: 11px !important;
+  }
+
+  .header-whatsapp {
+    display: none !important;
+  }
+
+  .nav-toggle {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    height: 42px !important;
+    min-width: 92px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    padding: 0 14px !important;
+    border: 1px solid rgba(232, 117, 34, 0.35) !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: var(--text, #2b2118) !important;
+    box-shadow: 0 10px 24px rgba(42, 31, 23, 0.08) !important;
+    cursor: pointer !important;
+  }
+
+  .nav-toggle::after {
+    content: "Menu";
+    font-size: 13px;
+    font-weight: 950;
+    line-height: 1;
+  }
+
+  .nav-toggle span {
+    width: 18px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 999px !important;
+    background: var(--pumpkin, #e87522) !important;
+    transition: transform 0.18s ease, opacity 0.18s ease !important;
+  }
+
+  .nav-toggle span + span {
+    margin-top: 0 !important;
+  }
+
+  .nav-toggle.open span:first-child {
+    transform: translateY(2px) rotate(45deg) !important;
+  }
+
+  .nav-toggle.open span:last-child {
+    transform: translateY(-2px) rotate(-45deg) !important;
+  }
+
+  .site-nav {
+    position: fixed !important;
+    top: 78px !important;
+    left: 14px !important;
+    right: 14px !important;
+    z-index: 2100 !important;
+    display: none !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 14px !important;
+    border: 1px solid rgba(234, 217, 194, 0.95) !important;
+    border-radius: 22px !important;
+    background: rgba(255, 250, 242, 0.98) !important;
+    box-shadow: 0 24px 70px rgba(42, 31, 23, 0.18) !important;
+  }
+
+  .site-nav.open {
+    display: grid !important;
+  }
+
+  .site-nav a {
+    width: 100% !important;
+    min-height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+  }
+}
+
+/* 3. Mobile hero framing */
+
+@media (max-width: 820px) {
+  .page-hero,
+  .products-hero,
+  .home-hero,
+  .hero,
+  .hero-section,
+  main > section:first-of-type {
+    min-height: 390px !important;
+    padding: 58px 0 52px !important;
+
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 246, 232, 0.98) 0%,
+        rgba(255, 246, 232, 0.92) 54%,
+        rgba(255, 246, 232, 0.76) 100%
+      ),
+      var(--hero-bg-image) !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .page-hero h1,
+  .products-hero h1,
+  .home-hero h1,
+  .hero h1,
+  .hero-section h1,
+  main > section:first-of-type h1 {
+    max-width: 100% !important;
+    font-size: clamp(34px, 9.5vw, 48px) !important;
+    line-height: 0.98 !important;
+  }
+
+  .page-hero p,
+  .products-hero p,
+  .home-hero p,
+  .hero p,
+  .hero-section p,
+  main > section:first-of-type p {
+    max-width: 100% !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* 4. Products mobile: two columns, less scrolling */
+
+@media (max-width: 620px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .catalog-product {
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+
+  .product-image-wrap {
+    height: 118px !important;
+    margin-bottom: 9px !important;
+    border-radius: 13px !important;
+  }
+
+  .catalog-product h3 {
+    min-height: 34px !important;
+    margin-bottom: 7px !important;
+    font-size: 13.5px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .catalog-product p {
+    display: none !important;
+  }
+
+  .product-meta {
+    display: none !important;
+  }
+
+  .product-price-js {
+    margin-top: auto !important;
+    font-size: 13px !important;
+    font-weight: 950 !important;
+  }
+
+  .catalog-btn {
+    min-height: 36px !important;
+    margin-top: 9px !important;
+    padding: 0 10px !important;
+    font-size: 12.5px !important;
+    border-radius: 999px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .catalog-grid {
+    gap: 8px !important;
+  }
+
+  .product-image-wrap {
+    height: 105px !important;
+  }
+
+  .catalog-product h3 {
+    font-size: 12.8px !important;
+  }
+
+  .catalog-btn {
+    font-size: 12px !important;
+  }
+}
+
+/* 5. Category pills mobile */
+
+@media (max-width: 820px) {
+  .category-jump {
+    top: 68px !important;
+  }
+
+  .category-jump-inner {
+    display: flex !important;
+    gap: 8px !important;
+    padding: 12px 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .category-jump-inner::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .category-pill,
+  .category-jump-inner a {
+    flex: 0 0 auto !important;
+    min-height: 38px !important;
+    padding: 0 15px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* 6. Cart drawer mobile */
+
+@media (max-width: 620px) {
+  .cart-drawer {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 24px 24px 0 0 !important;
+  }
+
+  .floating-cart-btn {
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+}
+
+/* 7. Footer mobile */
+
+@media (max-width: 620px) {
+  .footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    padding: 20px !important;
+  }
+
+  .footer-links {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .footer-contact {
+    justify-self: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  .footer-contact a {
+    width: 100% !important;
+  }
+}
