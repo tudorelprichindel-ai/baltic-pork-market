@@ -2779,3 +2779,156 @@ main > section:first-of-type p {
     width: 100% !important;
   }
 }
+/* =========================================================
+   FINAL MOBILE HEADER + SIDE MENU
+   ========================================================= */
+
+@media (max-width: 920px) {
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 3000 !important;
+    background: rgba(255, 250, 242, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(234, 217, 194, 0.85) !important;
+  }
+
+  .header-inner {
+    min-height: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+  }
+
+  .nav-toggle {
+    order: 1 !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    padding: 0 !important;
+    border: 1px solid rgba(232, 117, 34, 0.35) !important;
+    border-radius: 15px !important;
+    background: #fff !important;
+    box-shadow: 0 10px 26px rgba(42, 31, 23, 0.10) !important;
+    cursor: pointer !important;
+  }
+
+  .nav-toggle::after {
+    content: none !important;
+  }
+
+  .nav-toggle span {
+    width: 20px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 999px !important;
+    background: var(--pumpkin, #e87522) !important;
+    transition:
+      transform 0.18s ease,
+      opacity 0.18s ease !important;
+  }
+
+  .nav-toggle.open span:first-child {
+    transform: translateY(3.5px) rotate(45deg) !important;
+  }
+
+  .nav-toggle.open span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg) !important;
+  }
+
+  .brand {
+    order: 2 !important;
+    margin-left: auto !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+  }
+
+  .brand-icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .brand-text strong {
+    font-size: 17px !important;
+    line-height: 1 !important;
+  }
+
+  .brand-text small {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  .header-whatsapp {
+    display: none !important;
+  }
+
+  body.nav-open {
+    overflow: hidden !important;
+  }
+
+  body.nav-open::before {
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2990 !important;
+    background: rgba(42, 31, 23, 0.34) !important;
+    backdrop-filter: blur(3px) !important;
+  }
+
+  .site-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    z-index: 3100 !important;
+
+    width: min(82vw, 330px) !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+
+    padding: 92px 18px 24px !important;
+    border-right: 1px solid rgba(234, 217, 194, 0.95) !important;
+    border-radius: 0 28px 28px 0 !important;
+    background: rgba(255, 250, 242, 0.99) !important;
+    box-shadow: 24px 0 70px rgba(42, 31, 23, 0.22) !important;
+
+    transform: translateX(-105%) !important;
+    transition: transform 0.22s ease !important;
+  }
+
+  .site-nav.open {
+    transform: translateX(0) !important;
+  }
+
+  .site-nav a {
+    width: 100% !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 18px !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: var(--text, #2b2118) !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    box-shadow: 0 8px 20px rgba(42, 31, 23, 0.06) !important;
+  }
+
+  .site-nav a.active,
+  .site-nav a:hover {
+    background: var(--pumpkin, #e87522) !important;
+    color: #fff !important;
+  }
+}
