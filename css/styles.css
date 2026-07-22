@@ -3300,3 +3300,41 @@ main > section:first-of-type {
     color: #fff !important;
   }
 }
+/* =========================================================
+   FINAL HOMEPAGE STRUCTURE FIX
+   ========================================================= */
+
+.hero-inner.hero-inner-single {
+  grid-template-columns: minmax(0, 920px) !important;
+}
+
+.hero-inner.hero-inner-single .hero-content {
+  max-width: 920px !important;
+}
+
+.footer-inner.footer-simple {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+}
+
+.footer-inner.footer-simple .footer-contact {
+  justify-self: end !important;
+}
+
+@media (max-width: 920px) {
+  .hero-inner.hero-inner-single {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-inner.footer-simple {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-inner.footer-simple .footer-contact {
+    justify-self: stretch !important;
+    justify-items: stretch !important;
+  }
+
+  .footer-inner.footer-simple .footer-contact a {
+    width: 100% !important;
+  }
+}
