@@ -47,54 +47,123 @@
 
   <main>
     <section class="hero home-hero">
-      <div class="container hero-inner">
+      <div class="container hero-inner hero-inner-single">
         <div class="hero-content">
           <p class="section-label">Fresh meat orders in Latvia</p>
 
           <h1>Fresh meat ordering made simple</h1>
 
           <p>
-            Browse the product list, build your cart and send your order request on WhatsApp.
-            Final availability, exact weight and total price are confirmed manually before payment.
+            Browse fresh pork, beef, chicken, BBQ products and meat boxes.
+            Build your cart online and send your order request directly on WhatsApp.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="products.html">View products</a>
-            <a class="btn btn-secondary" href="https://wa.me/37129174626" target="_blank" rel="noopener">
-              Contact on WhatsApp
-            </a>
+            <a class="btn btn-primary" href="products.html">Browse products</a>
+            <a class="btn btn-secondary" href="how-to-order.html">How ordering works</a>
           </div>
 
           <div class="hero-note">
-            Indicative prices. Manual confirmation before payment.
+            Prices are indicative. Final weight, availability and total price are confirmed manually before payment.
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-card">
-          <p class="section-label">Order flow</p>
-          <h2>Choose, send, confirm</h2>
+    <section class="popular-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label">Popular choices</p>
+          <h2>Start with customer favourites</h2>
+          <p>
+            Quick selections for common orders. Add them to cart or browse the full product list.
+          </p>
+        </div>
 
-          <div class="hero-steps">
-            <div>
-              <strong>1</strong>
-              <span>Choose products</span>
+        <div class="catalog-grid">
+          <article
+            class="catalog-product"
+            data-product-id="pork-neck"
+            data-product-name="Pork neck"
+            data-product-category="Pork"
+            data-product-price="7.50"
+            data-product-unit="kg"
+          >
+            <div class="product-image-wrap">
+              <img src="assets/products/pork-neck.png" alt="Pork neck" loading="lazy" />
             </div>
-
-            <div>
-              <strong>2</strong>
-              <span>Send request on WhatsApp</span>
+            <h3>Pork neck</h3>
+            <p>Juicy pork neck, suitable for roasting, grilling and slow cooking.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
             </div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
 
-            <div>
-              <strong>3</strong>
-              <span>Confirm weight and availability</span>
+          <article
+            class="catalog-product"
+            data-product-id="pork-tenderloin"
+            data-product-name="Pork tenderloin"
+            data-product-category="Pork"
+            data-product-price="8.50"
+            data-product-unit="kg"
+          >
+            <div class="product-image-wrap">
+              <img src="assets/products/pork-tenderloin.png" alt="Pork tenderloin" loading="lazy" />
             </div>
+            <h3>Pork tenderloin</h3>
+            <p>Tender pork fillet for premium home cooking and quick meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Pork</span>
+              <span><strong>Unit:</strong> kg</span>
+            </div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
 
-            <div>
-              <strong>4</strong>
-              <span>Arrange pickup, delivery and payment</span>
+          <article
+            class="catalog-product"
+            data-product-id="chicken-breast"
+            data-product-name="Chicken fillet"
+            data-product-category="Chicken"
+            data-product-price="8.50"
+            data-product-unit="kg"
+          >
+            <div class="product-image-wrap">
+              <img src="assets/products/chicken-breast.png" alt="Chicken fillet" loading="lazy" />
             </div>
-          </div>
+            <h3>Chicken fillet</h3>
+            <p>Lean chicken fillet for everyday cooking, meal prep and family dishes.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> Chicken</span>
+              <span><strong>Unit:</strong> kg</span>
+            </div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
+
+          <article
+            class="catalog-product"
+            data-product-id="bbq-ribs"
+            data-product-name="BBQ ribs"
+            data-product-category="BBQ & Grill"
+            data-product-price="9.90"
+            data-product-unit="kg"
+          >
+            <div class="product-image-wrap">
+              <img src="assets/products/bbq-ribs.png" alt="BBQ ribs" loading="lazy" />
+            </div>
+            <h3>BBQ ribs</h3>
+            <p>Ribs for grill, oven or BBQ-style meals.</p>
+            <div class="product-meta">
+              <span><strong>Category:</strong> BBQ & Grill</span>
+              <span><strong>Unit:</strong> kg</span>
+            </div>
+            <button class="catalog-btn" type="button">Add to cart</button>
+          </article>
+        </div>
+
+        <div class="section-action">
+          <a class="btn btn-secondary" href="products.html">View all products</a>
         </div>
       </div>
     </section>
@@ -103,9 +172,9 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Product categories</p>
-          <h2>Choose what you need</h2>
+          <h2>Browse by category</h2>
           <p>
-            Start from the main categories. The full product list with prices is available on the Products page.
+            Go directly to the category you need and continue building your order.
           </p>
         </div>
 
@@ -140,10 +209,6 @@
             <p>Simple box selections for family meals and BBQ orders.</p>
           </a>
         </div>
-
-        <div class="section-action">
-          <a class="btn btn-primary" href="products.html">Browse full product list</a>
-        </div>
       </div>
     </section>
 
@@ -151,26 +216,26 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">How ordering works</p>
-          <h2>A request first, confirmation after</h2>
+          <h2>Build your cart, then confirm on WhatsApp</h2>
           <p>
-            The website is not an automatic checkout. It helps customers prepare a clear order request.
+            The website works as an order request system. Final details are confirmed manually before payment.
           </p>
         </div>
 
         <div class="steps-grid">
           <article class="step-card">
             <strong>01</strong>
-            <h3>Build your cart</h3>
+            <h3>Choose products</h3>
             <p>
-              Add the products you want and select pickup or delivery preference.
+              Browse the product list and add the products you want to your cart.
             </p>
           </article>
 
           <article class="step-card">
             <strong>02</strong>
-            <h3>Send on WhatsApp</h3>
+            <h3>Send request</h3>
             <p>
-              Your cart is converted into a clear WhatsApp message for the seller.
+              Your cart is converted into a clear WhatsApp order request.
             </p>
           </article>
 
@@ -178,43 +243,13 @@
             <strong>03</strong>
             <h3>Confirm details</h3>
             <p>
-              Final weight, availability, total price and payment details are confirmed manually.
+              Availability, exact weight, final total and payment details are confirmed manually.
             </p>
           </article>
         </div>
 
         <div class="section-action">
-          <a class="btn btn-secondary" href="how-to-order.html">Read how to order</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-section">
-      <div class="container trust-inner">
-        <div>
-          <p class="section-label">Why Gaļas grozs</p>
-          <h2>Fresh products, clear prices and direct communication</h2>
-          <p>
-            Gaļas grozs keeps ordering simple: customers see the available product categories,
-            estimate their order and confirm the final details directly with the seller.
-          </p>
-        </div>
-
-        <div class="trust-list">
-          <div>
-            <strong>Fresh meat selection</strong>
-            <span>Pork, beef, chicken, BBQ products and meat boxes in one product list.</span>
-          </div>
-
-          <div>
-            <strong>Indicative pricing</strong>
-            <span>Prices help customers estimate the order before manual confirmation.</span>
-          </div>
-
-          <div>
-            <strong>WhatsApp confirmation</strong>
-            <span>Final availability, weight, total and delivery details are agreed directly.</span>
-          </div>
+          <a class="btn btn-secondary" href="how-to-order.html">Read full order details</a>
         </div>
       </div>
     </section>
@@ -237,7 +272,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="container footer-inner footer-simple">
       <div>
         <a class="brand footer-brand" href="index.html" aria-label="Gaļas grozs home">
           <span class="brand-icon">🛒</span>
@@ -250,14 +285,6 @@
         <p>
           Order request website for fresh meat products. Final availability, exact weight and total price are confirmed manually.
         </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="products.html">Products</a>
-        <a href="how-to-order.html">How to Order</a>
-        <a href="quality.html">Quality</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
       </div>
 
       <div class="footer-contact">
