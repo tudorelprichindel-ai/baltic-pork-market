@@ -3387,6 +3387,29 @@ main > section:first-of-type {
   --home-burgundy-dark: #5e1019;
   --home-terracotta: #b95d42;
   --home-ink: #302923;
+  position: relative;
+  isolation: isolate;
+  background: var(--home-ivory);
+}
+
+.home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(251, 246, 238, 0.38) 0%,
+      rgba(251, 246, 238, 0.52) 55%,
+      rgba(251, 246, 238, 0.64) 100%
+    ),
+    url("../assets/backgrounds/home-page-texture.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: translateZ(0);
 }
 
 .home-page .home-header {
