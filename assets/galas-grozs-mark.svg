@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Gaļas grozs basket mark</title>
+  <desc id="desc">A burgundy letter G integrated with a simplified woven basket.</desc>
+  <g transform="translate(15 32) scale(.021 -.021)" fill="#7d1824">
+    <path d="M1409 1024Q1364 1222 1259 1310.5Q1154 1399 963 1399Q731 1399 622.5 1241.5Q514 1084 514 745Q514 409 618 250.5Q722 92 942 92Q1026 92 1098 111Q1170 130 1229 168V578H1049V698H1587V125Q1419 47 1251.5 9Q1084-29 909-29Q525-29 305.5 178Q86 385 86 745Q86 1106 305.5 1313Q525 1520 909 1520Q1069 1520 1224 1488Q1379 1456 1536 1391V1024Z"/>
+  </g>
+  <g fill="none" stroke="#7d1824" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 31.5 15.5 56h33L53 31.5" stroke-width="4"/>
+    <path d="M14 40h36M16 48h32M24 33l2 23M40 33l-2 23" stroke-width="3"/>
+  </g>
+  <rect x="7" y="27" width="50" height="7" rx="3.5" fill="#7d1824"/>
+</svg>
