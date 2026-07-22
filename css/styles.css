@@ -3389,11 +3389,11 @@ main > section:first-of-type {
   padding: 96px 0;
   isolation: isolate;
   color: #fff;
-  background-color: #1d2b20;
+  background-color: #17130f;
   background-image: url("../assets/backgrounds/hero-brand.webp");
   background-repeat: no-repeat;
-  background-position: right 68%;
-  background-size: min(52vw, 860px) auto;
+  background-position: center 66%;
+  background-size: cover;
   border-bottom: 0;
 }
 
@@ -3404,10 +3404,10 @@ main > section:first-of-type {
   background:
     linear-gradient(
       90deg,
-      rgba(25, 38, 28, 1) 0%,
-      rgba(25, 38, 28, 0.98) 43%,
-      rgba(25, 38, 28, 0.76) 62%,
-      rgba(25, 38, 28, 0.16) 100%
+      rgba(12, 10, 8, 0.72) 0%,
+      rgba(12, 10, 8, 0.56) 44%,
+      rgba(12, 10, 8, 0.3) 70%,
+      rgba(12, 10, 8, 0.12) 100%
     );
 }
 
@@ -3602,8 +3602,8 @@ main > section:first-of-type {
 
 @media (max-width: 1080px) {
   .home-page .brand-hero {
-    background-size: 640px auto;
-    background-position: right 70%;
+    background-size: cover;
+    background-position: center 66%;
   }
 
   .home-page .brand-hero-content {
@@ -3628,10 +3628,10 @@ main > section:first-of-type {
     background:
       linear-gradient(
         180deg,
-        rgba(17, 26, 19, 0.48) 0%,
-        rgba(17, 26, 19, 0.24) 30%,
-        rgba(17, 26, 19, 0.5) 58%,
-        rgba(17, 26, 19, 0.96) 100%
+        rgba(10, 8, 7, 0.36) 0%,
+        rgba(10, 8, 7, 0.18) 30%,
+        rgba(10, 8, 7, 0.42) 58%,
+        rgba(10, 8, 7, 0.88) 100%
       );
   }
 
