@@ -202,7 +202,6 @@ function bindProductButtons() {
 
       const product = getProductFromCard(card);
       addToCart(product);
-      openCart();
     });
   });
 }
@@ -261,13 +260,18 @@ function injectCartUi() {
 
     <aside class="cart-drawer" aria-label="Shopping cart">
       <div class="cart-drawer-header">
-        <span></span>
+        <div class="cart-drawer-title">
+          <strong>Your order</strong>
+          <span data-cart-drawer-count>0 items</span>
+        </div>
         <button class="cart-close-btn" type="button" aria-label="Close cart">×</button>
       </div>
 
       <div class="cart-items" data-cart-items></div>
 
       <section class="cart-preference-section">
+        <p class="cart-section-title">Order preferences</p>
+
         <label class="cart-select-field" for="deliveryMethod">
           <span>Pickup or delivery</span>
           <select id="deliveryMethod" data-delivery-method>
@@ -374,12 +378,17 @@ function updateCartUi() {
   const cartItems = document.querySelector("[data-cart-items]");
   const cartTotal = document.querySelector("[data-cart-total]");
   const cartCountElements = document.querySelectorAll("[data-cart-count]");
+  const cartDrawerCount = document.querySelector("[data-cart-drawer-count]");
   const count = getCartCount(cart);
   const total = getCartTotal(cart);
 
   cartCountElements.forEach((element) => {
     element.textContent = String(count);
   });
+
+  if (cartDrawerCount) {
+    cartDrawerCount.textContent = count === 1 ? "1 item" : `${count} items`;
+  }
 
   if (cartTotal) cartTotal.textContent = formatPrice(total);
   if (!cartItems) return;
@@ -399,25 +408,38 @@ function updateCartUi() {
 
     return `
       <article class="cart-item cart-item-compact">
-        <div class="cart-item-top">
-          <div>
-            <h3>${escapeHtml(item.name)}</h3>
-            <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
-          </div>
-          <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">×</button>
+        <div class="cart-item-image">
+          <img src="assets/products/${escapeHtml(item.id)}.png" alt="${escapeHtml(item.name)}" />
         </div>
 
-        <div class="cart-item-bottom">
-          <div class="cart-item-controls">
-            <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
-            <span>${item.quantity}</span>
-            <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
+        <div class="cart-item-content">
+          <div class="cart-item-top">
+            <div>
+              <h3>${escapeHtml(item.name)}</h3>
+              <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
+            </div>
+            <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.name)}">×</button>
           </div>
-          <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+
+          <div class="cart-item-bottom">
+            <div class="cart-item-controls">
+              <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
+            </div>
+            <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+          </div>
         </div>
       </article>
     `;
   }).join("");
+
+  cartItems.querySelectorAll(".cart-item-image img").forEach((image) => {
+    image.addEventListener("error", () => {
+      image.closest(".cart-item")?.classList.add("cart-item-no-image");
+      image.closest(".cart-item-image")?.remove();
+    });
+  });
 
   bindCartItemButtons();
 }
