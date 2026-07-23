@@ -4339,3 +4339,303 @@ main > section:first-of-type {
     padding: 54px 0 !important;
   }
 }
+
+/* =========================================================
+   HOW IT WORKS PAGE — shared inner-page brand system
+   ========================================================= */
+
+.home-page.how-page .how-intro-hero {
+  min-height: min(590px, calc(100svh - 80px)) !important;
+  padding: 82px 0 !important;
+  background-color: var(--home-ivory) !important;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(251, 246, 238, 1) 0%,
+      rgba(251, 246, 238, 0.98) 38%,
+      rgba(251, 246, 238, 0.84) 52%,
+      rgba(251, 246, 238, 0.2) 74%,
+      rgba(251, 246, 238, 0) 100%
+    ),
+    url("../assets/backgrounds/hero-meat-background.webp") !important;
+  background-repeat: no-repeat !important;
+  background-position: center, right center !important;
+  background-size: cover, auto 100% !important;
+  border-bottom: 1px solid rgba(125, 24, 36, 0.13) !important;
+}
+
+.home-page.how-page .how-intro-hero .container {
+  width: min(100% - 32px, var(--container));
+}
+
+.home-page.how-page .how-intro-hero .section-label {
+  color: var(--home-burgundy) !important;
+}
+
+.home-page.how-page .how-intro-hero h1 {
+  max-width: 760px !important;
+  margin: 10px 0 20px !important;
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(50px, 5.3vw, 72px) !important;
+  font-weight: 700 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.home-page.how-page .how-intro-hero > .container > p:not(.section-label) {
+  max-width: 660px !important;
+  margin: 0 !important;
+  color: var(--home-ink) !important;
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+}
+
+.home-page.how-page .how-intro-hero .hero-actions {
+  margin-top: 28px !important;
+}
+
+.home-page.how-page .how-intro-hero .btn-primary,
+.home-page.how-page .how-order-cta .btn-primary {
+  border-radius: 5px !important;
+  background: var(--home-burgundy) !important;
+  color: #fff !important;
+}
+
+.home-page.how-page .how-intro-hero .btn-primary:hover,
+.home-page.how-page .how-order-cta .btn-primary:hover {
+  background: var(--home-burgundy-dark) !important;
+}
+
+.home-page.how-page .how-notice-section {
+  padding: 28px 0 12px !important;
+  background: transparent !important;
+}
+
+.home-page.how-page .how-notice-section .notice-box {
+  padding: 18px 20px !important;
+  border: 1px solid rgba(125, 24, 36, 0.16) !important;
+  border-radius: 14px !important;
+  background: rgba(251, 246, 238, 0.84) !important;
+  color: var(--home-ink) !important;
+  box-shadow: 0 12px 30px rgba(83, 51, 38, 0.06) !important;
+}
+
+.home-page.how-page .how-notice-section .notice-box strong {
+  color: var(--home-burgundy) !important;
+}
+
+.home-page.how-page .order-process-section,
+.home-page.how-page .how-trust-section,
+.home-page.how-page .how-order-cta {
+  background: transparent !important;
+}
+
+.home-page.how-page .order-process-section {
+  padding: 74px 0 !important;
+}
+
+.home-page.how-page .order-process-section .section-label,
+.home-page.how-page .how-trust-section .section-label,
+.home-page.how-page .how-order-cta .section-label {
+  color: var(--home-burgundy) !important;
+}
+
+.home-page.how-page .order-process-section h2,
+.home-page.how-page .how-trust-section h2,
+.home-page.how-page .how-order-cta h2 {
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.home-page.how-page .order-process-section .steps-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.home-page.how-page .order-process-section .step-card {
+  min-height: 260px !important;
+  padding: 26px !important;
+  border: 1px solid rgba(125, 24, 36, 0.13) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 16px 38px rgba(83, 51, 38, 0.1) !important;
+}
+
+.home-page.how-page .order-process-section .step-card > strong {
+  width: 48px !important;
+  height: 48px !important;
+  display: grid !important;
+  place-items: center !important;
+  margin-bottom: 24px !important;
+  border-radius: 50% !important;
+  background: rgba(125, 24, 36, 0.09) !important;
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+}
+
+.home-page.how-page .order-process-section .step-card h3 {
+  margin: 0 0 10px !important;
+  color: var(--home-ink) !important;
+  font-size: 21px !important;
+  line-height: 1.18 !important;
+}
+
+.home-page.how-page .order-process-section .step-card p {
+  margin: 0 !important;
+  color: rgba(48, 41, 35, 0.72) !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.home-page.how-page .how-trust-section {
+  padding: 74px 0 !important;
+  border-top: 1px solid rgba(125, 24, 36, 0.08) !important;
+  border-bottom: 1px solid rgba(125, 24, 36, 0.08) !important;
+}
+
+.home-page.how-page .how-trust-section .trust-inner {
+  gap: 54px !important;
+}
+
+.home-page.how-page .how-trust-section .trust-list {
+  gap: 12px !important;
+}
+
+.home-page.how-page .how-trust-section .trust-list > div {
+  padding: 20px !important;
+  border: 1px solid rgba(125, 24, 36, 0.13) !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: 0 12px 28px rgba(83, 51, 38, 0.07) !important;
+}
+
+.home-page.how-page .how-trust-section .trust-list strong {
+  color: var(--home-burgundy) !important;
+}
+
+.home-page.how-page .how-order-cta {
+  padding: 72px 0 !important;
+}
+
+.home-page.how-page .how-order-cta .order-cta-inner {
+  border: 1px solid rgba(125, 24, 36, 0.15) !important;
+  border-radius: 20px !important;
+  background: rgba(251, 246, 238, 0.9) !important;
+  box-shadow: 0 18px 44px rgba(83, 51, 38, 0.1) !important;
+}
+
+.home-page.how-page .footer-links a:hover {
+  color: var(--home-burgundy) !important;
+}
+
+@media (max-width: 1100px) {
+  .home-page.how-page .order-process-section .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .home-page.how-page .how-intro-hero {
+    min-height: calc(100svh - 68px) !important;
+    padding: 72px 0 64px !important;
+    background-position: center, right center !important;
+    background-size: cover, auto 100% !important;
+  }
+
+  .home-page.how-page .how-intro-hero h1 {
+    font-size: clamp(42px, 11vw, 58px) !important;
+  }
+
+  .home-page.how-page .how-intro-hero > .container > p:not(.section-label) {
+    font-size: 15px !important;
+  }
+
+  .home-page.how-page .order-process-section,
+  .home-page.how-page .how-trust-section {
+    padding: 58px 0 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-page.how-page .how-intro-hero {
+    position: relative !important;
+    min-height: calc(100svh - 68px) !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    padding: 0 0 40px !important;
+    isolation: isolate !important;
+    background-color: var(--home-ivory) !important;
+    background-image: none !important;
+  }
+
+  .home-page.how-page .how-intro-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: -2;
+    height: 45svh;
+    background-image: url("../assets/backgrounds/hero-meat-background.webp");
+    background-repeat: no-repeat;
+    background-position: 82% center;
+    background-size: auto 100%;
+  }
+
+  .home-page.how-page .how-intro-hero::after {
+    content: "";
+    position: absolute;
+    inset: 19svh 0 auto;
+    z-index: -1;
+    height: 34svh;
+    background: linear-gradient(
+      180deg,
+      rgba(251, 246, 238, 0) 0%,
+      rgba(251, 246, 238, 0.82) 46%,
+      var(--home-ivory) 82%
+    );
+  }
+
+  .home-page.how-page .how-intro-hero .container,
+  .home-page.how-page .how-notice-section .container,
+  .home-page.how-page .order-process-section .container,
+  .home-page.how-page .how-trust-section .container,
+  .home-page.how-page .how-order-cta .container {
+    width: min(100% - 24px, var(--container)) !important;
+  }
+
+  .home-page.how-page .how-intro-hero h1 {
+    font-size: clamp(40px, 12vw, 50px) !important;
+  }
+
+  .home-page.how-page .how-intro-hero .btn {
+    width: 100% !important;
+  }
+
+  .home-page.how-page .how-notice-section {
+    padding-top: 18px !important;
+  }
+
+  .home-page.how-page .how-notice-section .notice-box {
+    padding: 15px 16px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .home-page.how-page .order-process-section .steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .home-page.how-page .order-process-section .step-card {
+    min-height: auto !important;
+    padding: 22px !important;
+  }
+
+  .home-page.how-page .how-order-cta {
+    padding: 54px 0 !important;
+  }
+}

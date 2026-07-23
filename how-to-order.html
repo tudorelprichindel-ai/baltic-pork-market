@@ -8,35 +8,30 @@
 
   <meta
     name="description"
-    content="Learn how to place a meat order request with Gaļas grozs. Add products to cart, choose pickup or delivery, select payment preference and confirm final details on WhatsApp."
+    content="Learn how to place a meat order request with Gaļas grozs. Choose products, send your cart on WhatsApp and confirm availability, exact weight and the final total."
   />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/galas-grozs-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css?v=36" />
 </head>
 
-<body>
-  <header class="site-header">
+<body class="home-page how-page">
+  <header class="site-header home-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Gaļas grozs home">
-        <span class="brand-icon">🛒</span>
-        <span class="brand-text">
-          <strong>Gaļas grozs</strong>
-          <small>Fresh meat orders in Latvia</small>
-        </span>
+      <a class="brand home-wordmark" href="index.html" aria-label="Gaļas grozs home">
+        <span class="brand-icon" aria-hidden="true"></span>
+        <strong>Gaļas grozs</strong>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
         <span></span>
         <span></span>
-        <span></span>
       </button>
 
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="how-to-order.html" class="active">How to Order</a>
-        <a href="quality.html">Quality</a>
-        <a href="faq.html">FAQ</a>
+        <a href="products.html">Browse products</a>
+        <a href="how-to-order.html" class="active" aria-current="page">How it works</a>
+        <a href="about.html">About us</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -47,204 +42,115 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero how-intro-hero">
       <div class="container">
-        <p class="section-label">How to Order</p>
-
-        <h1>Choose products, send a request and confirm final details on WhatsApp</h1>
-
+        <p class="section-label">How it works</p>
+        <h1>Your order in four simple steps.</h1>
         <p>
-          Gaļas grozs works as an order request website. You build your cart online,
-          choose pickup or delivery preference, select your preferred payment method
-          and send the request directly on WhatsApp.
+          Choose the products you need, send your cart on WhatsApp and confirm availability, exact weight and the final total directly with us.
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="products.html">Browse products</a>
-          <a class="btn btn-secondary" href="https://wa.me/37129174626" target="_blank" rel="noopener">
-            Contact on WhatsApp
-          </a>
         </div>
       </div>
     </section>
 
-    <section class="catalog-intro">
+    <section class="catalog-intro how-notice-section">
       <div class="container">
         <div class="notice-box">
-          <strong>Important:</strong>
-          Prices are indicative. Final product availability, exact weight and total price are confirmed manually before payment.
+          <strong>Good to know:</strong>
+          Prices shown in the catalog are indicative. Availability, exact weight and the final price are confirmed before payment.
         </div>
       </div>
     </section>
 
-    <section class="how-section">
+    <section class="how-section order-process-section">
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Order process</p>
-          <h2>How the order request works</h2>
+          <h2>From product list to confirmation</h2>
           <p>
-            The process is designed for products sold by weight, where the final amount must be confirmed manually.
+            The process stays simple while allowing us to confirm fresh products sold by exact weight.
           </p>
         </div>
 
         <div class="steps-grid">
           <article class="step-card">
             <strong>01</strong>
-            <h3>Browse products</h3>
+            <h3>Choose your products</h3>
             <p>
-              Open the product page and choose from pork, beef, chicken, BBQ & Grill products and meat boxes.
+              Browse pork, beef, chicken, BBQ products and meat boxes, then add what you need to the cart.
             </p>
           </article>
 
           <article class="step-card">
             <strong>02</strong>
-            <h3>Add products to cart</h3>
+            <h3>Add your preferences</h3>
             <p>
-              Add products to the cart. The website will show an estimated total based on indicative prices.
+              Select pickup or delivery and choose your preferred payment method before sending the request.
             </p>
           </article>
 
           <article class="step-card">
             <strong>03</strong>
-            <h3>Choose pickup or delivery</h3>
+            <h3>Send the cart on WhatsApp</h3>
             <p>
-              In the cart, select pickup, delivery or to be confirmed. For delivery, add the address or delivery details.
+              Your selected products, quantities, estimated total and preferences are prepared in one clear message.
             </p>
           </article>
 
           <article class="step-card">
             <strong>04</strong>
-            <h3>Select payment preference</h3>
+            <h3>Confirm the final details</h3>
             <p>
-              Choose cash, bank transfer, online payment link if available, or to be confirmed.
-            </p>
-          </article>
-
-          <article class="step-card">
-            <strong>05</strong>
-            <h3>Send request on WhatsApp</h3>
-            <p>
-              The cart is converted into a WhatsApp message with products, estimated total and customer preferences.
-            </p>
-          </article>
-
-          <article class="step-card">
-            <strong>06</strong>
-            <h3>Confirm final details</h3>
-            <p>
-              The seller confirms availability, exact weight, final price, pickup or delivery details and payment method.
+              We confirm availability, exact weight, final price, delivery or pickup details and payment before the order is completed.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="trust-section">
+    <section class="trust-section how-trust-section">
       <div class="container trust-inner">
         <div>
           <p class="section-label">Why confirmation is needed</p>
-          <h2>Fresh meat is usually sold by exact weight</h2>
+          <h2>Fresh products are confirmed personally</h2>
           <p>
-            Meat products can vary by piece size and availability. The cart gives a clear estimate,
-            but the final order total is confirmed manually after the seller checks the exact products.
+            Individual pieces can vary in weight, and availability may change. Manual confirmation keeps the final order clear and accurate.
           </p>
         </div>
 
         <div class="trust-list">
           <div>
             <strong>Indicative prices</strong>
-            <span>Prices help customers understand the expected cost before sending a request.</span>
+            <span>You can see the expected cost before sending the request.</span>
           </div>
 
           <div>
-            <strong>Manual confirmation</strong>
-            <span>Final weight, availability and total price are confirmed directly on WhatsApp.</span>
+            <strong>Exact weight</strong>
+            <span>The final amount is calculated after the selected products are weighed.</span>
           </div>
 
           <div>
-            <strong>Flexible payment</strong>
-            <span>Payment is arranged after confirmation by the method agreed with the customer.</span>
+            <strong>Personal confirmation</strong>
+            <span>Availability, pickup or delivery and payment are agreed directly on WhatsApp.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="category-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Available categories</p>
-          <h2>Products you can request</h2>
-          <p>
-            Start with a category, add products to cart and send the request for confirmation.
-          </p>
-        </div>
-
-        <div class="category-grid">
-          <a class="category-card" href="products.html#pork">
-            <span>🥩</span>
-            <h3>Pork</h3>
-            <p>Pork cuts from the client price list.</p>
-          </a>
-
-          <a class="category-card" href="products.html#beef">
-            <span>🥩</span>
-            <h3>Beef</h3>
-            <p>Beef cuts with indicative Latvia market prices.</p>
-          </a>
-
-          <a class="category-card" href="products.html#chicken">
-            <span>🍗</span>
-            <h3>Chicken</h3>
-            <p>Chicken products for daily cooking and family meals.</p>
-          </a>
-
-          <a class="category-card" href="products.html#bbq">
-            <span>🔥</span>
-            <h3>BBQ & Grill</h3>
-            <p>Grill-ready products for weekends and gatherings.</p>
-          </a>
-
-          <a class="category-card" href="products.html#boxes">
-            <span>📦</span>
-            <h3>Meat Boxes</h3>
-            <p>Indicative box selections for family meals and BBQ.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="how-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">What appears in WhatsApp</p>
-          <h2>Your request is sent clearly</h2>
-          <p>
-            The WhatsApp message includes the products, category, quantity, indicative price,
-            estimated total, pickup or delivery preference and payment preference.
-          </p>
-        </div>
-
-        <div class="notice-box">
-          <strong>Example:</strong>
-          Customer selects Pork neck, Chicken breast and BBQ ribs. The WhatsApp message includes the estimated total,
-          delivery preference, delivery address if added, and preferred payment method.
-        </div>
-      </div>
-    </section>
-
-    <section class="order-cta">
+    <section class="order-cta how-order-cta">
       <div class="container order-cta-inner">
         <div>
           <p class="section-label">Start your order</p>
-          <h2>Build your cart and send your request on WhatsApp</h2>
+          <h2>Choose your products when you are ready.</h2>
           <p>
-            Choose products, select preferences and confirm the final details directly with the seller.
+            Add products to your cart and send the complete request on WhatsApp.
           </p>
         </div>
 
-        <a class="btn btn-primary" href="products.html">
-          Browse products
-        </a>
+        <a class="btn btn-primary" href="products.html">Browse products</a>
       </div>
     </section>
   </main>
@@ -253,7 +159,7 @@
     <div class="container footer-inner">
       <div>
         <a class="brand footer-brand" href="index.html" aria-label="Gaļas grozs home">
-          <span class="brand-icon">🛒</span>
+          <span class="brand-icon" aria-hidden="true"></span>
           <span class="brand-text">
             <strong>Gaļas grozs</strong>
             <small>Fresh meat orders in Latvia</small>
@@ -265,13 +171,14 @@
         </p>
       </div>
 
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer navigation">
         <a href="products.html">Products</a>
-        <a href="how-to-order.html">How to Order</a>
+        <a href="how-to-order.html">How it works</a>
         <a href="quality.html">Quality</a>
         <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-      </div>
+      </nav>
 
       <div class="footer-contact">
         <strong>WhatsApp</strong>
