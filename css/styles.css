@@ -26,6 +26,352 @@
   --container: 1180px;
 }
 
+/* =========================================================
+   ABOUT PAGE — shared inner-page brand system
+   ========================================================= */
+
+.home-page.about-page .about-intro-hero {
+  min-height: min(590px, calc(100svh - 80px)) !important;
+  padding: 82px 0 !important;
+  background-color: var(--home-ivory) !important;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(251, 246, 238, 1) 0%,
+      rgba(251, 246, 238, 0.98) 38%,
+      rgba(251, 246, 238, 0.84) 52%,
+      rgba(251, 246, 238, 0.2) 74%,
+      rgba(251, 246, 238, 0) 100%
+    ),
+    url("../assets/backgrounds/hero-meat-background.webp") !important;
+  background-repeat: no-repeat !important;
+  background-position: center, right center !important;
+  background-size: cover, auto 100% !important;
+  border-bottom: 1px solid rgba(125, 24, 36, 0.13) !important;
+}
+
+.home-page.about-page .about-intro-hero .container {
+  width: min(100% - 32px, var(--container));
+}
+
+.home-page.about-page .about-intro-hero .section-label,
+.home-page.about-page .about-story-section .section-label,
+.home-page.about-page .about-values-section .section-label,
+.home-page.about-page .about-order-cta .section-label {
+  color: var(--home-burgundy) !important;
+}
+
+.home-page.about-page .about-intro-hero h1 {
+  max-width: 760px !important;
+  margin: 10px 0 20px !important;
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(50px, 5.3vw, 72px) !important;
+  font-weight: 700 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.home-page.about-page .about-intro-hero > .container > p:not(.section-label) {
+  max-width: 660px !important;
+  margin: 0 !important;
+  color: var(--home-ink) !important;
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+}
+
+.home-page.about-page .about-intro-hero .hero-actions {
+  margin-top: 28px !important;
+}
+
+.home-page.about-page .about-intro-hero .btn-primary,
+.home-page.about-page .about-order-cta .btn-primary {
+  border-radius: 5px !important;
+  background: var(--home-burgundy) !important;
+  color: #fff !important;
+}
+
+.home-page.about-page .about-intro-hero .btn-primary:hover,
+.home-page.about-page .about-order-cta .btn-primary:hover {
+  background: var(--home-burgundy-dark) !important;
+}
+
+.home-page.about-page .about-story-section,
+.home-page.about-page .about-values-section,
+.home-page.about-page .about-order-cta {
+  background: transparent !important;
+}
+
+.home-page.about-page .about-story-section {
+  padding: 86px 0 !important;
+}
+
+.home-page.about-page .about-story-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr) !important;
+  align-items: center !important;
+  gap: 72px !important;
+}
+
+.home-page.about-page .about-story-copy h2,
+.home-page.about-page .about-values-section h2,
+.home-page.about-page .about-order-cta h2 {
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.home-page.about-page .about-story-copy h2 {
+  max-width: 650px !important;
+  margin: 10px 0 22px !important;
+  font-size: clamp(42px, 4.5vw, 62px) !important;
+  line-height: 1.02 !important;
+}
+
+.home-page.about-page .about-story-copy > p:not(.section-label) {
+  max-width: 680px !important;
+  margin: 0 0 16px !important;
+  color: rgba(48, 41, 35, 0.76) !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+
+.home-page.about-page .about-story-facts {
+  display: grid !important;
+  gap: 12px !important;
+}
+
+.home-page.about-page .about-story-facts article {
+  display: grid !important;
+  grid-template-columns: 48px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  padding: 20px !important;
+  border: 1px solid rgba(125, 24, 36, 0.13) !important;
+  border-radius: 15px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 14px 32px rgba(83, 51, 38, 0.08) !important;
+}
+
+.home-page.about-page .about-story-facts article > span {
+  width: 48px !important;
+  height: 48px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  background: rgba(125, 24, 36, 0.09) !important;
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 700 !important;
+}
+
+.home-page.about-page .about-story-facts strong {
+  display: block !important;
+  margin: 1px 0 6px !important;
+  color: var(--home-burgundy) !important;
+  font-size: 17px !important;
+}
+
+.home-page.about-page .about-story-facts p {
+  margin: 0 !important;
+  color: rgba(48, 41, 35, 0.7) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.home-page.about-page .about-values-section {
+  padding: 82px 0 !important;
+  border-top: 1px solid rgba(125, 24, 36, 0.08) !important;
+  border-bottom: 1px solid rgba(125, 24, 36, 0.08) !important;
+}
+
+.home-page.about-page .about-values-section .section-heading {
+  max-width: 780px !important;
+}
+
+.home-page.about-page .about-values-section .section-heading h2 {
+  font-size: clamp(42px, 4.5vw, 62px) !important;
+  line-height: 1.02 !important;
+}
+
+.home-page.about-page .about-values-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  margin-top: 36px !important;
+}
+
+.home-page.about-page .about-value-card {
+  min-height: 235px !important;
+  padding: 28px !important;
+  border: 1px solid rgba(125, 24, 36, 0.13) !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 16px 38px rgba(83, 51, 38, 0.09) !important;
+}
+
+.home-page.about-page .about-value-card > span {
+  display: inline-block !important;
+  margin-bottom: 36px !important;
+  color: var(--home-burgundy) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+}
+
+.home-page.about-page .about-value-card h3 {
+  margin: 0 0 10px !important;
+  color: var(--home-ink) !important;
+  font-size: 22px !important;
+}
+
+.home-page.about-page .about-value-card p {
+  margin: 0 !important;
+  color: rgba(48, 41, 35, 0.7) !important;
+  font-size: 14px !important;
+  line-height: 1.58 !important;
+}
+
+.home-page.about-page .about-order-cta {
+  padding: 72px 0 !important;
+  border-top: 1px solid rgba(125, 24, 36, 0.08) !important;
+}
+
+.home-page.about-page .about-order-cta .order-cta-inner {
+  border: 1px solid rgba(125, 24, 36, 0.15) !important;
+  border-radius: 20px !important;
+  background: rgba(251, 246, 238, 0.9) !important;
+  box-shadow: 0 18px 44px rgba(83, 51, 38, 0.1) !important;
+}
+
+.home-page.about-page .footer-links a:hover {
+  color: var(--home-burgundy) !important;
+}
+
+@media (max-width: 920px) {
+  .home-page.about-page .about-intro-hero {
+    min-height: calc(100svh - 68px) !important;
+    padding: 72px 0 64px !important;
+    background-position: center, right center !important;
+    background-size: cover, auto 100% !important;
+  }
+
+  .home-page.about-page .about-intro-hero h1 {
+    font-size: clamp(42px, 11vw, 58px) !important;
+  }
+
+  .home-page.about-page .about-intro-hero > .container > p:not(.section-label) {
+    font-size: 15px !important;
+  }
+
+  .home-page.about-page .about-story-inner {
+    grid-template-columns: 1fr !important;
+    gap: 42px !important;
+  }
+
+  .home-page.about-page .about-values-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page.about-page .about-value-card {
+    min-height: auto !important;
+  }
+
+  .home-page.about-page .about-story-section,
+  .home-page.about-page .about-values-section {
+    padding: 64px 0 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-page.about-page .about-intro-hero {
+    position: relative !important;
+    min-height: calc(100svh - 68px) !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    padding: 0 0 40px !important;
+    isolation: isolate !important;
+    background-color: var(--home-ivory) !important;
+    background-image: none !important;
+  }
+
+  .home-page.about-page .about-intro-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: -2;
+    height: 45svh;
+    background-image: url("../assets/backgrounds/hero-meat-background.webp");
+    background-repeat: no-repeat;
+    background-position: 82% center;
+    background-size: auto 100%;
+  }
+
+  .home-page.about-page .about-intro-hero::after {
+    content: "";
+    position: absolute;
+    inset: 19svh 0 auto;
+    z-index: -1;
+    height: 34svh;
+    background: linear-gradient(
+      180deg,
+      rgba(251, 246, 238, 0) 0%,
+      rgba(251, 246, 238, 0.82) 46%,
+      var(--home-ivory) 82%
+    );
+  }
+
+  .home-page.about-page .about-intro-hero .container,
+  .home-page.about-page .about-story-section .container,
+  .home-page.about-page .about-values-section .container,
+  .home-page.about-page .about-order-cta .container {
+    width: min(100% - 24px, var(--container)) !important;
+  }
+
+  .home-page.about-page .about-intro-hero h1 {
+    font-size: clamp(40px, 12vw, 50px) !important;
+  }
+
+  .home-page.about-page .about-intro-hero .btn {
+    width: 100% !important;
+  }
+
+  .home-page.about-page .about-story-section,
+  .home-page.about-page .about-values-section {
+    padding: 56px 0 !important;
+  }
+
+  .home-page.about-page .about-story-copy h2,
+  .home-page.about-page .about-values-section .section-heading h2 {
+    font-size: clamp(36px, 11vw, 46px) !important;
+  }
+
+  .home-page.about-page .about-story-facts article {
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 13px !important;
+    padding: 18px !important;
+  }
+
+  .home-page.about-page .about-story-facts article > span {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 14px !important;
+  }
+
+  .home-page.about-page .about-value-card {
+    padding: 23px !important;
+  }
+
+  .home-page.about-page .about-value-card > span {
+    margin-bottom: 24px !important;
+  }
+
+  .home-page.about-page .about-order-cta {
+    padding: 54px 0 !important;
+  }
+}
+
 /* Base */
 
 * {

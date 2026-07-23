@@ -4,39 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>About | Gaļas grozs</title>
+  <title>About us | Gaļas grozs</title>
 
   <meta
     name="description"
-    content="Learn about Gaļas grozs, a fresh meat order request website in Latvia for pork, beef, chicken, BBQ products and meat boxes."
+    content="Discover the story behind Gaļas grozs and our practical approach to fresh meat ordering in Latvia."
   />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/galas-grozs-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css?v=38" />
 </head>
 
-<body>
-  <header class="site-header">
+<body class="home-page about-page">
+  <header class="site-header home-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Gaļas grozs home">
-        <span class="brand-icon">🛒</span>
-        <span class="brand-text">
-          <strong>Gaļas grozs</strong>
-          <small>Fresh meat orders in Latvia</small>
-        </span>
+      <a class="brand home-wordmark" href="index.html" aria-label="Gaļas grozs home">
+        <span class="brand-icon" aria-hidden="true"></span>
+        <strong>Gaļas grozs</strong>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
         <span></span>
         <span></span>
-        <span></span>
       </button>
 
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="how-to-order.html">How to Order</a>
-        <a href="quality.html">Quality</a>
-        <a href="faq.html">FAQ</a>
+        <a href="products.html">Browse products</a>
+        <a href="how-to-order.html">How it works</a>
+        <a href="about.html" class="active" aria-current="page">About us</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -47,204 +42,102 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero about-intro-hero">
       <div class="container">
         <p class="section-label">About Gaļas grozs</p>
-
-        <h1>A simple way to request fresh meat orders in Latvia</h1>
-
+        <h1>From the meat counter to your phone.</h1>
         <p>
-          Gaļas grozs helps customers browse meat products, estimate their order value and send
-          a clear request on WhatsApp. The final weight, availability and total price are confirmed
-          manually before payment.
+          Gaļas grozs brings the practical experience of a physical meat shop into a simpler online ordering service for customers in Latvia.
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="products.html">Browse products</a>
-          <a class="btn btn-secondary" href="how-to-order.html">How ordering works</a>
         </div>
       </div>
     </section>
 
-    <section class="catalog-intro">
-      <div class="container">
-        <div class="notice-box">
-          <strong>Important:</strong>
-          Gaļas grozs works as an order request website. Prices are indicative and final order details are confirmed manually.
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-section">
-      <div class="container trust-inner">
-        <div>
-          <p class="section-label">What we do</p>
-          <h2>We make meat ordering clearer before confirmation</h2>
-
+    <section class="about-story-section">
+      <div class="container about-story-inner">
+        <div class="about-story-copy">
+          <p class="section-label">Our story</p>
+          <h2>A familiar service, adapted for online orders.</h2>
           <p>
-            Fresh meat orders often need manual confirmation because products are sold by weight
-            and availability can change. Gaļas grozs gives customers a structured way to choose products,
-            send preferences and confirm the final order directly with the seller.
+            Gaļas grozs started with a physical meat shop in Latvia. That experience shaped a straightforward way of serving customers: show the selection clearly, understand what the customer needs and confirm the details personally.
+          </p>
+          <p>
+            The online catalog continues that approach. It makes browsing and preparing an order easier while keeping the final confirmation direct and practical.
           </p>
         </div>
 
-        <div class="trust-list">
-          <div>
-            <strong>Product list</strong>
-            <span>Customers can browse pork, beef, chicken, BBQ & Grill products and meat boxes.</span>
-          </div>
+        <div class="about-story-facts" aria-label="Gaļas grozs at a glance">
+          <article>
+            <span>01</span>
+            <div>
+              <strong>Experience from a physical shop</strong>
+              <p>The service is built around real customer orders, not an anonymous marketplace.</p>
+            </div>
+          </article>
 
-          <div>
-            <strong>Indicative prices</strong>
-            <span>Prices help customers estimate the order before the final weight is confirmed.</span>
-          </div>
+          <article>
+            <span>02</span>
+            <div>
+              <strong>Made for customers in Latvia</strong>
+              <p>The selection and ordering process are designed for the local market.</p>
+            </div>
+          </article>
 
-          <div>
-            <strong>WhatsApp confirmation</strong>
-            <span>The final details are confirmed directly between customer and seller.</span>
-          </div>
+          <article>
+            <span>03</span>
+            <div>
+              <strong>Direct communication</strong>
+              <p>Questions and final order details are handled personally on WhatsApp.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="category-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Product categories</p>
-          <h2>Focused product range</h2>
-
-          <p>
-            The website keeps the product range simple and practical, focused on the main categories customers request most often.
-          </p>
-        </div>
-
-        <div class="category-grid">
-          <a class="category-card" href="products.html#pork">
-            <span>🥩</span>
-            <h3>Pork</h3>
-            <p>Fresh pork cuts from the client price list, translated into English.</p>
-          </a>
-
-          <a class="category-card" href="products.html#beef">
-            <span>🥩</span>
-            <h3>Beef</h3>
-            <p>Beef products with indicative Latvia market prices.</p>
-          </a>
-
-          <a class="category-card" href="products.html#chicken">
-            <span>🍗</span>
-            <h3>Chicken</h3>
-            <p>Chicken products for everyday meals, family cooking and grill orders.</p>
-          </a>
-
-          <a class="category-card" href="products.html#bbq">
-            <span>🔥</span>
-            <h3>BBQ & Grill</h3>
-            <p>Grill-ready products for weekends, gatherings and quick cooking.</p>
-          </a>
-
-          <a class="category-card" href="products.html#boxes">
-            <span>📦</span>
-            <h3>Meat Boxes</h3>
-            <p>Indicative box selections for family meals and BBQ orders.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="how-section">
+    <section class="about-values-section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label">How we work</p>
-          <h2>Clear order request, manual confirmation</h2>
-
+          <p class="section-label">What matters to us</p>
+          <h2>A practical service without false precision.</h2>
           <p>
-            The process is designed to avoid confusion between estimated prices and final confirmed prices.
+            Fresh meat is not always a fixed-weight product. Our role is to make the choice clear and the final confirmation honest.
           </p>
         </div>
 
-        <div class="steps-grid">
-          <article class="step-card">
-            <strong>01</strong>
-            <h3>Customer builds the cart</h3>
-            <p>
-              Products can be added to cart from the product page or from featured sections on the homepage.
-            </p>
+        <div class="about-values-grid">
+          <article class="about-value-card">
+            <span aria-hidden="true">01</span>
+            <h3>Clear selection</h3>
+            <p>Products are organized so customers can quickly find the cuts and quantities they need.</p>
           </article>
 
-          <article class="step-card">
-            <strong>02</strong>
-            <h3>Preferences are selected</h3>
-            <p>
-              The customer chooses pickup or delivery preference and preferred payment method.
-            </p>
+          <article class="about-value-card">
+            <span aria-hidden="true">02</span>
+            <h3>Honest estimates</h3>
+            <p>Displayed prices help prepare the order without presenting an estimate as the final amount.</p>
           </article>
 
-          <article class="step-card">
-            <strong>03</strong>
-            <h3>Request is sent on WhatsApp</h3>
-            <p>
-              The cart becomes a structured WhatsApp message with products, estimated total and preferences.
-            </p>
-          </article>
-
-          <article class="step-card">
-            <strong>04</strong>
-            <h3>Seller confirms final details</h3>
-            <p>
-              Product availability, exact weight, final total and payment details are confirmed before payment.
-            </p>
+          <article class="about-value-card">
+            <span aria-hidden="true">03</span>
+            <h3>Personal confirmation</h3>
+            <p>Availability, exact weight and the final price are confirmed directly before payment.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="trust-section">
-      <div class="container trust-inner">
-        <div>
-          <p class="section-label">Why this model works</p>
-          <h2>Better for products sold by weight</h2>
-
-          <p>
-            Meat orders are different from fixed-price packaged products. Exact weight can vary,
-            availability can change and final totals often need confirmation. The website gives the customer
-            a clear estimate without pretending that every order can be finalized automatically.
-          </p>
-        </div>
-
-        <div class="trust-list">
-          <div>
-            <strong>Less confusion</strong>
-            <span>Customers know that the website total is an estimate before final confirmation.</span>
-          </div>
-
-          <div>
-            <strong>More flexibility</strong>
-            <span>Pickup, delivery and payment method can be confirmed depending on the order.</span>
-          </div>
-
-          <div>
-            <strong>Practical for the seller</strong>
-            <span>The seller receives a clear request without needing a full online checkout system at this stage.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="order-cta">
+    <section class="order-cta about-order-cta">
       <div class="container order-cta-inner">
         <div>
-          <p class="section-label">Start your order</p>
-          <h2>Browse products and send your request on WhatsApp</h2>
-
-          <p>
-            Add products to cart, select your preferences and confirm final details directly with the seller.
-          </p>
+          <p class="section-label">Explore the selection</p>
+          <h2>Find the products that fit your order.</h2>
+          <p>Browse the current selection and add what you need to your cart.</p>
         </div>
 
-        <a class="btn btn-primary" href="products.html">
-          Browse products
-        </a>
+        <a class="btn btn-primary" href="products.html">Browse products</a>
       </div>
     </section>
   </main>
@@ -253,7 +146,7 @@
     <div class="container footer-inner">
       <div>
         <a class="brand footer-brand" href="index.html" aria-label="Gaļas grozs home">
-          <span class="brand-icon">🛒</span>
+          <span class="brand-icon" aria-hidden="true"></span>
           <span class="brand-text">
             <strong>Gaļas grozs</strong>
             <small>Fresh meat orders in Latvia</small>
@@ -265,13 +158,14 @@
         </p>
       </div>
 
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer navigation">
         <a href="products.html">Products</a>
-        <a href="how-to-order.html">How to Order</a>
+        <a href="how-to-order.html">How it works</a>
         <a href="quality.html">Quality</a>
         <a href="faq.html">FAQ</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-      </div>
+      </nav>
 
       <div class="footer-contact">
         <strong>WhatsApp</strong>
