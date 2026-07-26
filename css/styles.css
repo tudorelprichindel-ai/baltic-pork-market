@@ -4652,4 +4652,298 @@ main > section:first-of-type {
   box-shadow: none !important;
 }
 
-.home-p
+.home-page.recipes-page .recipes-hero {
+  min-height: min(590px, calc(100svh - 80px));
+  padding: 82px 0;
+  background-color: var(--home-ivory);
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(251, 246, 238, 1) 0%,
+      rgba(251, 246, 238, 0.98) 38%,
+      rgba(251, 246, 238, 0.84) 52%,
+      rgba(251, 246, 238, 0.2) 74%,
+      rgba(251, 246, 238, 0) 100%
+    ),
+    url("../assets/backgrounds/hero-meat-background.webp");
+  background-repeat: no-repeat;
+  background-position: center, right center;
+  background-size: cover, auto 100%;
+  border-bottom: 1px solid rgba(125, 24, 36, 0.13);
+}
+
+.home-page.recipes-page .recipes-hero .container {
+  width: min(100% - 32px, var(--container));
+}
+
+.home-page.recipes-page .recipes-hero h1 {
+  max-width: 780px;
+  margin: 10px 0 20px;
+  color: var(--home-burgundy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(50px, 5.3vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.home-page.recipes-page .recipes-hero p:not(.section-label) {
+  max-width: 680px;
+  color: var(--home-ink);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.recipe-jump {
+  position: sticky;
+  top: 80px;
+  z-index: 850;
+  border-bottom: 1px solid rgba(125, 24, 36, 0.12);
+  background: rgba(251, 246, 238, 0.94);
+  box-shadow: 0 10px 30px rgba(83, 51, 38, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.recipe-jump-inner {
+  display: flex;
+  gap: 10px;
+  padding: 14px 0;
+}
+
+.recipe-jump a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid rgba(125, 24, 36, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--home-burgundy);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.recipe-collection {
+  padding: 88px 0 96px;
+  scroll-margin-top: 150px;
+}
+
+.recipe-collection-alt {
+  border-top: 1px solid rgba(125, 24, 36, 0.12);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.recipes-page .recipe-collection .section-heading {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.recipes-page .recipe-collection .section-heading h2 {
+  margin: 8px 0 12px;
+  color: var(--home-burgundy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.recipe-card {
+  overflow: hidden;
+  border: 1px solid rgba(125, 24, 36, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 45px rgba(83, 51, 38, 0.09);
+}
+
+.recipe-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.recipe-card-body {
+  padding: 24px;
+}
+
+.recipe-type {
+  margin: 0 0 8px;
+  color: var(--home-burgundy);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.recipe-card h3 {
+  min-height: 2.25em;
+  margin: 0 0 12px;
+  color: var(--home-burgundy);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  line-height: 1.08;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.recipe-meta span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(125, 24, 36, 0.08);
+  color: var(--home-burgundy);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.recipe-card-body > p:not(.recipe-type) {
+  min-height: 4.5em;
+  margin: 0 0 18px;
+  color: #655a52;
+  line-height: 1.5;
+}
+
+.recipe-details {
+  margin: 0 0 14px;
+  border: 1px solid rgba(125, 24, 36, 0.18);
+  border-radius: 14px;
+  background: #fffaf5;
+}
+
+.recipe-details summary {
+  padding: 13px 16px;
+  color: var(--home-burgundy);
+  cursor: pointer;
+  font-weight: 850;
+  list-style: none;
+}
+
+.recipe-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.recipe-details summary::after {
+  content: "+";
+  float: right;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.recipe-details[open] summary::after {
+  content: "−";
+}
+
+.recipe-details-content {
+  padding: 0 18px 18px;
+  border-top: 1px solid rgba(125, 24, 36, 0.12);
+}
+
+.recipe-details-content h4 {
+  margin: 18px 0 8px;
+  color: var(--home-burgundy);
+  font-size: 14px;
+}
+
+.recipe-details-content ul,
+.recipe-details-content ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #574d46;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.recipe-details-content li + li {
+  margin-top: 6px;
+}
+
+.recipe-product-link {
+  display: inline-flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--home-burgundy);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.recipes-order-cta {
+  border-top: 1px solid rgba(125, 24, 36, 0.12);
+}
+
+@media (max-width: 900px) {
+  .recipe-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .home-page.recipes-page .recipes-hero {
+    min-height: 720px;
+    padding: 470px 0 58px;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(251, 246, 238, 0) 0%,
+        rgba(251, 246, 238, 0.12) 37%,
+        rgba(251, 246, 238, 0.88) 58%,
+        rgba(251, 246, 238, 1) 72%
+      ),
+      url("../assets/backgrounds/hero-meat-background.webp");
+    background-position: center, top right;
+    background-size: cover, auto 470px;
+  }
+
+  .home-page.recipes-page .recipes-hero h1 {
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  .home-page.recipes-page .recipes-hero p:not(.section-label) {
+    font-size: 15px;
+  }
+
+  .recipe-jump {
+    top: 64px;
+  }
+
+  .recipe-jump-inner {
+    justify-content: center;
+  }
+
+  .recipe-jump a {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .recipe-collection {
+    padding: 62px 0 70px;
+    scroll-margin-top: 126px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .recipe-card h3,
+  .recipe-card-body > p:not(.recipe-type) {
+    min-height: 0;
+  }
+
+  .recipe-card-body {
+    padding: 20px;
+  }
+}
