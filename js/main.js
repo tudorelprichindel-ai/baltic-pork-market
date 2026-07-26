@@ -134,6 +134,8 @@ function renderProductCatalog() {
 function renderProductCard(product, options = {}) {
   const category = getCatalogCategory(product.category);
   const isAvailable = product.available !== false;
+  const isPromotion = product.promotion === true && parsePrice(product.salePrice) > 0;
+  const displayPrice = isPromotion ? parsePrice(product.salePrice) : parsePrice(product.price);
   const categoryLabel = getLocalized(category?.label) || "Products";
   const name = getLocalized(product.name) || "Product";
   const description = options.featured
@@ -152,23 +154,42 @@ function renderProductCard(product, options = {}) {
 
   return `
     <article
-      class="catalog-product${isAvailable ? "" : " is-unavailable"}"
+      class="catalog-product${isAvailable ? "" : " is-unavailable"}${isPromotion ? " is-promotion" : ""}"
       data-product-id="${escapeHtml(product.id)}"
       data-product-name="${escapeHtml(name)}"
       data-product-category="${escapeHtml(categoryLabel)}"
-      data-product-price="${escapeHtml(Number(product.price || 0).toFixed(2))}"
+      data-product-price="${escapeHtml(displayPrice.toFixed(2))}"
       data-product-unit="${escapeHtml(product.unit || "kg")}"
       data-product-image="${escapeHtml(image)}"
     >
       <div class="product-image-wrap">
         <img src="${escapeHtml(image)}" alt="${escapeHtml(name)}" loading="lazy" decoding="async" />
         ${isAvailable ? "" : '<span class="product-unavailable-stamp" aria-label="Unavailable">Unavailable</span>'}
+        ${isPromotion && isAvailable ? '<span class="product-promotion-stamp" aria-label="Promotion">Promotion</span>' : ""}
       </div>
       <h3>${escapeHtml(name)}</h3>
       <p>${escapeHtml(description)}</p>
       ${metaMarkup}
+      ${renderProductVariants(product)}
       <button class="catalog-btn" type="button"${isAvailable ? "" : ' disabled aria-disabled="true"'}>${isAvailable ? "Add to cart" : "Unavailable"}</button>
     </article>
+  `;
+}
+
+function renderProductVariants(product) {
+  if (!Array.isArray(product.variants) || product.variants.length === 0) return "";
+
+  return `
+    <div class="product-variant-selector" aria-label="Choose package size">
+      ${product.variants.map((variant, index) => `
+        <button
+          class="product-variant-option${index === 0 ? " is-selected" : ""}"
+          type="button"
+          data-variant-id="${escapeHtml(variant.id)}"
+          aria-pressed="${index === 0 ? "true" : "false"}"
+        >${escapeHtml(getLocalized(variant.label) || variant.id)}</button>
+      `).join("")}
+    </div>
   `;
 }
 
@@ -214,6 +235,7 @@ function initCartSystem() {
   reconcileCartWithCatalog();
   injectProductImages();
   injectProductPrices();
+  bindProductVariants();
   bindProductButtons();
   updateCartUi();
 }
@@ -266,6 +288,18 @@ function formatPrice(price) {
   return `${price.toFixed(2)} ${CURRENCY}`;
 }
 
+function getProductUnitPrice(product) {
+  const regularPrice = parsePrice(product.price);
+  const salePrice = parsePrice(product.salePrice);
+  return product.promotion === true && salePrice > 0 ? salePrice : regularPrice;
+}
+
+function getSelectedVariant(card, product) {
+  if (!Array.isArray(product.variants) || product.variants.length === 0) return null;
+  const selectedId = card.querySelector(".product-variant-option.is-selected")?.dataset.variantId;
+  return product.variants.find((variant) => variant.id === selectedId) || product.variants[0];
+}
+
 function getProductFromCard(card) {
   const name =
     card.dataset.productName ||
@@ -279,13 +313,18 @@ function getProductFromCard(card) {
   const catalogProduct = getCatalogProduct(id);
   if (catalogProduct && catalogProduct.active !== false) {
     const catalogCategory = getCatalogCategory(catalogProduct.category);
+    const variant = getSelectedVariant(card, catalogProduct);
+    const variantMultiplier = variant ? Number(variant.multiplier) || 1 : 1;
+    const cartId = variant ? `${catalogProduct.id}::${variant.id}` : catalogProduct.id;
 
     return {
-      id: catalogProduct.id,
+      id: cartId,
+      catalogId: catalogProduct.id,
+      variantId: variant?.id || "",
       name: getLocalized(catalogProduct.name),
       category: getLocalized(catalogCategory?.label) || "Products",
-      unit: catalogProduct.unit || "kg",
-      price: parsePrice(catalogProduct.price),
+      unit: variant ? getLocalized(variant.label) || variant.id : catalogProduct.unit || "kg",
+      price: getProductUnitPrice(catalogProduct) * variantMultiplier,
       image: catalogProduct.image || `assets/products/${catalogProduct.id}.png`
     };
   }
@@ -332,25 +371,65 @@ function injectProductImages() {
 
 function injectProductPrices() {
   document.querySelectorAll(".catalog-product").forEach((card) => {
-    const product = getProductFromCard(card);
     const existingPrice = card.querySelector(".product-price-js");
 
     if (existingPrice) {
-      existingPrice.textContent = product.price > 0
-        ? `${formatPrice(product.price)} / ${product.unit}`
-        : "Price confirmed manually";
+      updateCardPrice(card, existingPrice);
       return;
     }
 
     const priceElement = document.createElement("div");
     priceElement.className = "product-price-js";
-    priceElement.textContent = product.price > 0
-      ? `${formatPrice(product.price)} / ${product.unit}`
-      : "Price confirmed manually";
+    updateCardPrice(card, priceElement);
 
     const meta = card.querySelector(".product-meta");
     if (meta) meta.insertAdjacentElement("afterend", priceElement);
     else card.appendChild(priceElement);
+  });
+}
+
+function updateCardPrice(card, priceElement = card.querySelector(".product-price-js")) {
+  if (!priceElement) return;
+
+  const catalogProduct = getCatalogProduct(card.dataset.productId);
+  if (!catalogProduct) {
+    const product = getProductFromCard(card);
+    priceElement.textContent = product.price > 0
+      ? `${formatPrice(product.price)} / ${product.unit}`
+      : "Price confirmed manually";
+    return;
+  }
+
+  const variant = getSelectedVariant(card, catalogProduct);
+  const multiplier = variant ? Number(variant.multiplier) || 1 : 1;
+  const unit = variant ? getLocalized(variant.label) || variant.id : catalogProduct.unit || "kg";
+  const regularPrice = parsePrice(catalogProduct.price) * multiplier;
+  const salePrice = parsePrice(catalogProduct.salePrice) * multiplier;
+
+  if (catalogProduct.promotion === true && salePrice > 0) {
+    priceElement.innerHTML = `
+      <span class="product-old-price">${escapeHtml(formatPrice(regularPrice))}</span>
+      <strong class="product-sale-price">${escapeHtml(formatPrice(salePrice))} / ${escapeHtml(unit)}</strong>
+    `;
+  } else {
+    priceElement.textContent = regularPrice > 0
+      ? `${formatPrice(regularPrice)} / ${unit}`
+      : "Price confirmed manually";
+  }
+}
+
+function bindProductVariants() {
+  document.querySelectorAll(".catalog-product").forEach((card) => {
+    card.querySelectorAll(".product-variant-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        card.querySelectorAll(".product-variant-option").forEach((option) => {
+          const selected = option === button;
+          option.classList.toggle("is-selected", selected);
+          option.setAttribute("aria-pressed", String(selected));
+        });
+        updateCardPrice(card);
+      });
+    });
   });
 }
 
@@ -385,16 +464,24 @@ function reconcileCartWithCatalog() {
 
   const currentCart = getCart();
   const nextCart = currentCart.flatMap((item) => {
-    const product = getCatalogProduct(item.id);
+    const catalogId = item.catalogId || String(item.id).split("::")[0];
+    const product = getCatalogProduct(catalogId);
     if (!product || product.active === false || product.available === false) return [];
 
     const category = getCatalogCategory(product.category);
+    const variant = Array.isArray(product.variants)
+      ? product.variants.find((option) => option.id === item.variantId)
+      : null;
+    const multiplier = variant ? Number(variant.multiplier) || 1 : 1;
+    const cartId = variant ? `${product.id}::${variant.id}` : product.id;
     return [{
-      id: product.id,
+      id: cartId,
+      catalogId: product.id,
+      variantId: variant?.id || "",
       name: getLocalized(product.name),
       category: getLocalized(category?.label) || "Products",
-      unit: product.unit || "kg",
-      price: parsePrice(product.price),
+      unit: variant ? getLocalized(variant.label) || variant.id : product.unit || "kg",
+      price: getProductUnitPrice(product) * multiplier,
       image: product.image || `assets/products/${product.id}.png`,
       quantity: Math.max(1, Number.parseInt(item.quantity, 10) || 1)
     }];

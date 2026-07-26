@@ -7,6 +7,8 @@
   - Show it again: change active to true.
   - Mark it unavailable: add or change available to false.
   - Mark it in stock again: change available to true.
+  - Put it on promotion: set promotion to true and add salePrice.
+  - Add package choices: use variants with a label and price multiplier.
   - Change a price: edit price.
   - Show it on the homepage: set featured to true.
   - Change its position: edit order (and featuredOrder for the homepage).
@@ -76,7 +78,6 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "pork-loin-without-rib-skinless",
       active: true,
-      available: false,
       featured: false,
       order: 10,
       category: "pork",
@@ -331,6 +332,10 @@ window.GALAS_GROZS_CATALOG = {
       price: 5.5,
       priceSource: "client",
       unit: "kg",
+      variants: [
+        { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
+        { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
+      ],
       image: "assets/products/minced-pork.png",
       name: { en: "Minced pork" },
       description: {
@@ -412,6 +417,10 @@ window.GALAS_GROZS_CATALOG = {
       price: 8.5,
       priceSource: "client",
       unit: "kg",
+      variants: [
+        { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
+        { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
+      ],
       image: "assets/products/minced-beef.png",
       name: { en: "Minced beef" },
       description: {

@@ -50,6 +50,36 @@ available: true,
 
 Dacă linia `available` lipsește, produsul este considerat disponibil.
 
+## Adăugarea unei promoții
+
+Păstrează prețul normal în `price`, apoi adaugă:
+
+```js
+promotion: true,
+salePrice: 6.9,
+```
+
+Website-ul afișează automat prețul normal tăiat, noul preț și marcajul „Promotion”. Coșul folosește prețul promoțional.
+
+Pentru oprirea promoției:
+
+```js
+promotion: false,
+```
+
+## Variante de greutate
+
+Pentru un produs vândut atât la 500 g, cât și la 1 kg:
+
+```js
+variants: [
+  { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
+  { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
+],
+```
+
+Prețurile se calculează automat din prețul pe kilogram. Variantele apar separat în coș.
+
 ## Afișarea unui produs pe homepage
 
 ```js
