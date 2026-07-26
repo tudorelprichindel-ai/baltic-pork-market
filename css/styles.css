@@ -4957,7 +4957,8 @@ main > section:first-of-type {
   margin-top: 12px;
 }
 
-.footer-contact .social-links a {
+.footer-contact .social-links a,
+.footer-contact .social-link {
   display: inline-flex;
   min-height: 38px;
   align-items: center;
@@ -4972,6 +4973,17 @@ main > section:first-of-type {
   box-shadow: none;
 }
 
+.footer-contact .social-link.is-pending {
+  cursor: default;
+  opacity: 0.62;
+}
+
+.footer-contact .social-link small {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .social-links svg {
   width: 17px;
   height: 17px;
@@ -4980,7 +4992,7 @@ main > section:first-of-type {
   stroke-width: 1.8;
 }
 
-.social-links a:last-child svg {
+.social-links > :last-child svg {
   fill: currentColor;
   stroke: none;
 }
@@ -4990,7 +5002,8 @@ main > section:first-of-type {
     justify-content: stretch;
   }
 
-  .footer-contact .social-links a {
+  .footer-contact .social-links a,
+  .footer-contact .social-link {
     flex: 1;
     justify-content: center;
   }

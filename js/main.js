@@ -49,20 +49,31 @@ function renderSocialLinks() {
       url: config.facebookUrl,
       icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.8l.4-3H14V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.5-4.3 4.4V10H8v3h2.6v8H14Z"></path></svg>'
     }
-  ].filter((network) => typeof network.url === "string" && network.url.trim());
-
-  if (!networks.length) return;
+  ];
 
   document.querySelectorAll(".footer-contact").forEach((target) => {
     const socialLinks = document.createElement("div");
     socialLinks.className = "social-links";
     socialLinks.setAttribute("aria-label", "Social media");
-    socialLinks.innerHTML = networks.map((network) => `
-      <a href="${escapeHtml(network.url.trim())}" target="_blank" rel="noopener" aria-label="${network.name}">
-        ${network.icon}
-        <span>${network.name}</span>
-      </a>
-    `).join("");
+    socialLinks.innerHTML = networks.map((network) => {
+      const url = typeof network.url === "string" ? network.url.trim() : "";
+      if (url) {
+        return `
+          <a href="${escapeHtml(url)}" target="_blank" rel="noopener" aria-label="${network.name}">
+            ${network.icon}
+            <span>${network.name}</span>
+          </a>
+        `;
+      }
+
+      return `
+        <span class="social-link is-pending" aria-label="${network.name} coming soon">
+          ${network.icon}
+          <span>${network.name}</span>
+          <small>Coming soon</small>
+        </span>
+      `;
+    }).join("");
     target.appendChild(socialLinks);
   });
 }
