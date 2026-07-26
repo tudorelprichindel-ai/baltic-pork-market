@@ -608,6 +608,36 @@ button {
   transform: translateY(-1px);
 }
 
+.header-contact-actions {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid #7d1824;
+  border-radius: 5px;
+  color: #fff;
+  background: #7d1824;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.header-call:hover {
+  background: #61101b;
+}
+
+.site-nav .mobile-call-link {
+  display: none;
+}
+
 .nav-toggle {
   display: none;
 }
@@ -1753,6 +1783,18 @@ button {
 
   .header-cta {
     display: none;
+  }
+
+  .header-contact-actions {
+    display: none;
+  }
+
+  body .site-nav .mobile-call-link {
+    display: inline-flex !important;
+    justify-content: center;
+    margin-top: 4px;
+    color: #fff !important;
+    background: #7d1824 !important;
   }
 
   .hero,
