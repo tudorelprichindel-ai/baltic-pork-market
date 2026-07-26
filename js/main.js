@@ -6,6 +6,11 @@ const DELIVERY_STORAGE_KEY = "galasGrozsDeliveryPreferenceV1";
 const PAYMENT_STORAGE_KEY = "galasGrozsPaymentPreferenceV1";
 
 const CURRENCY = "€";
+const CATALOG = window.GALAS_GROZS_CATALOG || {
+  defaultLanguage: "en",
+  categories: [],
+  products: []
+};
 
 const DEFAULT_DELIVERY = { method: "to-be-confirmed", details: "" };
 const DEFAULT_PAYMENT = { method: "to-be-confirmed" };
@@ -25,9 +30,145 @@ const PAYMENT_LABELS = {
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNavigation();
+  renderCatalogContent();
   initSmoothLinks();
   initCartSystem();
 });
+
+function getCatalogLanguage() {
+  const pageLanguage = document.documentElement.lang?.toLowerCase().split("-")[0];
+  return pageLanguage || CATALOG.defaultLanguage || "en";
+}
+
+function getLocalized(value) {
+  if (typeof value === "string") return value;
+  if (!value || typeof value !== "object") return "";
+
+  const language = getCatalogLanguage();
+  return value[language] || value[CATALOG.defaultLanguage] || value.en || Object.values(value)[0] || "";
+}
+
+function getActiveCategories() {
+  return (CATALOG.categories || [])
+    .filter((category) => category.active !== false)
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+}
+
+function getActiveProducts() {
+  return (CATALOG.products || [])
+    .filter((product) => product.active !== false)
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+}
+
+function getCatalogProduct(productId) {
+  return (CATALOG.products || []).find((product) => product.id === productId);
+}
+
+function getCatalogCategory(categoryId) {
+  return (CATALOG.categories || []).find((category) => category.id === categoryId);
+}
+
+function renderCatalogContent() {
+  if (!CATALOG.products?.length) return;
+
+  renderFeaturedProducts();
+  renderCategoryNavigation();
+  renderProductCatalog();
+}
+
+function renderFeaturedProducts() {
+  const target = document.querySelector("[data-featured-products]");
+  if (!target) return;
+
+  const featuredProducts = getActiveProducts()
+    .filter((product) => product.featured)
+    .sort((a, b) => (a.featuredOrder || 0) - (b.featuredOrder || 0));
+
+  target.innerHTML = featuredProducts
+    .map((product) => renderProductCard(product, { featured: true }))
+    .join("");
+}
+
+function renderCategoryNavigation() {
+  const target = document.querySelector("[data-category-navigation]");
+  if (!target) return;
+
+  const products = getActiveProducts();
+  target.innerHTML = getActiveCategories()
+    .filter((category) => products.some((product) => product.category === category.id))
+    .map((category) => `
+      <a class="category-pill" href="#${escapeHtml(category.id)}">
+        ${escapeHtml(getLocalized(category.label))}
+      </a>
+    `)
+    .join("");
+}
+
+function renderProductCatalog() {
+  const target = document.querySelector("[data-product-catalog]");
+  if (!target) return;
+
+  const products = getActiveProducts();
+  target.innerHTML = getActiveCategories()
+    .map((category) => {
+      const categoryProducts = products.filter((product) => product.category === category.id);
+      if (!categoryProducts.length) return "";
+
+      return `
+        <section class="catalog-category" id="${escapeHtml(category.id)}">
+          <div class="container">
+            <span class="section-label">${escapeHtml(getLocalized(category.label))}</span>
+            <h2>${escapeHtml(getLocalized(category.title))}</h2>
+            <p class="section-intro">${escapeHtml(getLocalized(category.description))}</p>
+
+            <div class="catalog-grid">
+              ${categoryProducts.map((product) => renderProductCard(product)).join("")}
+            </div>
+          </div>
+        </section>
+      `;
+    })
+    .join("");
+}
+
+function renderProductCard(product, options = {}) {
+  const category = getCatalogCategory(product.category);
+  const categoryLabel = getLocalized(category?.label) || "Products";
+  const name = getLocalized(product.name) || "Product";
+  const description = options.featured
+    ? getLocalized(product.featuredDescription) || getLocalized(product.description)
+    : getLocalized(product.description);
+  const image = product.image || `assets/products/${product.id}.png`;
+
+  const metaMarkup = options.featured
+    ? `
+      <div class="product-meta">
+        <span><strong>Category:</strong> ${escapeHtml(categoryLabel)}</span>
+        <span><strong>Unit:</strong> ${escapeHtml(product.unit || "kg")}</span>
+      </div>
+    `
+    : `<div class="product-meta">${escapeHtml(getLocalized(product.meta))}</div>`;
+
+  return `
+    <article
+      class="catalog-product"
+      data-product-id="${escapeHtml(product.id)}"
+      data-product-name="${escapeHtml(name)}"
+      data-product-category="${escapeHtml(categoryLabel)}"
+      data-product-price="${escapeHtml(Number(product.price || 0).toFixed(2))}"
+      data-product-unit="${escapeHtml(product.unit || "kg")}"
+      data-product-image="${escapeHtml(image)}"
+    >
+      <div class="product-image-wrap">
+        <img src="${escapeHtml(image)}" alt="${escapeHtml(name)}" loading="lazy" decoding="async" />
+      </div>
+      <h3>${escapeHtml(name)}</h3>
+      <p>${escapeHtml(description)}</p>
+      ${metaMarkup}
+      <button class="catalog-btn" type="button">Add to cart</button>
+    </article>
+  `;
+}
 
 function initMobileNavigation() {
   const navToggle = document.querySelector(".nav-toggle");
@@ -68,6 +209,7 @@ function initSmoothLinks() {
 
 function initCartSystem() {
   injectCartUi();
+  reconcileCartWithCatalog();
   injectProductImages();
   injectProductPrices();
   bindProductButtons();
@@ -132,6 +274,20 @@ function getProductFromCard(card) {
     card.dataset.productId ||
     name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
+  const catalogProduct = getCatalogProduct(id);
+  if (catalogProduct && catalogProduct.active !== false) {
+    const catalogCategory = getCatalogCategory(catalogProduct.category);
+
+    return {
+      id: catalogProduct.id,
+      name: getLocalized(catalogProduct.name),
+      category: getLocalized(catalogCategory?.label) || "Products",
+      unit: catalogProduct.unit || "kg",
+      price: parsePrice(catalogProduct.price),
+      image: catalogProduct.image || `assets/products/${catalogProduct.id}.png`
+    };
+  }
+
   const category =
     card.dataset.productCategory ||
     card.closest(".catalog-category")?.querySelector(".section-label")?.textContent?.trim() ||
@@ -139,8 +295,12 @@ function getProductFromCard(card) {
 
   const unit = card.dataset.productUnit || "kg";
   const price = parsePrice(card.dataset.productPrice);
+  const image =
+    card.dataset.productImage ||
+    card.querySelector(".product-image-wrap img")?.getAttribute("src") ||
+    `assets/products/${id}.png`;
 
-  return { id, name, category, unit, price };
+  return { id, name, category, unit, price, image };
 }
 
 function injectProductImages() {
@@ -154,7 +314,7 @@ function injectProductImages() {
     imageWrap.className = "product-image-wrap";
 
     const image = document.createElement("img");
-    image.src = `assets/products/${product.id}.png`;
+    image.src = product.image || `assets/products/${product.id}.png`;
     image.alt = product.name;
     image.loading = "lazy";
     image.decoding = "async";
@@ -202,7 +362,6 @@ function bindProductButtons() {
 
       const product = getProductFromCard(card);
       addToCart(product);
-      openCart();
     });
   });
 }
@@ -216,6 +375,31 @@ function addToCart(product) {
 
   saveCart(cart);
   updateCartUi();
+}
+
+function reconcileCartWithCatalog() {
+  if (!CATALOG.products?.length) return;
+
+  const currentCart = getCart();
+  const nextCart = currentCart.flatMap((item) => {
+    const product = getCatalogProduct(item.id);
+    if (!product || product.active === false) return [];
+
+    const category = getCatalogCategory(product.category);
+    return [{
+      id: product.id,
+      name: getLocalized(product.name),
+      category: getLocalized(category?.label) || "Products",
+      unit: product.unit || "kg",
+      price: parsePrice(product.price),
+      image: product.image || `assets/products/${product.id}.png`,
+      quantity: Math.max(1, Number.parseInt(item.quantity, 10) || 1)
+    }];
+  });
+
+  if (JSON.stringify(currentCart) !== JSON.stringify(nextCart)) {
+    saveCart(nextCart);
+  }
 }
 
 function removeFromCart(productId) {
@@ -261,13 +445,18 @@ function injectCartUi() {
 
     <aside class="cart-drawer" aria-label="Shopping cart">
       <div class="cart-drawer-header">
-        <span></span>
+        <div class="cart-drawer-title">
+          <strong>Your order</strong>
+          <span data-cart-drawer-count>0 items</span>
+        </div>
         <button class="cart-close-btn" type="button" aria-label="Close cart">×</button>
       </div>
 
       <div class="cart-items" data-cart-items></div>
 
       <section class="cart-preference-section">
+        <p class="cart-section-title">Order preferences</p>
+
         <label class="cart-select-field" for="deliveryMethod">
           <span>Pickup or delivery</span>
           <select id="deliveryMethod" data-delivery-method>
@@ -374,12 +563,17 @@ function updateCartUi() {
   const cartItems = document.querySelector("[data-cart-items]");
   const cartTotal = document.querySelector("[data-cart-total]");
   const cartCountElements = document.querySelectorAll("[data-cart-count]");
+  const cartDrawerCount = document.querySelector("[data-cart-drawer-count]");
   const count = getCartCount(cart);
   const total = getCartTotal(cart);
 
   cartCountElements.forEach((element) => {
     element.textContent = String(count);
   });
+
+  if (cartDrawerCount) {
+    cartDrawerCount.textContent = count === 1 ? "1 item" : `${count} items`;
+  }
 
   if (cartTotal) cartTotal.textContent = formatPrice(total);
   if (!cartItems) return;
@@ -399,25 +593,38 @@ function updateCartUi() {
 
     return `
       <article class="cart-item cart-item-compact">
-        <div class="cart-item-top">
-          <div>
-            <h3>${escapeHtml(item.name)}</h3>
-            <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
-          </div>
-          <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove product">×</button>
+        <div class="cart-item-image">
+          <img src="${escapeHtml(item.image || `assets/products/${item.id}.png`)}" alt="${escapeHtml(item.name)}" />
         </div>
 
-        <div class="cart-item-bottom">
-          <div class="cart-item-controls">
-            <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
-            <span>${item.quantity}</span>
-            <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
+        <div class="cart-item-content">
+          <div class="cart-item-top">
+            <div>
+              <h3>${escapeHtml(item.name)}</h3>
+              <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
+            </div>
+            <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.name)}">×</button>
           </div>
-          <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+
+          <div class="cart-item-bottom">
+            <div class="cart-item-controls">
+              <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
+            </div>
+            <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
+          </div>
         </div>
       </article>
     `;
   }).join("");
+
+  cartItems.querySelectorAll(".cart-item-image img").forEach((image) => {
+    image.addEventListener("error", () => {
+      image.closest(".cart-item")?.classList.add("cart-item-no-image");
+      image.closest(".cart-item-image")?.remove();
+    });
+  });
 
   bindCartItemButtons();
 }
