@@ -4948,6 +4948,80 @@ main > section:first-of-type {
   }
 }
 
+/* Language preview — EN is active; LV and RU will be enabled after translation. */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid rgba(125, 24, 36, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.language-switcher > span {
+  display: inline-flex;
+  min-width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--home-burgundy);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.language-switcher .is-active {
+  background: var(--home-burgundy);
+  color: #fff;
+}
+
+.language-switcher .is-pending {
+  cursor: default;
+  opacity: 0.42;
+}
+
+.mobile-language-switcher {
+  display: none;
+}
+
+.header-contact-actions {
+  gap: 8px;
+}
+
+@media (max-width: 1180px) and (min-width: 921px) {
+  .home-page .home-header .header-inner {
+    gap: 18px;
+  }
+
+  .home-page .home-header .site-nav {
+    gap: 15px;
+  }
+
+  .header-call {
+    display: none;
+  }
+}
+
+@media (max-width: 920px) {
+  .header-contact-actions .language-switcher {
+    display: none;
+  }
+
+  .home-page .home-header .site-nav .mobile-language-switcher,
+  .site-nav .mobile-language-switcher {
+    display: flex;
+    width: 100%;
+    margin-top: 4px;
+    padding: 5px;
+  }
+
+  .mobile-language-switcher > span {
+    flex: 1;
+  }
+}
+
 /* Social buttons appear only after real profile URLs are configured. */
 .social-links {
   display: flex;
