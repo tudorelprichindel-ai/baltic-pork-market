@@ -73,11 +73,11 @@ window.GALAS_GROZS_CATALOG = {
   products: [
     {
       id: "pork-loin-without-rib-skinless",
-      active: true,
+      active: false,
       featured: false,
       order: 10,
       category: "pork",
-      price: 7.5,
+      price: 100.5,
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-loin-without-rib-skinless.png",
