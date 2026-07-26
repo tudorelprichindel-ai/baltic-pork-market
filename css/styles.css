@@ -4947,3 +4947,51 @@ main > section:first-of-type {
     padding: 20px;
   }
 }
+
+/* Social buttons appear only after real profile URLs are configured. */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.footer-contact .social-links a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 1px solid rgba(125, 24, 36, 0.22);
+  border-radius: 999px;
+  background: #fffaf5;
+  color: var(--home-burgundy);
+  font-size: 12px;
+  font-weight: 850;
+  box-shadow: none;
+}
+
+.social-links svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.social-links a:last-child svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+@media (max-width: 700px) {
+  .social-links {
+    justify-content: stretch;
+  }
+
+  .footer-contact .social-links a {
+    flex: 1;
+    justify-content: center;
+  }
+}

@@ -30,10 +30,42 @@ const PAYMENT_LABELS = {
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNavigation();
+  renderSocialLinks();
   renderCatalogContent();
   initSmoothLinks();
   initCartSystem();
 });
+
+function renderSocialLinks() {
+  const config = window.GALAS_GROZS_SITE || {};
+  const networks = [
+    {
+      name: "Instagram",
+      url: config.instagramUrl,
+      icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.25"></circle><circle cx="17.4" cy="6.7" r="1"></circle></svg>'
+    },
+    {
+      name: "Facebook",
+      url: config.facebookUrl,
+      icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.8l.4-3H14V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.5-4.3 4.4V10H8v3h2.6v8H14Z"></path></svg>'
+    }
+  ].filter((network) => typeof network.url === "string" && network.url.trim());
+
+  if (!networks.length) return;
+
+  document.querySelectorAll(".footer-contact").forEach((target) => {
+    const socialLinks = document.createElement("div");
+    socialLinks.className = "social-links";
+    socialLinks.setAttribute("aria-label", "Social media");
+    socialLinks.innerHTML = networks.map((network) => `
+      <a href="${escapeHtml(network.url.trim())}" target="_blank" rel="noopener" aria-label="${network.name}">
+        ${network.icon}
+        <span>${network.name}</span>
+      </a>
+    `).join("");
+    target.appendChild(socialLinks);
+  });
+}
 
 function getCatalogLanguage() {
   const pageLanguage = document.documentElement.lang?.toLowerCase().split("-")[0];
