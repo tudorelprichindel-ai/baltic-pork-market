@@ -78,8 +78,6 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "pork-loin-without-rib-skinless",
       active: true,
-      promotion: true,
-      salePrice: 6.9,
       featured: false,
       order: 10,
       category: "pork",
@@ -96,7 +94,6 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "pork-loin-with-fat-and-skin",
       active: true,
-      available: false,
       featured: false,
       order: 20,
       category: "pork",
@@ -520,6 +517,7 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "marinated-pork-neck",
       active: true,
+      available: false,
       featured: false,
       order: 10,
       category: "bbq",
@@ -536,6 +534,7 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "bbq-ribs",
       active: true,
+      available: false,
       featured: true,
       featuredOrder: 40,
       order: 20,
@@ -556,6 +555,7 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "grill-sausages",
       active: true,
+      available: false,
       featured: false,
       order: 30,
       category: "bbq",
@@ -572,6 +572,7 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "chicken-skewers",
       active: true,
+      available: false,
       featured: false,
       order: 40,
       category: "bbq",
