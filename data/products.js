@@ -96,6 +96,7 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "pork-loin-with-fat-and-skin",
       active: true,
+      available: false,
       featured: false,
       order: 20,
       category: "pork",
