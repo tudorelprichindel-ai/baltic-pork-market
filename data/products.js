@@ -5,6 +5,8 @@
 
   - Hide a product: change active to false.
   - Show it again: change active to true.
+  - Mark it unavailable: add or change available to false.
+  - Mark it in stock again: change available to true.
   - Change a price: edit price.
   - Show it on the homepage: set featured to true.
   - Change its position: edit order (and featuredOrder for the homepage).
@@ -77,7 +79,7 @@ window.GALAS_GROZS_CATALOG = {
       featured: false,
       order: 10,
       category: "pork",
-      price: 100.5,
+      price: 7.5,
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-loin-without-rib-skinless.png",

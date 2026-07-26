@@ -32,6 +32,24 @@ active: true,
 
 Un produs inactiv dispare automat din pagina Products, din homepage și din coșurile salvate.
 
+## Marcarea unui produs ca indisponibil
+
+Pentru ca produsul să rămână vizibil, dar să apară estompat cu marcajul „Unavailable”:
+
+```js
+available: false,
+```
+
+Butonul produsului va fi dezactivat, iar produsul nu va putea fi adăugat în coș. Dacă produsul se afla deja într-un coș salvat, va fi eliminat automat.
+
+Pentru a permite din nou comenzile:
+
+```js
+available: true,
+```
+
+Dacă linia `available` lipsește, produsul este considerat disponibil.
+
 ## Afișarea unui produs pe homepage
 
 ```js
@@ -79,6 +97,7 @@ Exemplu:
 {
   id: "new-pork-product",
   active: true,
+  available: true,
   featured: false,
   order: 50,
   category: "pork",

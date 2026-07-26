@@ -133,6 +133,7 @@ function renderProductCatalog() {
 
 function renderProductCard(product, options = {}) {
   const category = getCatalogCategory(product.category);
+  const isAvailable = product.available !== false;
   const categoryLabel = getLocalized(category?.label) || "Products";
   const name = getLocalized(product.name) || "Product";
   const description = options.featured
@@ -151,7 +152,7 @@ function renderProductCard(product, options = {}) {
 
   return `
     <article
-      class="catalog-product"
+      class="catalog-product${isAvailable ? "" : " is-unavailable"}"
       data-product-id="${escapeHtml(product.id)}"
       data-product-name="${escapeHtml(name)}"
       data-product-category="${escapeHtml(categoryLabel)}"
@@ -161,11 +162,12 @@ function renderProductCard(product, options = {}) {
     >
       <div class="product-image-wrap">
         <img src="${escapeHtml(image)}" alt="${escapeHtml(name)}" loading="lazy" decoding="async" />
+        ${isAvailable ? "" : '<span class="product-unavailable-stamp" aria-label="Unavailable">Unavailable</span>'}
       </div>
       <h3>${escapeHtml(name)}</h3>
       <p>${escapeHtml(description)}</p>
       ${metaMarkup}
-      <button class="catalog-btn" type="button">Add to cart</button>
+      <button class="catalog-btn" type="button"${isAvailable ? "" : ' disabled aria-disabled="true"'}>${isAvailable ? "Add to cart" : "Unavailable"}</button>
     </article>
   `;
 }
@@ -356,6 +358,7 @@ function bindProductButtons() {
   document.querySelectorAll(".catalog-product").forEach((card) => {
     const button = card.querySelector(".catalog-btn") || card.querySelector("[data-add-to-cart]");
     if (!button) return;
+    if (button.disabled || card.classList.contains("is-unavailable")) return;
 
     button.addEventListener("click", (event) => {
       event.preventDefault();
@@ -383,7 +386,7 @@ function reconcileCartWithCatalog() {
   const currentCart = getCart();
   const nextCart = currentCart.flatMap((item) => {
     const product = getCatalogProduct(item.id);
-    if (!product || product.active === false) return [];
+    if (!product || product.active === false || product.available === false) return [];
 
     const category = getCatalogCategory(product.category);
     return [{
