@@ -519,7 +519,7 @@ button {
   border-radius: 0;
   font-size: 0;
   color: transparent;
-  background-image: url("../assets/galas-grozs-mark.svg");
+  background-image: url("../assets/galas-grozs-mark.svg?v=2");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
