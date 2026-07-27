@@ -3922,7 +3922,7 @@ main > section:first-of-type {
 
 @media (hover: hover) and (pointer: fine) {
   .catalog-product:hover .product-image-wrap img {
-    transform: scale(1.14);
+    transform: scale(2.14);
     filter: saturate(1.06) contrast(1.04);
   }
 
