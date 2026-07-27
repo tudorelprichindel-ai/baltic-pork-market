@@ -5,6 +5,6 @@
   The buttons remain hidden while a value is empty.
 */
 window.GALAS_GROZS_SITE = {
-  instagramUrl: "",
+  instagramUrl: "https://www.instagram.com/galas_grozs/",
   facebookUrl: ""
 };
