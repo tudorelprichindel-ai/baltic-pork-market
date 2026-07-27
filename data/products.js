@@ -137,7 +137,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 8.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-tenderloin.png",
+      image: "assets/products/pork-tenderloin-whole-v2.webp",
       name: { en: "Pork tenderloin" },
       description: {
         en: "Tender pork cut for quick cooking, pan dishes and special meals."
