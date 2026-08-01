@@ -165,7 +165,7 @@ window.GALAS_GROZS_CATALOG = {
     },
     {
       id: "pork-ham-piece-with-skin",
-      active: true,
+      active: false,
       featured: false,
       order: 60,
       category: "pork",
@@ -197,7 +197,7 @@ window.GALAS_GROZS_CATALOG = {
     },
     {
       id: "boneless-pork-ham-skinless",
-      active: true,
+      active: false,
       featured: false,
       order: 80,
       category: "pork",
@@ -245,7 +245,7 @@ window.GALAS_GROZS_CATALOG = {
     },
     {
       id: "pork-ribs-with-skin-and-fat",
-      active: true,
+      active: false,
       featured: false,
       order: 110,
       category: "pork",
@@ -369,7 +369,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 16,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/beef-stew-meat.png",
+      image: "assets/products/beef-leg-whole-v2.webp",
       name: { en: "Beef leg" },
       description: {
         en: "Lean beef leg cut, suitable for roasting, stews and sliced meat dishes."
@@ -385,7 +385,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 20,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/beef-steak-cuts.png",
+      image: "assets/products/beef-loin-whole-v2.webp",
       name: { en: "Beef loin / steak cut" },
       description: {
         en: "Quality beef cut suitable for steaks, grilling and pan cooking."
@@ -401,7 +401,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 12,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/beef-shoulder-with-bone.png",
+      image: "assets/products/beef-shoulder-with-bone-v2.webp",
       name: { en: "Beef shoulder with bone" },
       description: {
         en: "Beef shoulder with bone, suitable for slow cooking, broth and hearty meals."
@@ -458,7 +458,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 7,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/skinless-chicken-gyros.png",
+      image: "assets/products/skinless-chicken-gyros-v2.webp",
       name: { en: "Skinless chicken gyros" },
       description: {
         en: "Skinless chicken gyros-style meat, suitable for quick frying, wraps and grilled dishes."
