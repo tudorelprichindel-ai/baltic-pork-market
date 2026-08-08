@@ -18,7 +18,7 @@
 */
 
 window.GALAS_GROZS_CATALOG = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   defaultLanguage: "en",
 
   categories: [
@@ -85,11 +85,35 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-loin-without-rib-skinless.png",
-      name: { en: "Pork loin without rib, skinless" },
+      name: {
+        en: "Pork loin without rib, skinless"
+      },
       description: {
         en: "Lean pork loin without rib and without skin, suitable for slices, roasting and everyday cooking."
       },
-      meta: { en: "Cut: loin · Best for: roasting, slicing, pan cooking" }
+      meta: {
+        en: "Cut: loin · Best for: roasting, slicing, pan cooking"
+      }
+    },
+    {
+      id: "pork-loin-without-rib-skinless-cutted",
+      active: true,
+      featured: false,
+      order: 15,
+      category: "pork",
+      price: 7.5,
+      priceSource: "client",
+      unit: "kg",
+      image: "assets/products/pork-loin-without-rib-skinless-cutted.png",
+      name: {
+        en: "Pork loin without rib, skinless, cut"
+      },
+      description: {
+        en: "Skinless and boneless pork loin cut into practical portions for frying, grilling or roasting."
+      },
+      meta: {
+        en: "Cut: portioned loin · Best for: pan cooking, grill, roasting"
+      }
     },
     {
       id: "pork-loin-with-fat-and-skin",
@@ -101,11 +125,36 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-loin-with-fat-and-skin.png",
-      name: { en: "Pork loin with fat and skin" },
-      description: {
-        en: "Pork loin with fat and skin, useful for juicy roasts and traditional home cooking."
+      name: {
+        en: "Pork loin with fat and skin"
       },
-      meta: { en: "Cut: loin · Best for: roasting, oven cooking" }
+      description: {
+        en: "Pork loin with a visible layer of fat and skin, suitable for juicy roasts and traditional home cooking."
+      },
+      meta: {
+        en: "Cut: loin with fat and skin · Best for: roasting, oven cooking"
+      }
+    },
+    {
+      id: "pork-loin-long-rib",
+      active: true,
+      featured: false,
+      order: 25,
+      category: "pork",
+      price: 7,
+      priceSource: "client",
+      unit: "kg",
+      image: "assets/products/pork-loin-long-rib.png",
+      name: {
+        en: "Pork loin with long rib",
+        lv: "Karbonāde ar garo ribu"
+      },
+      description: {
+        en: "Pork loin attached to a long rib, suitable for roasting, grilling and cutting into chops."
+      },
+      meta: {
+        en: "Cut: loin with long rib · Best for: chops, grill, roasting"
+      }
     },
     {
       id: "pork-neck",
@@ -118,14 +167,18 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-neck.png",
-      name: { en: "Pork neck" },
+      name: {
+        en: "Pork neck"
+      },
       description: {
         en: "Juicy pork neck with good marbling, suitable for grilling, roasting and steaks."
       },
       featuredDescription: {
         en: "Juicy pork neck, suitable for roasting, grilling and slow cooking."
       },
-      meta: { en: "Cut: neck · Best for: BBQ, steak, roast" }
+      meta: {
+        en: "Cut: neck · Best for: BBQ, steak, roast"
+      }
     },
     {
       id: "pork-tenderloin",
@@ -138,14 +191,18 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-tenderloin-whole-v2.webp",
-      name: { en: "Pork tenderloin" },
+      name: {
+        en: "Pork tenderloin"
+      },
       description: {
         en: "Tender pork cut for quick cooking, pan dishes and special meals."
       },
       featuredDescription: {
         en: "Tender pork fillet for premium home cooking and quick meals."
       },
-      meta: { en: "Cut: tenderloin · Best for: quick meals, pan cooking" }
+      meta: {
+        en: "Cut: tenderloin · Best for: quick meals, pan cooking"
+      }
     },
     {
       id: "pork-ham-piece-skinless",
@@ -156,12 +213,16 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-ham-piece-skinless.png",
-      name: { en: "Pork ham piece, skinless" },
+      image: "assets/products/pork-ham-piece-skinless-real.png",
+      name: {
+        en: "Pork ham piece, skinless"
+      },
       description: {
         en: "Skinless pork ham piece for roasting, stews and sliced home meals."
       },
-      meta: { en: "Cut: ham · Best for: roasting, stews" }
+      meta: {
+        en: "Cut: ham · Best for: roasting, stews"
+      }
     },
     {
       id: "pork-ham-piece-with-skin",
@@ -173,11 +234,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-ham-piece-with-skin.png",
-      name: { en: "Pork ham piece with skin" },
+      name: {
+        en: "Pork ham piece with skin"
+      },
       description: {
         en: "Pork ham piece with skin, suitable for traditional roasting and slow cooking."
       },
-      meta: { en: "Cut: ham · Best for: roast, slow cooking" }
+      meta: {
+        en: "Cut: ham · Best for: roast, slow cooking"
+      }
     },
     {
       id: "boneless-pork-ham-with-skin",
@@ -189,11 +254,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/boneless-pork-ham-with-skin.png",
-      name: { en: "Boneless pork ham with skin" },
+      name: {
+        en: "Boneless pork ham with skin"
+      },
       description: {
         en: "Boneless pork ham with skin, practical for roasts and larger family meals."
       },
-      meta: { en: "Cut: ham · Best for: oven roasting, family meals" }
+      meta: {
+        en: "Cut: ham · Best for: oven roasting, family meals"
+      }
     },
     {
       id: "boneless-pork-ham-skinless",
@@ -205,11 +274,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/boneless-pork-ham-skinless.png",
-      name: { en: "Boneless pork ham, skinless" },
+      name: {
+        en: "Boneless pork ham, skinless"
+      },
       description: {
         en: "Skinless boneless pork ham for clean preparation, roasts and slicing."
       },
-      meta: { en: "Cut: ham · Best for: roast, slicing" }
+      meta: {
+        en: "Cut: ham · Best for: roast, slicing"
+      }
     },
     {
       id: "pork-belly-with-rib",
@@ -220,12 +293,17 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-belly-with-rib.png",
-      name: { en: "Pork belly with rib" },
-      description: {
-        en: "Pork belly with rib, suitable for roasting, BBQ and slow-cooked dishes."
+      image: "assets/products/pork-belly-with-rib-real.png",
+      name: {
+        en: "Pork belly with rib",
+        lv: "Cūkgaļas krūtiņa ar ribu"
       },
-      meta: { en: "Cut: belly with rib · Best for: BBQ, roasting, slow cooking" }
+      description: {
+        en: "Pork belly with rib bone, suitable for roasting, BBQ and slow-cooked dishes."
+      },
+      meta: {
+        en: "Cut: belly with rib · Best for: BBQ, roasting, slow cooking"
+      }
     },
     {
       id: "pork-belly",
@@ -236,12 +314,16 @@ window.GALAS_GROZS_CATALOG = {
       price: 5.8,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-belly.png",
-      name: { en: "Pork belly" },
-      description: {
-        en: "Classic pork belly for roasting, frying and traditional home dishes."
+      image: "assets/products/pork-belly-real.png",
+      name: {
+        en: "Pork belly"
       },
-      meta: { en: "Cut: belly · Best for: oven, frying, slow cooking" }
+      description: {
+        en: "Classic boneless pork belly for roasting, frying and traditional home dishes."
+      },
+      meta: {
+        en: "Cut: boneless belly · Best for: oven, frying, slow cooking"
+      }
     },
     {
       id: "pork-ribs-with-skin-and-fat",
@@ -253,11 +335,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-ribs-with-skin-and-fat.png",
-      name: { en: "Pork ribs with skin and fat" },
+      name: {
+        en: "Pork ribs with skin and fat"
+      },
       description: {
         en: "Pork ribs with skin and fat, good for rich oven dishes and BBQ-style meals."
       },
-      meta: { en: "Cut: ribs · Best for: oven, BBQ cooking" }
+      meta: {
+        en: "Cut: ribs · Best for: oven, BBQ cooking"
+      }
     },
     {
       id: "pork-shoulder-with-bone-and-skin",
@@ -269,11 +355,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-shoulder-with-bone-and-skin.png",
-      name: { en: "Pork shoulder with bone and skin" },
+      name: {
+        en: "Pork shoulder with bone and skin"
+      },
       description: {
         en: "Pork shoulder with bone and skin, suitable for slow cooking, soups and traditional meals."
       },
-      meta: { en: "Cut: shoulder · Best for: slow cooking, roast, soup" }
+      meta: {
+        en: "Cut: shoulder · Best for: slow cooking, roast, soup"
+      }
     },
     {
       id: "boneless-pork-shoulder-skinless",
@@ -285,11 +375,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/boneless-pork-shoulder-skinless.png",
-      name: { en: "Boneless pork shoulder, skinless" },
+      name: {
+        en: "Boneless pork shoulder, skinless"
+      },
       description: {
         en: "Skinless boneless pork shoulder for roasts, pulled pork-style cooking and home meals."
       },
-      meta: { en: "Cut: shoulder · Best for: stews, slow cooking" }
+      meta: {
+        en: "Cut: shoulder · Best for: stews, slow cooking"
+      }
     },
     {
       id: "pork-shanks",
@@ -301,27 +395,57 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/pork-shanks.png",
-      name: { en: "Pork shanks" },
+      name: {
+        en: "Pork shanks"
+      },
       description: {
         en: "Pork shanks for soups, slow cooking and rich traditional dishes."
       },
-      meta: { en: "Cut: shanks · Best for: soups, slow cooking" }
+      meta: {
+        en: "Cut: shanks · Best for: soups, slow cooking"
+      }
     },
     {
-      id: "pork-ribs",
+      id: "pork-soup-set",
       active: true,
       featured: false,
-      order: 150,
+      order: 145,
       category: "pork",
       price: 1.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-ribs.png",
-      name: { en: "Pork ribs" },
-      description: {
-        en: "Pork ribs for soups, oven dishes and slow-cooked meals."
+      image: "assets/products/pork-soup-set.png",
+      name: {
+        en: "Pork soup set",
+        lv: "Zupas izlase"
       },
-      meta: { en: "Cut: ribs · Best for: soups, slow cooking" }
+      description: {
+        en: "A selection of pork bones and meat pieces for broth, soups and slow-cooked dishes."
+      },
+      meta: {
+        en: "Type: soup set · Best for: broth, soup, slow cooking"
+      }
+    },
+    {
+      id: "pork-loin-ribs",
+      active: true,
+      featured: false,
+      order: 150,
+      category: "pork",
+      price: 6.5,
+      priceSource: "client",
+      unit: "kg",
+      image: "assets/products/pork-loin-ribs.png",
+      name: {
+        en: "Pork loin ribs",
+        lv: "Cūkgaļas karbonādes ribiņas"
+      },
+      description: {
+        en: "Pork loin ribs suitable for roasting, oven dishes, grilling and BBQ meals."
+      },
+      meta: {
+        en: "Cut: loin ribs · Best for: oven, grill, BBQ"
+      }
     },
     {
       id: "minced-pork",
@@ -337,11 +461,15 @@ window.GALAS_GROZS_CATALOG = {
         { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
       ],
       image: "assets/products/minced-pork.png",
-      name: { en: "Minced pork" },
+      name: {
+        en: "Minced pork"
+      },
       description: {
         en: "Minced pork for meatballs, sauces, stuffed dishes and everyday cooking."
       },
-      meta: { en: "Type: minced meat · Best for: meatballs, sauces, fillings" }
+      meta: {
+        en: "Type: minced meat · Best for: meatballs, sauces, fillings"
+      }
     },
 
     {
@@ -354,11 +482,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/beef-ribs.png",
-      name: { en: "Beef ribs / brisket" },
+      name: {
+        en: "Beef ribs / brisket"
+      },
       description: {
         en: "Fresh beef ribs or brisket, suitable for slow cooking, soups and roasting."
       },
-      meta: { en: "Typical use: slow cooking, soups, roasting" }
+      meta: {
+        en: "Typical use: slow cooking, soups, roasting"
+      }
     },
     {
       id: "beef-stew-meat",
@@ -370,11 +502,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/beef-leg-whole-v2.webp",
-      name: { en: "Beef leg" },
+      name: {
+        en: "Beef leg"
+      },
       description: {
         en: "Lean beef leg cut, suitable for roasting, stews and sliced meat dishes."
       },
-      meta: { en: "Typical use: roasting, stews, slicing" }
+      meta: {
+        en: "Typical use: roasting, stews, slicing"
+      }
     },
     {
       id: "beef-steak-cuts",
@@ -386,11 +522,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/beef-loin-whole-v2.webp",
-      name: { en: "Beef loin / steak cut" },
+      name: {
+        en: "Beef loin / steak cut"
+      },
       description: {
         en: "Quality beef cut suitable for steaks, grilling and pan cooking."
       },
-      meta: { en: "Typical use: steaks, grilling, pan cooking" }
+      meta: {
+        en: "Typical use: steaks, grilling, pan cooking"
+      }
     },
     {
       id: "beef-shoulder-with-bone",
@@ -402,11 +542,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/beef-shoulder-with-bone-v2.webp",
-      name: { en: "Beef shoulder with bone" },
+      name: {
+        en: "Beef shoulder with bone"
+      },
       description: {
         en: "Beef shoulder with bone, suitable for slow cooking, broth and hearty meals."
       },
-      meta: { en: "Typical use: slow cooking, broth, stews" }
+      meta: {
+        en: "Typical use: slow cooking, broth, stews"
+      }
     },
     {
       id: "minced-beef",
@@ -422,11 +566,15 @@ window.GALAS_GROZS_CATALOG = {
         { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
       ],
       image: "assets/products/minced-beef.png",
-      name: { en: "Minced beef" },
+      name: {
+        en: "Minced beef"
+      },
       description: {
         en: "Fresh minced beef for burgers, meatballs, sauces and everyday cooking."
       },
-      meta: { en: "Typical use: burgers, meatballs, sauces" }
+      meta: {
+        en: "Typical use: burgers, meatballs, sauces"
+      }
     },
 
     {
@@ -440,14 +588,18 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/chicken-breast.png",
-      name: { en: "Chicken fillet" },
+      name: {
+        en: "Chicken fillet"
+      },
       description: {
         en: "Lean chicken fillet for simple meals, pan cooking, salads and oven dishes."
       },
       featuredDescription: {
         en: "Lean chicken fillet for everyday cooking, meal prep and family dishes."
       },
-      meta: { en: "Typical use: pan cooking, salads, oven dishes" }
+      meta: {
+        en: "Typical use: pan cooking, salads, oven dishes"
+      }
     },
     {
       id: "skinless-chicken-gyros",
@@ -459,11 +611,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/skinless-chicken-gyros-v2.webp",
-      name: { en: "Skinless chicken gyros" },
+      name: {
+        en: "Skinless chicken gyros"
+      },
       description: {
         en: "Skinless chicken gyros-style meat, suitable for quick frying, wraps and grilled dishes."
       },
-      meta: { en: "Typical use: frying, wraps, grilling" }
+      meta: {
+        en: "Typical use: frying, wraps, grilling"
+      }
     },
     {
       id: "chicken-thighs",
@@ -475,11 +631,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/chicken-thighs.png",
-      name: { en: "Chicken thighs with bone" },
+      name: {
+        en: "Chicken thighs with bone"
+      },
       description: {
         en: "Chicken thighs with bone, suitable for roasting, grilling and slow cooking."
       },
-      meta: { en: "Typical use: roasting, grilling, slow cooking" }
+      meta: {
+        en: "Typical use: roasting, grilling, slow cooking"
+      }
     },
     {
       id: "chicken-drumsticks",
@@ -491,11 +651,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/chicken-drumsticks.png",
-      name: { en: "Chicken drumsticks" },
+      name: {
+        en: "Chicken drumsticks"
+      },
       description: {
         en: "Chicken drumsticks for oven trays, grilling and everyday family meals."
       },
-      meta: { en: "Typical use: oven trays, grilling, family meals" }
+      meta: {
+        en: "Typical use: oven trays, grilling, family meals"
+      }
     },
     {
       id: "whole-chicken",
@@ -507,11 +671,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "client",
       unit: "kg",
       image: "assets/products/whole-chicken.png",
-      name: { en: "Whole chicken" },
+      name: {
+        en: "Whole chicken"
+      },
       description: {
         en: "Whole chicken suitable for roasting, soup, broth and family meals."
       },
-      meta: { en: "Typical use: roasting, soup, broth" }
+      meta: {
+        en: "Typical use: roasting, soup, broth"
+      }
     },
 
     {
@@ -525,11 +693,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "kg",
       image: "assets/products/marinated-pork-neck.png",
-      name: { en: "Marinated pork neck" },
+      name: {
+        en: "Marinated pork neck"
+      },
       description: {
         en: "Marinated pork neck for juicy grilled steaks and BBQ meals."
       },
-      meta: { en: "Typical use: BBQ, grill, weekend meals" }
+      meta: {
+        en: "Typical use: BBQ, grill, weekend meals"
+      }
     },
     {
       id: "bbq-ribs",
@@ -543,14 +715,18 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "kg",
       image: "assets/products/bbq-ribs.png",
-      name: { en: "BBQ ribs" },
+      name: {
+        en: "BBQ ribs"
+      },
       description: {
         en: "BBQ-prepared ribs for oven cooking, grilling and family meals."
       },
       featuredDescription: {
         en: "Ribs for grill, oven or BBQ-style meals."
       },
-      meta: { en: "Typical use: BBQ, oven, grill" }
+      meta: {
+        en: "Typical use: BBQ, oven, grill"
+      }
     },
     {
       id: "grill-sausages",
@@ -563,11 +739,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "kg",
       image: "assets/products/grill-sausages.png",
-      name: { en: "Grill sausages" },
+      name: {
+        en: "Grill sausages"
+      },
       description: {
         en: "Sausages suitable for grilling, quick meals and outdoor gatherings."
       },
-      meta: { en: "Typical use: grill, BBQ, quick meals" }
+      meta: {
+        en: "Typical use: grill, BBQ, quick meals"
+      }
     },
     {
       id: "chicken-skewers",
@@ -580,11 +760,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "kg",
       image: "assets/products/chicken-skewers.png",
-      name: { en: "Chicken skewers" },
+      name: {
+        en: "Chicken skewers"
+      },
       description: {
         en: "Chicken skewers for grilling, BBQ meals and easy outdoor cooking."
       },
-      meta: { en: "Typical use: BBQ, grill, gatherings" }
+      meta: {
+        en: "Typical use: BBQ, grill, gatherings"
+      }
     },
 
     {
@@ -597,11 +781,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "box",
       image: "assets/products/family-meat-box.png",
-      name: { en: "Family Meat Box" },
+      name: {
+        en: "Family Meat Box"
+      },
       description: {
         en: "A mixed family selection for weekly cooking. Usually includes pork cuts, chicken pieces, minced meat and grill-friendly items, depending on availability."
       },
-      meta: { en: "Typical use: family meals, weekly cooking" }
+      meta: {
+        en: "Typical use: family meals, weekly cooking"
+      }
     },
     {
       id: "bbq-box",
@@ -613,11 +801,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "box",
       image: "assets/products/bbq-box.png",
-      name: { en: "BBQ Box" },
+      name: {
+        en: "BBQ Box"
+      },
       description: {
         en: "A ready-to-grill selection for weekends and gatherings. Usually includes marinated pork neck, BBQ ribs, grill sausages and chicken skewers, depending on availability."
       },
-      meta: { en: "Typical use: BBQ, grill, gatherings" }
+      meta: {
+        en: "Typical use: BBQ, grill, gatherings"
+      }
     },
     {
       id: "pork-box",
@@ -629,11 +821,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "box",
       image: "assets/products/pork-box.png",
-      name: { en: "Pork Box" },
+      name: {
+        en: "Pork Box"
+      },
       description: {
         en: "A pork-focused selection for home cooking. Usually includes pork shoulder, pork belly, ribs, pork loin and minced pork, depending on availability."
       },
-      meta: { en: "Typical use: pork dishes, stews, roasts" }
+      meta: {
+        en: "Typical use: pork dishes, stews, roasts"
+      }
     },
     {
       id: "chicken-box",
@@ -645,11 +841,15 @@ window.GALAS_GROZS_CATALOG = {
       priceSource: "indicative",
       unit: "box",
       image: "assets/products/chicken-box.png",
-      name: { en: "Chicken Box" },
+      name: {
+        en: "Chicken Box"
+      },
       description: {
         en: "A chicken-focused selection for simple meals. Usually includes chicken breast, thighs, wings and drumsticks, depending on availability."
       },
-      meta: { en: "Typical use: quick meals, family cooking" }
+      meta: {
+        en: "Typical use: quick meals, family cooking"
+      }
     }
   ]
 };
