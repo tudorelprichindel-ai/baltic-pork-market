@@ -147,11 +147,11 @@ Exemplu:
 
 ## Categoriile disponibile
 
-- `pork`
-- `beef`
-- `chicken`
-- `bbq`
-- `boxes`
+* `pork`
+* `beef`
+* `chicken`
+* `bbq`
+* `boxes`
 
 Categoriile sunt definite la începutul aceluiași fișier. Dacă o categorie este setată la `active: false`, nu mai apare în navigarea catalogului.
 
@@ -168,3 +168,4 @@ name: {
 ```
 
 Până la introducerea traducerii, website-ul folosește automat textul în engleză.
+
