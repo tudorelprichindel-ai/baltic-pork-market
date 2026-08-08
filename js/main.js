@@ -7,13 +7,13 @@ const PAYMENT_STORAGE_KEY = "galasGrozsPaymentPreferenceV1";
 
 const CURRENCY = "€";
 const CATALOG = window.GALAS_GROZS_CATALOG || {
-  defaultLanguage: "en",
+  defaultLanguage: "lv",
   categories: [],
   products: []
 };
 
-const DEFAULT_DELIVERY = { method: "to-be-confirmed", details: "" };
-const DEFAULT_PAYMENT = { method: "to-be-confirmed" };
+const DEFAULT_DELIVERY = { method: "pickup", details: "" };
+const DEFAULT_PAYMENT = { method: "cash" };
 
 const DELIVERY_LABELS = {
   pickup: "Pickup",
@@ -24,17 +24,112 @@ const DELIVERY_LABELS = {
 const PAYMENT_LABELS = {
   cash: "Cash",
   "bank-transfer": "Bank transfer",
-  "payment-link": "Online payment link if available",
-  "to-be-confirmed": "To be confirmed"
+  card: "Card via Stripe after order confirmation"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  initLanguageSwitcher();
   initMobileNavigation();
   renderSocialLinks();
+  renderBusinessContactDetails();
   renderCatalogContent();
   initSmoothLinks();
   initCartSystem();
+  applyInterfaceTranslations();
 });
+
+function getInterfaceLanguage() {
+  const language = localStorage.getItem("galasGrozsLanguage");
+  return ["lv", "en", "ru"].includes(language) ? language : "lv";
+}
+
+function translateInterfaceText(value) {
+  const language = getInterfaceLanguage();
+  if (language === "en") return value;
+  return window.GALAS_GROZS_I18N?.[language]?.[value] || value;
+}
+
+function applyInterfaceTranslations(root = document) {
+  const language = getInterfaceLanguage();
+  const translations = window.GALAS_GROZS_I18N?.[language];
+  if (!translations) return;
+
+  if (translations[document.title]) document.title = translations[document.title];
+  const description = document.querySelector('meta[name="description"]');
+  if (description?.content && translations[description.content]) {
+    description.content = translations[description.content];
+  }
+
+  const walker = document.createTreeWalker(root.body || root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach((node) => {
+    if (["SCRIPT", "STYLE"].includes(node.parentElement?.tagName)) return;
+    const original = node.nodeValue.trim();
+    const normalized = original.replace(/\s+/g, " ");
+    if (!original) return;
+    if (translations[normalized]) {
+      const leadingSpace = node.nodeValue.match(/^\s*/)?.[0] || "";
+      const trailingSpace = node.nodeValue.match(/\s*$/)?.[0] || "";
+      node.nodeValue = `${leadingSpace}${translations[normalized]}${trailingSpace}`;
+      return;
+    }
+    if (language === "lv") {
+      node.nodeValue = node.nodeValue.replace(/\bservings\b/g, "porcijas");
+    } else if (language === "ru") {
+      node.nodeValue = node.nodeValue
+        .replace(/\bservings\b/g, "порции")
+        .replace(/\bmin\b/g, "мин")
+        .replace(/\bhr\b/g, "ч");
+    }
+  });
+
+  root.querySelectorAll?.("[aria-label], [placeholder], [title]").forEach((element) => {
+    ["aria-label", "placeholder", "title"].forEach((attribute) => {
+      const value = element.getAttribute(attribute);
+      if (value && translations[value]) element.setAttribute(attribute, translations[value]);
+    });
+  });
+}
+
+function initLanguageSwitcher() {
+  const supportedLanguages = ["lv", "en", "ru"];
+  const savedLanguage = localStorage.getItem("galasGrozsLanguage");
+  const language = supportedLanguages.includes(savedLanguage) ? savedLanguage : "lv";
+  document.documentElement.lang = language;
+
+  document.querySelectorAll(".language-switcher").forEach((switcher) => {
+    switcher.innerHTML = supportedLanguages.map((code) => `
+      <button type="button" data-language="${code}" class="${code === language ? "is-active" : ""}" aria-pressed="${code === language}">
+        ${code.toUpperCase()}
+      </button>
+    `).join("");
+  });
+
+  document.querySelectorAll("[data-language]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextLanguage = button.dataset.language;
+      if (!supportedLanguages.includes(nextLanguage) || nextLanguage === language) return;
+      localStorage.setItem("galasGrozsLanguage", nextLanguage);
+      window.location.reload();
+    });
+  });
+}
+
+function renderBusinessContactDetails() {
+  const config = window.GALAS_GROZS_SITE || {};
+  if (!config.email) return;
+
+  document.querySelectorAll(".footer-contact").forEach((target) => {
+    if (target.querySelector("[data-business-email]")) return;
+    const email = document.createElement("a");
+    email.dataset.businessEmail = "";
+    email.href = `mailto:${config.email}`;
+    email.textContent = config.email;
+    target.appendChild(email);
+  });
+}
 
 function renderSocialLinks() {
   const config = window.GALAS_GROZS_SITE || {};
@@ -79,8 +174,8 @@ function renderSocialLinks() {
 }
 
 function getCatalogLanguage() {
-  const pageLanguage = document.documentElement.lang?.toLowerCase().split("-")[0];
-  return pageLanguage || CATALOG.defaultLanguage || "en";
+  const savedLanguage = localStorage.getItem("galasGrozsLanguage");
+  return savedLanguage || document.documentElement.lang?.toLowerCase().split("-")[0] || CATALOG.defaultLanguage || "lv";
 }
 
 function getLocalized(value) {
@@ -89,6 +184,16 @@ function getLocalized(value) {
 
   const language = getCatalogLanguage();
   return value[language] || value[CATALOG.defaultLanguage] || value.en || Object.values(value)[0] || "";
+}
+
+function getLocalizedUnit(unit = "kg") {
+  const language = getCatalogLanguage();
+  const labels = {
+    en: { kg: "kg", box: "box" },
+    lv: { kg: "kg", box: "komplekts" },
+    ru: { kg: "кг", box: "набор" }
+  };
+  return labels[language]?.[unit] || unit;
 }
 
 function getActiveCategories() {
@@ -190,7 +295,7 @@ function renderProductCard(product, options = {}) {
     ? `
       <div class="product-meta">
         <span><strong>Category:</strong> ${escapeHtml(categoryLabel)}</span>
-        <span><strong>Unit:</strong> ${escapeHtml(product.unit || "kg")}</span>
+        <span><strong>Unit:</strong> ${escapeHtml(getLocalizedUnit(product.unit))}</span>
       </div>
     `
     : `<div class="product-meta">${escapeHtml(getLocalized(product.meta))}</div>`;
@@ -202,7 +307,7 @@ function renderProductCard(product, options = {}) {
       data-product-name="${escapeHtml(name)}"
       data-product-category="${escapeHtml(categoryLabel)}"
       data-product-price="${escapeHtml(displayPrice.toFixed(2))}"
-      data-product-unit="${escapeHtml(product.unit || "kg")}"
+      data-product-unit="${escapeHtml(getLocalizedUnit(product.unit))}"
       data-product-image="${escapeHtml(image)}"
     >
       <div class="product-image-wrap">
@@ -438,14 +543,14 @@ function updateCardPrice(card, priceElement = card.querySelector(".product-price
   if (!catalogProduct) {
     const product = getProductFromCard(card);
     priceElement.textContent = product.price > 0
-      ? `${formatPrice(product.price)} / ${product.unit}`
+      ? `${formatPrice(product.price)} / ${getLocalizedUnit(product.unit)}`
       : "Price confirmed manually";
     return;
   }
 
   const variant = getSelectedVariant(card, catalogProduct);
   const multiplier = variant ? Number(variant.multiplier) || 1 : 1;
-  const unit = variant ? getLocalized(variant.label) || variant.id : catalogProduct.unit || "kg";
+  const unit = variant ? getLocalized(variant.label) || variant.id : getLocalizedUnit(catalogProduct.unit);
   const regularPrice = parsePrice(catalogProduct.price) * multiplier;
   const salePrice = parsePrice(catalogProduct.salePrice) * multiplier;
 
@@ -523,7 +628,7 @@ function reconcileCartWithCatalog() {
       variantId: variant?.id || "",
       name: getLocalized(product.name),
       category: getLocalized(category?.label) || "Products",
-      unit: variant ? getLocalized(variant.label) || variant.id : product.unit || "kg",
+      unit: variant ? getLocalized(variant.label) || variant.id : getLocalizedUnit(product.unit),
       price: getProductUnitPrice(product) * multiplier,
       image: product.image || `assets/products/${product.id}.png`,
       quantity: Math.max(1, Number.parseInt(item.quantity, 10) || 1)
@@ -609,10 +714,11 @@ function injectCartUi() {
           <select id="paymentMethod" data-payment-method>
             <option value="cash">Cash</option>
             <option value="bank-transfer">Bank transfer</option>
-            <option value="payment-link">Online payment link if available</option>
-            <option value="to-be-confirmed">To be confirmed</option>
+            <option value="card">Card via Stripe after confirmation</option>
           </select>
         </label>
+
+        <div class="cart-order-information" data-order-information></div>
       </section>
 
       <div class="cart-summary">
@@ -644,6 +750,7 @@ function injectCartUi() {
 
   bindDeliveryPreferenceInputs();
   bindPaymentPreferenceInputs();
+  renderOrderInformation();
 }
 
 function bindDeliveryPreferenceInputs() {
@@ -671,13 +778,23 @@ function bindDeliveryPreferenceInputs() {
   updateDeliveryDetailsVisibility();
 }
 
+function renderOrderInformation() {
+  const target = document.querySelector("[data-order-information]");
+  if (!target) return;
+  const config = window.GALAS_GROZS_SITE || {};
+  target.innerHTML = `
+    <p><strong>Order days:</strong> ${escapeHtml(config.orderDays || "Monday and Tuesday")}</p>
+    <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
+    <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Rīgas Centrāltirgus")}</p>
+    <p>Free delivery within Riga for orders over ${formatPrice(config.freeDeliveryThreshold || 50)}. For delivery outside Riga, contact us on WhatsApp.</p>
+  `;
+}
+
 function bindPaymentPreferenceInputs() {
   const payment = getPaymentPreference();
   const paymentSelect = document.querySelector("[data-payment-method]");
   if (!paymentSelect) return;
-
-  paymentSelect.value = payment.method || "to-be-confirmed";
-
+  paymentSelect.value = payment.method || "cash";
   paymentSelect.addEventListener("change", () => {
     savePaymentPreference({ method: paymentSelect.value });
   });
@@ -830,7 +947,7 @@ function requestCartOrder() {
     "",
     `Delivery preference: ${DELIVERY_LABELS[delivery.method] || "To be confirmed"}`,
     delivery.method === "delivery" && delivery.details ? `Delivery address / details: ${delivery.details}` : null,
-    `Payment preference: ${PAYMENT_LABELS[payment.method] || "To be confirmed"}`,
+    `Payment preference: ${PAYMENT_LABELS[payment.method] || "Cash"}`,
     "",
     "I understand that final weight, availability and total price are confirmed manually before payment."
   ].filter(Boolean);

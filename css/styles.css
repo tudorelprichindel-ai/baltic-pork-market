@@ -4948,7 +4948,7 @@ main > section:first-of-type {
   }
 }
 
-/* Language preview — EN is active; LV and RU will be enabled after translation. */
+/* Language selector — Latvian is the default language. */
 .language-switcher {
   display: inline-flex;
   align-items: center;
@@ -4959,7 +4959,8 @@ main > section:first-of-type {
   background: rgba(255, 255, 255, 0.62);
 }
 
-.language-switcher > span {
+.language-switcher > span,
+.language-switcher > button {
   display: inline-flex;
   min-width: 30px;
   height: 30px;
@@ -4970,6 +4971,9 @@ main > section:first-of-type {
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.03em;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 .language-switcher .is-active {
@@ -5017,7 +5021,8 @@ main > section:first-of-type {
     padding: 5px;
   }
 
-  .mobile-language-switcher > span {
+  .mobile-language-switcher > span,
+  .mobile-language-switcher > button {
     flex: 1;
   }
 }
@@ -5081,4 +5086,17 @@ main > section:first-of-type {
     flex: 1;
     justify-content: center;
   }
+}
+.cart-order-information {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.cart-order-information p {
+  margin: 0;
 }

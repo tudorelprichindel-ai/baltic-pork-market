@@ -6,5 +6,12 @@
 */
 window.GALAS_GROZS_SITE = {
   instagramUrl: "https://www.instagram.com/galas_grozs/",
-  facebookUrl: ""
+  facebookUrl: "",
+  phone: "+371 29174626",
+  whatsappNumber: "37129174626",
+  email: "infogalasgrozs@gmail.com",
+  orderDays: "Monday and Tuesday",
+  deliveryDays: "Thursday and Friday",
+  pickupLocation: "Rīgas Centrāltirgus",
+  freeDeliveryThreshold: 50
 };

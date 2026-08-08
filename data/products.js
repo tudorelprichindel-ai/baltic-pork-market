@@ -19,7 +19,7 @@
 
 window.GALAS_GROZS_CATALOG = {
   schemaVersion: 2,
-  defaultLanguage: "en",
+  defaultLanguage: "lv",
 
   categories: [
     {

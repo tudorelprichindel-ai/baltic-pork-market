@@ -72,7 +72,7 @@ promotion: false,
 Pentru un produs vândut atât la 500 g, cât și la 1 kg:
 
 ```js
-variants: \\\[
+variants: [
   { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
   { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
 ],
