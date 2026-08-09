@@ -501,7 +501,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 16,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/beef-leg-whole-v2.webp",
+      image: "assets/products/beef-leg-whole-v3.webp",
       name: {
         en: "Beef leg"
       },
