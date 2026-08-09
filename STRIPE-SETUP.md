@@ -21,6 +21,8 @@ This avoids charging the indicative cart total before the products are weighed.
 5. Create payment links only for confirmed order totals.
 6. Do not commit secret or restricted Stripe keys to Git.
 
+Card payments are hidden on the live site while `cardPaymentsEnabled` is `false` in `data/site-config.js`. Set it to `true` only after the Stripe account and the confirmed-order payment workflow are ready for customers.
+
 ## Security
 
 - Publishable keys may be used in browser code only when a full Stripe Checkout integration is added.

@@ -480,7 +480,10 @@ function saveDeliveryPreference(preference) {
 function getPaymentPreference() {
   try {
     const saved = JSON.parse(localStorage.getItem(PAYMENT_STORAGE_KEY));
-    return { ...DEFAULT_PAYMENT, ...(saved || {}) };
+    const preference = { ...DEFAULT_PAYMENT, ...(saved || {}) };
+    const allowedMethods = ["cash", "bank-transfer"];
+    if (window.GALAS_GROZS_SITE?.cardPaymentsEnabled) allowedMethods.push("card");
+    return allowedMethods.includes(preference.method) ? preference : { ...DEFAULT_PAYMENT };
   } catch {
     return { ...DEFAULT_PAYMENT };
   }
@@ -735,6 +738,10 @@ function getCartCount(cart) {
 function injectCartUi() {
   if (document.querySelector(".cart-drawer")) return;
 
+  const cardPaymentOption = window.GALAS_GROZS_SITE?.cardPaymentsEnabled
+    ? '<option value="card">Card via Stripe after confirmation</option>'
+    : "";
+
   const cartMarkup = `
     <button class="floating-cart-btn" type="button" aria-label="Open cart">
       <span class="floating-cart-icon">🛒</span>
@@ -777,7 +784,7 @@ function injectCartUi() {
           <select id="paymentMethod" data-payment-method>
             <option value="cash">Cash</option>
             <option value="bank-transfer">Bank transfer</option>
-            <option value="card">Card via Stripe after confirmation</option>
+            ${cardPaymentOption}
           </select>
         </label>
 

@@ -107,7 +107,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "The process stays simple while allowing us to confirm fresh products sold by exact weight.": "Процесс остаётся простым, при этом мы можем подтвердить фактический вес свежих продуктов.",
   "Choose your products": "Выберите товары",
   "Add your preferences": "Укажите предпочтения",
-  "Select pickup at Rīgas Centrāltirgus or delivery, then choose cash, bank transfer or secure card payment via Stripe after confirmation.": "Выберите самовывоз на Rīgas Centrāltirgus или доставку, затем способ оплаты: наличными, банковским переводом или картой через Stripe после подтверждения заказа.",
+  "Select pickup at Rīgas Centrāltirgus or delivery, then choose cash or bank transfer after confirmation.": "Выберите самовывоз на Rīgas Centrāltirgus или доставку, затем после подтверждения выберите оплату наличными или банковским переводом.",
   "Your selected products, quantities, estimated total and preferences are prepared in one clear message.": "Выбранные товары, количество, ориентировочная сумма и ваши предпочтения будут собраны в одном понятном сообщении.",
   "Confirm the final details": "Согласуйте окончательные детали",
   "We confirm availability, exact weight, final price and Thursday/Friday delivery or pickup details before the order is completed.": "До окончательного оформления мы подтверждаем наличие, точный вес, итоговую стоимость и детали доставки или самовывоза на четверг или пятницу.",

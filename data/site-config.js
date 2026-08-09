@@ -13,5 +13,6 @@ window.GALAS_GROZS_SITE = {
   orderDays: "Monday and Tuesday",
   deliveryDays: "Thursday and Friday",
   pickupLocation: "Rīgas Centrāltirgus",
-  freeDeliveryThreshold: 50
+  freeDeliveryThreshold: 50,
+  cardPaymentsEnabled: false
 };
