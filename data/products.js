@@ -190,7 +190,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 8.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-tenderloin-whole-v2.webp",
+      image: "assets/products/pork-tenderloin-whole-v3.webp",
       name: {
         en: "Pork tenderloin"
       },
