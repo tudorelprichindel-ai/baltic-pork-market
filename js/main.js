@@ -685,7 +685,7 @@ function injectCartUi() {
       <div class="cart-drawer-header">
         <div class="cart-drawer-title">
           <strong>Your order</strong>
-          <span data-cart-drawer-count>0 items</span>
+          <span data-cart-drawer-count>0</span>
         </div>
         <button class="cart-close-btn" type="button" aria-label="Close cart">×</button>
       </div>
@@ -782,11 +782,17 @@ function renderOrderInformation() {
   const target = document.querySelector("[data-order-information]");
   if (!target) return;
   const config = window.GALAS_GROZS_SITE || {};
+  const freeDeliveryThreshold = config.freeDeliveryThreshold || 50;
+  const freeDeliveryMessages = {
+    lv: `Piegāde Rīgas robežās pasūtījumiem virs ${formatPrice(freeDeliveryThreshold)} ir bez maksas. Piegādei ārpus Rīgas sazinieties ar mums WhatsApp.`,
+    en: `Free delivery within Riga for orders over ${formatPrice(freeDeliveryThreshold)}. For delivery outside Riga, contact us on WhatsApp.`,
+    ru: `Доставка по Риге бесплатна для заказов свыше ${formatPrice(freeDeliveryThreshold)}. Для доставки за пределы Риги свяжитесь с нами в WhatsApp.`
+  };
   target.innerHTML = `
     <p><strong>Order days:</strong> ${escapeHtml(config.orderDays || "Monday and Tuesday")}</p>
     <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
     <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Rīgas Centrāltirgus")}</p>
-    <p>Free delivery within Riga for orders over ${formatPrice(config.freeDeliveryThreshold || 50)}. For delivery outside Riga, contact us on WhatsApp.</p>
+    <p>${freeDeliveryMessages[getInterfaceLanguage()] || freeDeliveryMessages.en}</p>
   `;
 }
 
@@ -822,7 +828,17 @@ function updateCartUi() {
   });
 
   if (cartDrawerCount) {
-    cartDrawerCount.textContent = count === 1 ? "1 item" : `${count} items`;
+    const language = getInterfaceLanguage();
+    const countLabels = {
+      lv: count % 10 === 1 && count % 100 !== 11 ? `${count} prece` : `${count} preces`,
+      en: count === 1 ? "1 item" : `${count} items`,
+      ru: count === 1
+        ? "1 товар"
+        : count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)
+          ? `${count} товара`
+          : `${count} товаров`
+    };
+    cartDrawerCount.textContent = countLabels[language] || countLabels.en;
   }
 
   if (cartTotal) cartTotal.textContent = formatPrice(total);
