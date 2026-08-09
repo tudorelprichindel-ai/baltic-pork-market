@@ -15,16 +15,79 @@ const CATALOG = window.GALAS_GROZS_CATALOG || {
 const DEFAULT_DELIVERY = { method: "pickup", details: "" };
 const DEFAULT_PAYMENT = { method: "cash" };
 
-const DELIVERY_LABELS = {
-  pickup: "Pickup",
-  delivery: "Delivery",
-  "to-be-confirmed": "To be confirmed"
-};
-
-const PAYMENT_LABELS = {
-  cash: "Cash",
-  "bank-transfer": "Bank transfer",
-  card: "Card via Stripe after order confirmation"
+const ORDER_MESSAGE_COPY = {
+  lv: {
+    intro: "Labdien! Vēlos pasūtīt produktus no “Gaļas grozs”.",
+    products: "Produkti:",
+    category: "Kategorija",
+    quantity: "Daudzums",
+    indicativePrice: "Orientējošā cena",
+    lineTotal: "Pozīcijas aptuvenā summa",
+    estimatedTotal: "Pasūtījuma aptuvenā summa",
+    deliveryPreference: "Saņemšanas veids",
+    deliveryDetails: "Piegādes adrese / informācija",
+    paymentPreference: "Maksājuma veids",
+    disclaimer: "Saprotu, ka precīzs svars, pieejamība un galīgā summa tiks apstiprināta pirms apmaksas.",
+    emptyCart: "Jūsu grozs ir tukšs.",
+    delivery: {
+      pickup: "Saņemšana Rīgas Centrāltirgū",
+      delivery: "Piegāde",
+      "to-be-confirmed": "Precizēsim vēlāk"
+    },
+    payment: {
+      cash: "Skaidrā naudā",
+      "bank-transfer": "Bankas pārskaitījums",
+      card: "Karte ar Stripe pēc pasūtījuma apstiprināšanas"
+    }
+  },
+  en: {
+    intro: "Hello! I would like to place an order with Gaļas grozs.",
+    products: "Products:",
+    category: "Category",
+    quantity: "Quantity",
+    indicativePrice: "Indicative price",
+    lineTotal: "Estimated line total",
+    estimatedTotal: "Estimated order total",
+    deliveryPreference: "Pickup or delivery",
+    deliveryDetails: "Delivery address / details",
+    paymentPreference: "Payment method",
+    disclaimer: "I understand that exact weight, availability and the final total will be confirmed before payment.",
+    emptyCart: "Your cart is empty.",
+    delivery: {
+      pickup: "Pickup at Rīgas Centrāltirgus",
+      delivery: "Delivery",
+      "to-be-confirmed": "To be confirmed"
+    },
+    payment: {
+      cash: "Cash",
+      "bank-transfer": "Bank transfer",
+      card: "Card via Stripe after order confirmation"
+    }
+  },
+  ru: {
+    intro: "Здравствуйте! Я хочу оформить заказ в «Gaļas grozs».",
+    products: "Товары:",
+    category: "Категория",
+    quantity: "Количество",
+    indicativePrice: "Ориентировочная цена",
+    lineTotal: "Ориентировочная сумма позиции",
+    estimatedTotal: "Ориентировочная сумма заказа",
+    deliveryPreference: "Способ получения",
+    deliveryDetails: "Адрес и детали доставки",
+    paymentPreference: "Способ оплаты",
+    disclaimer: "Я понимаю, что точный вес, наличие и итоговая сумма будут подтверждены до оплаты.",
+    emptyCart: "Ваша корзина пуста.",
+    delivery: {
+      pickup: "Самовывоз с Рижского центрального рынка",
+      delivery: "Доставка",
+      "to-be-confirmed": "Уточнить при подтверждении"
+    },
+    payment: {
+      cash: "Наличные",
+      "bank-transfer": "Банковский перевод",
+      card: "Оплата картой через Stripe после подтверждения заказа"
+    }
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -816,6 +879,7 @@ function updateDeliveryDetailsVisibility() {
 
 function updateCartUi() {
   const cart = getCart();
+  const language = getInterfaceLanguage();
   const cartItems = document.querySelector("[data-cart-items]");
   const cartTotal = document.querySelector("[data-cart-total]");
   const cartCountElements = document.querySelectorAll("[data-cart-count]");
@@ -828,7 +892,6 @@ function updateCartUi() {
   });
 
   if (cartDrawerCount) {
-    const language = getInterfaceLanguage();
     const countLabels = {
       lv: count % 10 === 1 && count % 100 !== 11 ? `${count} prece` : `${count} preces`,
       en: count === 1 ? "1 item" : `${count} items`,
@@ -847,8 +910,8 @@ function updateCartUi() {
   if (cart.length === 0) {
     cartItems.innerHTML = `
       <div class="cart-empty">
-        <strong>Your cart is empty.</strong>
-        <span>Add products and send an order request on WhatsApp.</span>
+        <strong>${escapeHtml(translateInterfaceText("Your cart is empty."))}</strong>
+        <span>${escapeHtml(translateInterfaceText("Add products and send an order request on WhatsApp."))}</span>
       </div>
     `;
     return;
@@ -856,6 +919,7 @@ function updateCartUi() {
 
   cartItems.innerHTML = cart.map((item) => {
     const lineTotal = item.price * item.quantity;
+    const removeLabel = { lv: "Noņemt", en: "Remove", ru: "Удалить" }[language] || "Remove";
 
     return `
       <article class="cart-item cart-item-compact">
@@ -869,14 +933,14 @@ function updateCartUi() {
               <h3>${escapeHtml(item.name)}</h3>
               <p>${escapeHtml(item.category)} · ${formatPrice(item.price)} / ${escapeHtml(item.unit)}</p>
             </div>
-            <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.name)}">×</button>
+            <button class="cart-remove-icon" type="button" data-cart-remove="${escapeHtml(item.id)}" aria-label="${escapeHtml(removeLabel)} ${escapeHtml(item.name)}">×</button>
           </div>
 
           <div class="cart-item-bottom">
             <div class="cart-item-controls">
-              <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="Decrease quantity">−</button>
+              <button type="button" data-cart-decrease="${escapeHtml(item.id)}" aria-label="${escapeHtml(translateInterfaceText("Decrease quantity"))}">−</button>
               <span>${item.quantity}</span>
-              <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="Increase quantity">+</button>
+              <button type="button" data-cart-increase="${escapeHtml(item.id)}" aria-label="${escapeHtml(translateInterfaceText("Increase quantity"))}">+</button>
             </div>
             <strong class="cart-line-total">${formatPrice(lineTotal)}</strong>
           </div>
@@ -931,14 +995,24 @@ function closeCart() {
 
 function requestCartOrder() {
   const cart = getCart();
+  const language = getInterfaceLanguage();
+  const copy = ORDER_MESSAGE_COPY[language] || ORDER_MESSAGE_COPY.en;
 
   if (cart.length === 0) {
-    alert("Your cart is empty.");
+    alert(copy.emptyCart);
     return;
   }
 
   const delivery = getDeliveryPreference();
   const payment = getPaymentPreference();
+  const message = buildCartOrderMessage(cart, delivery, payment, language);
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+}
+
+function buildCartOrderMessage(cart, delivery, payment, language = "en") {
+  const copy = ORDER_MESSAGE_COPY[language] || ORDER_MESSAGE_COPY.en;
   const total = getCartTotal(cart);
 
   const orderLines = cart.map((item, index) => {
@@ -946,30 +1020,29 @@ function requestCartOrder() {
 
     return [
       `${index + 1}. ${item.name}`,
-      `   Category: ${item.category}`,
-      `   Quantity: ${item.quantity} ${item.unit}`,
-      `   Indicative price: ${formatPrice(item.price)} / ${item.unit}`,
-      `   Estimated line total: ${formatPrice(lineTotal)}`
+      `   ${copy.category}: ${item.category}`,
+      `   ${copy.quantity}: ${item.quantity} ${item.unit}`,
+      `   ${copy.indicativePrice}: ${formatPrice(item.price)} / ${item.unit}`,
+      `   ${copy.lineTotal}: ${formatPrice(lineTotal)}`
     ].join("\n");
   });
 
   const messageParts = [
-    "Hello, I would like to place an order request from Gaļas grozs.",
+    copy.intro,
     "",
-    "Products:",
+    copy.products,
     orderLines.join("\n\n"),
     "",
-    `Estimated total: ${formatPrice(total)}`,
+    `${copy.estimatedTotal}: ${formatPrice(total)}`,
     "",
-    `Delivery preference: ${DELIVERY_LABELS[delivery.method] || "To be confirmed"}`,
-    delivery.method === "delivery" && delivery.details ? `Delivery address / details: ${delivery.details}` : null,
-    `Payment preference: ${PAYMENT_LABELS[payment.method] || "Cash"}`,
+    `${copy.deliveryPreference}: ${copy.delivery[delivery.method] || copy.delivery["to-be-confirmed"]}`,
+    delivery.method === "delivery" && delivery.details ? `${copy.deliveryDetails}: ${delivery.details}` : null,
+    `${copy.paymentPreference}: ${copy.payment[payment.method] || copy.payment.cash}`,
     "",
-    "I understand that final weight, availability and total price are confirmed manually before payment."
+    copy.disclaimer
   ].filter(Boolean);
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(messageParts.join("\n"))}`;
-  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  return messageParts.join("\n");
 }
 
 function escapeHtml(value) {
