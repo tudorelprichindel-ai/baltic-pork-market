@@ -532,9 +532,9 @@ function getProductFromCard(card) {
       id: cartId,
       catalogId: catalogProduct.id,
       variantId: variant?.id || "",
-      name: getLocalized(catalogProduct.name),
-      category: getLocalized(catalogCategory?.label) || "Products",
-      unit: variant ? getLocalized(variant.label) || variant.id : catalogProduct.unit || "kg",
+      name: translateInterfaceText(getLocalized(catalogProduct.name)),
+      category: translateInterfaceText(getLocalized(catalogCategory?.label)) || translateInterfaceText("Products"),
+      unit: variant ? getLocalized(variant.label) || variant.id : getLocalizedUnit(catalogProduct.unit),
       price: getProductUnitPrice(catalogProduct) * variantMultiplier,
       image: catalogProduct.image || `assets/products/${catalogProduct.id}.png`
     };
@@ -689,8 +689,8 @@ function reconcileCartWithCatalog() {
       id: cartId,
       catalogId: product.id,
       variantId: variant?.id || "",
-      name: getLocalized(product.name),
-      category: getLocalized(category?.label) || "Products",
+      name: translateInterfaceText(getLocalized(product.name)),
+      category: translateInterfaceText(getLocalized(category?.label)) || translateInterfaceText("Products"),
       unit: variant ? getLocalized(variant.label) || variant.id : getLocalizedUnit(product.unit),
       price: getProductUnitPrice(product) * multiplier,
       image: product.image || `assets/products/${product.id}.png`,
