@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tudorelprichindel-ai.github.io/baltic-pork-market/sitemap.xml
