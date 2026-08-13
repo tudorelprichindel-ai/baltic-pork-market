@@ -30,7 +30,7 @@ const ORDER_MESSAGE_COPY = {
     disclaimer: "Saprotu, ka precīzs svars, pieejamība un galīgā summa tiks apstiprināta pirms apmaksas.",
     emptyCart: "Jūsu grozs ir tukšs.",
     delivery: {
-      pickup: "Saņemšana Rīgas Centrāltirgū",
+      pickup: "Saņemšana: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
       delivery: "Piegāde",
       "to-be-confirmed": "Precizēsim vēlāk"
     },
@@ -54,7 +54,7 @@ const ORDER_MESSAGE_COPY = {
     disclaimer: "I understand that exact weight, availability and the final total will be confirmed before payment.",
     emptyCart: "Your cart is empty.",
     delivery: {
-      pickup: "Pickup at Rīgas Centrāltirgus",
+      pickup: "Pickup: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
       delivery: "Delivery",
       "to-be-confirmed": "To be confirmed"
     },
@@ -78,7 +78,7 @@ const ORDER_MESSAGE_COPY = {
     disclaimer: "Я понимаю, что точный вес, наличие и итоговая сумма будут подтверждены до оплаты.",
     emptyCart: "Ваша корзина пуста.",
     delivery: {
-      pickup: "Самовывоз с Рижского центрального рынка",
+      pickup: "Самовывоз: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
       delivery: "Доставка",
       "to-be-confirmed": "Уточнить при подтверждении"
     },
@@ -861,7 +861,7 @@ function renderOrderInformation() {
   target.innerHTML = `
     <p><strong>Order days:</strong> ${escapeHtml(config.orderDays || "Monday and Tuesday")}</p>
     <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
-    <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Rīgas Centrāltirgus")}</p>
+    <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Zivju paviljons, Nēģu iela 7, Rīga, LV-1050")}</p>
     <p>${freeDeliveryMessages[getInterfaceLanguage()] || freeDeliveryMessages.en}</p>
   `;
 }
