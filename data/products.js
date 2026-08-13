@@ -190,7 +190,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 8.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-tenderloin-whole-v3.webp",
+      image: "assets/products/pork-tenderloin-whole-v4.webp",
       name: {
         en: "Pork tenderloin"
       },
@@ -435,7 +435,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-ribs.png",
+      image: "assets/products/pork-loin-ribs-v2.webp",
       name: {
         en: "Pork loin ribs",
         lv: "Cūkgaļas karbonādes ribiņas"
