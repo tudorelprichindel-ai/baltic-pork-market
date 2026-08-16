@@ -84,6 +84,10 @@ window.GALAS_GROZS_CATALOG = {
       price: 7.5,
       priceSource: "client",
       unit: "kg",
+      variants: [
+        { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
+        { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
+      ],
       image: "assets/products/pork-loin-without-rib-skinless.png",
       name: {
         en: "Pork loin without rib, skinless"
@@ -104,6 +108,10 @@ window.GALAS_GROZS_CATALOG = {
       price: 7.5,
       priceSource: "client",
       unit: "kg",
+      variants: [
+        { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
+        { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
+      ],
       image: "assets/products/pork-loin-without-rib-skinless-cutted.png",
       name: {
         en: "Pork loin without rib, skinless, cut"
