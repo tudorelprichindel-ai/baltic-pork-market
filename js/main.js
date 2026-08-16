@@ -860,8 +860,8 @@ function renderOrderInformation() {
   };
   target.innerHTML = `
     <p><strong>Order days:</strong> ${escapeHtml(config.orderDays || "Monday and Tuesday")}</p>
-    <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
     <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Zivju paviljons, Nēģu iela 7, Rīga, LV-1050")}</p>
+    <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
     <p>${freeDeliveryMessages[getInterfaceLanguage()] || freeDeliveryMessages.en}</p>
   `;
 }
