@@ -132,7 +132,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-with-fat-and-skin.png",
+      image: "assets/products/pork-loin-with-fat-and-skin-v2.png",
       name: {
         en: "Pork loin with fat and skin"
       },
@@ -223,14 +223,14 @@ window.GALAS_GROZS_CATALOG = {
       unit: "kg",
       image: "assets/products/pork-ham-piece-skinless-real.png",
       name: {
-        en: "Pork ham piece, skinless",
-        lv: "Cūkgaļas šķiņķa gabals bez ādas"
+        en: "Skinless pork leg cut",
+        lv: "Gurna gabals bez ādas"
       },
       description: {
-        en: "Skinless pork ham piece for roasting, stews and sliced home meals."
+        en: "Skinless pork leg cut for roasting, stews and sliced home meals."
       },
       meta: {
-        en: "Cut: ham · Best for: roasting, stews"
+        en: "Cut: pork leg · Best for: roasting, stews"
       }
     },
     {
