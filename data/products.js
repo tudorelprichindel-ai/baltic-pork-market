@@ -790,7 +790,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 49,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/family-meat-box-client.jpg",
+      image: "assets/products/family-meat-box-v2.png",
       name: {
         en: "Family Meat Box"
       },
@@ -810,7 +810,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 45,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/bbq-box-client.jpg",
+      image: "assets/products/bbq-box-v2.png",
       name: {
         en: "BBQ Box"
       },
@@ -830,7 +830,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 22.75,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/pork-box-client.jpg",
+      image: "assets/products/pork-box-v2.png",
       name: {
         en: "Pork Box"
       },
