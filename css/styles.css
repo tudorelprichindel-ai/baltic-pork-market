@@ -4145,10 +4145,10 @@ html {
   background: var(--cream, #fff8ed);
 }
 
-/* Chef-knife cursor is limited to devices that actually use a precise pointer. */
+/* Brand-mark cursor is limited to devices that actually use a precise pointer. */
 @media (hover: hover) and (pointer: fine) {
   body {
-    cursor: url("../assets/cursor-cleaver.svg") 4 4, auto;
+    cursor: url("../assets/cursor-logo.svg") 20 20, auto;
   }
 
   a,
@@ -4159,7 +4159,7 @@ html {
   input[type="checkbox"],
   input[type="radio"],
   input[type="submit"] {
-    cursor: url("../assets/cursor-cleaver-pointer.svg") 3 4, pointer;
+    cursor: url("../assets/cursor-logo-active.svg") 20 20, pointer;
   }
 
   input[type="text"],
