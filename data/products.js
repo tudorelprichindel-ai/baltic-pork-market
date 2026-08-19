@@ -132,7 +132,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-with-fat-and-skin-v2.webp",
+      image: "assets/products/pork-loin-with-fat-and-skin-v5.webp",
       name: {
         en: "Pork loin with fat and skin"
       },
@@ -511,7 +511,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 16,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/beef-leg-client.jpg",
+      image: "assets/products/beef-leg-v2.webp",
       name: {
         en: "Beef leg"
       },
