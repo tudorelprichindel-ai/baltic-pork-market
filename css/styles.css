@@ -4145,7 +4145,7 @@ html {
   background: var(--cream, #fff8ed);
 }
 
-/* Cleaver cursor is limited to devices that actually use a precise pointer. */
+/* Chef-knife cursor is limited to devices that actually use a precise pointer. */
 @media (hover: hover) and (pointer: fine) {
   body {
     cursor: url("../assets/cursor-cleaver.svg") 4 4, auto;
