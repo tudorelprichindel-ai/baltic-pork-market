@@ -132,7 +132,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-with-fat-and-skin-v2.png",
+      image: "assets/products/pork-loin-with-fat-and-skin-v2.webp",
       name: {
         en: "Pork loin with fat and skin"
       },
@@ -790,7 +790,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 49,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/family-meat-box-v2.png",
+      image: "assets/products/family-meat-box-v2.webp",
       name: {
         en: "Family Meat Box"
       },
@@ -810,7 +810,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 45,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/bbq-box-v2.png",
+      image: "assets/products/bbq-box-v2.webp",
       name: {
         en: "BBQ Box"
       },
@@ -830,7 +830,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 22.75,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/pork-box-v2.png",
+      image: "assets/products/pork-box-v2.webp",
       name: {
         en: "Pork Box"
       },

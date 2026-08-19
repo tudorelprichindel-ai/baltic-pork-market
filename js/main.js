@@ -456,9 +456,101 @@ function initCartSystem() {
   reconcileCartWithCatalog();
   injectProductImages();
   injectProductPrices();
+  initProductImageZoom();
   bindProductVariants();
   bindProductButtons();
   updateCartUi();
+}
+
+function initProductImageZoom() {
+  const language = getInterfaceLanguage();
+  const labels = {
+    lv: { open: "Atvērt lielāku attēlu", close: "Aizvērt attēlu" },
+    en: { open: "Open larger image", close: "Close image" },
+    ru: { open: "Открыть увеличенное изображение", close: "Закрыть изображение" }
+  }[language] || { open: "Open larger image", close: "Close image" };
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "product-lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.innerHTML = `
+    <button class="product-lightbox-close" type="button" aria-label="${escapeHtml(labels.close)}">×</button>
+    <button class="product-lightbox-nav product-lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <img src="" alt="" />
+    <button class="product-lightbox-nav product-lightbox-next" type="button" aria-label="Next image">›</button>
+    <div class="product-lightbox-details">
+      <strong data-lightbox-title></strong>
+      <span data-lightbox-count></span>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImage = lightbox.querySelector("img");
+  const closeButton = lightbox.querySelector(".product-lightbox-close");
+  const previousButton = lightbox.querySelector(".product-lightbox-prev");
+  const nextButton = lightbox.querySelector(".product-lightbox-next");
+  const title = lightbox.querySelector("[data-lightbox-title]");
+  const count = lightbox.querySelector("[data-lightbox-count]");
+  const imageWrappers = [...document.querySelectorAll(".catalog-product .product-image-wrap")]
+    .filter((wrapper) => wrapper.querySelector("img"));
+  let previouslyFocused = null;
+  let currentIndex = 0;
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("product-lightbox-open");
+    lightboxImage.removeAttribute("src");
+    previouslyFocused?.focus();
+  };
+
+  const showImage = (index) => {
+    currentIndex = (index + imageWrappers.length) % imageWrappers.length;
+    const wrapper = imageWrappers[currentIndex];
+    const image = wrapper.querySelector("img");
+    if (!image) return;
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt;
+    title.textContent = image.alt;
+    count.textContent = `${currentIndex + 1} / ${imageWrappers.length}`;
+  };
+
+  const openLightbox = (wrapper) => {
+    previouslyFocused = wrapper;
+    showImage(imageWrappers.indexOf(wrapper));
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("product-lightbox-open");
+    closeButton.focus();
+  };
+
+  imageWrappers.forEach((wrapper) => {
+    const image = wrapper.querySelector("img");
+    if (!image) return;
+    wrapper.tabIndex = 0;
+    wrapper.setAttribute("role", "button");
+    wrapper.setAttribute("aria-label", `${labels.open}: ${image.alt}`);
+    wrapper.addEventListener("click", () => openLightbox(wrapper));
+    wrapper.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openLightbox(wrapper);
+    });
+  });
+
+  closeButton.addEventListener("click", closeLightbox);
+  previousButton.addEventListener("click", () => showImage(currentIndex - 1));
+  nextButton.addEventListener("click", () => showImage(currentIndex + 1));
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+    if (event.key === "ArrowLeft" && lightbox.classList.contains("is-open")) showImage(currentIndex - 1);
+    if (event.key === "ArrowRight" && lightbox.classList.contains("is-open")) showImage(currentIndex + 1);
+  });
 }
 
 function getCart() {
