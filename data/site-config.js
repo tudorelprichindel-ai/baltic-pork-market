@@ -12,7 +12,7 @@ window.GALAS_GROZS_SITE = {
   email: "infogalasgrozs@gmail.com",
   orderDays: "Monday and Tuesday",
   deliveryDays: "Thursday and Friday",
-  pickupLocation: "Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
+  pickupLocation: "Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
   freeDeliveryThreshold: 50,
   cardPaymentsEnabled: false
 };

@@ -45,7 +45,7 @@ window.GALAS_GROZS_I18N.ru = {
   "Unavailable": "Недоступно",
   "Promotion": "Продвижение",
   "Need help choosing?": "Нужна помощь в выборе?",
-  "Ask us about cuts and availability.": "Спросите нас о сокращениях и наличии.",
+  "Ask us about availability.": "Уточните у нас наличие свежего мяса.",
   "Contact us on WhatsApp if you need help choosing a product before completing your cart.": "Свяжитесь с нами по WhatsApp, если вам нужна помощь в выборе продукта перед заполнением корзины.",
   "Chat on WhatsApp": "Чат на WhatsApp",
   "Open cart": "Открыть корзину",

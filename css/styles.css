@@ -1093,6 +1093,24 @@ button {
   font-size: 12px;
 }
 
+.product-storage {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+html[lang="ru"] .home-page.products-page .products-hero h1 {
+  font-size: clamp(3rem, 5.2vw, 5.2rem);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  html[lang="ru"] .home-page.products-page .products-hero h1 {
+    white-space: normal;
+  }
+}
+
 .product-meta span {
   display: block;
 }
