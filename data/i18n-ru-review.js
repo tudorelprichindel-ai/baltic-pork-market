@@ -14,7 +14,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Prepared meat boxes": "Готовые мясные наборы",
   "Practical mixed boxes for families, BBQ days and weekly cooking. Box contents may vary slightly depending on fresh availability.": "Практичные мясные наборы для семьи, гриля и повседневной готовки. Состав может немного меняться в зависимости от наличия свежих продуктов.",
   "Promotion": "Акция",
-  "Ask us about cuts and availability.": "Уточните у нас ассортимент отрубов и их наличие.",
+  "Ask us about availability.": "Уточните у нас наличие свежего мяса.",
   "Chat on WhatsApp": "Написать в WhatsApp",
   "Pickup": "Самовывоз",
   "Pickup:": "Самовывоз:",
@@ -224,9 +224,9 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Отруб: вырезка · Подходит для: быстрой обжарки, медальонов, сковороды"
   },
   "pork-ham-piece-skinless": {
-    name: "Свиной окорок без кожи",
-    description: "Постный свиной окорок без кожи — для запекания, тушения и нарезки.",
-    meta: "Отруб: окорок · Подходит для: запекания, тушения"
+    name: "Кусок свиного окорока без кожи",
+    description: "Кусок свиного окорока без кожи — для запекания, тушения и нарезки.",
+    meta: "Отруб: свиной окорок · Подходит для: запекания, тушения"
   },
   "pork-ham-piece-with-skin": {
     name: "Свиной окорок с кожей",

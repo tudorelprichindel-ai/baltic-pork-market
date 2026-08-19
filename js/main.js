@@ -30,7 +30,7 @@ const ORDER_MESSAGE_COPY = {
     disclaimer: "Saprotu, ka precīzs svars, pieejamība un galīgā summa tiks apstiprināta pirms apmaksas.",
     emptyCart: "Jūsu grozs ir tukšs.",
     delivery: {
-      pickup: "Saņemšana: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
+      pickup: "Saņemšana: Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
       delivery: "Piegāde",
       "to-be-confirmed": "Precizēsim vēlāk"
     },
@@ -54,7 +54,7 @@ const ORDER_MESSAGE_COPY = {
     disclaimer: "I understand that exact weight, availability and the final total will be confirmed before payment.",
     emptyCart: "Your cart is empty.",
     delivery: {
-      pickup: "Pickup: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
+      pickup: "Pickup: Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
       delivery: "Delivery",
       "to-be-confirmed": "To be confirmed"
     },
@@ -78,7 +78,7 @@ const ORDER_MESSAGE_COPY = {
     disclaimer: "Я понимаю, что точный вес, наличие и итоговая сумма будут подтверждены до оплаты.",
     emptyCart: "Ваша корзина пуста.",
     delivery: {
-      pickup: "Самовывоз: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
+      pickup: "Самовывоз: Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050",
       delivery: "Доставка",
       "to-be-confirmed": "Уточнить при подтверждении"
     },
@@ -363,6 +363,15 @@ function renderProductCard(product, options = {}) {
     `
     : `<div class="product-meta">${escapeHtml(getLocalized(product.meta))}</div>`;
 
+  const storageCopy = {
+    lv: "Ledusskapī līdz 3 dienām<br>Saldētavā vairākus mēnešus",
+    en: "Refrigerate for up to 3 days<br>Freeze for several months",
+    ru: "В холодильнике до 3 дней<br>В морозильнике несколько месяцев"
+  };
+  const storageMarkup = product.category === "boxes"
+    ? ""
+    : `<div class="product-storage">${storageCopy[getInterfaceLanguage()] || storageCopy.en}</div>`;
+
   return `
     <article
       class="catalog-product${isAvailable ? "" : " is-unavailable"}${isPromotion ? " is-promotion" : ""}"
@@ -381,6 +390,7 @@ function renderProductCard(product, options = {}) {
       <h3>${escapeHtml(name)}</h3>
       <p>${escapeHtml(description)}</p>
       ${metaMarkup}
+      ${storageMarkup}
       ${renderProductVariants(product)}
       <button class="catalog-btn" type="button"${isAvailable ? "" : ' disabled aria-disabled="true"'}>${isAvailable ? "Add to cart" : "Unavailable"}</button>
     </article>
@@ -860,7 +870,7 @@ function renderOrderInformation() {
   };
   target.innerHTML = `
     <p><strong>Order days:</strong> ${escapeHtml(config.orderDays || "Monday and Tuesday")}</p>
-    <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Zivju paviljons, Nēģu iela 7, Rīga, LV-1050")}</p>
+    <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050")}</p>
     <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
     <p>${freeDeliveryMessages[getInterfaceLanguage()] || freeDeliveryMessages.en}</p>
   `;

@@ -45,7 +45,7 @@ window.GALAS_GROZS_I18N.ru = {
   "Unavailable": "Недоступно",
   "Promotion": "Продвижение",
   "Need help choosing?": "Нужна помощь в выборе?",
-  "Ask us about cuts and availability.": "Спросите нас о сокращениях и наличии.",
+  "Ask us about availability.": "Уточните у нас наличие свежего мяса.",
   "Contact us on WhatsApp if you need help choosing a product before completing your cart.": "Свяжитесь с нами по WhatsApp, если вам нужна помощь в выборе продукта перед заполнением корзины.",
   "Chat on WhatsApp": "Чат на WhatsApp",
   "Open cart": "Открыть корзину",
@@ -361,9 +361,9 @@ const RUSSIAN_PRODUCT_DETAILS = {
     "featuredDescription": "Нежное свиное филе для домашней кухни премиум-класса и быстрых блюд."
   },
   "pork-ham-piece-skinless": {
-    "name": "Кусок свиной ветчины без кожи",
-    "description": "Кусок свиной ветчины без кожи для запекания, тушения и нарезки домашних блюд.",
-    "meta": "Нарезка: ветчина · Подходит для: запекания, тушения."
+    "name": "Кусок свиного окорока без кожи",
+    "description": "Кусок свиного окорока без кожи для запекания, тушения и нарезки.",
+    "meta": "Отруб: свиной окорок · Подходит для: запекания, тушения."
   },
   "pork-ham-piece-with-skin": {
     "name": "Кусок свиной ветчины с кожей",

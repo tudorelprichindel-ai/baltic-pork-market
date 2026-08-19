@@ -132,7 +132,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-with-fat-and-skin.png",
+      image: "assets/products/pork-loin-with-fat-and-skin-v2.png",
       name: {
         en: "Pork loin with fat and skin"
       },
@@ -223,13 +223,14 @@ window.GALAS_GROZS_CATALOG = {
       unit: "kg",
       image: "assets/products/pork-ham-piece-skinless-real.png",
       name: {
-        en: "Pork ham piece, skinless"
+        en: "Skinless pork leg cut",
+        lv: "Gurna gabals bez ādas"
       },
       description: {
-        en: "Skinless pork ham piece for roasting, stews and sliced home meals."
+        en: "Skinless pork leg cut for roasting, stews and sliced home meals."
       },
       meta: {
-        en: "Cut: ham · Best for: roasting, stews"
+        en: "Cut: pork leg · Best for: roasting, stews"
       }
     },
     {
@@ -301,10 +302,10 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-belly-with-rib-real.png",
+      image: "assets/products/pork-loin-long-rib.png",
       name: {
         en: "Pork belly with rib",
-        lv: "Cūkgaļas krūtiņa ar ribu"
+        lv: "Cūkgaļas krūtiņa ar garo ribu"
       },
       description: {
         en: "Pork belly with rib bone, suitable for roasting, BBQ and slow-cooked dishes."
@@ -324,7 +325,8 @@ window.GALAS_GROZS_CATALOG = {
       unit: "kg",
       image: "assets/products/pork-belly-real.png",
       name: {
-        en: "Pork belly"
+        en: "Pork belly",
+        lv: "Cūkgaļas pavēdere"
       },
       description: {
         en: "Classic boneless pork belly for roasting, frying and traditional home dishes."
@@ -446,7 +448,7 @@ window.GALAS_GROZS_CATALOG = {
       image: "assets/products/pork-loin-ribs-v2.webp",
       name: {
         en: "Pork loin ribs",
-        lv: "Cūkgaļas karbonādes ribiņas"
+        lv: "Cūkgaļas ribas"
       },
       description: {
         en: "Pork loin ribs suitable for roasting, oven dishes, grilling and BBQ meals."
@@ -509,7 +511,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 16,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/beef-leg-whole-v3.webp",
+      image: "assets/products/beef-leg-client.jpg",
       name: {
         en: "Beef leg"
       },
@@ -788,7 +790,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 49,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/family-meat-box.png",
+      image: "assets/products/family-meat-box-client.jpg",
       name: {
         en: "Family Meat Box"
       },
@@ -808,7 +810,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 45,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/bbq-box.png",
+      image: "assets/products/bbq-box-client.jpg",
       name: {
         en: "BBQ Box"
       },
@@ -825,10 +827,10 @@ window.GALAS_GROZS_CATALOG = {
       featured: false,
       order: 30,
       category: "boxes",
-      price: 35,
+      price: 22.75,
       priceSource: "indicative",
       unit: "box",
-      image: "assets/products/pork-box.png",
+      image: "assets/products/pork-box-client.jpg",
       name: {
         en: "Pork Box"
       },
@@ -841,7 +843,7 @@ window.GALAS_GROZS_CATALOG = {
     },
     {
       id: "chicken-box",
-      active: true,
+      active: false,
       featured: false,
       order: 40,
       category: "boxes",
