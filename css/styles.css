@@ -4116,6 +4116,61 @@ body.product-lightbox-open {
   overflow: hidden;
 }
 
+/* Branded scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--burgundy, #8f1829) var(--cream, #fff8ed);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream, #fff8ed);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid var(--cream, #fff8ed);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--pumpkin, #e87522), var(--burgundy, #8f1829));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy, #8f1829);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--cream, #fff8ed);
+}
+
+/* Cleaver cursor is limited to devices that actually use a precise pointer. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: url("../assets/cursor-cleaver.svg") 4 4, auto;
+  }
+
+  a,
+  button,
+  select,
+  summary,
+  [role="button"],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="submit"] {
+    cursor: url("../assets/cursor-cleaver-pointer.svg") 3 4, pointer;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    cursor: text;
+  }
+}
+
 /* =========================================================
    HOMEPAGE HEADER + INTRO HERO
    Approved light editorial direction, scoped to index.html.
