@@ -4145,32 +4145,6 @@ html {
   background: var(--cream, #fff8ed);
 }
 
-/* Brand-mark cursor is limited to devices that actually use a precise pointer. */
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: url("../assets/cursor-logo.svg") 20 20, auto;
-  }
-
-  a,
-  button,
-  select,
-  summary,
-  [role="button"],
-  input[type="checkbox"],
-  input[type="radio"],
-  input[type="submit"] {
-    cursor: url("../assets/cursor-logo-active.svg") 20 20, pointer;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="number"],
-  textarea {
-    cursor: text;
-  }
-}
-
 /* =========================================================
    HOMEPAGE HEADER + INTRO HERO
    Approved light editorial direction, scoped to index.html.
