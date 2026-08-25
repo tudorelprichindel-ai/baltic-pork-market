@@ -2,4 +2,5 @@
 .env.*
 !.env.example
 .codex/
-
+node_modules/
+outputs/

@@ -302,7 +302,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-long-rib.png",
+      image: "assets/products/pork-ribs-with-skin-and-fat.png",
       name: {
         en: "Pork belly with rib",
         lv: "Cūkgaļas krūtiņa ar garo ribu"

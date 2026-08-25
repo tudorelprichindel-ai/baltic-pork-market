@@ -38,7 +38,12 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Can I change the request after sending it?": "Можно ли изменить заказ после отправки?",
   "Yes. Changes can be discussed on WhatsApp before the seller gives the final confirmation and payment is arranged.": "Да. Изменения можно согласовать в WhatsApp до окончательного подтверждения заказа и оплаты.",
   "Contact on WhatsApp": "Связаться в WhatsApp",
-  "Most requested cuts": "Самые популярные отрубы",
+  "Fresh meat.": "Простое оформление заказа.",
+  "Quality pork, beef and chicken in Latvia.": "Качественная свинина, говядина и курица в Латвии.",
+  "Choose your products and confirm the order on WhatsApp.": "Выберите продукты и подтвердите заказ в WhatsApp.",
+  "Most requested cuts": "Самые популярные позиции",
+  "Order request website for fresh meat products.": "Сайт для заказа свежего мяса.",
+  "Final availability, exact weight and total price are confirmed manually.": "Наличие, точный вес и итоговая стоимость подтверждаются лично.",
   "Fresh meat orders with manual confirmation.": "Заказ свежего мяса с личным подтверждением.",
   "Confirmed manually": "Подтверждается лично",
   "Manual confirmation": "Личное подтверждение",
@@ -157,17 +162,17 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
 const REVIEWED_RUSSIAN_CATEGORIES = {
   pork: {
     label: "Свинина",
-    title: "Свежие отрубы свинины",
-    description: "Свинина для домашних блюд, запекания, гриля и семейного меню."
+    title: "Свежая свинина",
+    description: "Свинина для домашних блюд, запекания, гриля для всей семьи."
   },
   beef: {
     label: "Говядина",
-    title: "Продукты из говядины",
-    description: "Свежие отрубы говядины для тушения, запекания, гриля и повседневных блюд."
+    title: "Свежая говядина",
+    description: "Свежая говядина для тушения, запекания, гриля и повседневных блюд."
   },
   chicken: {
     label: "Курица",
-    title: "Куриное мясо",
+    title: "Свежая курица",
     description: "Свежая курица для быстрых блюд, гриля, запекания и повседневного меню."
   },
   bbq: {
@@ -213,7 +218,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   },
   "pork-neck": {
     name: "Свиная шея",
-    description: "Сочная свиная шея с хорошей мраморностью — для гриля, запекания и стейков.",
+    description: "Сочная свиная шея — для гриля, запекания и стейков.",
     featuredDescription: "Сочная свиная шея для запекания, гриля и медленного приготовления.",
     meta: "Отруб: шея · Подходит для: гриля, стейков, запекания"
   },
@@ -244,7 +249,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Отруб: окорок · Подходит для: запекания, тушения, нарезки"
   },
   "pork-belly-with-rib": {
-    name: "Свиная грудинка на рёбрах",
+    name: "Свиная грудинка с ребром",
     description: "Сочная свиная грудинка на рёбрах — для запекания, барбекю и длительного томления.",
     meta: "Отруб: грудинка на рёбрах · Подходит для: духовки, барбекю, томления"
   },
@@ -275,7 +280,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   },
   "pork-soup-set": {
     name: "Свиной суповой набор",
-    description: "Мясные свиные кости для насыщенного бульона, супов и рагу.",
+    description: "Мясные свиные кости для насыщенного бульона, супов медленной готовки.",
     meta: "Тип: суповой набор · Подходит для: бульона, супов, рагу"
   },
   "pork-loin-ribs": {
@@ -285,13 +290,13 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   },
   "minced-pork": {
     name: "Свиной фарш",
-    description: "Свежий свиной фарш для котлет, фрикаделек, соусов и домашних начинок.",
+    description: "Свежий свиной фарш для котлет, фрикаделек, соусов и фаршированных блюд.",
     meta: "Тип: фарш · Подходит для: котлет, фрикаделек, соусов, начинок",
     variants: { "500g": "500 г", "1kg": "1 кг" }
   },
   "beef-ribs": {
-    name: "Говяжьи рёбра / грудинка",
-    description: "Говяжьи рёбра и грудинка для насыщенного бульона, супов и длительного приготовления.",
+    name: "Говяжьи рёбра/грудинка",
+    description: "Говяжьи рёбра/грудинка для насыщенного бульона, супов и длительного приготовления.",
     meta: "Подходит для: бульона, супов, тушения"
   },
   "beef-stew-meat": {
@@ -403,8 +408,11 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     const value = product[field]?.ru;
     if (!value) continue;
     product[field].ru = value
-      .replace(/^(Отрезок|Отрез|Нарезка):/, "Отруб:")
       .replaceAll("свиная ветчина", "свиной окорок")
       .replaceAll("свиной ветчины", "свиного окорока");
+  }
+
+  if (product.category === "pork" && product.meta?.ru) {
+    product.meta.ru = product.meta.ru.replace(/^(?:Отруб|Отрезок|Отрез|Нарезка|Тип):[^·]+·\s*/, "");
   }
 });

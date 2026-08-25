@@ -4322,12 +4322,26 @@ html {
   white-space: nowrap;
 }
 
+html[lang="ru"] .home-page .home-intro-hero h1 {
+  white-space: normal;
+}
+
+html[lang="ru"] .home-page .home-hero-title-break,
+html[lang="ru"] .home-page .home-hero-title-secondary {
+  display: none;
+}
+
 .home-page .home-intro-hero .home-hero-lead {
   max-width: 540px;
   margin-top: 24px;
   color: var(--home-ink);
   font-size: 18px;
   line-height: 1.55;
+}
+
+.home-page .home-intro-hero .home-hero-lead span,
+.home-page .footer-description span {
+  display: inline-block;
 }
 
 .home-page .home-intro-hero .hero-actions {
@@ -4411,6 +4425,11 @@ html {
 .home-page .popular-section .section-heading h2 {
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: -0.045em;
+}
+
+html[lang="ru"] .home-page .popular-section .section-heading h2 {
+  font-size: clamp(24px, 4.35vw, 50px);
+  white-space: nowrap;
 }
 
 .home-page .popular-section .catalog-product {
