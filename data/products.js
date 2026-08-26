@@ -344,7 +344,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-belly-for-smoking-client.jpg",
+      image: "assets/products/pork-belly-for-smoking-client-v2.webp",
       name: {
         en: "Pork belly / streaky pork"
       },
