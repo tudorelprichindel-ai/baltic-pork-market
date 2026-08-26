@@ -88,7 +88,7 @@ window.GALAS_GROZS_CATALOG = {
         { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
         { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
       ],
-      image: "assets/products/pork-loin-without-rib-skinless-client-v2.jpg",
+      image: "assets/products/pork-loin-without-rib-skinless-client-v4.webp",
       name: {
         en: "Pork loin without rib, skinless"
       },
