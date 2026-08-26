@@ -88,7 +88,7 @@ window.GALAS_GROZS_CATALOG = {
         { id: "500g", label: { en: "500 g" }, multiplier: 0.5 },
         { id: "1kg", label: { en: "1 kg" }, multiplier: 1 }
       ],
-      image: "assets/products/pork-loin-without-rib-skinless.png",
+      image: "assets/products/pork-loin-without-rib-skinless-client-v2.jpg",
       name: {
         en: "Pork loin without rib, skinless"
       },
@@ -132,7 +132,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 6.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-loin-with-fat-and-skin-v5.webp",
+      image: "assets/products/pork-loin-with-fat-and-skin-client-v2.jpg",
       name: {
         en: "Pork loin with fat and skin"
       },
@@ -174,7 +174,7 @@ window.GALAS_GROZS_CATALOG = {
       price: 7.5,
       priceSource: "client",
       unit: "kg",
-      image: "assets/products/pork-neck.png",
+      image: "assets/products/pork-neck-client-v2.jpg",
       name: {
         en: "Pork neck"
       },
@@ -333,6 +333,26 @@ window.GALAS_GROZS_CATALOG = {
       },
       meta: {
         en: "Cut: boneless belly · Best for: oven, frying, slow cooking"
+      }
+    },
+    {
+      id: "pork-belly-for-smoking",
+      active: true,
+      featured: false,
+      order: 105,
+      category: "pork",
+      price: 6.5,
+      priceSource: "client",
+      unit: "kg",
+      image: "assets/products/pork-belly-for-smoking-client.jpg",
+      name: {
+        en: "Pork belly / streaky pork"
+      },
+      description: {
+        en: "Fresh pork belly suitable for smoking."
+      },
+      meta: {
+        en: "Best for: smoking"
       }
     },
     {
