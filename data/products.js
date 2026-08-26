@@ -784,61 +784,77 @@ window.GALAS_GROZS_CATALOG = {
     {
       id: "family-meat-box",
       active: true,
+      available: false,
       featured: false,
       order: 10,
       category: "boxes",
-      price: 49,
-      priceSource: "indicative",
+      price: 36.5,
+      priceSource: "client",
       unit: "box",
-      image: "assets/products/family-meat-box-v2.webp",
+      image: "assets/products/large-meat-box-client.jpg",
       name: {
-        en: "Family Meat Box"
+        en: "Large Meat Box",
+        lv: "Lielais gaļas komplekts",
+        ru: "Большой мясной набор"
       },
       description: {
-        en: "A mixed family selection for weekly cooking. Usually includes pork cuts, chicken pieces, minced meat and grill-friendly items, depending on availability."
+        en: "500 g minced pork, 500 g beef for soup, 1 kg pork neck, 1 kg beef leg and 500 g chicken fillet.",
+        lv: "500 g maltās cūkgaļas, 500 g liellopa gaļas zupai, 1 kg cūkgaļas kakla karbonādes, 1 kg liellopa šķiņķa un 500 g vistas filejas.",
+        ru: "500 г свиного фарша, 500 г говядины для супа, 1 кг свиной шеи, 1 кг говяжьего окорока и 500 г куриного филе."
       },
       meta: {
-        en: "Typical use: family meals, weekly cooking"
+        en: ""
       }
     },
     {
       id: "bbq-box",
       active: true,
+      available: false,
       featured: false,
       order: 20,
       category: "boxes",
-      price: 45,
-      priceSource: "indicative",
+      price: 18.75,
+      priceSource: "client",
       unit: "box",
-      image: "assets/products/bbq-box-v2.webp",
+      image: "assets/products/small-meat-box-client.jpg",
       name: {
-        en: "BBQ Box"
+        en: "Small Meat Box",
+        lv: "Mazais gaļas komplekts",
+        ru: "Малый мясной набор"
       },
       description: {
-        en: "A ready-to-grill selection for weekends and gatherings. Usually includes marinated pork neck, BBQ ribs, grill sausages and chicken skewers, depending on availability."
+        en: "500 g minced pork, 500 g chicken fillet, 500 g beef leg and 500 g pork neck.",
+        lv: "500 g maltās cūkgaļas, 500 g vistas filejas, 500 g liellopa šķiņķa un 500 g cūkgaļas kakla karbonādes.",
+        ru: "500 г свиного фарша, 500 г куриного филе, 500 г говяжьего окорока и 500 г свиной шеи."
       },
       meta: {
-        en: "Typical use: BBQ, grill, gatherings"
+        en: ""
       }
     },
     {
       id: "pork-box",
       active: true,
+      available: false,
       featured: false,
       order: 30,
       category: "boxes",
-      price: 22.75,
-      priceSource: "indicative",
+      price: 0,
+      hidePrice: true,
+      priceSource: "client",
       unit: "box",
-      image: "assets/products/pork-box-v2.webp",
+      image: "assets/products/choose-your-own-box-client.jpg",
       name: {
-        en: "Pork Box"
+        en: "Choose Your Own",
+        lv: "Izvēlies pats",
+        ru: "Выберите сами"
       },
       description: {
-        en: "A pork-focused selection for home cooking. Usually includes pork shoulder, pork belly, ribs, pork loin and minced pork, depending on availability."
+        en: "Choose the products for your own personalised meat box.",
+        lv: "Izvēlieties produktus savam individuālajam gaļas komplektam.",
+        ru: "Выберите продукты для своего индивидуального мясного набора."
       },
       meta: {
-        en: "Typical use: pork dishes, stews, roasts"
+        en: ""
       }
     },
     {

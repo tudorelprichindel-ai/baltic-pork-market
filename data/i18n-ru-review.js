@@ -38,6 +38,9 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Can I change the request after sending it?": "Можно ли изменить заказ после отправки?",
   "Yes. Changes can be discussed on WhatsApp before the seller gives the final confirmation and payment is arranged.": "Да. Изменения можно согласовать в WhatsApp до окончательного подтверждения заказа и оплаты.",
   "Contact on WhatsApp": "Связаться в WhatsApp",
+  "Your cart is empty.": "Ваша корзина пуста.",
+  "Add products and send an order request on WhatsApp.": "Добавьте товары и отправьте запрос на заказ в WhatsApp.",
+  "Send order on WhatsApp": "Отправить заказ в WhatsApp",
   "Fresh meat.": "Простое оформление заказа.",
   "Quality pork, beef and chicken in Latvia.": "Качественная свинина, говядина и курица в Латвии.",
   "Choose your products and confirm the order on WhatsApp.": "Выберите продукты и подтвердите заказ в WhatsApp.",
@@ -62,14 +65,16 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   ,"Browse pork, beef, chicken, BBQ products and meat boxes, then add what you need to the cart.": "Выберите свинину, говядину, курицу, продукты для гриля или мясные наборы, затем добавьте нужное в корзину."
   ,"Products and meat boxes are confirmed depending on current fresh availability.": "Продукты и состав мясных наборов подтверждаются с учётом актуального наличия."
   ,"Explore recipes": "Посмотреть рецепты"
-  ,"Warm, comforting bowls.": "Согревающие домашние супы."
-  ,"Three straightforward soup recipes for family lunches and relaxed dinners.": "Три простых рецепта супов для семейных обедов и уютных ужинов."
+  ,"Warm, comforting bowls.": "Вкусные и сытные супы"
+  ,"Three straightforward soup recipes for family lunches and relaxed dinners.": "Простые рецепты супов для семейных обедов и уютных ужинов."
   ,"Meatball and vegetable soup": "Овощной суп с фрикадельками"
   ,"Simple meals with plenty of flavour.": "Простые блюда с насыщенным вкусом."
   ,"Reliable recipes for the oven, frying pan and everyday family table.": "Проверенные рецепты для духовки, сковороды и повседневного семейного стола."
   ,"Cook for about 70 minutes, skimming the surface when needed.": "Варите около 70 минут, при необходимости снимая пену."
   ,"Simmer the chicken in the stock for 18–20 minutes, then remove and shred it.": "Варите курицу в бульоне 18–20 минут, затем выньте и разделите мясо на волокна."
   ,"Add butter, garlic and herbs, then spoon the foaming butter over the steaks.": "Добавьте сливочное масло, чеснок и зелень, затем поливайте стейки пенящимся маслом."
+  ,"Check the pork is cooked through, rest for 10 minutes, then slice and serve.": "Проверьте готовность свинины, дайте ей остыть 10 минут, затем нарежьте и подавайте."
+  ,"Cook to your preferred doneness and rest for 5–8 minutes before serving.": "Готовьте до желаемой степени готовности и дайте остыть 5–8 минут перед подачей."
   ,"Pour in the stock and cream, add thyme and return the chicken to the pan.": "Влейте бульон и сливки, добавьте тимьян и верните курицу в сковороду."
   ,"Simmer gently until the chicken is cooked through and the sauce has thickened.": "Тушите на слабом огне, пока курица не будет готова, а соус не загустеет."
 });
@@ -107,12 +112,13 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Add products to cart, choose pickup or delivery preference and send the request. Final details are confirmed manually before payment.": "Добавьте товары в корзину, выберите самовывоз или доставку и отправьте заказ. Окончательные детали согласовываются до оплаты.",
 
   "Choose the products you need, send your cart on WhatsApp and confirm availability, exact weight and the final total directly with us.": "Выберите нужные товары и отправьте корзину через WhatsApp, а мы подтвердим наличие, точный вес и итоговую сумму.",
-  "Delivery takes place on Thursday and Friday. Pickup is available at Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is free within Riga for orders over €50; for addresses outside Riga, contact us on WhatsApp.": "Доставка выполняется по четвергам и пятницам. Самовывоз доступен по адресу: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Заказы свыше 50 € доставляются по Риге бесплатно; по вопросам доставки за пределы Риги напишите нам в WhatsApp.",
+  "Order Monday or Tuesday.": "Заказ в понедельник и вторник.",
+  "Delivery takes place on Thursday and Friday. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is free within Riga for orders over €50; for addresses outside Riga, contact us on WhatsApp.": "Заказ можно забрать в любой день по адресу: Рижский центральный рынок/продуктовый сектор, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам в WhatsApp.",
   "From product list to confirmation": "От выбора товаров до подтверждения заказа",
-  "The process stays simple while allowing us to confirm fresh products sold by exact weight.": "Процесс остаётся простым, при этом мы можем подтвердить фактический вес свежих продуктов.",
+  "The process stays simple while allowing us to confirm fresh products sold by exact weight.": "Сделать заказ легко и просто. Мы проверяем наличие свежего товара и точный вес, после чего отправляем личное подтверждение.",
   "Choose your products": "Выберите товары",
   "Add your preferences": "Укажите предпочтения",
-  "Select pickup at Zivju paviljons, Nēģu iela 7, Rīga, LV-1050 or delivery, then choose cash or bank transfer after confirmation.": "Выберите самовывоз по адресу Zivju paviljons, Nēģu iela 7, Rīga, LV-1050 или доставку, затем после подтверждения выберите оплату наличными или банковским переводом.",
+  "Select pickup at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050 or delivery, then choose cash or bank transfer after confirmation.": "Забрать заказ лично на Рижском Центральном рынке в продуктовом секторе или доставка. Оплата наличными или перечислением.",
   "Your selected products, quantities, estimated total and preferences are prepared in one clear message.": "Выбранные товары, количество, ориентировочная сумма и ваши предпочтения будут собраны в одном понятном сообщении.",
   "Confirm the final details": "Согласуйте окончательные детали",
   "We confirm availability, exact weight, final price and Thursday/Friday delivery or pickup details before the order is completed.": "До окончательного оформления мы подтверждаем наличие, точный вес, итоговую стоимость и детали доставки или самовывоза на четверг или пятницу.",
@@ -124,6 +130,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Choose your products when you are ready.": "Когда будете готовы, выберите нужные товары.",
   "Add products to your cart and send the complete request on WhatsApp.": "Добавьте товары в корзину и отправьте полный заказ через WhatsApp.",
 
+  "The service is built around real customer orders, not an anonymous marketplace.": "Сервис построен на реальных заказах клиентов.",
   "The online catalog continues that approach. It makes browsing and preparing an order easier while keeping the final confirmation direct and practical.": "Онлайн-каталог продолжает этот подход: в нём удобно выбирать товары и готовить заказ, а окончательные детали согласовываются напрямую.",
   "Made for customers in Latvia": "Для покупателей в Латвии",
   "The selection and ordering process are designed for the local market.": "Ассортимент и порядок оформления заказа адаптированы для покупателей в Латвии.",
@@ -138,7 +145,8 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Contact us whenever you need a detail that is not clear in the product catalog.": "Свяжитесь с нами, если в каталоге не хватает нужной информации.",
   "Product questions": "Вопросы о товарах",
   "Check current availability and discuss the approximate quantity you would like to order.": "Уточните актуальное наличие и сообщите примерное количество, которое хотите заказать.",
-  "Pickup is at Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is Thursday and Friday, and is free within Riga for orders over €50. Outside Riga, contact us on WhatsApp.": "Самовывоз доступен по адресу: Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Доставка выполняется по четвергам и пятницам и бесплатна по Риге для заказов свыше 50 €. По вопросам доставки за пределы Риги напишите нам в WhatsApp.",
+  "Ask about a cut, product description, meat box or the selection currently shown online.": "Спросите о товаре, характеристиках продукта, мясном наборе или актуальном ассортименте.",
+  "Pickup is at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is Thursday and Friday, and is free within Riga for orders over €50. Outside Riga, contact us on WhatsApp.": "Заказ можно забрать в любой день по адресу: Рижский центральный рынок/продуктовый сектор, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
   "Before you message": "Перед отправкой сообщения",
   "A few details help us answer faster.": "Несколько деталей помогут нам ответить быстрее.",
   "Mention the product, approximate quantity and whether you prefer pickup or delivery. You can also build the cart first and send the complete request.": "Укажите товар, примерное количество и предпочтительный способ получения. Можно также сначала собрать корзину и отправить полный заказ.",
@@ -156,6 +164,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Do I need to create an account?": "Нужно ли создавать учётную запись?",
   "Are the prices final?": "Цены на сайте окончательные?",
   "What happens if a product is unavailable?": "Что делать, если товара нет в наличии?",
+  "Yes. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery takes place on Thursday and Friday and is free within Riga for orders over €50. For delivery outside Riga, contact us on WhatsApp.": "Да. Самовывоз в любой день по адресу: Рижский центральный рынок/продуктовый сектор, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
   "How is payment arranged?": "Как можно оплатить заказ?"
 });
 
@@ -368,19 +377,19 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Подходит для: гриля, барбекю"
   },
   "family-meat-box": {
-    name: "Семейный мясной набор",
-    description: "Практичный набор свинины и курицы для семейного меню на несколько дней.",
-    meta: "Подходит для: семейного меню, повседневных блюд"
+    name: "Большой мясной набор",
+    description: "500 г свиного фарша, 500 г говядины для супа, 1 кг свиной шеи, 1 кг говяжьего окорока и 500 г куриного филе.",
+    meta: ""
   },
   "bbq-box": {
-    name: "Набор для барбекю",
-    description: "Готовый набор мяса для гриля, барбекю и встреч с друзьями.",
-    meta: "Подходит для: гриля, барбекю, компании"
+    name: "Малый мясной набор",
+    description: "500 г свиного фарша, 500 г куриного филе, 500 г говяжьего окорока и 500 г свиной шеи.",
+    meta: ""
   },
   "pork-box": {
-    name: "Набор из свинины",
-    description: "Разнообразный набор свинины для запекания, жарки и тушения.",
-    meta: "Подходит для: запекания, сковороды, тушения"
+    name: "Выберите сами",
+    description: "Выберите продукты для своего индивидуального мясного набора.",
+    meta: ""
   },
   "chicken-box": {
     name: "Набор из курицы",
@@ -393,7 +402,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   const reviewed = REVIEWED_RUSSIAN_PRODUCTS[product.id];
   if (!reviewed) return;
   for (const field of ["name", "description", "meta", "featuredDescription"]) {
-    if (reviewed[field]) product[field] = { ...product[field], ru: reviewed[field] };
+    if (Object.hasOwn(reviewed, field)) product[field] = { ...product[field], ru: reviewed[field] };
   }
   if (reviewed.variants && Array.isArray(product.variants)) {
     product.variants = product.variants.map((variant) => {

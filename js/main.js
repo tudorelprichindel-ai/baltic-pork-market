@@ -354,6 +354,7 @@ function renderProductCard(product, options = {}) {
     : getLocalized(product.description);
   const image = product.image || `assets/products/${product.id}.png`;
 
+  const localizedMeta = getLocalized(product.meta);
   const metaMarkup = options.featured
     ? `
       <div class="product-meta">
@@ -361,7 +362,7 @@ function renderProductCard(product, options = {}) {
         <span><strong>Unit:</strong> ${escapeHtml(getLocalizedUnit(product.unit))}</span>
       </div>
     `
-    : `<div class="product-meta">${escapeHtml(getLocalized(product.meta))}</div>`;
+    : localizedMeta ? `<div class="product-meta">${escapeHtml(localizedMeta)}</div>` : "";
 
   const storageCopy = {
     lv: "Ledusskapī līdz 3 dienām<br>Saldētavā vairākus mēnešus",
@@ -601,7 +602,7 @@ function parsePrice(value) {
 }
 
 function formatPrice(price) {
-  return `${price.toFixed(2)} ${CURRENCY}`;
+  return `${price.toFixed(2)}${CURRENCY}`;
 }
 
 function getProductUnitPrice(product) {
@@ -688,6 +689,12 @@ function injectProductImages() {
 function injectProductPrices() {
   document.querySelectorAll(".catalog-product").forEach((card) => {
     const existingPrice = card.querySelector(".product-price-js");
+    const catalogProduct = getCatalogProduct(card.dataset.productId);
+
+    if (catalogProduct?.hidePrice === true) {
+      existingPrice?.remove();
+      return;
+    }
 
     if (existingPrice) {
       updateCardPrice(card, existingPrice);

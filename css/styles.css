@@ -4145,6 +4145,10 @@ html {
   background: var(--cream, #fff8ed);
 }
 
+.catalog-product[data-product-id="pork-belly-with-rib"] .product-image-wrap img {
+  object-position: center 68%;
+}
+
 /* Brand-mark cursor without the former circular background. */
 @media (hover: hover) and (pointer: fine) {
   body {
@@ -4429,6 +4433,11 @@ html[lang="ru"] .home-page .home-hero-title-secondary {
 
 html[lang="ru"] .home-page .popular-section .section-heading h2 {
   font-size: clamp(24px, 4.35vw, 50px);
+  white-space: nowrap;
+}
+
+html[lang="ru"] .recipes-page #soups .section-heading h2 {
+  font-size: clamp(28px, 4.2vw, 52px);
   white-space: nowrap;
 }
 

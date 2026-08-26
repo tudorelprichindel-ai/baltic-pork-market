@@ -87,7 +87,7 @@ window.GALAS_GROZS_I18N = {
     "Gaļas grozs started with a physical meat shop in Latvia. That experience shaped a straightforward way of serving customers: show the selection clearly, understand what the customer needs and confirm the details personally.": "Gaļas grozs savu darbību sāka ar gaļas veikalu Latvijā. Šī pieredze ir veidojusi vienkāršu pieeju klientu apkalpošanai: skaidri parādīt piedāvājumu, saprast klienta vajadzības un personīgi apstiprināt detaļas.",
     "The online catalog continues that approach. It makes browsing and preparing an order easier while keeping the final confirmation direct and practical.": "Tiešsaistes katalogs turpina šo pieeju. Tas atvieglo produktu apskati un pasūtījuma sagatavošanu, saglabājot tiešu un praktisku galīgo apstiprināšanu.",
     "Experience from a physical shop": "Pieredze īstā veikalā",
-    "The service is built around real customer orders, not an anonymous marketplace.": "Pakalpojuma pamatā ir reāli klientu pasūtījumi, nevis anonīma tirdzniecības platforma.",
+    "The service is built around real customer orders, not an anonymous marketplace.": "Pakalpojuma pamatā ir reāli klientu pasūtījumi.",
     "Made for customers in Latvia": "Radīts klientiem Latvijā",
     "The selection and ordering process are designed for the local market.": "Piedāvājums un pasūtīšanas process ir veidots Latvijas tirgum.",
     "Direct communication": "Tieša saziņa",
@@ -155,7 +155,7 @@ window.GALAS_GROZS_I18N = {
     "Your order in four simple steps.": "Jūsu pasūtījums četros vienkāršos soļos.",
     "Choose the products you need, send your cart on WhatsApp and confirm availability, exact weight and the final total directly with us.": "Izvēlieties vajadzīgos produktus, nosūtiet grozu WhatsApp un tieši ar mums apstipriniet pieejamību, precīzu svaru un galīgo summu.",
     "Order Monday or Tuesday.": "Pasūtiet pirmdien vai otrdien.",
-    "Delivery takes place on Thursday and Friday. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is free within Riga for orders over €50; for addresses outside Riga, contact us on WhatsApp.": "Piegāde notiek ceturtdienās un piektdienās. Pasūtījumu var saņemt Rīgas Centrāltirgū/Zivju paviljonā, Nēģu ielā 7, Rīgā, LV-1050. Pasūtījumiem virs 50 € piegāde Rīgas robežās ir bez maksas; par piegādi ārpus Rīgas rakstiet WhatsApp.",
+    "Delivery takes place on Thursday and Friday. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is free within Riga for orders over €50; for addresses outside Riga, contact us on WhatsApp.": "Pasūtījumu var saņemt klātienē katru dienu: Rīgas Centrāltirgū/Zivju paviljonā, Nēģu ielā 7, Rīgā, LV-1050. Piegāde notiek ceturtdienās un piektdienās. Pasūtījumiem virs 50 € piegāde Rīgas robežās ir bez maksas; par piegādi ārpus Rīgas rakstiet WhatsApp.",
     "Order process": "Pasūtīšanas process",
     "From product list to confirmation": "No produktu saraksta līdz apstiprinājumam",
     "The process stays simple while allowing us to confirm fresh products sold by exact weight.": "Process ir vienkāršs, vienlaikus ļaujot mums apstiprināt svaigus produktus, kas tiek pārdoti pēc precīza svara.",
@@ -229,7 +229,7 @@ window.GALAS_GROZS_I18N = {
     "Soups": "Zupas",
     "Main dishes": "Pamatēdieni",
     "Warm, comforting bowls.": "Siltas un sātīgas zupas.",
-    "Three straightforward soup recipes for family lunches and relaxed dinners.": "Trīs vienkāršas zupu receptes ģimenes pusdienām un mierīgām vakariņām.",
+    "Three straightforward soup recipes for family lunches and relaxed dinners.": "Vienkāršas zupu receptes ģimenes pusdienām un mierīgām vakariņām.",
     "Soup": "Zupa",
     "Main dish": "Pamatēdiens",
     "View recipe": "Skatīt recepti",
@@ -363,9 +363,9 @@ const LATVIAN_PRODUCT_NAMES = {
   "bbq-ribs": "BBQ ribiņas",
   "grill-sausages": "Grildesiņas",
   "chicken-skewers": "Vistas iesmiņi",
-  "family-meat-box": "Ģimenes gaļas komplekts",
-  "bbq-box": "BBQ komplekts",
-  "pork-box": "Cūkgaļas komplekts",
+  "family-meat-box": "Lielais gaļas komplekts",
+  "bbq-box": "Mazais gaļas komplekts",
+  "pork-box": "Izvēlies pats",
   "chicken-box": "Vistas gaļas komplekts"
 };
 
@@ -400,9 +400,9 @@ const LATVIAN_PRODUCT_DETAILS = {
   "bbq-ribs": ["BBQ pagatavotas ribiņas cepšanai krāsnī, grilēšanai un ģimenes maltītēm.", "Piemērotas: BBQ, krāsnij, grilam"],
   "grill-sausages": ["Desiņas grilēšanai, ātrām maltītēm un pasākumiem ārā.", "Piemērotas: grilam, BBQ, ātrām maltītēm"],
   "chicken-skewers": ["Vistas iesmiņi grilēšanai, BBQ maltītēm un vienkāršai gatavošanai ārā.", "Piemēroti: BBQ, grilam, viesībām"],
-  "family-meat-box": ["Jaukta gaļas izlase ģimenes maltītēm visas nedēļas garumā. Saturs atkarīgs no pieejamības.", "Piemērots: ģimenes maltītēm un ikdienas gatavošanai"],
-  "bbq-box": ["Grilēšanai gatava produktu izlase nedēļas nogalēm un viesībām. Saturs atkarīgs no pieejamības.", "Piemērots: BBQ, grilam, viesībām"],
-  "pork-box": ["Cūkgaļas produktu izlase gatavošanai mājās. Saturs atkarīgs no pieejamības.", "Piemērots: cūkgaļas ēdieniem, sautējumiem, cepešiem"],
+  "family-meat-box": ["500 g maltās cūkgaļas, 500 g liellopa gaļas zupai, 1 kg cūkgaļas kakla karbonādes, 1 kg liellopa šķiņķa un 500 g vistas filejas.", ""],
+  "bbq-box": ["500 g maltās cūkgaļas, 500 g vistas filejas, 500 g liellopa šķiņķa un 500 g cūkgaļas kakla karbonādes.", ""],
+  "pork-box": ["Izvēlieties produktus savam individuālajam gaļas komplektam.", ""],
   "chicken-box": ["Vistas gaļas produktu izlase vienkāršām maltītēm. Saturs atkarīgs no pieejamības.", "Piemērots: ātrām maltītēm un ģimenes gatavošanai"]
 };
 
