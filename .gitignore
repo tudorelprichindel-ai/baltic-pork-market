@@ -5,3 +5,7 @@
 node_modules/
 outputs/
 tools/
+.wrangler/
+.dev.vars
+.dev.vars.*
+*.pem

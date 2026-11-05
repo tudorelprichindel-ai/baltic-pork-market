@@ -1,6 +1,6 @@
 "use strict";
 
-const WHATSAPP_NUMBER = "37129174626";
+const WHATSAPP_NUMBER = window.GALAS_GROZS_SITE?.whatsappNumber || "37129174626";
 const CART_STORAGE_KEY = "galasGrozsCartV2";
 const DELIVERY_STORAGE_KEY = "galasGrozsDeliveryPreferenceV1";
 const PAYMENT_STORAGE_KEY = "galasGrozsPaymentPreferenceV1";
@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothLinks();
   initCartSystem();
   applyInterfaceTranslations();
+  applyEditableContent();
 });
 
 function getInterfaceLanguage() {
@@ -128,7 +129,7 @@ function applyInterfaceTranslations(root = document) {
   while (walker.nextNode()) nodes.push(walker.currentNode);
 
   nodes.forEach((node) => {
-    if (["SCRIPT", "STYLE"].includes(node.parentElement?.tagName)) return;
+    if (["SCRIPT", "STYLE"].includes(node.parentElement?.tagName) || node.parentElement?.closest("[data-content-id]")) return;
     const original = node.nodeValue.trim();
     const normalized = original.replace(/\s+/g, " ");
     if (!original) return;
@@ -182,6 +183,18 @@ function initLanguageSwitcher() {
 
 function renderBusinessContactDetails() {
   const config = window.GALAS_GROZS_SITE || {};
+  document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
+    a.href = `tel:${config.phone.replace(/[^+\d]/g, "")}`;
+    if (/\d{6}|\+371/.test(a.textContent.replace(/\s/g, ""))) a.textContent = config.phone;
+    if (a.hasAttribute("aria-label")) a.setAttribute("aria-label", `${translateInterfaceText("Call now")}: ${config.phone}`);
+  });
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach((a) => {
+    const url = new URL(a.href);
+    url.pathname = `/${config.whatsappNumber}`;
+    a.href = url.href;
+    if (/\+371|\d{7}/.test(a.textContent.replace(/\s/g, ""))) a.textContent = config.phone;
+  });
+  document.querySelectorAll('a[href^="mailto:"]').forEach((a) => { a.href = `mailto:${config.email}`; a.textContent = config.email; });
   if (!config.email) return;
 
   document.querySelectorAll(".footer-contact").forEach((target) => {
@@ -252,9 +265,9 @@ function getLocalized(value) {
 function getLocalizedUnit(unit = "kg") {
   const language = getCatalogLanguage();
   const labels = {
-    en: { kg: "kg", box: "box" },
-    lv: { kg: "kg", box: "komplekts" },
-    ru: { kg: "кг", box: "набор" }
+    lv: { kg: "kg", box: "komplekts", piece: "gab." },
+    ru: { kg: "кг", box: "набор", piece: "шт." },
+    en: { kg: "kg", box: "box", piece: "piece" }
   };
   return labels[language]?.[unit] || unit;
 }
@@ -267,7 +280,7 @@ function getActiveCategories() {
 
 function getActiveProducts() {
   return (CATALOG.products || [])
-    .filter((product) => product.active !== false)
+    .filter((product) => product.active !== false && getCatalogCategory(product.category)?.active !== false)
     .sort((a, b) => (a.order || 0) - (b.order || 0));
 }
 
@@ -789,7 +802,7 @@ function reconcileCartWithCatalog() {
   const nextCart = currentCart.flatMap((item) => {
     const catalogId = item.catalogId || String(item.id).split("::")[0];
     const product = getCatalogProduct(catalogId);
-    if (!product || product.active === false || product.available === false) return [];
+    if (!product || product.active === false || product.available === false || getCatalogCategory(product.category)?.active === false) return [];
 
     const category = getCatalogCategory(product.category);
     const variant = Array.isArray(product.variants)
@@ -961,16 +974,16 @@ function renderOrderInformation() {
   const target = document.querySelector("[data-order-information]");
   if (!target) return;
   const config = window.GALAS_GROZS_SITE || {};
-  const freeDeliveryThreshold = config.freeDeliveryThreshold || 50;
+  const freeDeliveryThreshold = config.freeDeliveryThreshold ?? 50;
   const freeDeliveryMessages = {
     lv: `Piegāde Rīgas robežās pasūtījumiem virs ${formatPrice(freeDeliveryThreshold)} ir bez maksas. Piegādei ārpus Rīgas sazinieties ar mums WhatsApp.`,
     en: `Free delivery within Riga for orders over ${formatPrice(freeDeliveryThreshold)}. For delivery outside Riga, contact us on WhatsApp.`,
     ru: `Доставка по Риге бесплатна для заказов свыше ${formatPrice(freeDeliveryThreshold)}. Для доставки за пределы Риги свяжитесь с нами в WhatsApp.`
   };
   target.innerHTML = `
-    <p><strong>Order days:</strong> ${escapeHtml(config.orderDays || "Monday and Tuesday")}</p>
-    <p><strong>Pickup:</strong> ${escapeHtml(config.pickupLocation || "Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050")}</p>
-    <p><strong>Delivery:</strong> ${escapeHtml(config.deliveryDays || "Thursday and Friday")}</p>
+    <p><strong>Order days:</strong> ${escapeHtml(getLocalized(config.orderDays) || "Monday and Tuesday")}</p>
+    <p><strong>Pickup:</strong> ${escapeHtml(getLocalized(config.pickupLocation) || "Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050")}</p>
+    <p><strong>Delivery:</strong> ${escapeHtml(getLocalized(config.deliveryDays) || "Thursday and Friday")}</p>
     <p>${freeDeliveryMessages[getInterfaceLanguage()] || freeDeliveryMessages.en}</p>
   `;
 }
@@ -1151,7 +1164,7 @@ function buildCartOrderMessage(cart, delivery, payment, language = "en") {
     "",
     `${copy.estimatedTotal}: ${formatPrice(total)}`,
     "",
-    `${copy.deliveryPreference}: ${copy.delivery[delivery.method] || copy.delivery["to-be-confirmed"]}`,
+    `${copy.deliveryPreference}: ${delivery.method === "pickup" ? `${{lv: "Saņemšana", en: "Pickup", ru: "Самовывоз"}[language]}: ${getLocalized(window.GALAS_GROZS_SITE.pickupLocation)}` : copy.delivery[delivery.method] || copy.delivery["to-be-confirmed"]}`,
     delivery.method === "delivery" && delivery.details ? `${copy.deliveryDetails}: ${delivery.details}` : null,
     `${copy.paymentPreference}: ${copy.payment[payment.method] || copy.payment.cash}`,
     "",

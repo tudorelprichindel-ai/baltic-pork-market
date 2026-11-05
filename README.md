@@ -1,2 +1,7 @@
-# baltic-pork-market
-Website for an online pork meat market in Latvia.
+# Gaļas grozs
+
+Magazin static pe GitHub Pages: https://www.galasgrozs.lv/.
+
+Panoul de administrare și instrucțiunile de instalare sunt în [admin/README.md](admin/README.md). `data/store.json` este sursa unică pentru catalog, contacte și textele paginilor. Fișierele publice se generează cu `npm run build`.
+
+Pornire locală: `node admin/local.mjs`. Teste: `node --test tests/admin.test.mjs`, apoi `node tests/browser.mjs` cu serverul local pornit. Panoul local nu modifică site-ul public.

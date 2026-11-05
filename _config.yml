@@ -1,0 +1,11 @@
+# GitHub Pages publishes only the storefront. Administration runs on its Worker.
+exclude:
+  - admin
+  - scripts
+  - tests
+  - docs
+  - package.json
+  - pnpm-lock.yaml
+  - README.md
+  - PRODUCTS-GUIDE.md
+  - STRIPE-SETUP.md

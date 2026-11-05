@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Gaļas grozs · Administrēšana</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23781e2a'/%3E%3Ctext x='32' y='46' text-anchor='middle' fill='white' font-size='45' font-family='Arial'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div id="notifications" role="status" aria-live="polite"></div>
+  <section id="login" class="login-screen">
+    <form id="login-form" class="login-card">
+      <div class="wordmark">Gaļas grozs<span>VIETNES ADMINISTRĒŠANA</span></div>
+      <h1>Laipni lūdzam!</h1><p>Pieslēdzieties, lai pārvaldītu savas vietnes saturu.</p>
+      <label>Lietotājvārds<input name="username" autocomplete="username" required></label>
+      <label>Parole<div class="password-row"><input name="password" type="password" autocomplete="current-password" required><button type="button" id="show-password" class="quiet" aria-pressed="false">Rādīt</button></div></label>
+      <p id="login-error" class="error" role="alert"></p>
+      <button class="primary" type="submit">Pieslēgties</button>
+      <p class="small">Aizmirsāt paroli? Sazinieties ar cilvēku, kurš jums nodeva vietni. Paroli nesūtiet WhatsApp sarakstē.</p>
+    </form>
+  </section>
+  <div id="app" hidden>
+    <aside class="sidebar">
+      <a href="#products" class="wordmark">Gaļas grozs<span>VADĪBAS PANELIS</span></a>
+      <nav aria-label="Administrēšanas sadaļas">
+        <a href="#products" data-view="products"><span>01</span> Produkti</a>
+        <a href="#categories" data-view="categories"><span>02</span> Kategorijas</a>
+        <a href="#pages" data-view="pages"><span>03</span> Lapu teksti</a>
+        <a href="#settings" data-view="settings"><span>04</span> Kontakti un piegāde</a>
+        <a href="#history" data-view="history"><span>05</span> Versijas</a>
+        <a href="#help" data-view="help"><span>?</span> Palīdzība</a>
+      </nav>
+      <div class="sidebar-bottom"><a id="public-site" target="_blank" rel="noopener">Atvērt publisko vietni ↗</a><button id="logout" class="quiet">Iziet no paneļa</button></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div><span class="eyebrow">JŪSU VIETNE · JŪSU SATURS</span><p id="save-status" role="status">Datu ielāde…</p></div><div class="actions"><button id="preview" class="secondary">Priekšskatījums ↗</button><button id="mobile-logout" class="quiet">Iziet</button></div></header>
+      <div id="local-banner" class="banner" hidden>Izmēģinājums datorā. Izmaiņas netiek nosūtītas uz galasgrozs.lv.</div>
+      <div id="deployment" class="deployment" hidden aria-live="polite"></div>
+      <main id="main" tabindex="-1"></main>
+      <footer class="actionbar"><div><strong id="change-count">Nav izmaiņu</strong><span>Melnraksts nav redzams vietnes apmeklētājiem.</span></div><div class="actions"><button id="save" class="secondary">Saglabāt melnrakstu</button><button id="publish" class="primary">Pārskatīt un publicēt</button></div></footer>
+    </div>
+  </div>
+  <dialog id="editor" aria-labelledby="editor-title"></dialog>
+  <dialog id="confirm" aria-labelledby="confirm-title"></dialog>
+</body>
+</html>

@@ -197,7 +197,7 @@ const REVIEWED_RUSSIAN_CATEGORIES = {
   }
 };
 
-(window.GALAS_GROZS_CATALOG?.categories || []).forEach((category) => {
+(window.GALAS_GROZS_CATALOG?.schemaVersion < 3 ? window.GALAS_GROZS_CATALOG.categories : []).forEach((category) => {
   const reviewed = REVIEWED_RUSSIAN_CATEGORIES[category.id];
   if (!reviewed) return;
   for (const field of ["label", "title", "description"]) {
@@ -404,7 +404,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   }
 };
 
-(window.GALAS_GROZS_CATALOG?.products || []).forEach((product) => {
+(window.GALAS_GROZS_CATALOG?.schemaVersion < 3 ? window.GALAS_GROZS_CATALOG.products : []).forEach((product) => {
   const reviewed = REVIEWED_RUSSIAN_PRODUCTS[product.id];
   if (!reviewed) return;
   for (const field of ["name", "description", "meta", "featuredDescription"]) {
@@ -418,7 +418,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   }
 });
 
-(window.GALAS_GROZS_CATALOG?.products || []).forEach((product) => {
+(window.GALAS_GROZS_CATALOG?.schemaVersion < 3 ? window.GALAS_GROZS_CATALOG.products : []).forEach((product) => {
   for (const field of ["name", "description", "meta", "featuredDescription"]) {
     const value = product[field]?.ru;
     if (!value) continue;

@@ -519,7 +519,7 @@ const RUSSIAN_PRODUCT_DETAILS = {
   }
 };
 
-(window.GALAS_GROZS_CATALOG?.products || []).forEach((product) => {
+(window.GALAS_GROZS_CATALOG?.schemaVersion < 3 ? window.GALAS_GROZS_CATALOG.products : []).forEach((product) => {
   const translated = RUSSIAN_PRODUCT_DETAILS[product.id];
   if (!translated) return;
   for (const field of ["name", "description", "meta", "featuredDescription"]) {

@@ -408,7 +408,7 @@ const LATVIAN_PRODUCT_DETAILS = {
   "chicken-box": ["Vistas gaļas produktu izlase vienkāršām maltītēm. Saturs atkarīgs no pieejamības.", "Piemērots: ātrām maltītēm un ģimenes gatavošanai"]
 };
 
-(window.GALAS_GROZS_CATALOG?.products || []).forEach((product) => {
+(window.GALAS_GROZS_CATALOG?.schemaVersion < 3 ? window.GALAS_GROZS_CATALOG.products : []).forEach((product) => {
   const name = LATVIAN_PRODUCT_NAMES[product.id];
   if (name) product.name = { ...product.name, lv: name };
   const details = LATVIAN_PRODUCT_DETAILS[product.id];
