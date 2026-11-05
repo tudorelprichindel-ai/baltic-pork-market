@@ -73,6 +73,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   ,"Cook for about 70 minutes, skimming the surface when needed.": "Варите около 70 минут, при необходимости снимая пену."
   ,"Simmer the chicken in the stock for 18–20 minutes, then remove and shred it.": "Варите курицу в бульоне 18–20 минут, затем выньте и разделите мясо на волокна."
   ,"Add butter, garlic and herbs, then spoon the foaming butter over the steaks.": "Добавьте сливочное масло, чеснок и зелень, затем поливайте стейки пенящимся маслом."
+  ,"Heat a heavy pan, add the oil and sear the steaks on both sides.": "Нагрейте сковороду, добавьте масло и обжарьте стейки с обеих сторон."
   ,"Check the pork is cooked through, rest for 10 minutes, then slice and serve.": "Проверьте готовность свинины, дайте ей остыть 10 минут, затем нарежьте и подавайте."
   ,"Cook to your preferred doneness and rest for 5–8 minutes before serving.": "Готовьте до желаемой степени готовности и дайте остыть 5–8 минут перед подачей."
   ,"Pour in the stock and cream, add thyme and return the chicken to the pan.": "Влейте бульон и сливки, добавьте тимьян и верните курицу в сковороду."
@@ -113,12 +114,12 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
 
   "Choose the products you need, send your cart on WhatsApp and confirm availability, exact weight and the final total directly with us.": "Выберите нужные товары и отправьте корзину через WhatsApp, а мы подтвердим наличие, точный вес и итоговую сумму.",
   "Order Monday or Tuesday.": "Заказ в понедельник и вторник.",
-  "Delivery takes place on Thursday and Friday. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is free within Riga for orders over €50; for addresses outside Riga, contact us on WhatsApp.": "Заказ можно забрать в любой день по адресу: Рижский центральный рынок/продуктовый сектор, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам в WhatsApp.",
+  "Delivery takes place on Thursday and Friday. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is free within Riga for orders over €50; for addresses outside Riga, contact us on WhatsApp.": "Заказ можно забрать в любой день по адресу: Рижский центральный рынок/Рыбный павильон, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
   "From product list to confirmation": "От выбора товаров до подтверждения заказа",
   "The process stays simple while allowing us to confirm fresh products sold by exact weight.": "Сделать заказ легко и просто. Мы проверяем наличие свежего товара и точный вес, после чего отправляем личное подтверждение.",
   "Choose your products": "Выберите товары",
   "Add your preferences": "Укажите предпочтения",
-  "Select pickup at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050 or delivery, then choose cash or bank transfer after confirmation.": "Забрать заказ лично на Рижском Центральном рынке в продуктовом секторе или доставка. Оплата наличными или перечислением.",
+  "Select pickup at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050 or delivery, then choose cash or bank transfer after confirmation.": "Забрать заказ лично на Рижском Центральном рынке в Рыбном павильоне или доставка. Оплата наличными или перечислением.",
   "Your selected products, quantities, estimated total and preferences are prepared in one clear message.": "Выбранные товары, количество, ориентировочная сумма и ваши предпочтения будут собраны в одном понятном сообщении.",
   "Confirm the final details": "Согласуйте окончательные детали",
   "We confirm availability, exact weight, final price and Thursday/Friday delivery or pickup details before the order is completed.": "До окончательного оформления мы подтверждаем наличие, точный вес, итоговую стоимость и детали доставки или самовывоза на четверг или пятницу.",
@@ -146,7 +147,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Product questions": "Вопросы о товарах",
   "Check current availability and discuss the approximate quantity you would like to order.": "Уточните актуальное наличие и сообщите примерное количество, которое хотите заказать.",
   "Ask about a cut, product description, meat box or the selection currently shown online.": "Спросите о товаре, характеристиках продукта, мясном наборе или актуальном ассортименте.",
-  "Pickup is at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is Thursday and Friday, and is free within Riga for orders over €50. Outside Riga, contact us on WhatsApp.": "Заказ можно забрать в любой день по адресу: Рижский центральный рынок/продуктовый сектор, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
+  "Pickup is at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery is Thursday and Friday, and is free within Riga for orders over €50. Outside Riga, contact us on WhatsApp.": "Заказ можно забрать в любой день по адресу: Рижский центральный рынок/Рыбный павильон, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
   "Before you message": "Перед отправкой сообщения",
   "A few details help us answer faster.": "Несколько деталей помогут нам ответить быстрее.",
   "Mention the product, approximate quantity and whether you prefer pickup or delivery. You can also build the cart first and send the complete request.": "Укажите товар, примерное количество и предпочтительный способ получения. Можно также сначала собрать корзину и отправить полный заказ.",
@@ -164,7 +165,7 @@ Object.assign(window.GALAS_GROZS_I18N.ru, {
   "Do I need to create an account?": "Нужно ли создавать учётную запись?",
   "Are the prices final?": "Цены на сайте окончательные?",
   "What happens if a product is unavailable?": "Что делать, если товара нет в наличии?",
-  "Yes. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery takes place on Thursday and Friday and is free within Riga for orders over €50. For delivery outside Riga, contact us on WhatsApp.": "Да. Самовывоз в любой день по адресу: Рижский центральный рынок/продуктовый сектор, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
+  "Yes. Pickup is available at Rīgas Centrāltirgus/Zivju paviljons, Nēģu iela 7, Rīga, LV-1050. Delivery takes place on Thursday and Friday and is free within Riga for orders over €50. For delivery outside Riga, contact us on WhatsApp.": "Да. Самовывоз в любой день по адресу: Рижский центральный рынок/Рыбный павильон, Nēģu ielā 7, Rīgā, LV-1050. Доставка происходит по четвергам и пятницам. Доставка бесплатная по Риге для заказа свыше 50 €. Стоимость доставки за пределы Риги уточняйте, написав нам по WhatsApp.",
   "How is payment arranged?": "Как можно оплатить заказ?"
 });
 
@@ -206,24 +207,24 @@ const REVIEWED_RUSSIAN_CATEGORIES = {
 
 const REVIEWED_RUSSIAN_PRODUCTS = {
   "pork-loin-without-rib-skinless": {
-    name: "Свиная корейка без кости и кожи",
-    description: "Постная свиная корейка без кости и кожи — для порционных ломтиков, запекания и повседневных блюд.",
-    meta: "Отруб: корейка · Подходит для: запекания, жарки на сковороде, нарезки"
+    name: "Свиной карбонад без кости и кожи",
+    description: "Постный свиной карбонад без кости и кожи — для порционных ломтиков, запекания и повседневных блюд.",
+    meta: "Часть: карбонад · Подходит для: запекания, жарки на сковороде, нарезки"
   },
   "pork-loin-without-rib-skinless-cutted": {
-    name: "Свиная корейка без кости и кожи, порционная",
-    description: "Свиная корейка, нарезанная удобными порциями для жарки на сковороде, гриля или запекания.",
-    meta: "Отруб: порционная корейка · Подходит для: сковороды, гриля, запекания"
+    name: "Свиной карбонад без кости и кожи, порционный",
+    description: "Свиной карбонад, нарезанный удобными порциями для жарки на сковороде, гриля или запекания.",
+    meta: "Часть: порционный карбонад · Подходит для: сковороды, гриля, запекания"
   },
   "pork-loin-with-fat-and-skin": {
-    name: "Свиная корейка с жиром и кожей",
-    description: "Корейка со слоем жира и кожей остаётся сочной при запекании и подходит для традиционных домашних блюд.",
-    meta: "Отруб: корейка с кожей · Подходит для: запекания, томления"
+    name: "Свиной карбонад с жиром и кожей",
+    description: "Карбонад со слоем жира и кожей остаётся сочным при запекании и подходит для традиционных домашних блюд.",
+    meta: "Часть: карбонад с салом и кожей · Подходит для: запекания, томления"
   },
   "pork-loin-long-rib": {
-    name: "Свиная корейка на длинном ребре",
-    description: "Корейка на длинном ребре — для запекания целиком, гриля или порционных отбивных.",
-    meta: "Отруб: корейка на ребре · Подходит для: отбивных, гриля, запекания"
+    name: "Свиной карбонад с длинным ребром",
+    description: "Карбонад с длинным ребром — для запекания целиком, гриля.",
+    meta: "Часть: карбонад с длинным ребром · Подходит для: гриля, запекания"
   },
   "pork-neck": {
     name: "Свиная шея",
@@ -232,10 +233,10 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Отруб: шея · Подходит для: гриля, стейков, запекания"
   },
   "pork-tenderloin": {
-    name: "Свиная вырезка",
-    description: "Нежная свиная вырезка для быстрого приготовления на сковороде и праздничных блюд.",
-    featuredDescription: "Нежная свиная вырезка для быстрых и праздничных домашних блюд.",
-    meta: "Отруб: вырезка · Подходит для: быстрой обжарки, медальонов, сковороды"
+    name: "Свиное филе",
+    description: "Нежное свиное филе для быстрого приготовления на сковороде и праздничных блюд.",
+    featuredDescription: "Нежное свиное филе для быстрого приготовления на сковороде и праздничных блюд.",
+    meta: "Часть: филе · Подходит для: быстрой обжарки, медальонов, шашлыка, супов"
   },
   "pork-ham-piece-skinless": {
     name: "Кусок свиного окорока без кожи",
@@ -263,9 +264,9 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Отруб: грудинка на рёбрах · Подходит для: духовки, барбекю, томления"
   },
   "pork-belly": {
-    name: "Свиная грудинка без кости",
-    description: "Мясистая свиная грудинка без кости — для запекания, жарки и медленного приготовления.",
-    meta: "Отруб: грудинка · Подходит для: запекания, жарки, томления"
+    name: "Свиная брюшина",
+    description: "Мясистая свиная брюшина — для запекания, жарки и медленного приготовления.",
+    meta: "Часть: брюшина · Подходит для: запекания, жарки, томления"
   },
   "pork-belly-for-smoking": {
     name: "Свиная грудинка/прослойка",
@@ -284,7 +285,7 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
   },
   "boneless-pork-shoulder-skinless": {
     name: "Свиная лопатка без кости и кожи",
-    description: "Свиная лопатка без кости и кожи — универсальный отруб для тушения, жаркого и длительного приготовления.",
+    description: "Свиная лопатка без кости и кожи — универсальная часть для тушения, жаркого и длительного приготовления.",
     meta: "Отруб: лопатка · Подходит для: тушения, жаркого, томления"
   },
   "pork-shanks": {
@@ -298,9 +299,9 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Тип: суповой набор · Подходит для: бульона, супов, рагу"
   },
   "pork-loin-ribs": {
-    name: "Свиные рёбрышки из корейки",
-    description: "Нежные рёбрышки из корейки для гриля, духовки и домашнего барбекю.",
-    meta: "Отруб: рёбрышки из корейки · Подходит для: гриля, духовки, барбекю"
+    name: "Свиные карбонадные рёбрышки",
+    description: "Нежные карбонадные рёбрышки для гриля, духовки и домашнего барбекю.",
+    meta: "Часть: карбонадные рёбрышки · Подходит для: гриля, духовки, барбекю"
   },
   "minced-pork": {
     name: "Свиной фарш",
@@ -314,18 +315,18 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Подходит для: бульона, супов, тушения"
   },
   "beef-stew-meat": {
-    name: "Говядина для тушения",
-    description: "Постная говядина для тушения, жаркого и блюд с длительным приготовлением.",
+    name: "Говяжий окорок",
+    description: "Говяжий окорок для тушения, жаркого и блюд с длительным приготовлением.",
     meta: "Подходит для: тушения, жаркого, рагу"
   },
   "beef-steak-cuts": {
-    name: "Говяжья корейка / стейковый отруб",
-    description: "Отборная говяжья корейка для стейков, гриля и быстрой обжарки на сковороде.",
+    name: "Говяжий карбонад",
+    description: "Говяжий карбонад для стейков, гриля и быстрой обжарки на сковороде.",
     meta: "Подходит для: стейков, гриля, сковороды"
   },
   "beef-shoulder-with-bone": {
-    name: "Говяжья лопатка на кости",
-    description: "Говяжья лопатка на кости для наваристых супов, тушения и медленного приготовления.",
+    name: "Говяжья лопатка",
+    description: "Говяжья лопатка для наваристых супов, тушения и медленного приготовления.",
     meta: "Подходит для: супов, тушения, томления"
   },
   "minced-beef": {
@@ -341,18 +342,18 @@ const REVIEWED_RUSSIAN_PRODUCTS = {
     meta: "Подходит для: сковороды, гриля, салатов, запекания"
   },
   "skinless-chicken-gyros": {
-    name: "Куриное мясо для гироса без кожи",
+    name: "Куриный гирос без кожи",
     description: "Куриный гирос без кожи для быстрой обжарки, гироса, роллов и гриля.",
     meta: "Подходит для: гироса, роллов, сковороды, гриля"
   },
   "chicken-thighs": {
-    name: "Куриные бёдра на кости",
-    description: "Сочные куриные бёдра на кости для запекания, гриля и домашних блюд.",
+    name: "Куриные окорочка без спинки с костью",
+    description: "Сочные куриные окорочка для запекания, гриля и домашних блюд.",
     meta: "Подходит для: духовки, гриля, тушения"
   },
   "chicken-drumsticks": {
-    name: "Куриные голени",
-    description: "Куриные голени для запекания, гриля и семейных блюд.",
+    name: "Куриные ножки",
+    description: "Куриные ножки для запекания, гриля и семейных блюд.",
     meta: "Подходит для: духовки, гриля, тушения"
   },
   "whole-chicken": {
