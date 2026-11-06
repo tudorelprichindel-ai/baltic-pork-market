@@ -1322,7 +1322,7 @@
         "featured": false,
         "order": 40,
         "category": "boxes",
-        "price": 29,
+        "price": 29.01,
         "priceSource": "indicative",
         "unit": "box",
         "image": "assets/products/chicken-box.png",
