@@ -4,7 +4,7 @@ Magazinul rămâne pe GitHub Pages, la https://www.galasgrozs.lv/. Panoul se ins
 
 ## Starea instalării
 
-Codul poate fi verificat local. Activarea online necesită un cont Cloudflare, conectarea GitHub și configurarea secretelor. Testarea locală nu publică pe magazin. Predarea către client se face după proba în producție, împreună cu adresa HTTPS reală a panoului, utilizatorul și parola inițială transmise separat.
+Panoul este activ la https://galas-grozs-admin.galas-grozs.workers.dev/ și conectat prin GitHub App numai la repository-ul acestui site. Au fost verificate în producție autentificarea, salvarea ciornei, publicarea pe GitHub Pages și restaurarea. Catalogul aprobat a fost restaurat integral după probă. Ghidul clientului se deschide și din secțiunea Palīdzība. Utilizatorul și parola inițială se predau separat; secretele nu sunt în Git. Testarea locală nu publică pe magazin. Instrucțiunile de instalare de mai jos sunt pentru recrearea ori mutarea instalării.
 
 ## Verificare locală
 
