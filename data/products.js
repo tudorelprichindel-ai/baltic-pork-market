@@ -111,7 +111,7 @@ window.GALAS_GROZS_CATALOG = {
       "featured": false,
       "order": 10,
       "category": "pork",
-      "price": 9999.5,
+      "price": 7.5,
       "priceSource": "client",
       "unit": "kg",
       "variants": [
