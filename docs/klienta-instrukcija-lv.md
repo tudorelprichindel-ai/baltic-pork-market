@@ -4,13 +4,15 @@
 
 Publiskā vietne: https://www.galasgrozs.lv/
 
+Administrēšanas panelis: https://galas-grozs-admin.galas-grozs.workers.dev/
+
 ## Kā pieslēgties
 
 1. Atveriet administrēšanas saiti, ko saņēmāt no vietnes izstrādātāja. Saglabājiet šo saiti pārlūkprogrammas grāmatzīmēs.
 2. Ievadiet saņemto lietotājvārdu un paroli. Nospiediet “Pieslēgties”.
 3. Pirmajā reizē atveriet “Palīdzība” un nospiediet “Mainīt paroli”. Izvēlieties savu paroli ar vismaz 16 rakstzīmēm un pieslēdzieties no jauna.
 
-Administrēšanas saiti un sākotnējo paroli saņemsiet atsevišķi no šīs instrukcijas. Paroli citiem nesūtiet.
+Lietotājvārdu un sākotnējo paroli saņemsiet atsevišķi no šīs instrukcijas. Paroli citiem nesūtiet.
 
 ## Kā nomainīt cenu
 
