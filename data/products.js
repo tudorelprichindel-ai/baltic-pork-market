@@ -1321,7 +1321,7 @@ window.GALAS_GROZS_CATALOG = {
       "featured": false,
       "order": 40,
       "category": "boxes",
-      "price": 29.01,
+      "price": 29,
       "priceSource": "indicative",
       "unit": "box",
       "image": "assets/products/chicken-box.png",
